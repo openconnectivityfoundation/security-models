@@ -39,7 +39,7 @@
           "type": "array",
           "description": "Entries in /oic/sec/svc resource that own this resource",
           "items": {
-            "$ref": "oic.sec.svctype.json#/definitions/oic.sec.svctype/properties/sl/items"
+            "$ref": "oic.sec.svctype.json"
           }
         }
       }

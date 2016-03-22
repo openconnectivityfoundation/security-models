@@ -14,12 +14,12 @@
         "ams":   {
           "type": "array",
           "description": "Entries in oic.sec.svc resource that manage access for the specified resource",
-          "items": { "$ref": "oic.sec.svctype.json#/definitions/oic.sec.svctype/properties/sl/items" }
+          "items": { "$ref": "oic.sec.svctype.json" }
         },
         "rowner":   {
           "type": "array",
           "description": "Entries in oic.sec.svc resource that own this resource",
-          "items": { "$ref": "oic.sec.svctype.json#/definitions/oic.sec.svctype/properties/sl/items" }
+          "items": { "$ref": "oic.sec.svctype.json" }
         }
       }
     }

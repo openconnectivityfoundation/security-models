@@ -27,5 +27,5 @@
   "allOf": [
       { "$ref": "#/definitions/oic.sec.didtype" }
   ],
-  "required": ["idt","id"]
+  "required": ["id"]
 }

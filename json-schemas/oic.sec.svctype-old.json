@@ -1,0 +1,31 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "http://openinterconnect.org/schemas/oic.sec.svctype.json#",
+  "title": "Security Service Types",
+  "definitions": {
+    "oic.sec.svctype": {
+      "type": "object",
+      "description": "Security services that support OIC device provisioning and operation",
+      "properties": {
+        "sl": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [ "oic.sec.svc.doxs", "oic.sec.svc.bss", "oic.sec.svc.cms", "oic.sec.svc.ams", "oic.sec.svc.all" ],
+            "description": "A string representing a predefined service",
+            "detail-desc": [  "doxs - service for establishing a device owner",
+                              "bss - service for bootstrap provisioning",
+                              "cms - service for managing credentials",
+                              "ams - service for managing access",
+                              "all - matches all service types" ]
+          }
+        }
+      }
+    }
+  },
+  "type": "object",
+  "allOf": [
+    { "$ref": "#/definitions/oic.sec.svctype" }
+  ],
+  "required": [ "sl" ]
+}
