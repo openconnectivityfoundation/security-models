@@ -3,7 +3,11 @@
   "oxmsel": 0,
   "sct": 16,
   "owned": true,
+<<<<<<< HEAD
+  "deviceuuid": "de305d54-75b4-431b-adb2-eb6b9e546014",
+=======
   "deviceiuuid": "de305d54-75b4-431b-adb2-eb6b9e546014",
+>>>>>>> origin/my-v1.1.0
   "deviceid": {
     "idt": "0",
     "id": "de305d54-75b4-431b-adb2-eb6b9e546014"

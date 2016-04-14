@@ -10,13 +10,14 @@
         "privdatatype": {
           "encoding": {
             "type": "string",
-            "enum": [ "oic.sec.encoding.jwt", "oic.sec.encoding.cwt", "oic.sec.encoding.base64", "oic.sec.encoding.uri", "oic.sec.encoding.handle" ],
+            "enum": [ "oic.sec.encoding.jwt", "oic.sec.encoding.cwt", "oic.sec.encoding.base64", "oic.sec.encoding.uri", "oic.sec.encoding.handle", "oic.sec.encoding.raw" ],
             "description": "A string specifying the encoding format of the data contained in the privdata",
             "detail-desc": [  "oic.sec.encoding.jwt - RFC7517 JSON web token (JWT) encoding",
                               "oic.sec.encoding.cwt - RFC CBOR web token (CWT) encoding",
                               "oic.sec.encoding.base64 - Base64 encoded object",
                               "oic.sec.encoding.uri - URI reference",
-                              "oic.sec.encoding.handle - Data is contained in a storage sub-system referenced using a handle" ]
+                              "oic.sec.encoding.handle - Data is contained in a storage sub-system referenced using a handle",
+                              "oic.sec.encoding.raw - Raw hex encoded data" ]
           },
           "data": {
             "type": "string",

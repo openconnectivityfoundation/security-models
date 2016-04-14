@@ -9,7 +9,7 @@
         "dos": {
           "type": "object",
           "description": "Device on-boarding state",
-          "items": {"$ref": "oic.sec.dostype.json"}
+          "$ref": "oic.sec.dostype.json"
         },
         "isop":  {
           "type": "boolean",

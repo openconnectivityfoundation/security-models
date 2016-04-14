@@ -8,14 +8,15 @@
       "properties": {
         "encoding": {
           "type": "string",
-          "enum": [ "oic.sec.encoding.jwt", "oic.sec.encoding.cwt", "oic.sec.encoding.base64", "oic.sec.encoding.uri", "oic.sec.encoding.pem", "oic.sec.encoding.der" ],
+          "enum": [ "oic.sec.encoding.jwt", "oic.sec.encoding.cwt", "oic.sec.encoding.base64", "oic.sec.encoding.uri", "oic.sec.encoding.pem", "oic.sec.encoding.der", "oic.sec.encoding.raw" ],
           "description": "A string specifying the encoding format of the data contained in the pubdata",
           "detail-desc": [  "oic.sec.encoding.jwt - RFC7517 JSON web token (JWT) encoding",
                             "oic.sec.encoding.cwt - RFC CBOR web token (CWT) encoding",
                             "oic.sec.encoding.base64 - Base64 encoded object",
                             "oic.sec.encoding.uri - URI reference",
                             "oic.sec.encoding.pem - Encoding for PEM encoded certificate or chain",
-                            "oic.sec.encoding.der - Encoding for DER encoded certificate" ]
+                            "oic.sec.encoding.der - Encoding for DER encoded certificate",
+                            "oic.sec.encoding.raw - Raw hex encoded data" ]
         },
         "data": {
           "type": "string",
