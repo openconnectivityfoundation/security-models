@@ -20,12 +20,12 @@
                               "all - matches all service types" ]
           }
         }
-      }
+      },
+      "required": [ "sl" ]
     }
   },
   "type": "object",
   "allOf": [
     { "$ref": "#/definitions/oic.sec.svctype" }
-  ],
-  "required": [ "sl" ]
+  ]
 }
