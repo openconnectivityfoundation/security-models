@@ -47,7 +47,7 @@
             {
               "type": "object",
               "description": "Entries in oic.sec.svc resource that own this resource",
-              "$ref": "oic.sec.svctype.json"
+              "$ref": "oic.sec.svctype.json#/definitions/oic.sec.svctype"
             },
             {
               "type": "object",
@@ -64,7 +64,7 @@
             {
               "type": "object",
               "description": "Entries in oic.sec.svc resource that own this resource",
-              "$ref": "oic.sec.svctype.json"
+              "$ref": "oic.sec.svctype.json#/definitions/oic.sec.svctype"
             },
             {
               "type": "object",

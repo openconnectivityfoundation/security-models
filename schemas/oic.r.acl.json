@@ -20,7 +20,7 @@
           "oneOf": [
             {
               "type": "object",
-              "$ref": "oic.sec.svctype.json",
+              "$ref": "oic.sec.svctype.json#/definitions/oic.sec.svctype",
               "description": "Entries in oic.sec.svc resource that own this resource"
             },
             {
