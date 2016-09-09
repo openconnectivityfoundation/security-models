@@ -43,7 +43,7 @@
       },
       "required": [ "resources", "permission" ]
     },
-    "oic.sec.ace": {
+    "oic.sec.ace1": {
       "allOf": [
         { "$ref": "#/definitions/oic.sec.acebase" },
         {
@@ -67,10 +67,10 @@
               "description": "The subject to whom this ace applies, either a deviceId or a role",
               "anyOf": [
                 {
-                  "$ref": "oic.sec.didtype.json"
+                  "$ref": "oic.sec.didtype.json#/definitions/oic.sec.didtype"
                 },
                 {
-                  "$ref": "oic.sec.roletype.json"
+                  "$ref": "oic.sec.roletype.json#/definitions/oic.sec.roletype"
                 }
               ]
             }
@@ -78,20 +78,24 @@
           "required": [ "subject" ]
         }
       ]
-    }
-  },
-  "type": "object",
-  "properties": {
-    "aces": {
-      "type": "array",
-      "items": {
-        "$ref": "#/definitions/oic.sec.ace"
-      }
     },
-    "aces2": {
-      "type": "array",
-      "items": {
-        "$ref": "#/definitions/oic.sec.ace2"
+    "oic.sec.ace" : {
+      "type": "object",
+      "properties": {
+        "aces": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "$ref": "#/definitions/oic.sec.ace1"
+          }
+        },
+        "aces2": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "$ref": "#/definitions/oic.sec.ace2"
+          }
+        }
       }
     }
   }

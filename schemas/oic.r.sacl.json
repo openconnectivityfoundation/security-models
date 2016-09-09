@@ -9,7 +9,7 @@
         "aclist":  {
           "type": "object",
           "description": "Access Control Entries in the Acl resource",
-          "$ref": "oic.sec.ace.json"
+          "$ref": "oic.sec.ace.json#/definitions/oic.sec.ace"
         },
         "signature":   {
           "type": "object",
