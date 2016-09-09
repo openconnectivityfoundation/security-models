@@ -5,25 +5,26 @@
   "definitions": {
     "oic.sec.roletype": {
       "type": "object",
-      "description": "Security roles specified as an <Authority> & <Rolename>. A NULL <Authority> refers to the local entity or device.",
       "properties": {
-        "authority": {
-          "type": "string",
-          "description": "The Authority component of the entity being identified"
-        },
-        "roles": {
-          "type": "array",
-          "description": "Each value specifies some well known role",
-          "items": {
-            "type": "string"
+        "rl": {
+          "type": "object",
+          "description": "Security roles specified as an <Authority> & <Rolename>. A NULL <Authority> refers to the local entity or device.",
+          "properties": {
+            "authority": {
+              "type": "string",
+              "description": "The Authority component of the entity being identified"
+            },
+            "roles": {
+              "type": "array",
+              "description": "Each value specifies some well known role",
+              "items": {
+                "type": "string"
+              }
+            }
           }
         }
-      }
+      },
+      "required": [ "rl" ]
     }
-  },
-  "type": "object",
-  "properties": {
-    "rl": { "$ref": "#/definitions/oic.sec.roletype" }
-  },
-  "required": [ "rl" ]
+  }
 }

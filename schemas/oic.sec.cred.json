@@ -22,7 +22,7 @@
         "roleid": {
           "type": "object",
           "description": "The roles this credential possesses",
-          "$ref": "oic.sec.roletype.json"
+          "$ref": "oic.sec.roletype.json#/definitions/oic.sec.roletype"
         },
         "credtype": {
           "type": "integer",
