@@ -26,12 +26,8 @@
           "type": "string",
           "description": "The encoded structure"
         }
-      }
+      },
+      "required": [ "revstat" ]
     }
-  },
-  "type": "object",
-  "allOf": [
-    { "$ref": "#/definitions/oic.sec.optdatatype" }
-  ],
-  "required": [ "revstat" ]
+  }
 }

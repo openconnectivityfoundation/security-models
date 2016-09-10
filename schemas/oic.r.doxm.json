@@ -35,7 +35,7 @@
         "deviceid":   {
           "type": "object",
           "description": "Post on-boarded device identier",
-          "$ref": "oic.sec.didtype.json"
+          "$ref": "oic.sec.didtype.json#/definitions/oic.sec.didtype"
         },
         "devowneruuid": {
           "$ref": "../../core/schemas/oic.types-schema.json#/definitions/uuid"

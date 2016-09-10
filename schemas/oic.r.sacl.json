@@ -14,7 +14,7 @@
         "signature":   {
           "type": "object",
           "description": "The signature over the ACL resource",
-          "$ref": "oic.sec.sigtype.json"
+          "$ref": "oic.sec.sigtype.json#/definitions/oic.sec.sigtype"
         },
         "amsuuid": {
           "$ref": "../../core/schemas/oic.types-schema.json#/definitions/uuid"

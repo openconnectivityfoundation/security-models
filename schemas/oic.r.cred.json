@@ -10,7 +10,7 @@
           "type": "array",
           "description": "List of credentials available at this resource",
           "items": {
-            "$ref": "oic.sec.cred.json"
+            "$ref": "oic.sec.cred.json#/definitions/oic.sec.cred"
           }
         },
         "rowneruuid": {

@@ -10,7 +10,7 @@
           "type": "array",
           "description": "List of trusted service providers",
           "items": {
-            "$ref": "oic.sec.svc.json"
+            "$ref": "oic.sec.svc.json#/definitions/oic.sec.svc"
           }
         },
         "rowner":   {

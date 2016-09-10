@@ -13,14 +13,11 @@
           "description": "0 - Format type enumeration for RFC4122"
         },
         "id": {
-          "oneOf": [
-            {
-              "description": "A UUID value",
-              "$ref": "../../core/schemas/oic.types-schema.json#/definitions/uuid"
-            }
-          ]
+          "description": "A UUID value",
+          "$ref": "../../core/schemas/oic.types-schema.json#/definitions/uuid"
         }
-      }
+      },
+      "required": ["idt","id"]
     },
     "oic.sec.host": {
       "type": "object",
@@ -30,12 +27,8 @@
           "type": "object",
           "$ref": "#/definitions/oic.sec.didtype"
         }
-      }
+      },
+      "required": ["hostid"]
     }
-  },
-  "type": "object",
-  "allOf": [
-      { "$ref": "#/definitions/oic.sec.didtype" }
-  ],
-  "required": ["idt","id"]
+  }
 }

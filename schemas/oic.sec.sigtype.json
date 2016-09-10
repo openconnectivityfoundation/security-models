@@ -18,12 +18,8 @@
           "type": "string",
           "description": "The encoded signature"
         }
-      }
+      },
+      "required": [ "sigtype", "sigvalue" ]
     }
-  },
-  "type": "object",
-    "allOf": [
-      { "$ref": "#/definitions/oic.sec.sigtype" }
-    ],
-    "required": [ "sigtype", "sigvalue" ]
+  }
 }

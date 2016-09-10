@@ -16,7 +16,7 @@
         "subject": {
           "type": "object",
           "description": "The subject (principal) to which this credential belongs",
-          "$ref": "oic.sec.didtype.json"
+          "$ref": "oic.sec.didtype.json#/definitions/oic.sec.didtype"
         },
         "roleid": {
           "type": "object",
@@ -35,17 +35,17 @@
         "publicdata":   {
           "type": "object",
           "description": "Public credential information",
-          "$ref": "oic.sec.pubdatatype.json"
+          "$ref": "oic.sec.pubdatatype.json#/definitions/oic.sec.pubdatatype"
         },
         "privatedata":   {
           "type": "object",
           "description": "Private credential information",
-          "$ref": "oic.sec.privdatatype.json"
+          "$ref": "oic.sec.privdatatype.json#/definitions/oic.sec.privdatatype"
         },
         "optionaldata":   {
           "type": "object",
           "description": "Credential revocation status information",
-          "$ref": "oic.sec.optdatatype.json"
+          "$ref": "oic.sec.optdatatype.json#/definitions/oic.sec.optdatatype"
         },
         "period":   {
           "type": "string",
@@ -58,12 +58,8 @@
             "$ref": "oic.sec.crmtype.json#/definitions/oic.sec.crmtype/properties/crm"
           }
         }
-      }
+      },
+      "required": [ "credid", "subjectuuid", "credtype" ]
     }
-  },
-  "type": "object",
-  "allOf": [
-    { "$ref": "#/definitions/oic.sec.cred" }
-  ],
-  "required": [ "credid", "subjectuuid", "credtype" ]
+  }
 }

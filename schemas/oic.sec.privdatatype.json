@@ -26,13 +26,8 @@
           "type": "integer",
           "description": "Handle to a key storage resource"
         }
-
-      }
+      },
+      "required": [ "encoding" ]
     }
-  },
-  "type": "object",
-  "allOf": [
-    { "$ref": "#/definitions/oic.sec.privdatatype" }
-  ],
-  "required": [ "encoding" ]
+  }
 }

@@ -9,17 +9,17 @@
         "svcid": {
           "type": "object",
           "description": "Identifies a provider of services",
-          "$ref": "oic.sec.didtype.json"
+          "$ref": "oic.sec.didtype.json#/definitions/oic.sec.didtype"
         },
         "svcs": {
           "type": "object",
           "description": "List of supported services",
-          "$ref": "oic.sec.svctype.json"
+          "$ref": "oic.sec.svctype.json#/definitions/oic.sec.svctype"
         },
         "sct": {
           "type": "object",
           "description": "Bitmask of supported credential types",
-          "$ref": "oic.sec.credtype.json"
+          "$ref": "oic.sec.credtype.json#/definitions/oic.sec.credtype"
         },
         "scid": {
           "type": "integer",
@@ -36,10 +36,8 @@
             "$ref": "oic.sec.crmtype.json#/definitions/oic.sec.crmtype/properties/crm"
           }
         }
-      }
+      },
+      "required": [ "svcid", "svcs", "sct", "scid", "ccid" ]
     }
-  },
-  "type": "object",
-  "$ref": "#/definitions/oic.sec.svc",
-  "required": [ "svcid", "svcs", "sct", "scid", "ccid" ]
+  }
 }

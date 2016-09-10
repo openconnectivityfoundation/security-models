@@ -24,9 +24,5 @@
         }
       }
     }
-  },
-  "type": "object",
-  "allOf": [
-    { "$ref": "#/definitions/oic.sec.pubdatatype" }
-  ]
+  }
 }

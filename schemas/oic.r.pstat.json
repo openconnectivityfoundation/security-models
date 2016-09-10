@@ -9,7 +9,7 @@
         "dos": {
           "type": "object",
           "description": "Device on-boarding state",
-          "$ref": "oic.sec.dostype.json"
+          "$ref": "oic.sec.dostype.json#/definitions/oic.sec.dostype"
         },
         "isop":  {
           "type": "boolean",
@@ -41,7 +41,7 @@
           "type": "object",
           "readOnly": true,
           "description": "ReadOnly, The device to which the status applies. NULL refers to this device.",
-          "$ref": "oic.sec.didtype.json"
+          "$ref": "oic.sec.didtype.json#/definitions/oic.sec.didtype"
         },
         "rowneruuid": {
           "readOnly": true,
