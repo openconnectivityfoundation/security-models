@@ -29,28 +29,28 @@
         },
         "sm": {
           "readOnly": true,
-          "description": "ReadOnly, Supported operational modes",
+          "description": "Supported operational modes",
           "$ref": "oic.sec.pomtype.json#/definitions/oic.sec.pomtype/properties/bitmask"
         },
         "deviceuuid": {
           "readOnly": true,
-          "description": "ReadOnly, Identity of the device",
+          "description": "Identity of the device",
           "$ref": "../../core/schemas/oic.types-schema.json#/definitions/uuid"
         },
         "deviceid":   {
           "type": "object",
           "readOnly": true,
-          "description": "ReadOnly, The device to which the status applies. NULL refers to this device.",
+          "description": "The device to which the status applies. NULL refers to this device.",
           "$ref": "oic.sec.didtype.json#/definitions/oic.sec.didtype"
         },
         "rowneruuid": {
           "readOnly": true,
-          "description": "ReadOnly, The UUID formatted identity of the Resource owner",
+          "description": "The UUID formatted identity of the Resource owner",
           "$ref": "../../core/schemas/oic.types-schema.json#/definitions/uuid"
         },
         "rowner": {
           "readOnly": true,
-          "description": "ReadOnly, The Resource Owner in terms of either a service or host",
+          "description": "The Resource Owner in terms of either a service or host",
           "anyOf": [
             {
               "type": "object",
