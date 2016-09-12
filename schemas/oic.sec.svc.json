@@ -17,9 +17,8 @@
           "$ref": "oic.sec.svctype.json#/definitions/oic.sec.svctype"
         },
         "sct": {
-          "type": "object",
           "description": "Bitmask of supported credential types",
-          "$ref": "oic.sec.credtype.json#/definitions/oic.sec.credtype"
+          "$ref": "oic.sec.credtype.json#/definitions/oic.sec.credtype/properties/bitmask"
         },
         "scid": {
           "type": "integer",
