@@ -1,4 +1,4 @@
 {
   "sigtype": "oic.sec.sigtype.pk7",
-  "sigvalue": "ENCODED-SIGNATURE-VALUE"
+  "sigvalue": "BASE64-ENCODED-SIGNATURE-VALUE"
 }

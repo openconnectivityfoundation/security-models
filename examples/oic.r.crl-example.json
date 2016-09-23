@@ -1,5 +1,6 @@
 {
-  "crlid":  123456,
-  "thisupdate": "1994-11-05T08:15:30-05:00",
-  "crldata": "BASE-64 ENCODED VALUE"
+  "rt": ["oic.r.crl"],
+  "crlid": 1,
+  "thisupdate": "2016-04-12T23:20:50.52Z",
+  "crldata": "Base64ENCODEDCRL"
 }

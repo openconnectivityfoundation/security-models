@@ -3,16 +3,22 @@
     {
       "href": "coaps://IP-ADDR/temp",
       "rel": "some-rel",
-      "rt": "oic.r.temperature",
-      "if": "oic.if.a"
+      "rt": ["oic.r.temperature"],
+      "if": ["oic.if.a"]
     },
     {
       "href": "coaps://IP-ADDR/temp",
       "rel": "some-rel",
-      "rt": "oic.r.temperature",
-      "if": "oic.if.s"
+      "rt": ["oic.r.temperature"],
+      "if": ["oic.if.s"]
     }
   ],
+  "ams": {
+    "sl": [ "oic.sec.svc.doxs", "oic.sec.svc.bss" ]
+  },
+  "rowner": {
+    "sl": ["oic.sec.svc.bss", "oic.sec.svc.doxs"]
+  },
   "amsuuid": "6546b318-4bfa-4045-97f6-9cf8a0854dd5",
   "rowneruuid": "6546b318-4bfa-4045-97f6-9cf8a0854dd5"
 }
