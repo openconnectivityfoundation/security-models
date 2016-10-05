@@ -11,7 +11,7 @@
           "description": "Local reference to a credential resource"
         },
         "subjectuuid": {
-          "$ref": "../../core/schemas/oic.types-schema.json#/definitions/uuid"
+          "$ref": "../../core/schemas/oic.types-schema.json#/definitions/uuid-or-star"
         },
         "subject": {
           "type": "object",
