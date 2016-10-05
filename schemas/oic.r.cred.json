@@ -14,7 +14,7 @@
           }
         },
         "rowneruuid": {
-          "$ref": "../../core/schemas/oic.types-schema.json#/definitions/uuid"
+          "$ref": "../../core/schemas/oic.types-schema.json#/definitions/uuid-or-star"
         },
         "rowner": {
           "type": "object",

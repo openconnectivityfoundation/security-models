@@ -7,14 +7,14 @@
           {
             "href": "coaps://IP-ADDR/temp",
             "rel": "some-rel",
-            "rt": "oic.r.temperature",
-            "if": "oic.if.a"
+            "rt": ["oic.r.temperature"],
+            "if": ["oic.if.a"]
           },
           {
             "href": "coaps://IP-ADDR/temp",
             "rel": "some-rel",
-            "rt": "oic.r.temperature",
-            "if": "oic.if.s"
+            "rt": ["oic.r.temperature"],
+            "if": ["oic.if.s"]
           }
         ],
         "permission": 31,
@@ -24,8 +24,8 @@
             "recurrence": [ "DSTART:XXXXX", "RRULE:FREQ=DAILY;UNTIL=20180131T140000Z;BYMONTH=1" ]
           },
           {
-             "period": "20160101T180000Z/PT5H30M",
-             "recurrence": [ "RRULE:FREQ=DAILY;UNTIL=20180131T140000Z;BYMONTH=1" ]
+            "period": "20160101T180000Z/PT5H30M",
+            "recurrence": [ "RRULE:FREQ=DAILY;UNTIL=20180131T140000Z;BYMONTH=1" ]
           }
         ]
       }
@@ -44,14 +44,14 @@
           {
             "href": "coaps://IP-ADDR/light",
             "rel": "some-rel",
-            "rt": "oic.r.light",
-            "if": "oic.if.a"
+            "rt": ["oic.r.light"],
+            "if": ["oic.if.a"]
           },
           {
             "href": "coaps://IP-ADDR/door",
             "rel": "some-rel",
-            "rt": "oic.r.door",
-            "if": "oic.if.a"
+            "rt": ["oic.r.door"],
+            "if": ["oic.if.a"]
           }
         ],
         "permission": 15
