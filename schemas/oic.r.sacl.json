@@ -17,7 +17,7 @@
           "$ref": "oic.sec.sigtype.json#/definitions/oic.sec.sigtype"
         },
         "amsuuid": {
-          "$ref": "../../core/schemas/oic.types-schema.json#/definitions/uuid-or-star"
+          "$ref": "../../core/schemas/oic.types-schema.json#/definitions/uuid"
         },
         "ams":   {
           "type": "object",

@@ -12,7 +12,7 @@
           "$ref": "oic.sec.ace.json#/definitions/oic.sec.ace"
         },
         "rowneruuid": {
-          "$ref": "../../core/schemas/oic.types-schema.json#/definitions/uuid-or-star",
+          "$ref": "../../core/schemas/oic.types-schema.json#/definitions/uuid",
           "description": "The value identifies the unique resource owner"
         },
         "rowner": {
