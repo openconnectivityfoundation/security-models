@@ -50,7 +50,14 @@
           "properties": {
             "subjectuuid": {
               "description": "The id of the device to which the ace applies to",
-              "$ref": "../../core/schemas/oic.types-schema.json#/definitions/uuid-or-star"
+              "oneOf": [
+                {
+                  "type": "string", "pattern": "^[*]$"
+                },
+                {
+                  "$ref": "../../core/schemas/oic.types-schema.json#/definitions/uuid"
+                }
+              ]
             }
           },
           "required": [ "subjectuuid" ]
