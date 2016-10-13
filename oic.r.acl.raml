@@ -330,17 +330,19 @@ traits:
     description: |
       Deletes the acl data.
       When DELETE is used without query parameters, the entire collection is deleted.
-      When DELETE uses the search parameter with "subject", only the matched entry is deleted.
+      When DELETE uses the subjectuuid query parameter, only the matched entries are deleted.
     queryParameters:
-        subject:
+        subjectuuid:
             type: string
             description: |
-              Delete the ACL identified by the string containing subject UUID.
-              e.g. DELETE /myacl?subject="de305d54-75b4-431b-adb2-eb6b9e546014"
+              Delete the ACL identified by the string containing subjectuuid.
+              e.g. DELETE /myacl?subjectuuid="de305d54-75b4-431b-adb2-eb6b9e546014"
             required: false
+            example: |
+                DELETE /myacl?subjectuuid="de305d54-75b4-431b-adb2-eb6b9e546014"
 
     responses:
       200:
-        description: The ACL instance or the the entire ACL resource has been successfully deleted.
+        description: The matching ACL instances or the the entire ACL resource has been successfully deleted.
       400:
         description: The request is invalid.
