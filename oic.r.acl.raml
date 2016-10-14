@@ -329,8 +329,8 @@ traits:
   delete:
     description: |
       Deletes the acl data.
-      When DELETE is used without query parameters, the entire collection is deleted.
-      When DELETE uses the subjectuuid query parameter, only the matched entries are deleted.
+      When DELETE is used without query parameters, all the acl entries are deleted.
+      When DELETE is used with a subjectuuid query parameter, only the entries matching the subjectuuid are deleted.
     queryParameters:
         subjectuuid:
             type: string

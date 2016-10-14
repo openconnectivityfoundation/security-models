@@ -270,8 +270,8 @@ traits:
   delete:
       description: |
         Deletes credential data.
-        When DELETE is used without query parameters, the entire credential collection is deleted.
-        When DELETE uses a query value naming the subjectuuid, all entries matching the subjectuuid are deleted.
+        When DELETE is used without query parameters, all the cred entries are deleted.
+        When DELETE is used with a subjectuuid query parameter, only the entries matching the subjectuuid are deleted.
       queryParameters:
         subjectuuid:
           type: string
