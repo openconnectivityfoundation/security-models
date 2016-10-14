@@ -328,14 +328,14 @@ traits:
 
   delete:
     description: |
-      Deletes the acl data.
+      Deletes ACL entries.
       When DELETE is used without query parameters, all the acl entries are deleted.
       When DELETE is used with a subjectuuid query parameter, only the entries matching the subjectuuid are deleted.
     queryParameters:
         subjectuuid:
             type: string
             description: |
-              Delete the ACL identified by the string containing subjectuuid.
+              Deletes the ACL(s) identified by the string containing subjectuuid.
               e.g. DELETE /myacl?subjectuuid="de305d54-75b4-431b-adb2-eb6b9e546014"
             required: false
             example: |
