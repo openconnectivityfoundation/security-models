@@ -269,19 +269,19 @@ traits:
 
   delete:
       description: |
-        Deletes the credential data.
-        When DELETE is used without query parameters, the entire collection is deleted.
-        When DELETE uses a query value naming the subject, only the matched entry is deleted.
+        Deletes credential entries.
+        When DELETE is used without query parameters, all the cred entries are deleted.
+        When DELETE is used with a subjectuuid query parameter, only the entries matching the subjectuuid are deleted.
       queryParameters:
-        subject:
+        subjectuuid:
           type: string
           description: |
-            Delete the credential identified by the string containing subject id.
-            required: false
-            example: |
-              DELETE /mycred?subject="de305d54-75b4-431b-adb2-eb6b9e546014"
+            Deletes the credential(s) identified by the string containing the subjectuuid
+          required: false
+          example: |
+              DELETE /mycred?subjectuuid="de305d54-75b4-431b-adb2-eb6b9e546014"
       responses:
         204:
-          description: The credential instance or the the entire credential resource has been successfully deleted.
+          description: The specific credential(s) or the the entire credential resource has been successfully deleted.
         400:
           description: The request is invalid.
