@@ -39,17 +39,14 @@
         },
         "deviceid":   {
           "type": "object",
-          "readOnly": true,
           "description": "The device to which the status applies. NULL refers to this device.",
           "$ref": "oic.sec.didtype.json#/definitions/oic.sec.didtype"
         },
         "rowneruuid": {
-          "readOnly": true,
           "description": "The UUID formatted identity of the Resource owner",
           "$ref": "../../core/schemas/oic.types-schema.json#/definitions/uuid"
         },
         "rowner": {
-          "readOnly": true,
           "description": "The Resource Owner in terms of either a service or host",
           "anyOf": [
             {
