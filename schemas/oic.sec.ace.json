@@ -49,7 +49,7 @@
         {
           "properties": {
             "subjectuuid": {
-              "description": "The id of the device to which the ace applies to",
+              "description": "The id of the device to which the ace applies to or \"*\" for anonymous access",
               "anyOf": [
                 {
                   "type": "string", "pattern": "^\\*$"
