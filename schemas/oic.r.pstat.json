@@ -33,7 +33,6 @@
           "$ref": "oic.sec.pomtype.json#/definitions/oic.sec.pomtype/properties/bitmask"
         },
         "deviceuuid": {
-          "readOnly": true,
           "description": "Identity of the device",
           "$ref": "../../core/schemas/oic.types-schema.json#/definitions/uuid"
         },
