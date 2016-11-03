@@ -28,7 +28,6 @@
           "description": "Ownership status flag"
         },
         "deviceuuid": {
-          "readOnly": true,
           "description": "The uuid formatted identity of the device",
           "$ref": "../../core/schemas/oic.types-schema.json#/definitions/uuid"
         },
