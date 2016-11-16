@@ -14,7 +14,7 @@
                             "1 - Numeric OTM identifier for the random PIN method (oic.sec.doxm.rdp)",
                             "2 - Numeric OTM identifier for the manufacturer certificate method (oic.sec.doxm.mfgcert)",
                             "3 - Numeric OTM identifier for the decap method (oic.sec.doxm.dcap) (deprecated)",
-                            "4 - Numeric OTM identifier for the Verified Just-Works method (oic.sec.docm.vjw)" ]
+                            "4 - Numeric OTM identifier for the Verified Just-Works method (oic.sec.doxm.vjw)" ]
         }
       }
     }
