@@ -7,9 +7,11 @@
       "type": "object",
       "properties": {
         "aclist":  {
-          "type": "object",
-          "description": "Access Control Entries in the Acl resource",
-          "$ref": "oic.sec.ace.json#/definitions/oic.sec.ace"
+          "type": "array",
+          "description": "Access Control Entries in the ACL resource",
+          "items": {
+            "$ref": "oic.sec.ace.json#/definitions/oic.sec.ace"
+          }
         },
         "rowneruuid": {
           "$ref": "../../core/schemas/oic.types-schema.json#/definitions/uuid",
