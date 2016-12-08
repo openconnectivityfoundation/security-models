@@ -73,7 +73,25 @@ traits:
                       }
                     ],
                     "permission": 24
-                  }
+                    },
+                    {
+                      "subject": "*",
+                      "resources": [
+                        {
+                          "href": "coaps://IP-ADDR/light",
+                          "rel": "some-rel",
+                          "rt": ["oic.r.light"],
+                          "if": ["oic.if.a"]
+                        },
+                        {
+                          "href": "coaps://IP-ADDR/door",
+                          "rel": "some-rel",
+                          "rt": ["oic.r.door"],
+                          "if": ["oic.if.a"]
+                        }
+                      ],
+                      "permission": 16
+                    }
                 ],
                 "rowneruuid": "de305d54-75b4-431b-adb2-eb6b9e546014",
                 "rowner": {

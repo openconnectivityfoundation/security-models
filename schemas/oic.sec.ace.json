@@ -17,13 +17,19 @@
           "$ref": "oic.sec.crudntype.json#/definitions/oic.sec.crudntype/properties/bitmask"
         },
         "subject": {
-          "description": "The subject to whom this ace applies, either a deviceId or a role",
+          "description": "The subject to whom this ace applies, either a deviceId, role, or wildcard",
           "anyOf": [
             {
               "$ref": "oic.sec.didtype.json#/definitions/oic.sec.didtype"
             },
             {
               "$ref": "oic.sec.roletype.json#/definitions/oic.sec.roletype"
+            },
+            {
+              "type": "string", "pattern": "^\\*$"
+            },
+            {
+              "type": "string", "pattern": "^\\+$"
             }
           ]
         },
