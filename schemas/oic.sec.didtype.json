@@ -4,20 +4,18 @@
   "title": "Device Identifier Format type",
   "definitions": {
     "oic.sec.didtype": {
-      "type": "object",
-      "description": "Device identifier formats are enumerated",
-      "properties": {
-        "idt": {
-          "type": "string",
-          "enum": [ "0" ],
-          "description": "0 - Format type enumeration for RFC4122"
-        },
-        "id": {
-          "description": "A UUID value",
-          "$ref": "../../core/schemas/oic.types-schema.json#/definitions/uuid"
+      "oneOf": [
+        {
+          "type": "object",
+          "properties": {
+            "uuid": {
+              "description": "A UUID device identifier",
+              "$ref": "../../core/schemas/oic.types-schema.json#/definitions/uuid"
+            }
+          },
+          "required": ["uuid"]
         }
-      },
-      "required": ["idt","id"]
+      ]
     },
     "oic.sec.host": {
       "type": "object",
