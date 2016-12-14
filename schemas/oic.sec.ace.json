@@ -3,24 +3,6 @@
   "id": "https://www.openconnectivity.org/ocf-apis/security/schemas/oic.sec.ace.json#",
   "title": "Subject based Access Control Entry (ACE) object definition",
   "definitions": {
-    "time-interval": {
-      "type": "object",
-      "description": "The time-interval is an object where each object contains a period and recurrence",
-      "properties": {
-        "period": {
-          "type": "string",
-          "description": "String represents a period using the RFC5545 Period"
-        },
-        "recurrence": {
-          "type": "array",
-          "description": "String array represents a recurrence rule using the RFC5545 Recurrence",
-          "items": {
-            "type": "string"
-          }
-        }
-      },
-      "required": [ "period" ]
-    },
     "oic.sec.ace": {
       "type": "object",
       "properties": {
@@ -36,9 +18,9 @@
         },
         "validity": {
           "type": "array",
-          "description": "validity is an array of time-interval objects",
+          "description": "validity is an array of time-pattern objects",
           "items": {
-            "$ref": "#/definitions/time-interval"
+            "$ref": "oic.sec.time-pattern.json#/definitions/time-pattern"
           }
         },
         "subjectuuid": {

@@ -87,7 +87,17 @@ traits:
                           "if": ["oic.if.a"]
                         }
                       ],
-                      "permission": 16
+                      "permission": 16,
+                      "validity": [
+                        {
+                          "period":"20160101T180000Z/20170102T070000Z",
+                          "recurrence": [ "DSTART:XXXXX", "RRULE:FREQ=DAILY;UNTIL=20180131T140000Z;BYMONTH=1" ]
+                        },
+                        {
+                          "period":"20160101T180000Z/PT5H30M",
+                          "recurrence": [ "RRULE:FREQ=DAILY;UNTIL=20180131T140000Z;BYMONTH=1" ]
+                        }
+                      ]
                     }
                 ],
                 "rowner": {
@@ -197,7 +207,17 @@ traits:
                     "if": ["oic.if.a"]
                   }
                 ],
-                "permission": 24
+                "permission": 24,
+                "validity": [
+                  {
+                    "period":"20160101T180000Z/20170102T070000Z",
+                    "recurrence": [ "DSTART:XXXXX", "RRULE:FREQ=DAILY;UNTIL=20180131T140000Z;BYMONTH=1" ]
+                  },
+                  {
+                    "period":"20160101T180000Z/PT5H30M",
+                    "recurrence": [ "RRULE:FREQ=DAILY;UNTIL=20180131T140000Z;BYMONTH=1" ]
+                  }
+                ]
               },
               {
                 "subject": {
