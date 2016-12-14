@@ -18,7 +18,8 @@
             "type": "string"
           }
         }
-      }
+      },
+      "required": [ "period" ]
     },
     "oic.sec.ace": {
       "type": "object",
@@ -52,7 +53,7 @@
           ]
         }
       },
-      "required": [ "resources", "permission", "subjectuuid"]
+      "required": [ "resources", "permission", "subjectuuid" ]
     }
   }
 }

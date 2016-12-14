@@ -8,6 +8,7 @@
       "properties": {
         "aclist": {
           "type": "object",
+          "description": "Subject-based Access Control Entries in the ACL resource",
           "properties": {
             "aces": {
               "type": "array",
@@ -15,14 +16,20 @@
                 "$ref": "oic.sec.ace.json#/definitions/oic.sec.ace"
               }
             }
-          }
+          },
+          "required": [ "aces" ]
         },
         "rowneruuid": {
-          "$ref": "../../core/schemas/oic.types-schema.json#/definitions/uuid",
-          "description": "The value identifies the unique resource owner"
+          "description": "The value identifies the unique resource owner",
+          "$ref": "../../core/schemas/oic.types-schema.json#/definitions/uuid"
         }
-      },
-      "required": ["aclist", "rowneruuid"]
+      }
     }
-  }
+  },
+  "type": "object",
+  "allOf": [
+    { "$ref": "../../core/schemas/oic.core-schema.json#/definitions/oic.core" },
+    { "$ref": "#/definitions/oic.r.acl" }
+  ],
+  "required": [ "aclist", "rowneruuid" ]
 }
