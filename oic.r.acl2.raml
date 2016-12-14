@@ -1,8 +1,8 @@
 #%RAML 0.8
-title: OICSecurityAclResource
-version: v1.0-20150819
+title: OICSecurityAcl2Resource
+version: v1.0-20161214
 schemas:
-  - Acl: !include schemas/oic.r.acl.json
+  - Acl2: !include schemas/oic.r.acl2.json
 
 traits:
   - interface:
@@ -19,12 +19,12 @@ traits:
 
   get:
     description: |
-      Retrieves the acl data.
+      Retrieves the ACL data.
     responses:
       200:
         body:
           application/json:
-            schema: Acl
+            schema: Acl2
             example: |
               {
                 "aclist": [
@@ -90,7 +90,6 @@ traits:
                       "permission": 16
                     }
                 ],
-                "rowneruuid": "de305d54-75b4-431b-adb2-eb6b9e546014",
                 "rowner": {
                   "hostid": {
                     "uuid": "e61c3e6b-9c54-4b81-8ce5-f9039c1d04d9"
@@ -105,7 +104,7 @@ traits:
       Updates the ACL resource with the provided values.
     body:
       application/json:
-        schema: Acl
+        schema: Acl2
         example: |
           {
             "aclist": [
@@ -153,7 +152,6 @@ traits:
                 "permission": 24
               }
             ],
-            "rowneruuid": "de305d54-75b4-431b-adb2-eb6b9e546014",
             "rowner": {
               "hostid": {
                 "uuid": "e61c3e6b-9c54-4b81-8ce5-f9039c1d04d9"
@@ -171,10 +169,10 @@ traits:
 
   put:
     description: |
-      Creates the new acl data
+      Creates the new ACL data
     body:
       application/json:
-        schema: Acl
+        schema: Acl2
         example: |
           {
             "aclist": [
@@ -222,7 +220,6 @@ traits:
                 "permission": 24
               }
             ],
-            "rowneruuid": "de305d54-75b4-431b-adb2-eb6b9e546014",
             "rowner": {
               "hostid": {
                 "uuid": "e61c3e6b-9c54-4b81-8ce5-f9039c1d04d9"

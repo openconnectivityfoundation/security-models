@@ -6,16 +6,12 @@
     "oic.r.acl2": {
       "type": "object",
       "properties": {
-        "aclist":  {
+        "aclist": {
           "type": "array",
           "description": "Access Control Entries in the ACL resource",
           "items": {
-            "$ref": "oic.sec.ace.json#/definitions/oic.sec.ace"
+            "$ref": "oic.sec.ace2.json#/definitions/oic.sec.ace2"
           }
-        },
-        "rowneruuid": {
-          "$ref": "../../core/schemas/oic.types-schema.json#/definitions/uuid",
-          "description": "The value identifies the unique resource owner"
         },
         "rowner": {
           "oneOf": [
@@ -37,7 +33,7 @@
   "type": "object",
   "allOf": [
     { "$ref": "../../core/schemas/oic.core-schema.json#/definitions/oic.core" },
-    { "$ref": "#/definitions/oic.r.acl" }
+    { "$ref": "#/definitions/oic.r.acl2" }
   ],
-  "required": [ "aclist","rowneruuid" ]
+  "required": [ "aclist", "rowner" ]
 }
