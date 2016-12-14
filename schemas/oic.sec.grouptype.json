@@ -1,0 +1,17 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "https://www.openconnectivity.org/ocf-apis/security/schemas/oic.sec.grouptype.json#",
+  "title": "Security Subject Grouping Terms",
+  "definitions": {
+    "oic.sec.grouptype": {
+      "anyOf": [
+        {
+          "type": "string", "pattern": "^\\*$"
+        },
+        {
+          "type": "string", "pattern": "^\\+$"
+        }
+      ]
+    }
+  }
+}

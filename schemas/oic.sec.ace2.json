@@ -26,10 +26,7 @@
               "$ref": "oic.sec.roletype.json#/definitions/oic.sec.roletype"
             },
             {
-              "type": "string", "pattern": "^\\*$"
-            },
-            {
-              "type": "string", "pattern": "^\\+$"
+              "$ref": "oic.sec.roletype.json#/definitions/oic.sec.grouptype"
             }
           ]
         },
