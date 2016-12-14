@@ -3,6 +3,23 @@
   "id": "https://www.openconnectivity.org/ocf-apis/security/schemas/oic.sec.ace.json#",
   "title": "Subject based Access Control Entry (ACE) object definition",
   "definitions": {
+    "time-interval": {
+      "type": "object",
+      "description": "The time-interval is an object where each object contains a period and recurrence",
+      "properties": {
+        "period": {
+          "type": "string",
+          "description": "String represents a period using the RFC5545 Period"
+        },
+        "recurrence": {
+          "type": "array",
+          "description": "String array represents a recurrence rule using the RFC5545 Recurrence",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
     "oic.sec.ace": {
       "type": "object",
       "properties": {
@@ -16,46 +33,26 @@
           "description": "Bitmask encoding of CRUDN permission",
           "$ref": "oic.sec.crudntype.json#/definitions/oic.sec.crudntype/properties/bitmask"
         },
-        "subject": {
-          "description": "The subject to whom this ace applies, either a deviceId, role, or wildcard",
-          "anyOf": [
-            {
-              "$ref": "oic.sec.didtype.json#/definitions/oic.sec.didtype"
-            },
-            {
-              "$ref": "oic.sec.roletype.json#/definitions/oic.sec.roletype"
-            },
-            {
-              "type": "string", "pattern": "^\\*$"
-            },
-            {
-              "type": "string", "pattern": "^\\+$"
-            }
-          ]
-        },
         "validity": {
           "type": "array",
           "description": "validity is an array of time-interval objects",
           "items": {
-            "type": "object",
-            "description": "The time-interval is an object where each object contains a period and recurrence",
-            "properties": {
-              "period": {
-                "type": "string",
-                "description": "String represents a period using the RFC5545 Period"
-              },
-              "recurrence": {
-                "type": "array",
-                "description": "String array represents a recurrence rule using the RFC5545 Recurrence",
-                "items": {
-                  "type": "string"
-                }
-              }
-            }
+            "$ref": "#/definitions/time-interval"
           }
+        },
+        "subjectuuid": {
+          "description": "The id of the device to which the ace applies to or \"*\" for anonymous access",
+          "anyOf": [
+            {
+              "type": "string", "pattern": "^\\*$"
+            },
+            {
+              "$ref": "../../core/schemas/oic.types-schema.json#/definitions/uuid"
+            }
+          ]
         }
       },
-      "required": [ "resources", "permission", "subject" ]
+      "required": [ "resources", "permission", "subjectuuid"]
     }
   }
 }

@@ -27,75 +27,39 @@ traits:
             schema: Acl
             example: |
               {
-                "aclist": [
-                  {
-                    "subject": {
-                      "authority": "484b8a51-cb23-46c0-a5f1-b4aebef50ebe",
-                      "roles": [
-                        "SOME_STRING", "SOME_STRING"
-                      ]
-                    },
-                    "resources": [
-                      {
-                        "href": "coaps://IP-ADDR/light",
-                        "rel": "some-rel",
-                        "rt": ["oic.r.light"],
-                        "if": ["oic.if.a"]
-                      },
-                      {
-                        "href": "coaps://IP-ADDR/door",
-                        "rel": "some-rel",
-                        "rt": ["oic.r.door"],
-                        "if": ["oic.if.a"]
-                      }
-                    ],
-                    "permission": 24
-                  },
-                  {
-                    "subject": {
-                      "uuid": "e61c3e6b-9c54-4b81-8ce5-f9039c1d04d9"
-                    },
-                    "resources": [
-                      {
-                        "href": "coaps://IP-ADDR/light",
-                        "rel": "some-rel",
-                        "rt": ["oic.r.light"],
-                        "if": ["oic.if.a"]
-                      },
-                      {
-                        "href": "coaps://IP-ADDR/door",
-                        "rel": "some-rel",
-                        "rt": ["oic.r.door"],
-                        "if": ["oic.if.a"]
-                      }
-                    ],
-                    "permission": 24
-                    },
+                "aclist": {
+                  "aces": [
                     {
-                      "subject": "*",
+                      "subjectuuid": "e61c3e6b-9c54-4b81-8ce5-f9039c1d04d9",
                       "resources": [
                         {
-                          "href": "coaps://IP-ADDR/light",
+                          "href": "coaps://IP-ADDR/temp",
                           "rel": "some-rel",
-                          "rt": ["oic.r.light"],
+                          "rt": ["oic.r.temperature"],
                           "if": ["oic.if.a"]
                         },
                         {
-                          "href": "coaps://IP-ADDR/door",
+                          "href": "coaps://IP-ADDR/temp",
                           "rel": "some-rel",
-                          "rt": ["oic.r.door"],
-                          "if": ["oic.if.a"]
+                          "rt": ["oic.r.temperature"],
+                          "if": ["oic.if.s"]
                         }
                       ],
-                      "permission": 16
+                      "permission": 31,
+                      "validity": [
+                        {
+                          "period":"20160101T180000Z/20170102T070000Z",
+                          "recurrence": [ "DSTART:XXXXX", "RRULE:FREQ=DAILY;UNTIL=20180131T140000Z;BYMONTH=1" ]
+                        },
+                        {
+                          "period":"20160101T180000Z/PT5H30M",
+                          "recurrence": [ "RRULE:FREQ=DAILY;UNTIL=20180131T140000Z;BYMONTH=1" ]
+                        }
+                      ]
                     }
-                ],
-                "rowneruuid": "de305d54-75b4-431b-adb2-eb6b9e546014",
-                "rowner": {
-                  "hostid": {
-                    "uuid": "e61c3e6b-9c54-4b81-8ce5-f9039c1d04d9"
-                  }
-                }
+                  ]
+                },
+                "rowneruuid": "de305d54-75b4-431b-adb2-eb6b9e546014"
               }
       400:
         description: The request is invalid.
@@ -108,57 +72,39 @@ traits:
         schema: Acl
         example: |
           {
-            "aclist": [
-              {
-                "subject": {
-                  "authority": "484b8a51-cb23-46c0-a5f1-b4aebef50ebe",
-                  "roles": [
-                    "SOME_STRING", "SOME_STRING"
+            "aclist": {
+              "aces": [
+                {
+                  "subjectuuid": "e61c3e6b-9c54-4b81-8ce5-f9039c1d04d9",
+                  "resources": [
+                    {
+                      "href": "coaps://IP-ADDR/temp",
+                      "rel": "some-rel",
+                      "rt": ["oic.r.temperature"],
+                      "if": ["oic.if.a"]
+                    },
+                    {
+                      "href": "coaps://IP-ADDR/temp",
+                      "rel": "some-rel",
+                      "rt": ["oic.r.temperature"],
+                      "if": ["oic.if.s"]
+                    }
+                  ],
+                  "permission": 31,
+                  "validity": [
+                    {
+                      "period":"20160101T180000Z/20170102T070000Z",
+                      "recurrence": [ "DSTART:XXXXX", "RRULE:FREQ=DAILY;UNTIL=20180131T140000Z;BYMONTH=1" ]
+                    },
+                    {
+                      "period":"20160101T180000Z/PT5H30M",
+                      "recurrence": [ "RRULE:FREQ=DAILY;UNTIL=20180131T140000Z;BYMONTH=1" ]
+                    }
                   ]
-                },
-                "resources": [
-                  {
-                    "href": "coaps://IP-ADDR/light",
-                    "rel": "some-rel",
-                    "rt": ["oic.r.light"],
-                    "if": ["oic.if.a"]
-                  },
-                  {
-                    "href": "coaps://IP-ADDR/door",
-                    "rel": "some-rel",
-                    "rt": ["oic.r.door"],
-                    "if": ["oic.if.a"]
-                  }
-                ],
-                "permission": 24
-              },
-              {
-                "subject": {
-                  "uuid": "e61c3e6b-9c54-4b81-8ce5-f9039c1d04d9"
-                },
-                "resources": [
-                  {
-                    "href": "coaps://IP-ADDR/light",
-                    "rel": "some-rel",
-                    "rt": ["oic.r.light"],
-                    "if": ["oic.if.a"]
-                  },
-                  {
-                    "href": "coaps://IP-ADDR/door",
-                    "rel": "some-rel",
-                    "rt": ["oic.r.door"],
-                    "if": ["oic.if.a"]
-                  }
-                ],
-                "permission": 24
-              }
-            ],
-            "rowneruuid": "de305d54-75b4-431b-adb2-eb6b9e546014",
-            "rowner": {
-              "hostid": {
-                "uuid": "e61c3e6b-9c54-4b81-8ce5-f9039c1d04d9"
-              }
-            }
+                }
+              ]
+            },
+            "rowneruuid": "de305d54-75b4-431b-adb2-eb6b9e546014"
           }
 
     responses:
@@ -177,57 +123,39 @@ traits:
         schema: Acl
         example: |
           {
-            "aclist": [
-              {
-                "subject": {
-                  "authority": "484b8a51-cb23-46c0-a5f1-b4aebef50ebe",
-                  "roles": [
-                    "SOME_STRING", "SOME_STRING"
+            "aclist": {
+              "aces": [
+                {
+                  "subjectuuid": "e61c3e6b-9c54-4b81-8ce5-f9039c1d04d9",
+                  "resources": [
+                    {
+                      "href": "coaps://IP-ADDR/temp",
+                      "rel": "some-rel",
+                      "rt": ["oic.r.temperature"],
+                      "if": ["oic.if.a"]
+                    },
+                    {
+                      "href": "coaps://IP-ADDR/temp",
+                      "rel": "some-rel",
+                      "rt": ["oic.r.temperature"],
+                      "if": ["oic.if.s"]
+                    }
+                  ],
+                  "permission": 31,
+                  "validity": [
+                    {
+                      "period":"20160101T180000Z/20170102T070000Z",
+                      "recurrence": [ "DSTART:XXXXX", "RRULE:FREQ=DAILY;UNTIL=20180131T140000Z;BYMONTH=1" ]
+                    },
+                    {
+                      "period":"20160101T180000Z/PT5H30M",
+                      "recurrence": [ "RRULE:FREQ=DAILY;UNTIL=20180131T140000Z;BYMONTH=1" ]
+                    }
                   ]
-                },
-                "resources": [
-                  {
-                    "href": "coaps://IP-ADDR/light",
-                    "rel": "some-rel",
-                    "rt": ["oic.r.light"],
-                    "if": ["oic.if.a"]
-                  },
-                  {
-                    "href": "coaps://IP-ADDR/door",
-                    "rel": "some-rel",
-                    "rt": ["oic.r.door"],
-                    "if": ["oic.if.a"]
-                  }
-                ],
-                "permission": 24
-              },
-              {
-                "subject": {
-                  "uuid": "e61c3e6b-9c54-4b81-8ce5-f9039c1d04d9"
-                },
-                "resources": [
-                  {
-                    "href": "coaps://IP-ADDR/light",
-                    "rel": "some-rel",
-                    "rt": ["oic.r.light"],
-                    "if": ["oic.if.a"]
-                  },
-                  {
-                    "href": "coaps://IP-ADDR/door",
-                    "rel": "some-rel",
-                    "rt": ["oic.r.door"],
-                    "if": ["oic.if.a"]
-                  }
-                ],
-                "permission": 24
-              }
-            ],
-            "rowneruuid": "de305d54-75b4-431b-adb2-eb6b9e546014",
-            "rowner": {
-              "hostid": {
-                "uuid": "e61c3e6b-9c54-4b81-8ce5-f9039c1d04d9"
-              }
-            }
+                }
+              ]
+            },
+            "rowneruuid": "de305d54-75b4-431b-adb2-eb6b9e546014"
           }
 
     responses:
