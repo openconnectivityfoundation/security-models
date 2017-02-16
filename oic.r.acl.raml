@@ -1,6 +1,6 @@
 #%RAML 0.8
 title: OICSecurityAclResource
-version: v1.0-20150819
+version: v1.1-20161213
 schemas:
   - Acl: !include schemas/oic.r.acl.json
 
@@ -57,63 +57,9 @@ traits:
                         }
                       ]
                     }
-                  ],
-                  "aces2": [
-                    {
-                      "subject": {
-                        "rl": {
-                          "authority": "484b8a51-cb23-46c0-a5f1-b4aebef50ebe",
-                          "roles": [
-                            "SOME_STRING", "SOME_STRING"
-                          ]
-                        }
-                      },
-                      "resources": [
-                        {
-                          "href": "coaps://IP-ADDR/light",
-                          "rel": "some-rel",
-                          "rt": ["oic.r.light"],
-                          "if": ["oic.if.a"]
-                        },
-                        {
-                          "href": "coaps://IP-ADDR/door",
-                          "rel": "some-rel",
-                          "rt": ["oic.r.door"],
-                          "if": ["oic.if.a"]
-                        }
-                      ],
-                      "permission": 24
-                    },
-                    {
-                      "subject": {
-                        "idt": "0",
-                        "id": "e61c3e6b-9c54-4b81-8ce5-f9039c1d04d9"
-                      },
-                      "resources": [
-                        {
-                          "href": "coaps://IP-ADDR/light",
-                          "rel": "some-rel",
-                          "rt": ["oic.r.light"],
-                          "if": ["oic.if.a"]
-                        },
-                        {
-                          "href": "coaps://IP-ADDR/door",
-                          "rel": "some-rel",
-                          "rt": ["oic.r.door"],
-                          "if": ["oic.if.a"]
-                        }
-                      ],
-                      "permission": 24
-                    }
                   ]
                 },
-                "rowneruuid": "de305d54-75b4-431b-adb2-eb6b9e546014",
-                "rowner": {
-                  "hostid": {
-                    "idt": "0",
-                    "id": "e61c3e6b-9c54-4b81-8ce5-f9039c1d04d9"
-                  }
-                }
+                "rowneruuid": "de305d54-75b4-431b-adb2-eb6b9e546014"
               }
       400:
         description: The request is invalid.
@@ -156,63 +102,9 @@ traits:
                     }
                   ]
                 }
-              ],
-              "aces2": [
-                {
-                  "subject": {
-                    "rl": {
-                      "authority": "484b8a51-cb23-46c0-a5f1-b4aebef50ebe",
-                      "roles": [
-                        "SOME_STRING", "SOME_STRING"
-                      ]
-                    }
-                  },
-                  "resources": [
-                    {
-                      "href": "coaps://IP-ADDR/light",
-                      "rel": "some-rel",
-                      "rt": ["oic.r.light"],
-                      "if": ["oic.if.a"]
-                    },
-                    {
-                      "href": "coaps://IP-ADDR/door",
-                      "rel": "some-rel",
-                      "rt": ["oic.r.door"],
-                      "if": ["oic.if.a"]
-                    }
-                  ],
-                  "permission": 24
-                },
-                {
-                  "subject": {
-                    "idt": "0",
-                    "id": "e61c3e6b-9c54-4b81-8ce5-f9039c1d04d9"
-                  },
-                  "resources": [
-                    {
-                      "href": "coaps://IP-ADDR/light",
-                      "rel": "some-rel",
-                      "rt": ["oic.r.light"],
-                      "if": ["oic.if.a"]
-                    },
-                    {
-                      "href": "coaps://IP-ADDR/door",
-                      "rel": "some-rel",
-                      "rt": ["oic.r.door"],
-                      "if": ["oic.if.a"]
-                    }
-                  ],
-                  "permission": 24
-                }
               ]
             },
-            "rowneruuid": "de305d54-75b4-431b-adb2-eb6b9e546014",
-            "rowner": {
-              "hostid": {
-                "idt": "0",
-                "id": "e61c3e6b-9c54-4b81-8ce5-f9039c1d04d9"
-              }
-            }
+            "rowneruuid": "de305d54-75b4-431b-adb2-eb6b9e546014"
           }
 
     responses:
@@ -261,63 +153,9 @@ traits:
                     }
                   ]
                 }
-              ],
-              "aces2": [
-                {
-                  "subject": {
-                    "rl": {
-                      "authority": "484b8a51-cb23-46c0-a5f1-b4aebef50ebe",
-                      "roles": [
-                        "SOME_STRING", "SOME_STRING"
-                      ]
-                    }
-                  },
-                  "resources": [
-                    {
-                      "href": "coaps://IP-ADDR/light",
-                      "rel": "some-rel",
-                      "rt": ["oic.r.light"],
-                      "if": ["oic.if.a"]
-                    },
-                    {
-                      "href": "coaps://IP-ADDR/door",
-                      "rel": "some-rel",
-                      "rt": ["oic.r.door"],
-                      "if": ["oic.if.a"]
-                    }
-                  ],
-                  "permission": 24
-                },
-                {
-                  "subject": {
-                    "idt": "0",
-                    "id": "e61c3e6b-9c54-4b81-8ce5-f9039c1d04d9"
-                  },
-                  "resources": [
-                    {
-                      "href": "coaps://IP-ADDR/light",
-                      "rel": "some-rel",
-                      "rt": ["oic.r.light"],
-                      "if": ["oic.if.a"]
-                    },
-                    {
-                      "href": "coaps://IP-ADDR/door",
-                      "rel": "some-rel",
-                      "rt": ["oic.r.door"],
-                      "if": ["oic.if.a"]
-                    }
-                  ],
-                  "permission": 24
-                }
               ]
             },
-            "rowneruuid": "de305d54-75b4-431b-adb2-eb6b9e546014",
-            "rowner": {
-              "hostid": {
-                "idt": "0",
-                "id": "e61c3e6b-9c54-4b81-8ce5-f9039c1d04d9"
-              }
-            }
+            "rowneruuid": "de305d54-75b4-431b-adb2-eb6b9e546014"
           }
 
     responses:

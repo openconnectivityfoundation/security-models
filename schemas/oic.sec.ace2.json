@@ -1,9 +1,9 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
-  "id": "https://www.openconnectivity.org/ocf-apis/security/schemas/oic.sec.ace.json#",
+  "id": "https://www.openconnectivity.org/ocf-apis/security/schemas/oic.sec.ace2.json#",
   "title": "Subject based Access Control Entry (ACE) object definition",
   "definitions": {
-    "oic.sec.ace": {
+    "oic.sec.ace2": {
       "type": "object",
       "properties": {
         "resources": {
@@ -16,26 +16,29 @@
           "description": "Bitmask encoding of CRUDN permission",
           "$ref": "oic.sec.crudntype.json#/definitions/oic.sec.crudntype/properties/bitmask"
         },
+        "subject": {
+          "description": "The subject to whom this ace applies, either a deviceId, role, or wildcard",
+          "anyOf": [
+            {
+              "$ref": "oic.sec.didtype.json#/definitions/oic.sec.didtype"
+            },
+            {
+              "$ref": "oic.sec.roletype.json#/definitions/oic.sec.roletype"
+            },
+            {
+              "type": "string", "pattern": "^\\*$"
+            }
+          ]
+        },
         "validity": {
           "type": "array",
           "description": "validity is an array of time-pattern objects",
           "items": {
             "$ref": "oic.sec.time-pattern.json#/definitions/time-pattern"
           }
-        },
-        "subjectuuid": {
-          "description": "The id of the device to which the ace applies to or \"*\" for anonymous access",
-          "anyOf": [
-            {
-              "type": "string", "pattern": "^\\*$"
-            },
-            {
-              "$ref": "../../core/schemas/oic.types-schema.json#/definitions/uuid"
-            }
-          ]
         }
       },
-      "required": [ "resources", "permission", "subjectuuid" ]
+      "required": [ "resources", "permission", "subject" ]
     }
   }
 }
