@@ -9,7 +9,17 @@
         "resources": {
           "type": "array",
           "description": "References the application's resources to which a security policy applies",
-          "items": { "$ref": "../../core/schemas/oic.oic-link-schema.json#/definitions/oic.oic-link" }
+          "items": {
+            "href": {
+              "$ref": "oic.oic-link-schema.json#/properties/href"
+            },
+            "rt": {
+              "$ref": "oic.oic-link-schema.json#/properties/rt"
+            },
+            "if": {
+              "$ref": "oic.oic-link-schema.json#/properties/if"
+            }
+          }
         },
         "permission": {
           "type": "integer",
@@ -38,7 +48,7 @@
           }
         }
       },
-      "required": [ "resources", "permission", "subject" ]
+      "required": [ "permission", "subject" ]
     }
   }
 }
