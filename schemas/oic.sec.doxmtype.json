@@ -10,10 +10,10 @@
         "oxm": {
           "type": "integer",
           "description": "Each value indicates a specific Owner Transfer method",
-          "detail-desc": [  "0 - Numeric OTM identifier for the Just-Works method (oic.sec.oxm.jw)",
-                            "1 - Numeric OTM identifier for the random PIN method (oic.sec.oxm.rdp)",
-                            "2 - Numeric OTM identifier for the manufacturer certificate method (oic.sec.oxm.mfgcert)",
-                            "3 - Numeric OTM identifier for the decap method (oic.sec.oxm.dcap) (deprecated)" ]
+          "detail-desc": [  "0 - Numeric OTM identifier for the Just-Works method (oic.sec.doxm.jw)",
+                            "1 - Numeric OTM identifier for the random PIN method (oic.sec.doxm.rdp)",
+                            "2 - Numeric OTM identifier for the manufacturer certificate method (oic.sec.doxm.mfgcert)",
+                            "3 - Numeric OTM identifier for the decap method (oic.sec.doxm.dcap) (deprecated)" ]
         }
       }
     }
