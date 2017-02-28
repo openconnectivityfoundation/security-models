@@ -18,6 +18,15 @@
             },
             "if": {
               "$ref": "oic.oic-link-schema.json#/properties/if"
+            },
+            "rule": {
+              "type": "string",
+              "enum": [ "+", "-", "*" ],
+              "description": "A wildcard matching policy",
+              "detail-desc": [  "+ - Matches all discoverable resources",
+                                "- - Matches all non-discoverable resources",
+                                "* - Matches all resources"
+              ]
             }
           }
         },
