@@ -19,7 +19,10 @@ traits:
 
   get:
     description: |
-      Retrieves the acl data.
+      Retrieves the ACL data.
+      When used without query parameters, all the ACE entries are returned.
+      When used with a subjectuuid or resources query parameter, only the
+      ACEs matching the specified parameter are returned.
     queryParameters:
         subjectuuid:
             type: string
@@ -27,16 +30,14 @@ traits:
               Returns ACEs with the specificed subject UUID
             required: false
             repeat: false
-            example: |
-                GET /myacl?subject="e61c3e6b-9c54-4b81-8ce5-f9039c1d04d9"
+            example: se61c3e6b-9c54-4b81-8ce5-f9039c1d04d9
         resources:
             type: string
             description: |
               Returns ACEs with the specificed resource href
             required: false
             repeat: false
-            example: |
-                GET /myacl?resources="coaps://IP-ADDR/temp"
+            example: coaps://IP-ADDR/temp
     responses:
       200:
         body:
@@ -137,8 +138,9 @@ traits:
   delete:
     description: |
       Deletes ACL entries.
-      When DELETE is used without query parameters, all the acl entries are deleted.
-      When DELETE is used with a subjectuuid query parameter, only the entries matching the subjectuuid are deleted.
+      When DELETE is used without query parameters, all the ACE entries are deleted.
+      When DELETE is used with a subjectuuid or resources query parameter, only the
+      ACEs matching the specified parameter are deleted.
     queryParameters:
         subjectuuid:
             type: string
@@ -146,16 +148,14 @@ traits:
               Deletes the ACL(s) identified by the string containing subjectuuid.
               e.g. DELETE /myacl?subjectuuid="de305d54-75b4-431b-adb2-eb6b9e546014"
             required: false
-            example: |
-                DELETE /myacl?subjectuuid="de305d54-75b4-431b-adb2-eb6b9e546014"
+            example: de305d54-75b4-431b-adb2-eb6b9e546014
         resources:
             type: string
             description: |
-              Returns ACEs with the specificed resource href
+              Deletes ACEs with the specificed resource href
             required: false
             repeat: false
-            example: |
-                GET /myacl?resources="coaps://IP-ADDR/temp"
+            example: coaps://IP-ADDR/temp
 
     responses:
       200:
