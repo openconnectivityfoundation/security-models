@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "id": "https://www.openconnectivity.org/ocf-apis/security/schemas/oic.sec.ace2.json#",
-  "title": "Subject based Access Control Entry (ACE) object definition",
+  "title": "Subject-based Access Control Entry (ACE) object definition",
   "definitions": {
     "oic.sec.ace2": {
       "type": "object",
