@@ -93,6 +93,11 @@ traits:
       Updates the ACL resource with the provided values. ACEs provided
       in the update not currently in the ACL are added. ACEs that already
       exist in the ACL are ignored.
+
+      Note that for the purposes of update, equivalency is determined
+      by comparing the ACE subjectuuid, permission, string comparisons
+      of all validity elements, and string comparisons of all resource
+      hrefs.
     body:
       application/json:
         schema: Acl
