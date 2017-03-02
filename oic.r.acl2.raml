@@ -9,6 +9,29 @@ traits:
       queryParameters:
         if:
           enum: ["oic.if.baseline"]
+  - ace-filtered:
+      usage: Apply this to any method that can filter ACEs
+      description: Some requests only operate on a subset of ACEs
+      queryParameters:
+        aceid:
+            type: integer
+            description: Only applies to the ACE with the specified aceid
+            required: false
+            repeat: false
+            example: 2112
+        subjectuuid:
+            type: string
+            description: Only applies to ACEs with the specified subject UUID
+            required: false
+            repeat: false
+            example: se61c3e6b-9c54-4b81-8ce5-f9039c1d04d9
+        resources:
+            type: string
+            description: Only applies to ACEs with the specificed subhectuuid |
+                         and resources href
+            required: false
+            repeat: false
+            example: coaps://IP-ADDR/temp
 
 /SecAclResURI:
   description: |
@@ -23,21 +46,7 @@ traits:
       When used without query parameters, all the ACE entries are returned.
       When used with an aceid or resources query parameter, only the
       ACEs matching the specified parameter are returned.
-    queryParameters:
-      aceid:
-          type: integer
-          description: |
-            Returns ACE with the specificed aceid
-          required: false
-          repeat: false
-          example: 2112
-      resources:
-          type: string
-          description: |
-            Returns ACEs with the specificed resource href
-          required: false
-          repeat: false
-          example: coaps://IP-ADDR/temp
+    is: [ace-filtered]
     responses:
       200:
         body:
@@ -47,6 +56,7 @@ traits:
               {
                 "aclist": [
                   {
+                    "aceid": 1,
                     "subject": {
                       "authority": "484b8a51-cb23-46c0-a5f1-b4aebef50ebe",
                       "roles": [
@@ -70,6 +80,7 @@ traits:
                     "permission": 24
                   },
                   {
+                    "aceid": 2,
                     "subject": {
                       "uuid": "e61c3e6b-9c54-4b81-8ce5-f9039c1d04d9"
                     },
@@ -146,6 +157,7 @@ traits:
           {
             "aclist": [
               {
+                "aceid": 1,
                 "subject": {
                   "authority": "484b8a51-cb23-46c0-a5f1-b4aebef50ebe",
                   "roles": [
@@ -169,6 +181,7 @@ traits:
                 "permission": 24
               },
               {
+                "aceid": 3,
                 "subject": {
                   "uuid": "e61c3e6b-9c54-4b81-8ce5-f9039c1d04d9"
                 },
@@ -209,25 +222,11 @@ traits:
     description: |
       Deletes ACL entries.
       When DELETE is used without query parameters, all the ACE entries are deleted.
-      When DELETE is used with an aceid or resources query parameter, only the
+      When DELETE is used with an aceid and/or resources query parameter, only the
       ACEs matching the specified parameter are deleted.
-    queryParameters:
-      aceid:
-          type: integer
-          description: |
-            Deletes the ACE with the specificed aceid
-          required: false
-          repeat: false
-          example: 2112
-      resources:
-          type: string
-          description: |
-            Deletes ACEs with the specificed resource href
-          required: false
-          repeat: false
-          example: coaps://IP-ADDR/temp
+    is: [ace-filtered]
     responses:
       200:
-        description: The matching ACL instances or the the entire ACL resource has been successfully deleted.
+        description: The matching ACEs or the entire ACL resource has been successfully deleted.
       400:
         description: The request is invalid.
