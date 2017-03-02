@@ -6,13 +6,6 @@
     "oic.sec.ace2": {
       "type": "object",
       "properties": {
-        "aceid": {
-          "type": "integer",
-          "minimum": 1,
-          "description": "An identifier for the ACE that is unique within the ACL.
-                          In cases where it isn't supplied in an update, the Server
-                          will add the ACE and assign it a unique value.",
-        },
         "resources": {
           "type": "array",
           "description": "References the application's resources to which a security policy applies",
