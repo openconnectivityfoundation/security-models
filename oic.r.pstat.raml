@@ -129,10 +129,13 @@ traits:
             example: |
               DELETE /mypstat?deviceid="de305d54-75b4-431b-adb2-eb6b9e546014"
     responses:
-      200:
-        description: The PSTAT instance or the the entire resource has been successfully deleted.
+      201:
+        description: The PSTAT entry is created.
       400:
-        description: The request is invalid.
+      401:
+      403:
+      422:
+        description: There was an error deleting the resource.
         body:
           application/json:
             schema: Error
