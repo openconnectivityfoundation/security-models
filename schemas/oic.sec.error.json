@@ -1,0 +1,24 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "https://www.openconnectivity.org/ocf-apis/security/schemas/oic.sec.error.json#",
+  "title": "Provides error details for security operations",
+  "definitions": {
+    "oic.sec.error": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "description": "The error code value"
+        },
+        "message": {
+          "type": "string",
+          "description": "String array represents a recurrence rule using the RFC5545 Recurrence",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": [ "period" ]
+    }
+  }
+}
