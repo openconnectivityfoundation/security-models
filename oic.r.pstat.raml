@@ -3,6 +3,7 @@ title: OICSecurityPstatResource
 version: v1.0-20150819
 schemas:
   - Pstat: !include schemas/oic.r.pstat.json
+  - Error: !include schemas/oic.sec.error.json
 
 traits:
   - interface:
@@ -77,6 +78,9 @@ traits:
         description: The PSTAT entry is updated.
       400:
         description: The request is invalid.
+        body:
+          application/json:
+            schema: Error
 
   put:
     description: |
@@ -107,6 +111,9 @@ traits:
         description: The PSTAT entry is created.
       400:
         description: The request is invalid.
+        body:
+          application/json:
+            schema: Error
 
   delete:
     description: |
@@ -126,3 +133,6 @@ traits:
         description: The PSTAT instance or the the entire resource has been successfully deleted.
       400:
         description: The request is invalid.
+        body:
+          application/json:
+            schema: Error
