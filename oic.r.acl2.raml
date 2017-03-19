@@ -9,6 +9,29 @@ traits:
       queryParameters:
         if:
           enum: ["oic.if.baseline"]
+  - ace-filtered:
+      usage: Apply this to any method that can filter ACEs
+      description: Some requests only operate on a subset of ACEs
+      queryParameters:
+        aceid:
+            type: integer
+            description: Only applies to the ACE with the specified aceid
+            required: false
+            repeat: false
+            example: 2112
+        subjectuuid:
+            type: string
+            description: Only applies to ACEs with the specified subject UUID
+            required: false
+            repeat: false
+            example: se61c3e6b-9c54-4b81-8ce5-f9039c1d04d9
+        resources:
+            type: string
+            description: Only applies to ACEs with the specificed subhectuuid |
+                         and resources href
+            required: false
+            repeat: false
+            example: coaps://IP-ADDR/temp
 
 /SecAclResURI:
   description: |
@@ -20,6 +43,10 @@ traits:
   get:
     description: |
       Retrieves the ACL data.
+      When used without query parameters, all the ACE entries are returned.
+      When used with an aceid or resources query parameter, only the
+      ACEs matching the specified parameter are returned.
+    is: [ace-filtered]
     responses:
       200:
         body:
@@ -29,6 +56,7 @@ traits:
               {
                 "aclist": [
                   {
+                    "aceid": 1,
                     "subject": {
                       "authority": "484b8a51-cb23-46c0-a5f1-b4aebef50ebe",
                       "roles": [
@@ -52,6 +80,7 @@ traits:
                     "permission": 24
                   },
                   {
+                    "aceid": 2,
                     "subject": {
                       "uuid": "e61c3e6b-9c54-4b81-8ce5-f9039c1d04d9"
                     },
@@ -112,6 +141,15 @@ traits:
   post:
     description: |
       Updates the ACL resource with the provided values.
+
+      ACEs provided in the update with aceids not currently in the ACL are
+      added.
+
+      ACEs provided in the update with aceids already in the ACL replace
+      existing ACEs in correspondance with the aceids.
+
+      ACEs provided in the update without aceid entries are added and
+      assigned unique aceids.
     body:
       application/json:
         schema: Acl2
@@ -119,6 +157,7 @@ traits:
           {
             "aclist": [
               {
+                "aceid": 1,
                 "subject": {
                   "authority": "484b8a51-cb23-46c0-a5f1-b4aebef50ebe",
                   "roles": [
@@ -142,6 +181,7 @@ traits:
                 "permission": 24
               },
               {
+                "aceid": 3,
                 "subject": {
                   "uuid": "e61c3e6b-9c54-4b81-8ce5-f9039c1d04d9"
                 },
@@ -177,99 +217,16 @@ traits:
       400:
         description: The request is invalid.
 
-  put:
-    description: |
-      Creates the new ACL data
-    body:
-      application/json:
-        schema: Acl2
-        example: |
-          {
-            "aclist": [
-              {
-                "subject": {
-                  "authority": "484b8a51-cb23-46c0-a5f1-b4aebef50ebe",
-                  "roles": [
-                    "SOME_STRING", "SOME_STRING"
-                  ]
-                },
-                "resources": [
-                  {
-                    "href": "coaps://IP-ADDR/light",
-                    "rel": "some-rel",
-                    "rt": ["oic.r.light"],
-                    "if": ["oic.if.a"]
-                  },
-                  {
-                    "href": "coaps://IP-ADDR/door",
-                    "rel": "some-rel",
-                    "rt": ["oic.r.door"],
-                    "if": ["oic.if.a"]
-                  }
-                ],
-                "permission": 24,
-                "validity": [
-                  {
-                    "period":"20160101T180000Z/20170102T070000Z",
-                    "recurrence": [ "DSTART:XXXXX", "RRULE:FREQ=DAILY;UNTIL=20180131T140000Z;BYMONTH=1" ]
-                  },
-                  {
-                    "period":"20160101T180000Z/PT5H30M",
-                    "recurrence": [ "RRULE:FREQ=DAILY;UNTIL=20180131T140000Z;BYMONTH=1" ]
-                  }
-                ]
-              },
-              {
-                "subject": {
-                  "uuid": "e61c3e6b-9c54-4b81-8ce5-f9039c1d04d9"
-                },
-                "resources": [
-                  {
-                    "href": "coaps://IP-ADDR/light",
-                    "rel": "some-rel",
-                    "rt": ["oic.r.light"],
-                    "if": ["oic.if.a"]
-                  },
-                  {
-                    "href": "coaps://IP-ADDR/door",
-                    "rel": "some-rel",
-                    "rt": ["oic.r.door"],
-                    "if": ["oic.if.a"]
-                  }
-                ],
-                "permission": 24
-              }
-            ],
-            "rowner": {
-              "hostid": {
-                "uuid": "e61c3e6b-9c54-4b81-8ce5-f9039c1d04d9"
-              }
-            }
-          }
-
-    responses:
-      201:
-        description: The ACL entry is created.
-      400:
-        description: The request is invalid.
-
   delete:
+
     description: |
       Deletes ACL entries.
-      When DELETE is used without query parameters, all the acl entries are deleted.
-      When DELETE is used with a subjectuuid query parameter, only the entries matching the subjectuuid are deleted.
-    queryParameters:
-        subjectuuid:
-            type: string
-            description: |
-              Deletes the ACL(s) identified by the string containing subjectuuid.
-              e.g. DELETE /myacl?subjectuuid="de305d54-75b4-431b-adb2-eb6b9e546014"
-            required: false
-            example: |
-                DELETE /myacl?subjectuuid="de305d54-75b4-431b-adb2-eb6b9e546014"
-
+      When DELETE is used without query parameters, all the ACE entries are deleted.
+      When DELETE is used with an aceid and/or resources query parameter, only the
+      ACEs matching the specified parameter are deleted.
+    is: [ace-filtered]
     responses:
       200:
-        description: The matching ACL instances or the the entire ACL resource has been successfully deleted.
+        description: The matching ACEs or the entire ACL resource has been successfully deleted.
       400:
         description: The request is invalid.
