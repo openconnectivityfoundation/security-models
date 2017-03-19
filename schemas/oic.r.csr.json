@@ -1,0 +1,29 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "https://www.openconnectivity.org/ocf-apis/security/schemas/oic.r.csr.json#",
+  "title": "Certificate Signing Request information",
+  "definitions": {
+    "oic.r.csr": {
+      "type": "object",
+      "properties": {
+        "csr":  {
+          "type": "string",
+          "description": "Signed CSR in ASN.1 in the encoding specified by the encoding property"
+        },
+        "encoding": {
+          "type": "string",
+          "enum": [ "oic.sec.encoding.pem", "oic.sec.encoding.der" ],
+          "description": "A string specifying the encoding format of the data contained in csr",
+          "detail-desc": [  "oic.sec.encoding.pem - Encoding for PEM encoded CSR",
+                            "oic.sec.encoding.der - Encoding for DER encoded CSR" ]
+        }
+      }
+    }
+  },
+  "type": "object",
+  "allOf": [
+    { "$ref": "../../core/schemas/oic.core-schema.json#/definitions/oic.core" },
+    { "$ref": "#/definitions/oic.r.csr" }
+  ],
+  "required": ["csr","encoding"]
+}

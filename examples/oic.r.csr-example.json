@@ -1,0 +1,5 @@
+{
+  "rt": ["oic.r.csr"],
+  "encoding" : "oic.sec.encoding.pem"
+  "csr": "PEMENCODEDCSR"
+}
