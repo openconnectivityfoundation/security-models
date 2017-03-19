@@ -49,7 +49,14 @@
               "$ref": "oic.sec.roletype.json#/definitions/oic.sec.roletype"
             },
             {
-              "type": "string", "pattern": "^\\*$"
+              "conntype": {
+                "type": "string",
+                "enum": [ "auth-crypt", "anon-clear" ],
+                "description": "This property allows an ACE to be matched based on the connection or message type",
+                "detail-desc": [  "auth-crypt - ACE applies if the Client is authenticated and the data channel or message is encrypted and integrity protected",
+                                  "anon-clear - ACE applies if the Client is not authenticated and the data channel or message is not encrypted but may be integrity protected"
+                ]
+              }
             }
           ]
         },
