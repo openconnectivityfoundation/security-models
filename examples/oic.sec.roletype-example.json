@@ -1,8 +1,6 @@
 {
   "rl": {
     "authority": "484b8a51-cb23-46c0-a5f1-b4aebef50ebe",
-    "roles": [
-      "SOME_STRING", "SOME_STRING"
-    ]
+    "role": "SOME_STRING"
   }
 }
