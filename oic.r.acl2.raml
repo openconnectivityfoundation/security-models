@@ -89,7 +89,7 @@ traits:
                     "permission": 24
                     },
                     {
-                      "subject": "*",
+                      "subject": {"conntype": "anon-clear"},
                       "resources": [
                         {
                           "href": "coaps://IP-ADDR/light",
@@ -131,7 +131,7 @@ traits:
       resource are added.
 
       ACEs provided in the update with aceid(s) already in the ACL completely
-      replace completely replace the ACE(s) in the ACL resource.
+      replace the ACE(s) in the ACL resource.
 
       ACEs provided in the update without aceid properties are added and
       assigned unique aceids in the ACL resource.
