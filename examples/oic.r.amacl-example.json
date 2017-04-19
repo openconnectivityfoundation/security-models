@@ -12,7 +12,5 @@
       "rt": "oic.r.temperature",
       "if": "oic.if.s"
     }
-  ],
-  "amsuuid": "6546b318-4bfa-4045-97f6-9cf8a0854dd5",
-  "rowneruuid": "6546b318-4bfa-4045-97f6-9cf8a0854dd5"
+  ]
 }

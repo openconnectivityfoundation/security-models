@@ -29,35 +29,7 @@
           }
         ]
       }
-    ],
-    "aces2": [
-      {
-        "subject": {
-          "rl": {
-            "authority": "484b8a51-cb23-46c0-a5f1-b4aebef50ebe",
-            "roles": [
-              "SOME_STRING", "SOME_STRING"
-            ]
-          }
-        },
-        "resources": [
-          {
-            "href": "coaps://IP-ADDR/light",
-            "rel": "some-rel",
-            "rt": "oic.r.light",
-            "if": "oic.if.a"
-          },
-          {
-            "href": "coaps://IP-ADDR/door",
-            "rel": "some-rel",
-            "rt": "oic.r.door",
-            "if": "oic.if.a"
-          }
-        ],
-        "permission": 15
-      }
     ]
-
   },
   "signature": {
     "sigtype": "oic.sec.sigtype.pk7",
