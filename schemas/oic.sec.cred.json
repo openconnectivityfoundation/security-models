@@ -57,7 +57,7 @@
           }
         }
       },
-      "required": [ "credid", "subjectuuid", "credtype" ]
+      "required": [ "subjectuuid", "credtype" ]
     }
   }
 }
