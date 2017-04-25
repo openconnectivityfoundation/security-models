@@ -4,13 +4,5 @@
   "tm": 60,
   "om": 2,
   "sm": 7,
-  "deviceuuid": "de305d54-75b4-431b-adb2-eb6b9e546014",
-  "deviceid": {
-    "idt": "0",
-    "id": "de305d54-75b4-431b-adb2-eb6b9e546014"
-  },
-  "rowneruuid": "de305d54-75b4-431b-adb2-eb6b9e546014",
-  "rowner": {
-    "sl": ["oic.sec.svc.bss", "oic.sec.svc.doxs"]
-  }
+  "rowneruuid": "de305d54-75b4-431b-adb2-eb6b9e546014"
 }

@@ -13,11 +13,6 @@
         "subjectuuid": {
           "$ref": "../../core/schemas/oic.types-schema.json#/definitions/uuid"
         },
-        "subject": {
-          "type": "object",
-          "description": "The subject (principal) to which this credential belongs",
-          "$ref": "oic.sec.didtype.json#/definitions/oic.sec.didtype"
-        },
         "roleid": {
           "type": "object",
           "description": "The roles this credential possesses",

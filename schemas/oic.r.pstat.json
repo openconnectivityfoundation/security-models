@@ -32,32 +32,9 @@
           "description": "Supported operational modes",
           "$ref": "oic.sec.pomtype.json#/definitions/oic.sec.pomtype/properties/bitmask"
         },
-        "deviceuuid": {
-          "description": "Identity of the device",
-          "$ref": "../../core/schemas/oic.types-schema.json#/definitions/uuid"
-        },
-        "deviceid":   {
-          "type": "object",
-          "description": "The device to which the status applies. NULL refers to this device.",
-          "$ref": "oic.sec.didtype.json#/definitions/oic.sec.didtype"
-        },
         "rowneruuid": {
           "description": "The UUID formatted identity of the Resource owner",
           "$ref": "../../core/schemas/oic.types-schema.json#/definitions/uuid"
-        },
-        "rowner": {
-          "description": "The Resource Owner in terms of either a service or host",
-          "anyOf": [
-            {
-              "type": "object",
-              "description": "Entries in /oic/sec/svc resource that own this resource",
-              "$ref": "oic.sec.svctype.json#/definitions/oic.sec.svctype"
-            },
-            {
-              "type": "object",
-              "$ref": "oic.sec.didtype.json#/definitions/oic.sec.host"
-            }
-          ]
         }
       }
     }
@@ -67,5 +44,5 @@
     { "$ref": "../../core/schemas/oic.core-schema.json#/definitions/oic.core" },
     { "$ref": "#/definitions/oic.r.pstat" }
   ],
-  "required": [ "dos", "isop", "cm", "om", "sm", "deviceuuid", "rowneruuid" ]
+  "required": [ "dos", "isop", "cm", "om", "sm", "rowneruuid" ]
 }
