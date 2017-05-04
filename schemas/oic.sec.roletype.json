@@ -1,25 +1,22 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "id": "https://www.openconnectivity.org/ocf-apis/security/schemas/oic.sec.roletype.json#",
-  "title": "Security Roles Types",
+  "title": "Security Role Types",
   "definitions": {
     "oic.sec.roletype": {
       "type": "object",
-      "description": "Security roles specified as an <Authority> & <Rolename>. A NULL <Authority> refers to the local entity or device.",
+      "description": "Security role specified as an <Authority> & <Rolename>. A NULL <Authority> refers to the local entity or device.",
       "properties": {
         "authority": {
           "type": "string",
           "description": "The Authority component of the entity being identified. A NULL <Authority> refers to the local entity or device."
         },
-        "roles": {
-          "type": "array",
-          "description": "Each value specifies some well known role",
-          "items": {
-            "type": "string"
-          }
+        "role": {
+            "type": "string",
+            "description": "The ID of the role being identified."
         }
       },
-      "required": ["authority","roles"]
+      "required": ["role"]
     }
   }
 }

@@ -29,38 +29,38 @@ traits:
               {
                 "roles" :[ #array of oic.sec.cred objects
                     {
-                      "credid":"1",
-                      "credtype":"8",  # Cred type 8 is SIGNED_ASYMMETRIC_KEY
+                      "credid":1,
+                      "credtype":8,  # Cred type 8 is SIGNED_ASYMMETRIC_KEY
                       "subjectuuid":"00000000-0000-0000-0000-000000000000",
                       "pbData":       # Role cert, type oic.sec.pubdatatype
                         {
                            "encoding":"oic.sec.encoding.pem",
-                           "data":"PEMENCODEDROLECERT" 
-                        }, 
+                           "data":"PEMENCODEDROLECERT"
+                        },
                       "optData":        # Optional issuer certificate, type oic.sec.pubdatatype
                         {
                            "encoding":"oic.sec.encoding.pem",
-                           "data":"PEMENCODEDISSUERCERT" 
-                        } 
+                           "data":"PEMENCODEDISSUERCERT"
+                        }
                     },
                     {
-                      "credid":"2",
-                      "credtype":"8",  # Cred type 8 is SIGNED_ASYMMETRIC_KEY
+                      "credid":2,
+                      "credtype":8,  # Cred type 8 is SIGNED_ASYMMETRIC_KEY
                       "subjectuuid":"00000000-0000-0000-0000-000000000000",
                       "pbData":         # Role cert, type oic.sec.pubdatatype
                         {
                            "encoding":"oic.sec.encoding.pem",
-                           "data":"PEMENCODEDROLECERT" 
-                        }, 
+                           "data":"PEMENCODEDROLECERT"
+                        },
                       "optData":        # Optional issuer certificate, type oic.sec.pubdatatype
                         {
                            "encoding":"oic.sec.encoding.pem",
-                           "data":"PEMENCODEDISSUERCERT" 
+                           "data":"PEMENCODEDISSUERCERT"
                         }
                     }
-                ], 
-                "rt":["oic.sec.cred"], 
-                "if":"oic.if.baseline"
+                ],
+                "rt":["oic.sec.cred"],
+                "if":["oic.if.baseline"]
                  }
               }
       400:
@@ -72,7 +72,7 @@ traits:
 
       New role certificates that match an existing certificate (i.e., pbData
       and optData are the same) are not added to the resource (and 204 is
-      returned). 
+      returned).
 
       The provided credid values are ignored, the resource assigns its own.
 
@@ -83,38 +83,38 @@ traits:
           {
             "roles" :[ #array of oic.sec.cred objects
                 {
-                  "credid":"1",    # Optional
-                  "credtype":"8",  # Cred type 8 is SIGNED_ASYMMETRIC_KEY
+                  "credid":1,    # Optional
+                  "credtype":8,  # Cred type 8 is SIGNED_ASYMMETRIC_KEY
                   "subjectuuid":"00000000-0000-0000-0000-000000000000",
                   "pbData":       # Role cert, type oic.sec.pubdatatype
                     {
                        "encoding":"oic.sec.encoding.pem",
-                       "data":"PEMENCODEDROLECERT" 
-                    }, 
+                       "data":"PEMENCODEDROLECERT"
+                    },
                   "optData":        # Optional issuer certificate, type oic.sec.pubdatatype
                     {
                        "encoding":"oic.sec.encoding.pem",
-                       "data":"PEMENCODEDISSUERCERT" 
-                    } 
+                       "data":"PEMENCODEDISSUERCERT"
+                    }
                 },
                 {
-                  "credid":"2",    #Optional
-                  "credtype":"8",  # Cred type 8 is SIGNED_ASYMMETRIC_KEY
+                  "credid":2,    #Optional
+                  "credtype":8,  # Cred type 8 is SIGNED_ASYMMETRIC_KEY
                   "subjectuuid":"00000000-0000-0000-0000-000000000000",
                   "pbData":         # Role cert, type oic.sec.pubdatatype
                     {
                        "encoding":"oic.sec.encoding.pem",
-                       "data":"PEMENCODEDROLECERT" 
-                    }, 
+                       "data":"PEMENCODEDROLECERT"
+                    },
                   "optData":        # Optional issuer certificate, type oic.sec.pubdatatype
                     {
                        "encoding":"oic.sec.encoding.pem",
-                       "data":"PEMENCODEDISSUERCERT" 
+                       "data":"PEMENCODEDISSUERCERT"
                     }
                 }
-            ], 
-            "rt":["oic.sec.cred"], 
-            "if":"oic.if.baseline"
+            ],
+            "rt":["oic.sec.cred"],
+            "if":["oic.if.baseline"]
             }
 
     responses:

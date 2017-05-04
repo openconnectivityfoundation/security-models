@@ -15,7 +15,7 @@
         },
         "roleid": {
           "type": "object",
-          "description": "The roles this credential possesses",
+          "description": "The role this credential possesses",
           "$ref": "oic.sec.roletype.json#/definitions/oic.sec.roletype"
         },
         "credtype": {

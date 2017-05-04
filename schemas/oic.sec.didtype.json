@@ -4,8 +4,6 @@
   "title": "Device Identifier Format type",
   "definitions": {
     "oic.sec.didtype": {
-      "oneOf": [
-        {
           "type": "object",
           "description": "Device identifier",
           "properties": {
@@ -16,18 +14,5 @@
           },
           "required": ["uuid"]
         }
-      ]
-    },
-    "oic.sec.host": {
-      "type": "object",
-      "description": "Identifier format used to denote resource owners",
-      "properties": {
-        "hostid": {
-          "type": "object",
-          "$ref": "#/definitions/oic.sec.didtype"
-        }
-      },
-      "required": ["hostid"]
     }
-  }
 }
