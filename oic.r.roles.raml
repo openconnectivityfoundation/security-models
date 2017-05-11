@@ -32,12 +32,12 @@ traits:
                       "credid":"1",
                       "credtype":"8",
                       "subjectuuid":"00000000-0000-0000-0000-000000000000",
-                      "pbData":
+                      "publicdata":
                         {
                            "encoding":"oic.sec.encoding.pem",
                            "data":"PEMENCODEDROLECERT" 
                         }, 
-                      "optData":
+                      "optionaldata":
                         {
                            "encoding":"oic.sec.encoding.pem",
                            "data":"PEMENCODEDISSUERCERT" 
@@ -47,12 +47,12 @@ traits:
                       "credid":"2",
                       "credtype":"8",
                       "subjectuuid":"00000000-0000-0000-0000-000000000000",
-                      "pbData":
+                      "publicdata":
                         {
                            "encoding":"oic.sec.encoding.pem",
                            "data":"PEMENCODEDROLECERT" 
                         }, 
-                      "optData":
+                      "optionaldata":
                         {
                            "encoding":"oic.sec.encoding.pem",
                            "data":"PEMENCODEDISSUERCERT" 
@@ -69,8 +69,8 @@ traits:
     description: |
       Update the roles resource, i.e., assert new roles to this server.
 
-      New role certificates that match an existing certificate (i.e., pbData
-      and optData are the same) are not added to the resource (and 204 is
+      New role certificates that match an existing certificate (i.e., publicdata
+      and optionaldata are the same) are not added to the resource (and 204 is
       returned). 
 
       The provided credid values are ignored, the resource assigns its own.
@@ -85,12 +85,12 @@ traits:
                   "credid":"1",
                   "credtype":"8",
                   "subjectuuid":"00000000-0000-0000-0000-000000000000",
-                  "pbData":
+                  "publicdata":
                     {
                        "encoding":"oic.sec.encoding.pem",
                        "data":"PEMENCODEDROLECERT" 
                     }, 
-                  "optData":
+                  "optionaldata":
                     {
                        "encoding":"oic.sec.encoding.pem",
                        "data":"PEMENCODEDISSUERCERT" 
@@ -100,12 +100,12 @@ traits:
                   "credid":"2",
                   "credtype":"8",
                   "subjectuuid":"00000000-0000-0000-0000-000000000000",
-                  "pbData":
+                  "publicdata":
                     {
                        "encoding":"oic.sec.encoding.pem",
                        "data":"PEMENCODEDROLECERT" 
                     }, 
-                  "optData":
+                  "optionaldata":
                     {
                        "encoding":"oic.sec.encoding.pem",
                        "data":"PEMENCODEDISSUERCERT" 
