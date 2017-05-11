@@ -2,7 +2,7 @@
 title: OICSecurityRolesResource
 version: v1.0-20170323
 schemas:
-  - Cred: !include schemas/oic.r.cred.json
+  - Roles: !include schemas/oic.r.roles.json
 
 traits:
   - interface:
@@ -27,17 +27,17 @@ traits:
             schema: Roles
             example: |
               {
-                "roles" :[ #array of oic.sec.cred objects
+                "roles" :[
                     {
                       "credid":"1",
-                      "credtype":"8",  # Cred type 8 is SIGNED_ASYMMETRIC_KEY
+                      "credtype":"8",
                       "subjectuuid":"00000000-0000-0000-0000-000000000000",
-                      "pbData":       # Role cert, type oic.sec.pubdatatype
+                      "pbData":
                         {
                            "encoding":"oic.sec.encoding.pem",
                            "data":"PEMENCODEDROLECERT" 
                         }, 
-                      "optData":        # Optional issuer certificate, type oic.sec.pubdatatype
+                      "optData":
                         {
                            "encoding":"oic.sec.encoding.pem",
                            "data":"PEMENCODEDISSUERCERT" 
@@ -45,14 +45,14 @@ traits:
                     },
                     {
                       "credid":"2",
-                      "credtype":"8",  # Cred type 8 is SIGNED_ASYMMETRIC_KEY
+                      "credtype":"8",
                       "subjectuuid":"00000000-0000-0000-0000-000000000000",
-                      "pbData":         # Role cert, type oic.sec.pubdatatype
+                      "pbData":
                         {
                            "encoding":"oic.sec.encoding.pem",
                            "data":"PEMENCODEDROLECERT" 
                         }, 
-                      "optData":        # Optional issuer certificate, type oic.sec.pubdatatype
+                      "optData":
                         {
                            "encoding":"oic.sec.encoding.pem",
                            "data":"PEMENCODEDISSUERCERT" 
@@ -61,7 +61,6 @@ traits:
                 ], 
                 "rt":["oic.sec.cred"], 
                 "if":"oic.if.baseline"
-                 }
               }
       400:
         description: The request is invalid.
@@ -81,32 +80,32 @@ traits:
         schema: Roles
         example: |
           {
-            "roles" :[ #array of oic.sec.cred objects
+            "roles" :[
                 {
-                  "credid":"1",    # Optional
-                  "credtype":"8",  # Cred type 8 is SIGNED_ASYMMETRIC_KEY
+                  "credid":"1",
+                  "credtype":"8",
                   "subjectuuid":"00000000-0000-0000-0000-000000000000",
-                  "pbData":       # Role cert, type oic.sec.pubdatatype
+                  "pbData":
                     {
                        "encoding":"oic.sec.encoding.pem",
                        "data":"PEMENCODEDROLECERT" 
                     }, 
-                  "optData":        # Optional issuer certificate, type oic.sec.pubdatatype
+                  "optData":
                     {
                        "encoding":"oic.sec.encoding.pem",
                        "data":"PEMENCODEDISSUERCERT" 
                     } 
                 },
                 {
-                  "credid":"2",    #Optional
-                  "credtype":"8",  # Cred type 8 is SIGNED_ASYMMETRIC_KEY
+                  "credid":"2",
+                  "credtype":"8",
                   "subjectuuid":"00000000-0000-0000-0000-000000000000",
-                  "pbData":         # Role cert, type oic.sec.pubdatatype
+                  "pbData":
                     {
                        "encoding":"oic.sec.encoding.pem",
                        "data":"PEMENCODEDROLECERT" 
                     }, 
-                  "optData":        # Optional issuer certificate, type oic.sec.pubdatatype
+                  "optData":
                     {
                        "encoding":"oic.sec.encoding.pem",
                        "data":"PEMENCODEDISSUERCERT" 
