@@ -2,7 +2,7 @@
 title: OICSecurityRolesResource
 version: v1.0-20170323
 schemas:
-  - Cred: !include schemas/oic.r.cred.json
+  - Roles: !include schemas/oic.r.roles.json
 
 traits:
   - interface:
@@ -27,17 +27,17 @@ traits:
             schema: Roles
             example: |
               {
-                "roles" :[ #array of oic.sec.cred objects
+                "roles" :[
                     {
                       "credid":1,
                       "credtype":8,  # Cred type 8 is SIGNED_ASYMMETRIC_KEY
                       "subjectuuid":"00000000-0000-0000-0000-000000000000",
-                      "pbData":       # Role cert, type oic.sec.pubdatatype
+                      "publicdata":
                         {
                            "encoding":"oic.sec.encoding.pem",
                            "data":"PEMENCODEDROLECERT"
                         },
-                      "optData":        # Optional issuer certificate, type oic.sec.pubdatatype
+                      "optionalData":        # Optional issuer certificate, type oic.sec.pubdatatype
                         {
                            "encoding":"oic.sec.encoding.pem",
                            "data":"PEMENCODEDISSUERCERT"
@@ -47,21 +47,20 @@ traits:
                       "credid":2,
                       "credtype":8,  # Cred type 8 is SIGNED_ASYMMETRIC_KEY
                       "subjectuuid":"00000000-0000-0000-0000-000000000000",
-                      "pbData":         # Role cert, type oic.sec.pubdatatype
+                      "publicdata":
                         {
                            "encoding":"oic.sec.encoding.pem",
-                           "data":"PEMENCODEDROLECERT"
-                        },
-                      "optData":        # Optional issuer certificate, type oic.sec.pubdatatype
+                           "data":"PEMENCODEDROLECERT" 
+                        }, 
+                      "optionaldata":
                         {
                            "encoding":"oic.sec.encoding.pem",
                            "data":"PEMENCODEDISSUERCERT"
                         }
                     }
-                ],
-                "rt":["oic.sec.cred"],
+                ], 
+                "rt":["oic.r.roles"], 
                 "if":["oic.if.baseline"]
-                 }
               }
       400:
         description: The request is invalid.
@@ -70,9 +69,9 @@ traits:
     description: |
       Update the roles resource, i.e., assert new roles to this server.
 
-      New role certificates that match an existing certificate (i.e., pbData
-      and optData are the same) are not added to the resource (and 204 is
-      returned).
+      New role certificates that match an existing certificate (i.e., publicdata
+      and optionaldata are the same) are not added to the resource (and 204 is
+      returned). 
 
       The provided credid values are ignored, the resource assigns its own.
 
@@ -81,17 +80,17 @@ traits:
         schema: Roles
         example: |
           {
-            "roles" :[ #array of oic.sec.cred objects
+            "roles" :[
                 {
                   "credid":1,    # Optional
                   "credtype":8,  # Cred type 8 is SIGNED_ASYMMETRIC_KEY
                   "subjectuuid":"00000000-0000-0000-0000-000000000000",
-                  "pbData":       # Role cert, type oic.sec.pubdatatype
+                  "publicdata":
                     {
                        "encoding":"oic.sec.encoding.pem",
-                       "data":"PEMENCODEDROLECERT"
-                    },
-                  "optData":        # Optional issuer certificate, type oic.sec.pubdatatype
+                       "data":"PEMENCODEDROLECERT" 
+                    }, 
+                  "optionaldata":
                     {
                        "encoding":"oic.sec.encoding.pem",
                        "data":"PEMENCODEDISSUERCERT"
@@ -101,19 +100,19 @@ traits:
                   "credid":2,    #Optional
                   "credtype":8,  # Cred type 8 is SIGNED_ASYMMETRIC_KEY
                   "subjectuuid":"00000000-0000-0000-0000-000000000000",
-                  "pbData":         # Role cert, type oic.sec.pubdatatype
+                  "publicdata":
                     {
                        "encoding":"oic.sec.encoding.pem",
-                       "data":"PEMENCODEDROLECERT"
-                    },
-                  "optData":        # Optional issuer certificate, type oic.sec.pubdatatype
+                       "data":"PEMENCODEDROLECERT" 
+                    }, 
+                  "optionaldata":
                     {
                        "encoding":"oic.sec.encoding.pem",
                        "data":"PEMENCODEDISSUERCERT"
                     }
                 }
-            ],
-            "rt":["oic.sec.cred"],
+            ], 
+            "rt":["oic.r.roles"], 
             "if":["oic.if.baseline"]
             }
 
