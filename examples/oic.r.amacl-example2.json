@@ -1,16 +1,14 @@
 {
   "resources": [
     {
-      "href": "coaps://IP-ADDR/temp",
-      "rel": "some-rel",
-      "rt": "oic.r.temperature",
-      "if": "oic.if.a"
+      "href": "/temp",
+      "rt": ["oic.r.temperature"],
+      "if": ["oic.if.baseline", "oic.if.a"],
     },
     {
-      "href": "coaps://IP-ADDR/temp",
-      "rel": "some-rel",
-      "rt": "oic.r.temperature",
-      "if": "oic.if.s"
+      "href": "/temp",
+      "rt": ["oic.r.temperature"],
+      "if": ["oic.if.baseline", "oic.if.s"],
     }
   ]
 }

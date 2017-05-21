@@ -9,14 +9,13 @@
         "resources": {
           "type": "array",
           "description": "Multiple links to this host's resources",
-          "items": { "$ref": "../../core/schemas/oic.oic-link-schema.json#/definitions/oic.oic-link" }
+          "items": { "$ref": "oic.sec.ace2.json#/properties/resources" }
         }
       }
     }
   },
   "type": "object",
   "allOf": [
-    { "$ref": "../../core/schemas/oic.core-schema.json#/definitions/oic.core" },
     { "$ref": "#/definitions/oic.r.amacl" }
   ],
   "required": [ "resources" ]

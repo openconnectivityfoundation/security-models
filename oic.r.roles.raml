@@ -29,23 +29,23 @@ traits:
               {
                 "roles" :[
                     {
-                      "credid":"1",
-                      "credtype":"8",
+                      "credid":1,
+                      "credtype":8,  # Cred type 8 is SIGNED_ASYMMETRIC_KEY
                       "subjectuuid":"00000000-0000-0000-0000-000000000000",
                       "publicdata":
                         {
                            "encoding":"oic.sec.encoding.pem",
-                           "data":"PEMENCODEDROLECERT" 
-                        }, 
-                      "optionaldata":
+                           "data":"PEMENCODEDROLECERT"
+                        },
+                      "optionalData":        # Optional issuer certificate, type oic.sec.pubdatatype
                         {
                            "encoding":"oic.sec.encoding.pem",
-                           "data":"PEMENCODEDISSUERCERT" 
-                        } 
+                           "data":"PEMENCODEDISSUERCERT"
+                        }
                     },
                     {
-                      "credid":"2",
-                      "credtype":"8",
+                      "credid":2,
+                      "credtype":8,  # Cred type 8 is SIGNED_ASYMMETRIC_KEY
                       "subjectuuid":"00000000-0000-0000-0000-000000000000",
                       "publicdata":
                         {
@@ -55,7 +55,7 @@ traits:
                       "optionaldata":
                         {
                            "encoding":"oic.sec.encoding.pem",
-                           "data":"PEMENCODEDISSUERCERT" 
+                           "data":"PEMENCODEDISSUERCERT"
                         }
                     }
                 ], 
@@ -82,8 +82,8 @@ traits:
           {
             "roles" :[
                 {
-                  "credid":"1",
-                  "credtype":"8",
+                  "credid":1,    # Optional
+                  "credtype":8,  # Cred type 8 is SIGNED_ASYMMETRIC_KEY
                   "subjectuuid":"00000000-0000-0000-0000-000000000000",
                   "publicdata":
                     {
@@ -93,12 +93,12 @@ traits:
                   "optionaldata":
                     {
                        "encoding":"oic.sec.encoding.pem",
-                       "data":"PEMENCODEDISSUERCERT" 
-                    } 
+                       "data":"PEMENCODEDISSUERCERT"
+                    }
                 },
                 {
-                  "credid":"2",
-                  "credtype":"8",
+                  "credid":2,    #Optional
+                  "credtype":8,  # Cred type 8 is SIGNED_ASYMMETRIC_KEY
                   "subjectuuid":"00000000-0000-0000-0000-000000000000",
                   "publicdata":
                     {
@@ -108,7 +108,7 @@ traits:
                   "optionaldata":
                     {
                        "encoding":"oic.sec.encoding.pem",
-                       "data":"PEMENCODEDISSUERCERT" 
+                       "data":"PEMENCODEDISSUERCERT"
                     }
                 }
             ], 

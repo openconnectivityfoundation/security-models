@@ -17,27 +17,30 @@
           "type": "array",
           "description": "References the application's resources to which a security policy applies",
           "items": {
+            "type": "object",
             "description": "Each resource must have at least one of these properties set",
-            "href": {
-              "description": "When present, the ACE only applies when the href matches",
-              "$ref": "oic.oic-link-schema.json#/properties/href"
-            },
-            "rt": {
-              "description": "When present, the ACE only applies when the rt (resource type) matches",
-              "$ref": "oic.oic-link-schema.json#/properties/rt"
-            },
-            "if": {
-              "description": "When present, the ACE only applies when the if (interface) matches",
-              "$ref": "oic.oic-link-schema.json#/properties/if"
-            },
-            "wc": {
-              "type": "string",
-              "enum": [ "+", "-", "*" ],
-              "description": "A wildcard matching policy",
-              "detail-desc": [  "+ - Matches all discoverable resources",
-                                "- - Matches all non-discoverable resources",
-                                "* - Matches all resources"
-              ]
+            "properties": {
+              "href": {
+                "description": "When present, the ACE only applies when the href matches",
+                "$ref": "oic.oic-link-schema.json#/definitions/oic.oic-link/properties/href"
+              },
+              "rt": {
+                "description": "When present, the ACE only applies when the rt (resource type) matches",
+                "$ref": "oic.oic-link-schema.json#/definitions/oic.oic-link/properties/rt"
+              },
+              "if": {
+                "description": "When present, the ACE only applies when the if (interface) matches",
+                "$ref": "oic.oic-link-schema.json#/definitions/oic.oic-link/properties/if"
+              },
+              "wc": {
+                "type": "string",
+                "enum": [ "+", "-", "*" ],
+                "description": "A wildcard matching policy",
+                "detail-desc": [  "+ - Matches all discoverable resources",
+                                  "- - Matches all non-discoverable resources",
+                                  "* - Matches all resources"
+                ]
+              }
             }
           }
         },
@@ -56,14 +59,18 @@
               "$ref": "oic.sec.roletype.json#/definitions/oic.sec.roletype"
             },
             {
-              "conntype": {
-                "type": "string",
-                "enum": [ "auth-crypt", "anon-clear" ],
-                "description": "This property allows an ACE to be matched based on the connection or message type",
-                "detail-desc": [  "auth-crypt - ACE applies if the Client is authenticated and the data channel or message is encrypted and integrity protected",
-                                  "anon-clear - ACE applies if the Client is not authenticated and the data channel or message is not encrypted but may be integrity protected"
-                ]
-              }
+              "type": "object",
+              "properties": {
+                "conntype": {
+                  "type": "string",
+                  "enum": [ "auth-crypt", "anon-clear" ],
+                  "description": "This property allows an ACE to be matched based on the connection or message type",
+                  "detail-desc": [  "auth-crypt - ACE applies if the Client is authenticated and the data channel or message is encrypted and integrity protected",
+                                    "anon-clear - ACE applies if the Client is not authenticated and the data channel or message is not encrypted but may be integrity protected"
+                  ]
+                }
+              },
+              "required": ["conntype"]
             }
           ]
         },

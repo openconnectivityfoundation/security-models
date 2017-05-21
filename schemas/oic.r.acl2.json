@@ -6,7 +6,7 @@
     "oic.r.acl2": {
       "type": "object",
       "properties": {
-        "aces": {
+        "aclist2": {
           "type": "array",
           "description": "Access Control Entries in the ACL resource",
           "items": {
@@ -25,5 +25,5 @@
     { "$ref": "../../core/schemas/oic.core-schema.json#/definitions/oic.core" },
     { "$ref": "#/definitions/oic.r.acl2" }
   ],
-  "required": [ "aclist", "rowneruuid" ]
+  "required": [ "aclist2", "rowneruuid" ]
 }

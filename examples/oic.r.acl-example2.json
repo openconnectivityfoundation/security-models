@@ -7,14 +7,14 @@
           {
             "href": "coaps://IP-ADDR/temp",
             "rel": "some-rel",
-            "rt": "oic.r.temperature",
-            "if": "oic.if.a"
+            "rt": ["oic.r.temperature"],
+            "if": ["oic.if.baseline", "oic.if.a"]
           },
           {
             "href": "coaps://IP-ADDR/temp",
             "rel": "some-rel",
-            "rt": "oic.r.temperature",
-            "if": "oic.if.s"
+            "rt": ["oic.r.temperature"],
+            "if": ["oic.if.baseline", "oic.if.s"]
           }
         ],
         "permission": 31,
