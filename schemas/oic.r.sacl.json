@@ -9,7 +9,9 @@
         "aclist2":  {
           "type": "array",
           "description": "Access Control Entries in the Acl resource",
-          "$ref": "oic.sec.ace2.json#/definitions/oic.sec.ace2"
+          "items":{
+            "$ref": "oic.sec.ace2.json#/definitions/oic.sec.ace2"
+          }
         },
         "signature":   {
           "type": "object",
