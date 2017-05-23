@@ -13,7 +13,7 @@
         },
         "role": {
           "type": "string",
-          "description": "The ID of the role being identified.",
+          "description": "The ID of the role being identified."
         }
       },
       "required": ["role"]
