@@ -1,0 +1,287 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "OICSecurityPstatResource",
+    "version": "v1.0-20150819",
+    "license": {
+      "name": "copyright 2016-2017 Open Connectivity Foundation, Inc. All rights reserved.",
+      "x-description": "Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:\n        1.  Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.\n        2.  Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.\n\n        THIS SOFTWARE IS PROVIDED BY THE Open Connectivity Foundation, INC. \"AS IS\" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE OR WARRANTIES OF NON-INFRINGEMENT, ARE DISCLAIMED.\n        IN NO EVENT SHALL THE Open Connectivity Foundation, INC. OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION)\n        HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.\n"
+    }
+  },
+  "schemes": ["http"],
+  "consumes": ["application/json"],
+  "produces": ["application/json"],
+  "paths": {
+    "/oic/sec/pstat" : {
+      "get": {
+        "description": "This resource specifies device provisioning status.\nRetrieves device provisioning status data.\n",
+        "parameters": [
+          {"$ref": "#/parameters/interface"}
+        ],
+        "responses": {
+            "200": {
+              "description" : "",
+              "x-example":
+                {
+                  "dos": {"s": 3, "p": true},
+                  "isop": true,
+                  "cm": 8,
+                  "tm": 60,
+                  "om": 2,
+                  "sm": 7,
+                  "rowneruuid": "de305d54-75b4-431b-adb2-eb6b9e546014"
+                }
+                ,
+              "schema": { "$ref": "#/definitions/Pstat" }
+            },
+            "400": {
+              "description" : "The request is invalid."
+            }
+        }
+      },
+      "post": {
+        "description": "Sets or updates device provisioning status data.\n",
+        "parameters": [
+          {"$ref": "#/parameters/interface"},
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": { "$ref": "#/definitions/Pstat" },
+            "x-example":
+              {
+                "dos": {"s": 3, "p": true},
+                "isop": true,
+                "cm": 8,
+                "tm": 60,
+                "om": 2,
+                "sm": 7,
+                "rowneruuid": "de305d54-75b4-431b-adb2-eb6b9e546014"
+              }
+          }
+        ],
+        "responses": {
+            "201": {
+              "description" : "The PSTAT entry is created."
+            },
+            "204": {
+              "description" : "The PSTAT entry is updated."
+            },
+            "400": {
+              "description" : "The request is invalid."
+            }
+        }
+      },
+      "put": {
+        "description": "Sets or updates device provisioning status data.\n",
+        "parameters": [
+          {"$ref": "#/parameters/interface"},
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": { "$ref": "#/definitions/Pstat" },
+            "x-example":
+              {
+                "dos": {"s": 3, "p": true},
+                "isop": true,
+                "cm": 8,
+                "tm": 60,
+                "om": 2,
+                "sm": 7,
+                "rowneruuid": "de305d54-75b4-431b-adb2-eb6b9e546014"
+              }
+          }
+        ],
+        "responses": {
+            "201": {
+              "description" : "The PSTAT entry is created."
+            },
+            "400": {
+              "description" : "The request is invalid."
+            }
+        }
+      },
+      "delete": {
+        "description": "Deletes the PSTAT data.\nWhen DELETE is used without query parameters, the entire collection is deleted.\nWhen DELETE is used with the query parameter where devid is specified, only the matched entry is deleted.\n",
+        "parameters": [
+          {"$ref": "#/parameters/interface"},
+          {
+            "in": "query",
+            "description": "Delete the PSTAT identified by the string containing the UUID.\n",
+            "type": "string",
+            "name": "subject"
+          }
+        ],
+        "responses": {
+            "200": {
+              "description" : "The PSTAT instance or the the entire resource has been successfully deleted."
+            },
+            "400": {
+              "description" : "The request is invalid."
+            }
+        }
+      }
+    }
+  },
+  "parameters": {
+    "interface" : {
+      "in" : "query",
+      "name" : "if",
+      "type" : "string",
+      "enum" : ["oic.if.baseline"]
+    }
+  },
+  "definitions": {
+    "Pstat" : 
+            {
+        "properties": {
+          "cm": {
+            "description": "Current device provisioning mode",
+            "detail-desc": [
+              "1 - Manufacturer reset state",
+              "2 - Device pairing and owner transfer state",
+              "4 - Provisiong of bootstrap services",
+              "8 - Provisioning of credential management services",
+              "16 - Provisioning of access management services",
+              "32 - Provisioning of local ACLs",
+              "64 - Initiate Software Version Validation",
+              "128 - Initiate Secure Software Update"
+            ],
+            "maximum": 255,
+            "minimum": 0,
+            "type": "integer"
+          },
+          "dos": {
+            "description": "Device on-boarding state",
+            "properties": {
+              "p": {
+                "default": true,
+                "description": "'p' is TRUE when the 's' state is pending until all necessary changes to device resources are complete.",
+                "type": "boolean"
+              },
+              "s": {
+                "description": "The current or pending operational state",
+                "detail-desc": [
+                  "0 - RESET - Device reset state",
+                  "1 - RFOTM - Ready for device owner transfer method state",
+                  "2 - RFPRO - Ready for device provisioning state",
+                  "3 - RFNOP - Ready for device normal operation state",
+                  "4 - SRESET - The device is in a soft reset state"
+                ],
+                "maximum": 4,
+                "minimum": 0,
+                "type": "integer"
+              }
+            },
+            "required": [
+              "s",
+              "p"
+            ],
+            "type": "object"
+          },
+          "id": {
+            "description": "Instance ID of this specific resource",
+            "maxLength": 64,
+            "readOnly": true,
+            "type": "string"
+          },
+          "if": {
+            "description": "The interface set supported by this resource",
+            "items": {
+              "enum": [
+                "oic.if.baseline",
+                "oic.if.ll",
+                "oic.if.b",
+                "oic.if.lb",
+                "oic.if.rw",
+                "oic.if.r",
+                "oic.if.a",
+                "oic.if.s"
+              ],
+              "type": "string"
+            },
+            "minItems": 1,
+            "readOnly": true,
+            "type": "array"
+          },
+          "isop": {
+            "description": "true indicates device is operational",
+            "type": "boolean"
+          },
+          "n": {
+            "description": "Friendly name of the resource",
+            "maxLength": 64,
+            "readOnly": true,
+            "type": "string"
+          },
+          "om": {
+            "description": "Current operational mode",
+            "detail-desc": [
+              "1 - Server-directed utilzing multiple provisioning services",
+              "2 - Server-directed utilzing a single provisioning service",
+              "4 - Client-directed provisioning",
+              "8 - Unused",
+              "16 - Unused",
+              "32 - Unused",
+              "64 - Unused",
+              "128 - Unused"
+            ],
+            "maximum": 7,
+            "minimum": 1,
+            "type": "integer"
+          },
+          "rowneruuid": {
+            "description": "The UUID formatted identity of the Resource owner",
+            "pattern": "^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$",
+            "type": "string"
+          },
+          "rt": {
+            "description": "Resource Type",
+            "items": {
+              "maxLength": 64,
+              "type": "string"
+            },
+            "minItems": 1,
+            "readOnly": true,
+            "type": "array"
+          },
+          "sm": {
+            "description": "Supported operational modes",
+            "detail-desc": [
+              "1 - Server-directed utilzing multiple provisioning services",
+              "2 - Server-directed utilzing a single provisioning service",
+              "4 - Client-directed provisioning",
+              "8 - Unused",
+              "16 - Unused",
+              "32 - Unused",
+              "64 - Unused",
+              "128 - Unused"
+            ],
+            "maximum": 7,
+            "minimum": 1,
+            "readOnly": true,
+            "type": "integer"
+          },
+          "tm": {
+            "description": "Target device provisioning mode",
+            "detail-desc": [
+              "1 - Manufacturer reset state",
+              "2 - Device pairing and owner transfer state",
+              "4 - Provisiong of bootstrap services",
+              "8 - Provisioning of credential management services",
+              "16 - Provisioning of access management services",
+              "32 - Provisioning of local ACLs",
+              "64 - Initiate Software Version Validation",
+              "128 - Initiate Secure Software Update"
+            ],
+            "maximum": 255,
+            "minimum": 0,
+            "type": "integer"
+          }
+        },
+        "type": "object"
+      }
+
+  }
+}
