@@ -10,7 +10,7 @@ traits:
         if:
             enum: ["oic.if.baseline"]
 
-/SecAmaclResURI:
+/oic/sec/amacl:
   description: |
     This resource specifies the host resources with access permission that is managed by an AMS.
 
@@ -29,26 +29,16 @@ traits:
               {
                 "resources": [
                   {
-                    "href": "coaps://IP-ADDR/temp",
-                    "rel": "some-rel",
+                    "href": "/temp",
                     "rt": ["oic.r.temperature"],
-                    "if": ["oic.if.a"]
+                    "if": ["oic.if.baseline", "oic.if.a"]
                   },
                   {
-                    "href": "coaps://IP-ADDR/temp",
-                    "rel": "some-rel",
+                    "href": "/temp",
                     "rt": ["oic.r.temperature"],
-                    "if": ["oic.if.s"]
+                    "if": ["oic.if.baseline", "oic.if.s"]
                   }
-                ],
-                "ams": {
-                  "sl": [ "oic.sec.svc.doxs", "oic.sec.svc.bss" ]
-                },
-                "rowner": {
-                  "sl": ["oic.sec.svc.bss", "oic.sec.svc.doxs"]
-                },
-                "amsuuid": "6546b318-4bfa-4045-97f6-9cf8a0854dd5",
-                "rowneruuid": "6546b318-4bfa-4045-97f6-9cf8a0854dd5"
+                ]
               }
 
   post:
@@ -61,26 +51,16 @@ traits:
           {
             "resources": [
               {
-                "href": "coaps://IP-ADDR/temp",
-                "rel": "some-rel",
+                "href": "/temp",
                 "rt": ["oic.r.temperature"],
-                "if": ["oic.if.a"]
+                "if": ["oic.if.baseline", "oic.if.a"]
               },
               {
-                "href": "coaps://IP-ADDR/temp",
-                "rel": "some-rel",
+                "href": "/temp",
                 "rt": ["oic.r.temperature"],
-                "if": ["oic.if.s"]
+                "if": ["oic.if.baseline", "oic.if.s"]
               }
-            ],
-            "ams": {
-              "sl": [ "oic.sec.svc.doxs", "oic.sec.svc.bss" ]
-            },
-            "rowner": {
-              "sl": ["oic.sec.svc.bss", "oic.sec.svc.doxs"]
-            },
-            "amsuuid": "6546b318-4bfa-4045-97f6-9cf8a0854dd5",
-            "rowneruuid": "6546b318-4bfa-4045-97f6-9cf8a0854dd5"
+            ]
           }
     responses:
       201:
@@ -100,26 +80,16 @@ traits:
           {
             "resources": [
               {
-                "href": "coaps://IP-ADDR/temp",
-                "rel": "some-rel",
+                "href": "/temp",
                 "rt": ["oic.r.temperature"],
-                "if": ["oic.if.a"]
+                "if": ["oic.if.baseline", "oic.if.a"]
               },
               {
-                "href": "coaps://IP-ADDR/temp",
-                "rel": "some-rel",
+                "href": "/temp",
                 "rt": ["oic.r.temperature"],
-                "if": ["oic.if.s"]
+                "if": ["oic.if.baseline", "oic.if.s"]
               }
-            ],
-            "ams": {
-              "sl": [ "oic.sec.svc.doxs", "oic.sec.svc.bss" ]
-            },
-            "rowner": {
-              "sl": ["oic.sec.svc.bss", "oic.sec.svc.doxs"]
-            },
-            "amsuuid": "6546b318-4bfa-4045-97f6-9cf8a0854dd5",
-            "rowneruuid": "6546b318-4bfa-4045-97f6-9cf8a0854dd5"
+            ]
           }
     responses:
       201:

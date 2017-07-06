@@ -6,14 +6,14 @@
         {
           "href": "coaps://IP-ADDR/temp",
           "rel": "some-rel",
-          "rt": "oic.r.temperature",
-          "if": "oic.if.a"
+          "rt": ["oic.r.temperature"],
+          "if": ["oic.if.baseline", "oic.if.a"]
         },
         {
           "href": "coaps://IP-ADDR/temp",
           "rel": "some-rel",
-          "rt": "oic.r.temperature",
-          "if": "oic.if.s"
+          "rt": ["oic.r.temperature"],
+          "if": ["oic.if.baseline", "oic.if.s"]
         }
       ],
       "permission": 31,
@@ -34,9 +34,7 @@
       "subject": {
         "rl": {
           "authority": "484b8a51-cb23-46c0-a5f1-b4aebef50ebe",
-          "roles": [
-            "SOME_STRING", "SOME_STRING"
-          ]
+          "role": "SOME_STRING"
         }
       },
       "resources": [
@@ -64,8 +62,8 @@
         {
           "href": "coaps://IP-ADDR/temp",
           "rel": "some-rel",
-          "rt": "oic.r.temperature",
-          "if": "oic.if.a"
+          "rt": ["oic.r.temperature"],
+          "if": ["oic.if.baseline", "oic.if.a"]
         },
         {
           "href": "coaps://IP-ADDR/temp",

@@ -10,7 +10,7 @@ traits:
         if:
             enum: ["oic.if.baseline"]
 
-/SecSaclResURI:
+/oic/sec/sacl:
   description: |
     This resource specifies a signed ACL object.
 
@@ -27,22 +27,20 @@ traits:
             schema: Sacl
             example: |
               {
-                "aclist": {
-                  "aces": [
+                "aclist2": [
                     {
-                      "subjectuuid": "e61c3e6b-9c54-4b81-8ce5-f9039c1d04d9",
+                      "aceid": 1,
+                      "subject": {"uuid": "e61c3e6b-9c54-4b81-8ce5-f9039c1d04d9"},
                       "resources": [
                         {
-                          "href": "coaps://IP-ADDR/temp",
-                          "rel": "some-rel",
+                          "href": "/temp",
                           "rt": ["oic.r.temperature"],
-                          "if": ["oic.if.a"]
+                          "if": ["oic.if.baseline", "oic.if.a"]
                         },
                         {
-                          "href": "coaps://IP-ADDR/temp",
-                          "rel": "some-rel",
+                          "href": "/temp",
                           "rt": ["oic.r.temperature"],
-                          "if": ["oic.if.s"]
+                          "if": ["oic.if.baseline", "oic.if.s"]
                         }
                       ],
                       "permission": 31,
@@ -56,44 +54,31 @@ traits:
                           "recurrence": [ "RRULE:FREQ=DAILY;UNTIL=20180131T140000Z;BYMONTH=1" ]
                         }
                       ]
-                    }
-                  ],
-                  "aces2": [
+                    },
                     {
+                      "aceid": 2,
                       "subject": {
-                        "rl": {
                           "authority": "484b8a51-cb23-46c0-a5f1-b4aebef50ebe",
-                          "roles": [
-                            "SOME_STRING", "SOME_STRING"
-                          ]
-                        }
-                      },
+                          "role": "SOME_STRING"
+                        },
                       "resources": [
                         {
-                          "href": "coaps://IP-ADDR/light",
-                          "rel": "some-rel",
+                          "href": "/light",
                           "rt": ["oic.r.light"],
-                          "if": ["oic.if.a"]
+                          "if": ["oic.if.baseline", "oic.if.a"]
                         },
                         {
-                          "href": "coaps://IP-ADDR/door",
-                          "rel": "some-rel",
+                          "href": "/door",
                           "rt": ["oic.r.door"],
-                          "if": ["oic.if.a"]
+                          "if": ["oic.if.baseline", "oic.if.a"]
                         }
                       ],
                       "permission": 15
                     }
-                  ]
-
-                },
+               ],
                 "signature": {
                   "sigtype": "oic.sec.sigtype.pk7",
                   "sigvalue": "ENCODED-SIGNATURE-VALUE"
-                },
-                "amsuuid": "484b8a51-cb23-46c0-a5f1-b4aebef50ebe",
-                "ams": {
-                  "sl": [ "oic.sec.svc.doxs", "oic.sec.svc.bss" ]
                 }
               }
 
@@ -105,22 +90,20 @@ traits:
         schema: Sacl
         example: |
           {
-            "aclist": {
-              "aces": [
+            "aclist2": [
                 {
-                  "subjectuuid": "e61c3e6b-9c54-4b81-8ce5-f9039c1d04d9",
+                  "aceid": 1,
+                  "subject": {"uuid": "e61c3e6b-9c54-4b81-8ce5-f9039c1d04d9"},
                   "resources": [
                     {
-                      "href": "coaps://IP-ADDR/temp",
-                      "rel": "some-rel",
+                      "href": "/temp",
                       "rt": ["oic.r.temperature"],
-                      "if": ["oic.if.a"]
+                      "if": ["oic.if.baseline", "oic.if.a"]
                     },
                     {
-                      "href": "coaps://IP-ADDR/temp",
-                      "rel": "some-rel",
+                      "href": "/temp",
                       "rt": ["oic.r.temperature"],
-                      "if": ["oic.if.s"]
+                      "if": ["oic.if.baseline", "oic.if.s"]
                     }
                   ],
                   "permission": 31,
@@ -133,44 +116,32 @@ traits:
                       "period": "20160101T180000Z/PT5H30M",
                       "recurrence": [ "RRULE:FREQ=DAILY;UNTIL=20180131T140000Z;BYMONTH=1" ]
                     }
-                  ]                }
-              ],
-              "aces2": [
+                  ]
+                },
                 {
+                  "aceid": 2,
                   "subject": {
-                    "rl": {
                       "authority": "484b8a51-cb23-46c0-a5f1-b4aebef50ebe",
-                      "roles": [
-                        "SOME_STRING", "SOME_STRING"
-                      ]
-                    }
+                      "role": "SOME_STRING"
                   },
                   "resources": [
                     {
-                      "href": "coaps://IP-ADDR/light",
-                      "rel": "some-rel",
+                      "href": "/light",
                       "rt": ["oic.r.light"],
-                      "if": ["oic.if.a"]
+                      "if": ["oic.if.baseline", "oic.if.a"]
                     },
                     {
-                      "href": "coaps://IP-ADDR/door",
-                      "rel": "some-rel",
+                      "href": "/door",
                       "rt": ["oic.r.door"],
-                      "if": ["oic.if.a"]
+                      "if": ["oic.if.baseline", "oic.if.a"]
                     }
                   ],
                   "permission": 15
                 }
-              ]
-
-            },
+            ],
             "signature": {
               "sigtype": "oic.sec.sigtype.pk7",
               "sigvalue": "ENCODED-SIGNATURE-VALUE"
-            },
-            "amsuuid": "484b8a51-cb23-46c0-a5f1-b4aebef50ebe",
-            "ams": {
-              "sl": [ "oic.sec.svc.doxs", "oic.sec.svc.bss" ]
             }
           }
 
@@ -190,22 +161,20 @@ traits:
         schema: Sacl
         example: |
           {
-            "aclist": {
-              "aces": [
+            "aclist2":[
                 {
-                  "subjectuuid": "e61c3e6b-9c54-4b81-8ce5-f9039c1d04d9",
+                  "aceid": 1,
+                  "subject": {"uuid": "e61c3e6b-9c54-4b81-8ce5-f9039c1d04d9"},
                   "resources": [
                     {
-                      "href": "coaps://IP-ADDR/temp",
-                      "rel": "some-rel",
+                      "href": "/temp",
                       "rt": ["oic.r.temperature"],
-                      "if": ["oic.if.a"]
+                      "if": ["oic.if.baseline", "oic.if.a"]
                     },
                     {
-                      "href": "coaps://IP-ADDR/temp",
-                      "rel": "some-rel",
+                      "href": "/temp",
                       "rt": ["oic.r.temperature"],
-                      "if": ["oic.if.s"]
+                      "if": ["oic.if.baseline", "oic.if.s"]
                     }
                   ],
                   "permission": 31,
@@ -219,44 +188,31 @@ traits:
                       "recurrence": [ "RRULE:FREQ=DAILY;UNTIL=20180131T140000Z;BYMONTH=1" ]
                     }
                   ]
-                }
-              ],
-              "aces2": [
+                },
                 {
+                  "aceid": 2,
                   "subject": {
-                    "rl": {
                       "authority": "484b8a51-cb23-46c0-a5f1-b4aebef50ebe",
-                      "roles": [
-                        "SOME_STRING", "SOME_STRING"
-                      ]
-                    }
+                      "role": "SOME_STRING"
                   },
                   "resources": [
                     {
-                      "href": "coaps://IP-ADDR/light",
-                      "rel": "some-rel",
+                      "href": "/light",
                       "rt": ["oic.r.light"],
-                      "if": ["oic.if.a"]
+                      "if": ["oic.if.baseline", "oic.if.a"]
                     },
                     {
-                      "href": "coaps://IP-ADDR/door",
-                      "rel": "some-rel",
+                      "href": "/door",
                       "rt": ["oic.r.door"],
-                      "if": ["oic.if.a"]
+                      "if": ["oic.if.baseline", "oic.if.a"]
                     }
                   ],
                   "permission": 15
                 }
-              ]
-
-            },
+            ],
             "signature": {
               "sigtype": "oic.sec.sigtype.pk7",
               "sigvalue": "ENCODED-SIGNATURE-VALUE"
-            },
-            "amsuuid": "484b8a51-cb23-46c0-a5f1-b4aebef50ebe",
-            "ams": {
-              "sl": [ "oic.sec.svc.doxs", "oic.sec.svc.bss" ]
             }
           }
 

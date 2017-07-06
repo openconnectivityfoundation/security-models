@@ -9,16 +9,39 @@ traits:
       queryParameters:
         if:
           enum: ["oic.if.baseline"]
+  - cred-filtered:
+      usage: Apply this to any method that can filter creds
+      description: Some requests only operate on a subset of creds
+      queryParameters:
+        credid:
+            type: integer
+            description: Only applies to the credential with the specified credid
+            required: false
+            repeat: true
+            example: 2112
+        subjectuuid:
+            type: string
+            description: Only applies to credentials with the specified subject UUID
+            required: false
+            repeat: false
+            example: e61c3e6b-9c54-4b81-8ce5-f9039c1d04d9
 
-/SecCredResURI:
+/oic/sec/cred:
   description: |
     This resource specifies credentials a device may use to establish secure communication.
   displayName: Credential Resource
   is: [ interface ]
 
   get:
+
     description: |
-      Retrieves public credential data.
+      Retrieves the credential data.
+      When used without query parameters, all the credential entries are returned.
+      When used with a query parameter, only the credentials matching the specified
+      parameter are returned.
+
+      Note that write-only credential data will not be returned.
+    is: [cred-filtered]
     responses:
       200:
         body:
@@ -31,12 +54,8 @@ traits:
                     "credid": 55,
                     "subjectuuid": "e61c3e6b-9c54-4b81-8ce5-f9039c1d04d9",
                     "roleid": {
-                      "rl": {
-                        "authority": "484b8a51-cb23-46c0-a5f1-b4aebef50ebe",
-                        "roles": [
-                          "SOME_STRING", "SOME_STRING"
-                        ]
-                      }
+                      "authority": "484b8a51-cb23-46c0-a5f1-b4aebef50ebe",
+                      "role": "SOME_STRING"
                     },
                     "credtype": 32,
                     "publicdata": {
@@ -57,19 +76,11 @@ traits:
                     "crms": [ "oic.sec.crm.pk10" ]
                   },
                   {
-                    "credid": 55,
+                    "credid": 56,
                     "subjectuuid": "e61c3e6b-9c54-4b81-8ce5-f9039c1d04d9",
-                    "subject": {
-                      "idt": "0",
-                      "id": "e61c3e6b-9c54-4b81-8ce5-f9039c1d04d9"
-                    },
                     "roleid": {
-                      "rl": {
-                        "authority": "484b8a51-cb23-46c0-a5f1-b4aebef50ebe",
-                        "roles": [
-                          "SOME_STRING", "SOME_STRING"
-                        ]
-                      }
+                      "authority": "484b8a51-cb23-46c0-a5f1-b4aebef50ebe",
+                      "role": "SOME_STRING"
                     },
                     "credtype": 1,
                     "publicdata": {
@@ -90,17 +101,25 @@ traits:
                     "crms": [ "oic.sec.crm.pk10" ]
                   }
                 ],
-                "rowneruuid": "e61c3e6b-9c54-4b81-8ce5-f9039c1d04d9",
-                "rowner": {
-                  "sl": [ "oic.sec.svc.doxs", "oic.sec.svc.bss" ]
-                }
+                "rowneruuid": "e61c3e6b-9c54-4b81-8ce5-f9039c1d04d9"
               }
       400:
         description: The request is invalid.
 
   post:
+
     description: |
-      Sets or updates credential data
+      Updates the credential resource with the provided credentials.
+
+      Credentials provided in the update with credid(s) not currently in the
+      credential resource are added.
+
+      Credentials provided in the update with credid(s) already in the
+      credential resource completely replace the creds in the credential
+      resource.
+
+      Credentials provided in the update without credid(s) properties are
+      added and assigned unique credid(s) in the credential resource.
     body:
       application/json:
         schema: Cred
@@ -111,12 +130,8 @@ traits:
                 "credid": 55,
                 "subjectuuid": "e61c3e6b-9c54-4b81-8ce5-f9039c1d04d9",
                 "roleid": {
-                  "rl": {
-                    "authority": "484b8a51-cb23-46c0-a5f1-b4aebef50ebe",
-                    "roles": [
-                      "SOME_STRING", "SOME_STRING"
-                    ]
-                  }
+                  "authority": "484b8a51-cb23-46c0-a5f1-b4aebef50ebe",
+                  "role": "SOME_STRING"
                 },
                 "credtype": 32,
                 "publicdata": {
@@ -138,19 +153,11 @@ traits:
               },
 
               {
-                "credid": 55,
+                "credid": 56,
                 "subjectuuid": "e61c3e6b-9c54-4b81-8ce5-f9039c1d04d9",
-                "subject": {
-                  "idt": "0",
-                  "id": "e61c3e6b-9c54-4b81-8ce5-f9039c1d04d9"
-                },
                 "roleid": {
-                  "rl": {
-                    "authority": "484b8a51-cb23-46c0-a5f1-b4aebef50ebe",
-                    "roles": [
-                      "SOME_STRING", "SOME_STRING"
-                    ]
-                  }
+                  "authority": "484b8a51-cb23-46c0-a5f1-b4aebef50ebe",
+                  "role": "SOME_STRING"
                 },
                 "credtype": 1,
                 "publicdata": {
@@ -171,10 +178,7 @@ traits:
                 "crms": [ "oic.sec.crm.pk10" ]
               }
             ],
-            "rowneruuid": "e61c3e6b-9c54-4b81-8ce5-f9039c1d04d9",
-            "rowner": {
-              "sl": [ "oic.sec.svc.doxs", "oic.sec.svc.bss" ]
-              }
+            "rowneruuid": "e61c3e6b-9c54-4b81-8ce5-f9039c1d04d9"
             }
     responses:
       201:
@@ -184,102 +188,14 @@ traits:
       400:
         description: The request is invalid.
 
-  put:
-    description: Updates credential data
-    body:
-      application/json:
-        schema: Cred
-        example: |
-          {
-            "creds": [
-              {
-                "credid": 55,
-                "subjectuuid": "e61c3e6b-9c54-4b81-8ce5-f9039c1d04d9",
-                "roleid": {
-                  "rl": {
-                    "authority": "484b8a51-cb23-46c0-a5f1-b4aebef50ebe",
-                    "roles": [
-                      "SOME_STRING", "SOME_STRING"
-                    ]
-                  }
-                },
-                "credtype": 32,
-                "publicdata": {
-                  "encoding": "oic.sec.encoding.base64",
-                  "data": "BASE-64-ENCODED-VALUE"
-                },
-                "privatedata": {
-                  "encoding": "oic.sec.encoding.base64",
-                  "data": "BASE-64-ENCODED-VALUE",
-                  "handle": 4
-                },
-                "optionaldata": {
-                  "revstat": false,
-                  "encoding": "oic.sec.encoding.base64",
-                  "data": "BASE-64-ENCODED-VALUE"
-                },
-                "period": "20160101T180000Z/20170102T070000Z",
-                "crms": [ "oic.sec.crm.pk10" ]
-              },
-
-              {
-                "credid": 55,
-                "subjectuuid": "e61c3e6b-9c54-4b81-8ce5-f9039c1d04d9",
-                "subject": {
-                  "idt": "0",
-                  "id": "e61c3e6b-9c54-4b81-8ce5-f9039c1d04d9"
-                },
-                "roleid": {
-                  "rl": {
-                    "authority": "484b8a51-cb23-46c0-a5f1-b4aebef50ebe",
-                    "roles": [
-                      "SOME_STRING", "SOME_STRING"
-                    ]
-                  }
-                },
-                "credtype": 1,
-                "publicdata": {
-                  "encoding": "oic.sec.encoding.base64",
-                  "data": "BASE-64-ENCODED-VALUE"
-                },
-                "privatedata": {
-                  "encoding": "oic.sec.encoding.base64",
-                  "data": "BASE-64-ENCODED-VALUE",
-                  "handle": 4
-                },
-                "optionaldata": {
-                  "revstat": false,
-                  "encoding": "oic.sec.encoding.base64",
-                  "data": "BASE-64-ENCODED-VALUE"
-                },
-                "period": "20160101T180000Z/20170102T070000Z",
-                "crms": [ "oic.sec.crm.pk10" ]
-              }
-            ],
-            "rowneruuid": "e61c3e6b-9c54-4b81-8ce5-f9039c1d04d9",
-            "rowner": {
-              "sl": [ "oic.sec.svc.doxs", "oic.sec.svc.bss" ]
-            }
-          }
-    responses:
-         201:
-            description: The credential entry is created.
-         400:
-            description: The request is invalid.
-
   delete:
+
       description: |
         Deletes credential entries.
         When DELETE is used without query parameters, all the cred entries are deleted.
-        When DELETE is used with a subjectuuid query parameter, only the entries matching the subjectuuid are deleted.
-      queryParameters:
-        subjectuuid:
-          type: string
-          description: |
-            Deletes the credential(s) identified by the string containing the subjectuuid
-          required: false
-          example: |
-              DELETE /mycred?subjectuuid="de305d54-75b4-431b-adb2-eb6b9e546014"
+        When DELETE is used with a query parameter, only the entries matching
+        the query parameter are deleted.
+      is: [cred-filtered]
       responses:
         204:
           description: The specific credential(s) or the the entire credential resource has been successfully deleted.

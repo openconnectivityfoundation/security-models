@@ -10,7 +10,7 @@ traits:
         if:
             enum: ["oic.if.baseline"]
 
-/SecDoxmResURI:
+/oic/sec/doxm:
   description: |
     This resource specifies properties needed to establish a device owner.
 
@@ -32,21 +32,8 @@ traits:
                 "sct": 16,
                 "owned": true,
                 "deviceuuid": "de305d54-75b4-431b-adb2-eb6b9e546014",
-                "deviceid": {
-                  "idt": "0",
-                  "id": "de305d54-75b4-431b-adb2-eb6b9e546014"
-                },
                 "devowneruuid": "e61c3e6b-9c54-4b81-8ce5-f9039c1d04d9",
-                "devowner": {
-                    "hostid": {
-                      "idt": "0",
-                      "id": "e61c3e6b-9c54-4b81-8ce5-f9039c1d04d9"
-                    }
-                },
-                "rowneruuid": "e61c3e6b-9c54-4b81-8ce5-f9039c1d04d9",
-                "rowner": {
-                  "sl": ["oic.sec.svc.bss", "oic.sec.svc.doxs"]
-                }
+                "rowneruuid": "e61c3e6b-9c54-4b81-8ce5-f9039c1d04d9"
               }
 
       400:
@@ -65,21 +52,8 @@ traits:
             "sct": 16,
             "owned": true,
             "deviceuuid": "de305d54-75b4-431b-adb2-eb6b9e546014",
-            "deviceid": {
-              "idt": "0",
-              "id": "de305d54-75b4-431b-adb2-eb6b9e546014"
-            },
             "devowneruuid": "e61c3e6b-9c54-4b81-8ce5-f9039c1d04d9",
-            "devowner": {
-                "hostid": {
-                  "idt": "0",
-                  "id": "e61c3e6b-9c54-4b81-8ce5-f9039c1d04d9"
-                }
-            },
-            "rowneruuid": "e61c3e6b-9c54-4b81-8ce5-f9039c1d04d9",
-            "rowner": {
-              "sl": ["oic.sec.svc.bss", "oic.sec.svc.doxs"]
-            }
+            "rowneruuid": "e61c3e6b-9c54-4b81-8ce5-f9039c1d04d9"
           }
     responses:
       201:
@@ -102,21 +76,8 @@ traits:
             "sct": 16,
             "owned": true,
             "deviceuuid": "de305d54-75b4-431b-adb2-eb6b9e546014",
-            "deviceid": {
-              "idt": "0",
-              "id": "de305d54-75b4-431b-adb2-eb6b9e546014"
-            },
             "devowneruuid": "e61c3e6b-9c54-4b81-8ce5-f9039c1d04d9",
-            "devowner": {
-                "hostid": {
-                  "idt": "0",
-                  "id": "e61c3e6b-9c54-4b81-8ce5-f9039c1d04d9"
-                }
-            },
-            "rowneruuid": "e61c3e6b-9c54-4b81-8ce5-f9039c1d04d9",
-            "rowner": {
-              "sl": ["oic.sec.svc.bss", "oic.sec.svc.doxs"]
-            }
+            "rowneruuid": "e61c3e6b-9c54-4b81-8ce5-f9039c1d04d9"
           }
     responses:
       201:

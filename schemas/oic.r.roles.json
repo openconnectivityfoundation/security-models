@@ -1,20 +1,17 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
-  "id": "https://www.openconnectivity.org/ocf-apis/security/schemas/oic.r.cred.json#",
-  "title": "Device Credentials information",
+  "id": "https://www.openconnectivity.org/ocf-apis/security/schemas/oic.r.roles.json#",
+  "title": "Asserted Role Certificates",
   "definitions": {
     "oic.r.cred": {
       "type": "object",
       "properties": {
-        "creds": {
+        "roles": {
           "type": "array",
-          "description": "List of credentials available at this resource",
+          "description": "List of role certificates",
           "items": {
             "$ref": "oic.sec.cred.json#/definitions/oic.sec.cred"
           }
-        },
-        "rowneruuid": {
-          "$ref": "../../core/schemas/oic.types-schema.json#/definitions/uuid"
         }
       }
     }
@@ -24,5 +21,5 @@
     { "$ref": "../../core/schemas/oic.core-schema.json#/definitions/oic.core" },
     { "$ref": "#/definitions/oic.r.cred" }
   ],
-  "required": [ "creds", "rowneruuid" ]
+  "required": [ "roles" ]
 }

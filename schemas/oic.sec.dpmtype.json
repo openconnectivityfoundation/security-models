@@ -9,7 +9,7 @@
         "bitmask": {
           "type": "integer",
           "minimum": 0,
-          "maximum": 63,
+          "maximum": 255,
           "description": "The value can be either 8 or 16 character in length. If its only 8 characters it represents the lower byte value",
           "detail-desc": [  "1 - Manufacturer reset state",
                             "2 - Device pairing and owner transfer state",
@@ -17,8 +17,8 @@
                             "8 - Provisioning of credential management services",
                             "16 - Provisioning of access management services",
                             "32 - Provisioning of local ACLs",
-                            "64 - Unused",
-                            "128 - Unused" ]
+                            "64 - Initiate Software Version Validation",
+                            "128 - Initiate Secure Software Update" ]
         }
       }
     }

@@ -9,12 +9,13 @@
         "s": {
           "type": "integer",
           "minimum": 0,
-          "maximum": 3,
-          "description": "The value can be either 0, 1, 2 or 3",
+          "maximum": 4,
+          "description": "The current or pending operational state",
           "detail-desc": [  "0 - RESET - Device reset state",
                             "1 - RFOTM - Ready for device owner transfer method state",
                             "2 - RFPRO - Ready for device provisioning state",
-                            "3 - RFNOP - Ready for device normal operation state" ]
+                            "3 - RFNOP - Ready for device normal operation state",
+                            "4 - SRESET - The device is in a soft reset state" ]
         },
         "p": {
           "type": "boolean",

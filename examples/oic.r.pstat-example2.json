@@ -5,16 +5,5 @@
   "tm": 60,
   "om": 2,
   "sm": 7,
-  "deviceuuid": "de305d54-75b4-431b-adb2-eb6b9e546014",
-  "deviceid": {
-    "idt": "0",
-    "id": "de305d54-75b4-431b-adb2-eb6b9e546014"
-  },
-  "rowneruuid": "de305d54-75b4-431b-adb2-eb6b9e546014",
-  "rowner": {
-    "hostid": {
-      "idt": "0",
-      "id": "e61c3e6b-9c54-4b81-8ce5-f9039c1d04d9"
-    }
-  }
+  "rowneruuid": "de305d54-75b4-431b-adb2-eb6b9e546014"
 }

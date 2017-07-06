@@ -1,6 +1,6 @@
 #%RAML 0.8
 title: OICSecurityAclResource
-version: v1.0-20150819
+version: v1.1-20161213
 schemas:
   - Acl: !include schemas/oic.r.acl.json
 
@@ -9,8 +9,26 @@ traits:
       queryParameters:
         if:
           enum: ["oic.if.baseline"]
+  - ace-filtered:
+      usage: Apply this to any method that can filter ACEs
+      description: Some requests only operate on a subset of ACEs
+      queryParameters:
+        subjectuuid:
+            type: string
+            description: Only applies to ACEs with the specified subject UUID
+            required: false
+            repeat: false
+            example: se61c3e6b-9c54-4b81-8ce5-f9039c1d04d9
+        resources:
+            type: string
+            description: Only applies to ACEs with the specificed subhectuuid |
+                         and resources href
+            required: false
+            repeat: false
+            example: coaps://IP-ADDR/temp
 
-/SecAclResURI:
+/oic/sec/acl:
+
   description: |
     This resource specifies the local access control list.
 
@@ -19,7 +37,14 @@ traits:
 
   get:
     description: |
-      Retrieves the acl data.
+      Retrieves the ACL entries.
+
+      When used without query parameters, all the ACE entries are returned.
+      When used with a subjectuuid, only the ACEs with the specified
+      subjectuuid are returned. If subjectuuid and resources are specified,
+      only the ACEs with the specified subjectuuid and resource hrefs are
+      returned.
+    is: [ace-filtered]
     responses:
       200:
         body:
@@ -57,70 +82,23 @@ traits:
                         }
                       ]
                     }
-                  ],
-                  "aces2": [
-                    {
-                      "subject": {
-                        "rl": {
-                          "authority": "484b8a51-cb23-46c0-a5f1-b4aebef50ebe",
-                          "roles": [
-                            "SOME_STRING", "SOME_STRING"
-                          ]
-                        }
-                      },
-                      "resources": [
-                        {
-                          "href": "coaps://IP-ADDR/light",
-                          "rel": "some-rel",
-                          "rt": ["oic.r.light"],
-                          "if": ["oic.if.a"]
-                        },
-                        {
-                          "href": "coaps://IP-ADDR/door",
-                          "rel": "some-rel",
-                          "rt": ["oic.r.door"],
-                          "if": ["oic.if.a"]
-                        }
-                      ],
-                      "permission": 24
-                    },
-                    {
-                      "subject": {
-                        "idt": "0",
-                        "id": "e61c3e6b-9c54-4b81-8ce5-f9039c1d04d9"
-                      },
-                      "resources": [
-                        {
-                          "href": "coaps://IP-ADDR/light",
-                          "rel": "some-rel",
-                          "rt": ["oic.r.light"],
-                          "if": ["oic.if.a"]
-                        },
-                        {
-                          "href": "coaps://IP-ADDR/door",
-                          "rel": "some-rel",
-                          "rt": ["oic.r.door"],
-                          "if": ["oic.if.a"]
-                        }
-                      ],
-                      "permission": 24
-                    }
                   ]
                 },
-                "rowneruuid": "de305d54-75b4-431b-adb2-eb6b9e546014",
-                "rowner": {
-                  "hostid": {
-                    "idt": "0",
-                    "id": "e61c3e6b-9c54-4b81-8ce5-f9039c1d04d9"
-                  }
-                }
+                "rowneruuid": "de305d54-75b4-431b-adb2-eb6b9e546014"
               }
       400:
         description: The request is invalid.
 
   post:
     description: |
-      Updates the ACL resource with the provided values.
+      Updates the ACL resource with the provided values. ACEs provided
+      in the update not currently in the ACL are added. ACEs that already
+      exist in the ACL are ignored.
+
+      Note that for the purposes of update, equivalency is determined
+      by comparing the ACE subjectuuid, permission, string comparisons
+      of all validity elements, and string comparisons of all resource
+      hrefs.
     body:
       application/json:
         schema: Acl
@@ -156,193 +134,31 @@ traits:
                     }
                   ]
                 }
-              ],
-              "aces2": [
-                {
-                  "subject": {
-                    "rl": {
-                      "authority": "484b8a51-cb23-46c0-a5f1-b4aebef50ebe",
-                      "roles": [
-                        "SOME_STRING", "SOME_STRING"
-                      ]
-                    }
-                  },
-                  "resources": [
-                    {
-                      "href": "coaps://IP-ADDR/light",
-                      "rel": "some-rel",
-                      "rt": ["oic.r.light"],
-                      "if": ["oic.if.a"]
-                    },
-                    {
-                      "href": "coaps://IP-ADDR/door",
-                      "rel": "some-rel",
-                      "rt": ["oic.r.door"],
-                      "if": ["oic.if.a"]
-                    }
-                  ],
-                  "permission": 24
-                },
-                {
-                  "subject": {
-                    "idt": "0",
-                    "id": "e61c3e6b-9c54-4b81-8ce5-f9039c1d04d9"
-                  },
-                  "resources": [
-                    {
-                      "href": "coaps://IP-ADDR/light",
-                      "rel": "some-rel",
-                      "rt": ["oic.r.light"],
-                      "if": ["oic.if.a"]
-                    },
-                    {
-                      "href": "coaps://IP-ADDR/door",
-                      "rel": "some-rel",
-                      "rt": ["oic.r.door"],
-                      "if": ["oic.if.a"]
-                    }
-                  ],
-                  "permission": 24
-                }
               ]
             },
-            "rowneruuid": "de305d54-75b4-431b-adb2-eb6b9e546014",
-            "rowner": {
-              "hostid": {
-                "idt": "0",
-                "id": "e61c3e6b-9c54-4b81-8ce5-f9039c1d04d9"
-              }
-            }
+            "rowneruuid": "de305d54-75b4-431b-adb2-eb6b9e546014"
           }
 
     responses:
       201:
-        description: The ACL entry is created.
+        description: The ACL entry/entries is/are created.
       204:
-        description: The ACL entry is updated.
-      400:
-        description: The request is invalid.
-
-  put:
-    description: |
-      Creates the new acl data
-    body:
-      application/json:
-        schema: Acl
-        example: |
-          {
-            "aclist": {
-              "aces": [
-                {
-                  "subjectuuid": "e61c3e6b-9c54-4b81-8ce5-f9039c1d04d9",
-                  "resources": [
-                    {
-                      "href": "coaps://IP-ADDR/temp",
-                      "rel": "some-rel",
-                      "rt": ["oic.r.temperature"],
-                      "if": ["oic.if.a"]
-                    },
-                    {
-                      "href": "coaps://IP-ADDR/temp",
-                      "rel": "some-rel",
-                      "rt": ["oic.r.temperature"],
-                      "if": ["oic.if.s"]
-                    }
-                  ],
-                  "permission": 31,
-                  "validity": [
-                    {
-                      "period":"20160101T180000Z/20170102T070000Z",
-                      "recurrence": [ "DSTART:XXXXX", "RRULE:FREQ=DAILY;UNTIL=20180131T140000Z;BYMONTH=1" ]
-                    },
-                    {
-                      "period":"20160101T180000Z/PT5H30M",
-                      "recurrence": [ "RRULE:FREQ=DAILY;UNTIL=20180131T140000Z;BYMONTH=1" ]
-                    }
-                  ]
-                }
-              ],
-              "aces2": [
-                {
-                  "subject": {
-                    "rl": {
-                      "authority": "484b8a51-cb23-46c0-a5f1-b4aebef50ebe",
-                      "roles": [
-                        "SOME_STRING", "SOME_STRING"
-                      ]
-                    }
-                  },
-                  "resources": [
-                    {
-                      "href": "coaps://IP-ADDR/light",
-                      "rel": "some-rel",
-                      "rt": ["oic.r.light"],
-                      "if": ["oic.if.a"]
-                    },
-                    {
-                      "href": "coaps://IP-ADDR/door",
-                      "rel": "some-rel",
-                      "rt": ["oic.r.door"],
-                      "if": ["oic.if.a"]
-                    }
-                  ],
-                  "permission": 24
-                },
-                {
-                  "subject": {
-                    "idt": "0",
-                    "id": "e61c3e6b-9c54-4b81-8ce5-f9039c1d04d9"
-                  },
-                  "resources": [
-                    {
-                      "href": "coaps://IP-ADDR/light",
-                      "rel": "some-rel",
-                      "rt": ["oic.r.light"],
-                      "if": ["oic.if.a"]
-                    },
-                    {
-                      "href": "coaps://IP-ADDR/door",
-                      "rel": "some-rel",
-                      "rt": ["oic.r.door"],
-                      "if": ["oic.if.a"]
-                    }
-                  ],
-                  "permission": 24
-                }
-              ]
-            },
-            "rowneruuid": "de305d54-75b4-431b-adb2-eb6b9e546014",
-            "rowner": {
-              "hostid": {
-                "idt": "0",
-                "id": "e61c3e6b-9c54-4b81-8ce5-f9039c1d04d9"
-              }
-            }
-          }
-
-    responses:
-      201:
-        description: The ACL entry is created.
+        description: The ACL entry/entries is/are updated.
       400:
         description: The request is invalid.
 
   delete:
     description: |
       Deletes ACL entries.
-      When DELETE is used without query parameters, all the acl entries are deleted.
-      When DELETE is used with a subjectuuid query parameter, only the entries matching the subjectuuid are deleted.
-    queryParameters:
-        subjectuuid:
-            type: string
-            description: |
-              Deletes the ACL(s) identified by the string containing subjectuuid.
-              e.g. DELETE /myacl?subjectuuid="de305d54-75b4-431b-adb2-eb6b9e546014"
-            required: false
-            example: |
-                DELETE /myacl?subjectuuid="de305d54-75b4-431b-adb2-eb6b9e546014"
 
+      When DELETE is used without query parameters, all the ACE entries are deleted.
+      When DELETE is used with a subjectuuid, only the ACEs with the specified
+      subjectuuid are deleted. If subjectuuid and resources are specified,
+      only the ACEs with the specified subjectuuid and resource hrefs are
+      deleted.
+    is: [ace-filtered]
     responses:
       200:
-        description: The matching ACL instances or the the entire ACL resource has been successfully deleted.
+        description: The matching ACEs or the entire ACL resource has been successfully deleted.
       400:
         description: The request is invalid.

@@ -6,28 +6,22 @@
     "oic.r.acl": {
       "type": "object",
       "properties": {
-        "aclist":  {
+        "aclist": {
           "type": "object",
-          "description": "Access Control Entries in the Acl resource",
-          "$ref": "oic.sec.ace.json#/definitions/oic.sec.ace"
+          "description": "Subject-based Access Control Entries in the ACL resource",
+          "properties": {
+            "aces": {
+              "type": "array",
+              "items": {
+                "$ref": "oic.sec.ace.json#/definitions/oic.sec.ace"
+              }
+            }
+          },
+          "required": [ "aces" ]
         },
         "rowneruuid": {
-          "$ref": "../../core/schemas/oic.types-schema.json#/definitions/uuid",
-          "description": "The value identifies the unique resource owner"
-        },
-        "rowner": {
-          "oneOf": [
-            {
-              "type": "object",
-              "$ref": "oic.sec.svctype.json#/definitions/oic.sec.svctype",
-              "description": "Entries in oic.sec.svc resource that own this resource"
-            },
-            {
-              "type": "object",
-              "$ref": "oic.sec.didtype.json#/definitions/oic.sec.host",
-              "description": "Resource owner indicated in the form of a device id"
-            }
-          ]
+          "description": "The value identifies the unique resource owner",
+          "$ref": "../../core/schemas/oic.types-schema.json#/definitions/uuid"
         }
       }
     }
@@ -37,5 +31,5 @@
     { "$ref": "../../core/schemas/oic.core-schema.json#/definitions/oic.core" },
     { "$ref": "#/definitions/oic.r.acl" }
   ],
-  "required": [ "aclist","rowneruuid" ]
+  "required": [ "aclist", "rowneruuid" ]
 }
