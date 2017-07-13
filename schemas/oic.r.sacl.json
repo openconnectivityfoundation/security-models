@@ -14,9 +14,15 @@
           }
         },
         "signature":   {
-          "type": "object",
-          "description": "The signature over the ACL resource",
-          "$ref": "oic.sec.sigtype.json#/definitions/oic.sec.sigtype"
+          "allOf": [
+            {
+              "type": "object",
+              "description": "The signature over the ACL resource",
+            },
+            {
+              "$ref": "oic.sec.sigtype.json#/definitions/oic.sec.sigtype"
+            }
+          ]
         }
       }
     }

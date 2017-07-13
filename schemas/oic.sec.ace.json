@@ -12,9 +12,15 @@
           "items": { "$ref": "../../core/schemas/oic.oic-link-schema.json#/definitions/oic.oic-link" }
         },
         "permission": {
-          "type": "integer",
-          "description": "Bitmask encoding of CRUDN permission",
-          "$ref": "oic.sec.crudntype.json#/definitions/oic.sec.crudntype/properties/bitmask"
+          "allOf": [
+            {
+              "type": "integer",
+              "description": "Bitmask encoding of CRUDN permission",
+            },
+            {
+              "$ref": "oic.sec.crudntype.json#/definitions/oic.sec.crudntype/properties/bitmask"
+            }
+          ]
         },
         "validity": {
           "type": "array",
