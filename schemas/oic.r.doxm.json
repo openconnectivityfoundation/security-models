@@ -15,21 +15,35 @@
           }
         },
         "oxmsel":   {
-          "description": "The selected owner transfer method used during on-boarding",
-          "$ref": "oic.sec.doxmtype.json#/definitions/oic.sec.doxmtype/properties/oxm"
+          "allOf": [
+            { "description": "The selected owner transfer method used during on-boarding" },
+            {  "$ref": "oic.sec.doxmtype.json#/definitions/oic.sec.doxmtype/properties/oxm" }
+          ]
         },
         "sct": {
-          "readOnly": true,
-          "description": "Bitmask encoding of supported credential types",
-          "$ref": "oic.sec.credtype.json#/definitions/oic.sec.credtype/properties/bitmask"
+          "allOf": [
+            {
+              "readOnly": true,
+              "description": "Bitmask encoding of supported credential types"
+            },
+            {
+              "$ref": "oic.sec.credtype.json#/definitions/oic.sec.credtype/properties/bitmask"
+            }
+          ]
         },
         "owned":   {
           "type": "boolean",
           "description": "Ownership status flag"
         },
         "deviceuuid": {
-          "description": "The uuid formatted identity of the device",
-          "$ref": "../../core/schemas/oic.types-schema.json#/definitions/uuid"
+          "allOf": [
+            {
+              "description": "The uuid formatted identity of the device"
+            },
+            {
+              "$ref": "../../core/schemas/oic.types-schema.json#/definitions/uuid"
+            }
+          ]
         },
         "devowneruuid": {
           "$ref": "../../core/schemas/oic.types-schema.json#/definitions/uuid"

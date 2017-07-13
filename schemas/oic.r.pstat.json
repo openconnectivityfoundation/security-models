@@ -7,34 +7,70 @@
       "type": "object",
       "properties": {
         "dos": {
-          "type": "object",
-          "description": "Device on-boarding state",
-          "$ref": "oic.sec.dostype.json#/definitions/oic.sec.dostype"
+          "allOf": [
+            {
+              "type": "object",
+              "description": "Device on-boarding state"
+            },
+            {
+              "$ref": "oic.sec.dostype.json#/definitions/oic.sec.dostype"
+            }
+          ]
         },
         "isop":  {
           "type": "boolean",
           "description": "true indicates device is operational"
         },
         "cm":   {
-          "description": "Current device provisioning mode",
-          "$ref": "oic.sec.dpmtype.json#/definitions/oic.sec.dpmtype/properties/bitmask"
+          "allOf": [
+            {
+              "description": "Current device provisioning mode"
+            },
+            {
+              "$ref": "oic.sec.dpmtype.json#/definitions/oic.sec.dpmtype/properties/bitmask"
+            }
+          ]
         },
         "tm": {
-          "description": "Target device provisioning mode",
-          "$ref": "oic.sec.dpmtype.json#/definitions/oic.sec.dpmtype/properties/bitmask"
+          "allOf": [
+            {
+              "description": "Target device provisioning mode"
+            },
+            {
+              "$ref": "oic.sec.dpmtype.json#/definitions/oic.sec.dpmtype/properties/bitmask"
+            }
+          ]
         },
         "om": {
-          "description": "Current operational mode",
-          "$ref": "oic.sec.pomtype.json#/definitions/oic.sec.pomtype/properties/bitmask"
+          "allOf": [
+            {
+              "description": "Current operational mode"
+            },
+            {
+              "$ref": "oic.sec.pomtype.json#/definitions/oic.sec.pomtype/properties/bitmask"
+            }
+          ]
         },
         "sm": {
-          "readOnly": true,
-          "description": "Supported operational modes",
-          "$ref": "oic.sec.pomtype.json#/definitions/oic.sec.pomtype/properties/bitmask"
+          "allOf": [
+            {
+              "readOnly": true,
+              "description": "Supported operational modes"
+            },
+            {
+              "$ref": "oic.sec.pomtype.json#/definitions/oic.sec.pomtype/properties/bitmask"
+            }
+          ]
         },
         "rowneruuid": {
-          "description": "The UUID formatted identity of the Resource owner",
-          "$ref": "../../core/schemas/oic.types-schema.json#/definitions/uuid"
+          "allOf": [
+            {
+              "description": "The UUID formatted identity of the Resource owner"
+            },
+            {
+              "$ref": "../../core/schemas/oic.types-schema.json#/definitions/uuid"
+            }
+          ]
         }
       }
     }

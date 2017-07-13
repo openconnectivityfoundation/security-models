@@ -8,8 +8,14 @@
           "description": "Device identifier",
           "properties": {
             "uuid": {
-              "description": "A UUID Device ID",
-              "$ref": "../../core/schemas/oic.types-schema.json#/definitions/uuid"
+              "allOf": [
+                {
+                  "description": "A UUID Device ID"
+                }
+                {
+                  "$ref": "../../core/schemas/oic.types-schema.json#/definitions/uuid"
+                }
+              ]
             }
           },
           "required": ["uuid"]

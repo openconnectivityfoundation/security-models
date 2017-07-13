@@ -14,33 +14,63 @@
           "$ref": "../../core/schemas/oic.types-schema.json#/definitions/uuid"
         },
         "roleid": {
-          "type": "object",
-          "description": "The role this credential possesses",
-          "$ref": "oic.sec.roletype.json#/definitions/oic.sec.roletype"
+          "allOf": [
+            {
+              "type": "object",
+              "description": "The role this credential possesses"
+            },
+            {
+              "$ref": "oic.sec.roletype.json#/definitions/oic.sec.roletype"
+            }
+          ]
         },
         "credtype": {
-          "type": "integer",
-          "description": "Representation of this credential's type",
-          "$ref": "oic.sec.credtype.json#/definitions/oic.sec.credtype/properties/bitmask"
+          "allOf": [
+            {
+              "type": "integer",
+              "description": "Representation of this credential's type"
+            },
+            {
+              "$ref": "oic.sec.credtype.json#/definitions/oic.sec.credtype/properties/bitmask"
+            }
+          ]
         },
         "credusage": {
           "type": "string",
           "description": "A string that provides hints about how/where the cred is used"
         },
         "publicdata":   {
-          "type": "object",
-          "description": "Public credential information",
-          "$ref": "oic.sec.pubdatatype.json#/definitions/oic.sec.pubdatatype"
+          "allOf": [
+            {
+              "type": "object",
+              "description": "Public credential information"
+            },
+            {
+              "$ref": "oic.sec.pubdatatype.json#/definitions/oic.sec.pubdatatype"
+            }
+          ]
         },
         "privatedata":   {
-          "type": "object",
-          "description": "Private credential information",
-          "$ref": "oic.sec.privdatatype.json#/definitions/oic.sec.privdatatype"
+          "allOf": [
+            {
+              "type": "object",
+              "description": "Private credential information"
+            },
+            {
+              "$ref": "oic.sec.privdatatype.json#/definitions/oic.sec.privdatatype"
+            }
+          ]
         },
         "optionaldata":   {
-          "type": "object",
-          "description": "Credential revocation status information",
-          "$ref": "oic.sec.optdatatype.json#/definitions/oic.sec.optdatatype"
+          "allOf": [
+            {
+              "type": "object",
+              "description": "Credential revocation status information"
+            },
+            {
+              "$ref": "oic.sec.optdatatype.json#/definitions/oic.sec.optdatatype"
+            }
+          ]
         },
         "period":   {
           "type": "string",

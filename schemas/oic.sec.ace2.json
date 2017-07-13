@@ -21,16 +21,34 @@
             "description": "Each resource must have at least one of these properties set",
             "properties": {
               "href": {
-                "description": "When present, the ACE only applies when the href matches",
-                "$ref": "oic.oic-link-schema.json#/definitions/oic.oic-link/properties/href"
+                "allOf": [
+                  {
+                    "description": "When present, the ACE only applies when the href matches"
+                  },
+                  {
+                    "$ref": "oic.oic-link-schema.json#/definitions/oic.oic-link/properties/href"
+                  }
+                ]
               },
               "rt": {
-                "description": "When present, the ACE only applies when the rt (resource type) matches",
-                "$ref": "oic.oic-link-schema.json#/definitions/oic.oic-link/properties/rt"
+                "allOf": [
+                  {
+                    "description": "When present, the ACE only applies when the rt (resource type) matches"
+                  },
+                  {
+                    "$ref": "oic.oic-link-schema.json#/definitions/oic.oic-link/properties/rt"
+                  }
+                ]
               },
               "if": {
-                "description": "When present, the ACE only applies when the if (interface) matches",
-                "$ref": "oic.oic-link-schema.json#/definitions/oic.oic-link/properties/if"
+                "allOf": [
+                  {
+                    "description": "When present, the ACE only applies when the if (interface) matches"
+                  },
+                  {
+                    "$ref": "oic.oic-link-schema.json#/definitions/oic.oic-link/properties/if"
+                  }
+                ]
               },
               "wc": {
                 "type": "string",
@@ -45,14 +63,20 @@
           }
         },
         "permission": {
-          "type": "integer",
-          "description": "Bitmask encoding of CRUDN permission",
-          "$ref": "oic.sec.crudntype.json#/definitions/oic.sec.crudntype/properties/bitmask"
+          "allOf": [
+            {
+              "type": "integer",
+              "description": "Bitmask encoding of CRUDN permission",
+            },
+            {
+              "$ref": "oic.sec.crudntype.json#/definitions/oic.sec.crudntype/properties/bitmask"
+            }
+          ]
         },
         "subject": {
-          "description": "The subject to whom this ace applies, either a deviceId, role, or wildcard",
           "anyOf": [
             {
+              "description": "The subject to whom this ace applies, either a deviceId, role, or wildcard",
               "$ref": "oic.sec.didtype.json#/definitions/oic.sec.didtype"
             },
             {

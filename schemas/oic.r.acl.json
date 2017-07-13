@@ -20,8 +20,10 @@
           "required": [ "aces" ]
         },
         "rowneruuid": {
-          "description": "The value identifies the unique resource owner",
-          "$ref": "../../core/schemas/oic.types-schema.json#/definitions/uuid"
+          "allOf": [
+            { "description": "The value identifies the unique resource owner" },
+            { "$ref": "../../core/schemas/oic.types-schema.json#/definitions/uuid" }
+          ]
         }
       }
     }
