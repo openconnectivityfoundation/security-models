@@ -1,0 +1,35 @@
+{
+  "$schema" : "http://json-schema.org/draft-04/schema#",
+  "title" : "Account Token Refresh",
+  "description" : "Copyright (c) 2017 Open Connectivity Foundation, Inc. All rights reserved.",
+  "definitions" : {
+    "uuid" : {
+      "type" : "string",
+      "pattern" : "^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$"
+    }
+  },
+  "type" : "object",
+  "properties" : {
+    "uid" : {
+      "allOf": [
+        { "description" : "User ID which provided by Sign-up process" },
+        { "$ref": "#/definitions/uuid" }
+      ]
+    },
+    "di" : {
+      "allOf": [
+        { "description" : "Unique device identifier registered for an user account" },
+        { "$ref": "#/definitions/uuid" }
+      ]
+    },
+    "granttype" : {
+      "description" : "Token type to be granted",
+      "type" : "string"
+    },
+    "refreshtoken" : {
+      "description" : "Refresh token received by account management",
+      "type" : "string"
+    }
+  },
+  "required" : ["uid", "di", "granttype", "refreshtoken"]
+}

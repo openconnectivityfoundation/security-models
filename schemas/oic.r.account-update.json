@@ -1,0 +1,43 @@
+{
+  "$schema" : "http://json-schema.org/draft-04/schema#",
+  "title" : "Account Update",
+  "description" : "Copyright (c) 2017 Open Connectivity Foundation, Inc. All rights reserved.",
+  "definitions" : {
+    "uuid" : {
+      "type" : "string",
+      "pattern" : "^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$"
+    }
+  },
+  "type" : "object",
+  "properties" : {
+    "accesstoken" : {
+      "description" : "Access-Token used for communication with cloud after account creation",
+      "type" : "string"
+    },
+    "refreshtoken" : {
+      "description" : "Refresh token used to refresh the access token before getting expired",
+      "type" : "string"
+    },
+    "tokentype" : {
+      "description" : "Access-Token type, eg. “bearer” type can be used, ie. simply including the access-token string in the message",
+      "type" : "string"
+    },
+    "expiresin" : {
+      "description" : "Access-Token remaining life time in seconds (-1 if permanent)",
+      "type" : "integer"
+    },
+    "uid" : {
+      "description" : "Unique user identifier created for this account",
+      "$ref": "#/definitions/uuid"
+    },
+    "redirecturi" : {
+      "description" : "Using this URI, the client needs to reconnect to a redirected server",
+      "type" : "string"
+    },
+    "sid" : {
+      "description" : "Server UUID to indicate a specific server in the redirected uri location",
+      "$ref": "#/definitions/uuid"
+    }
+  },
+  "required" : ["accesstoken", "tokentype", "expiresin", "uid"]
+}

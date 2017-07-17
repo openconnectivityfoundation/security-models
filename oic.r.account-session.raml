@@ -1,0 +1,74 @@
+#%RAML 0.8
+title: Account Session
+version: v1.0-20170313
+documentation:
+  - title: © 2017 Open Connectivity Foundation, Inc. All rights reserved.
+traits:
+  - interface:
+      queryParameters:
+        if:
+          enum: ["oic.if.baseline"]
+schemas:
+  - Account-Session-Login: !include schemas/oic.r.session-login.json
+  - Account-Session-Logout: !include schemas/oic.r.session-logout.json
+
+/oic/sec/session:
+  description: |
+    Resource that enables a device to manage its session using login or logout
+
+  POST:
+    description: |
+      Device login (Sign-in) to the cloud.
+      example: POST /oic/account/session
+    body:
+      application/json:
+        schema: Account-Session-Login
+        example: |
+          {
+            "uid" : "123e4567-e89b-12d3-a456-d6e313b71d9f",
+            "di" : "9cfbeb8e-5a1e-4d1c-9d01-00c04fd430c8",
+            "accesstoken" : "0f3d9f7fe5491d54077d",
+            "login" : true
+          }
+    responses:
+      204:
+      description: |
+        2.04 Changed respond with timeout information
+      body:
+        application/json:
+          schema: |
+          {
+            "$schema" : "http://json-schema.org/draft-04/schema#",
+            "title" : "Session Response",
+            "description" : "Copyright (c) 2016 Open Connectivity Foundation, Inc. All rights reserved.",
+            "type" : "object",
+            "properties" : {
+              "expiresin" : {
+                "description" : "Access-Token remaining life time in seconds (-1 if permanent)",
+                "type" : "integer"
+              }
+            },
+            "required" : ["expiresin"]
+          }
+          example: |
+            {
+              "expiresin" : 3600
+            }
+
+  POST:
+    description: |
+      User logout (Sign-out) from the cloud.
+      example: POST /oic/account/session
+    body:
+      application/json:
+        schema: Account-Session-Logout
+        example: |
+          {
+            "di" : "9cfbeb8e-5a1e-4d1c-9d01-00c04fd430c8",
+            "accesstoken" : "0f3d9f7fe5491d54077d",
+            "login" : false
+          }
+    responses:
+      204:
+      description: |
+        2.04 Changed respond informing the user session is successfully terminated

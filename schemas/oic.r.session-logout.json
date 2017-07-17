@@ -1,0 +1,29 @@
+{
+  "$schema" : "http://json-schema.org/draft-04/schema#",
+  "title" : "Session Logout",
+  "description" : "Copyright (c) 2017 Open Connectivity Foundation, Inc. All rights reserved.",
+  "definitions" : {
+    "uuid" : {
+      "type" : "string",
+      "pattern" : "^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$"
+    }
+  },
+  "type" : "object",
+  "properties" : {
+    "uid" : {
+      "allOf": [
+        { "description" : "User ID which provided by Sign-up process" } ,
+        { "$ref": "#/definitions/uuid" }
+      ]
+    },
+    "accesstoken" : {
+      "description" : "Access-Token used to grant access right for the device to sign-in",
+      "type" : "string"
+    },
+    "login" : {
+      "description" : "Action for the request: true = login, false = logout",
+      "type" : "boolean"
+    }
+  },
+  "required" : ["uid", "accesstoken", "login"]
+}

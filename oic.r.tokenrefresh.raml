@@ -1,0 +1,46 @@
+#%RAML 0.8
+title: Account Token Refresh
+version: v1.0-20170313
+documentation:
+  - title: © 2017 Open Connectivity Foundation, Inc. All rights reserved.
+traits:
+  - interface:
+      queryParameters:
+        if:
+          enum: ["oic.if.baseline"]
+schemas:
+- TokenRefresh-Request: oic.r.tokenrefresh-request.json
+- TokenRefresh-Response: oic.r.tokenrefresh-response.json
+
+/oic/account/tokenrefresh:
+  description: |
+    Resource to manage the access-token using refresh token
+
+  POST:
+    description: |
+      Obtain fresh access-token using the refresh token, client should refresh access-token before it expires.
+      example: POST /oic/account/tokenrefresh
+    body:
+      application/json:
+        schema: TokenRefresh-Request
+        example: |
+          {
+            "uid" : "123e4567-e89b-12d3-a456-4266554",
+            "di" : "9cfbeb8e-5a1e-4d1c-9d01-00c04fd430c8",
+            "granttype" : "refresh_token",
+            "refreshtoken" : "00fe4644a6fbe5324eec"
+          }
+    responses:
+      204:
+      description: |
+        2.04 Changed respond with new access-token
+      body:
+        application/json:
+          schema: TokenRefresh-Response          
+          example: |
+            {
+              "accesstoken" : "8ce598980761869837be",
+              "refreshtoken" : "d4922312b6df0518e146",
+              "tokentype" : "bearer",
+              "expiresin" : 3600
+            }

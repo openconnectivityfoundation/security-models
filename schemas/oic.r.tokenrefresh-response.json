@@ -1,0 +1,25 @@
+{
+  "$schema" : "http://json-schema.org/draft-04/schema#",
+  "title" : "Token Refresh",
+  "description" : "Copyright (c) 2017 Open Connectivity Foundation, Inc. All rights reserved.",
+  "type" : "object",
+  "properties" : {
+    "accesstoken" : {
+      "description" : "Granted Access-Token",
+      "type" : "string"
+    },
+    "refreshtoken" : {
+      "description" : "Refresh token received by account management",
+      "type" : "string"
+    },
+    "tokentype" : {
+      "description" : "Granted Access-Token type",
+      "type" : "string"
+    },
+    "expiresin" : {
+      "description" : "Access-Token life time in seconds (If omitted, the implementation depending default timeout applies)",
+      "type" : "integer"
+    }
+  },
+  "required" : ["accesstoken", "tokentype", "expiresin"]
+}

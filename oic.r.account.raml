@@ -1,0 +1,57 @@
+#%RAML 0.8
+title: Account
+version: v1.0-20170711
+documentation:
+  - title: © 2017 Open Connectivity Foundation, Inc. All rights reserved.
+traits:
+  - interface:
+      queryParameters:
+        if:
+          enum: ["oic.if.baseline"]
+schemas:
+  - Account: !include schemas/oic.r.account.json
+  - Account-Update: !include schemas/oic.r.account-update.json
+
+/oic/sec/account:
+  description: |
+    Resource used for a device to add itself under a given credential
+
+  POST:
+    description: |
+      Sign-up using generic account provider.
+      example: POST /oic/sec/account
+    body:
+      application/json:
+        schema: Account
+        example: |
+          {
+            "di" : "9cfbeb8e-5a1e-4d1c-9d01-00c04fd430c8",
+            "authprovider" : "github",
+            "accesstoken" : "8802f2eaf8b5e147a936"
+          }
+    responses:
+      204:
+      description: |
+        2.04 Changed respond with required and optional information
+      body:
+        application/json:
+          schema: Account-Update
+          example: |
+            {
+              "accesstoken" : "0f3d9f7fe5491d54077d",
+              "refreshtoken" : "00fe4644a6fbe5324eec",
+              "tokentype" : "bearer",
+              "expiresin" : 3600,
+              "uid" : "123e4567-e89b-12d3-a456-d6e313b71d9f",
+              "redirecturi" : "coaps+tcp://us.cloud.com:443",
+              "sid" : "987e6543-a21f-10d1-a112-421345746237"
+            }
+
+  DELETE:
+    description: |
+      Delete a device. This also removes all resources in the device on cloud side.
+      example: /oic/account?di=9cfbeb8e-5a1e-4d1c-9d01-00c04fd430c8&accesstoken=0f3d9f7fe5491d54077d
+    responses:
+      202:
+      description: |
+        2.02	 Deleted response informing the device is successfully deleted.
