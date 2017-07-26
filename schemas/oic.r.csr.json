@@ -8,6 +8,7 @@
       "properties": {
         "csr":  {
           "type": "string",
+          "maxLength": 3072,
           "description": "Signed CSR in ASN.1 in the encoding specified by the encoding property"
         },
         "encoding": {
