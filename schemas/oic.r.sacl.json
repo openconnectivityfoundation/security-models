@@ -29,6 +29,7 @@
   },
   "type": "object",
   "allOf": [
+    { "$ref": "../../core/schemas/oic.core-schema.json#/definitions/oic.core" },
     { "$ref": "#/definitions/oic.r.sacl" }
   ],
   "required": ["aclist2", "signature"],
