@@ -20,6 +20,7 @@
         },
         "data": {
           "type": "string",
+          "maxLength": 3072,
           "description": "The encoded value"
         },
         "handle": {
