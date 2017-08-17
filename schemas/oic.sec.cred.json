@@ -36,8 +36,15 @@
           ]
         },
         "credusage": {
-          "type": "string",
-          "description": "A string that provides hints about how/where the cred is used"
+          "allOf": [ 
+            { 
+              "type": "string", 
+              "description": "A string that provides hints about how/where the cred is used" 
+            }, 
+            { 
+               "$ref": "oic.sec.credusagetype.json#/definitions/oic.sec.credusagetype/properties/credusage"
+            } 
+          ]
         },
         "publicdata":   {
           "allOf": [
