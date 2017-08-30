@@ -1,0 +1,103 @@
+{
+"key":{
+    "R": "Read Only",
+    "RW": "Read Write",
+    "-": "No Access",
+    "": "Unspecified"
+},
+"doxm":{
+    "DOXS":{
+        "oxms": {"RESET": "R", "RFOTM": "R", "RFPRO":"R", "RFNOP":"R", "SRESET": "R"},
+        "oxmsel": {"RESET": "R", "RFOTM": "RW", "RFPRO":"R", "RFNOP":"R", "SRESET": "R"},
+        "sct": {"RESET": "R", "RFOTM": "R", "RFPRO":"R", "RFNOP":"R", "SRESET": "R"},
+        "owned": {"RESET": "R", "RFOTM": "RW", "RFPRO":"R", "RFNOP":"R", "SRESET": "R"},
+        "deviceuuid": {"RESET": "R", "RFOTM": "RW", "RFPRO":"R", "RFNOP":"R", "SRESET": "R"},
+        "devowneruuid": {"RESET": "R", "RFOTM": "RW", "RFPRO":"R", "RFNOP":"R", "SRESET": "R"},
+        "rowneruuid": {"RESET": "R", "RFOTM": "RW", "RFPRO":"R", "RFNOP":"R", "SRESET": "RW"}},
+    "CMS":{
+        "oxms": {"RESET": "", "RFOTM": "", "RFPRO":"", "RFNOP":"", "SRESET": ""},
+        "oxmsel": {"RESET": "", "RFOTM": "", "RFPRO":"", "RFNOP":"", "SRESET": ""},
+        "sct": {"RESET": "", "RFOTM": "", "RFPRO":"", "RFNOP":"", "SRESET": ""},
+        "owned": {"RESET": "", "RFOTM": "", "RFPRO":"", "RFNOP":"", "SRESET": ""},
+        "deviceuuid": {"RESET": "", "RFOTM": "", "RFPRO":"", "RFNOP":"", "SRESET": ""},
+        "devowneruuid": {"RESET": "", "RFOTM": "", "RFPRO":"", "RFNOP":"", "SRESET": ""},
+        "rowneruuid": {"RESET": "", "RFOTM": "", "RFPRO":"", "RFNOP":"", "SRESET": ""}},
+    "AMS":{
+        "oxms": {"RESET": "", "RFOTM": "", "RFPRO":"", "RFNOP":"", "SRESET": ""},
+        "oxmsel": {"RESET": "", "RFOTM": "", "RFPRO":"", "RFNOP":"", "SRESET": ""},
+        "sct": {"RESET": "", "RFOTM": "", "RFPRO":"", "RFNOP":"", "SRESET": ""},
+        "owned": {"RESET": "", "RFOTM": "", "RFPRO":"", "RFNOP":"", "SRESET": ""},
+        "deviceuuid": {"RESET": "", "RFOTM": "", "RFPRO":"", "RFNOP":"", "SRESET": ""},
+        "devowneruuid": {"RESET": "", "RFOTM": "", "RFPRO":"", "RFNOP":"", "SRESET": ""},
+        "rowneruuid": {"RESET": "", "RFOTM": "", "RFPRO":"", "RFNOP":"", "SRESET": ""}},
+    "CLIENT_A":{
+        "oxms": {"RESET": "-", "RFOTM": "-", "RFPRO":"-", "RFNOP":"-", "SRESET": "-"},
+        "oxmsel": {"RESET": "-", "RFOTM": "-", "RFPRO":"-", "RFNOP":"-", "SRESET": "-"},
+        "sct": {"RESET": "-", "RFOTM": "-", "RFPRO":"-", "RFNOP":"-", "SRESET": "-"},
+        "owned": {"RESET": "-", "RFOTM": "-", "RFPRO":"-", "RFNOP":"-", "SRESET": "-"},
+        "deviceuuid": {"RESET": "-", "RFOTM": "-", "RFPRO":"-", "RFNOP":"-", "SRESET": "-"},
+        "devowneruuid": {"RESET": "-", "RFOTM": "-", "RFPRO":"-", "RFNOP":"-", "SRESET": "-"},
+        "rowneruuid": {"RESET": "-", "RFOTM": "-", "RFPRO":"-", "RFNOP":"-", "SRESET": "-"}}},
+"cred":{
+    "DOXS":{
+        "creds": {"RESET": "R", "RFOTM": "RW", "RFPRO":"", "RFNOP":"", "SRESET": "RW"},
+        "rowneruuid": {"RESET": "R", "RFOTM": "RW", "RFPRO":"R", "RFNOP":"", "SRESET": "RW"}},
+    "CMS":{
+        "creds": {"RESET": "", "RFOTM": "", "RFPRO":"RW", "RFNOP":"", "SRESET": ""},
+        "rowneruuid": {"RESET": "", "RFOTM": "", "RFPRO":"", "RFNOP":"", "SRESET": ""}},
+    "AMS":{
+        "creds": {"RESET": "", "RFOTM": "", "RFPRO":"", "RFNOP":"", "SRESET": ""},
+        "rowneruuid": {"RESET": "", "RFOTM": "", "RFPRO":"", "RFNOP":"", "SRESET": ""}},
+    "CLIENT_A":{
+        "creds": {"RESET": "-", "RFOTM": "-", "RFPRO":"-", "RFNOP":"-", "SRESET": "-"},
+        "rowneruuid": {"RESET": "-", "RFOTM": "-", "RFPRO":"-", "RFNOP":"-", "SRESET": "-"}}},
+"acl2":{
+    "DOXS":{
+        "aclist2": {"RESET": "R", "RFOTM": "RW", "RFPRO":"", "RFNOP":"", "SRESET": "RW"},
+        "rowneruuid": {"RESET": "R", "RFOTM": "RW", "RFPRO":"R", "RFNOP":"", "SRESET": "RW"}},
+    "CMS":{
+        "aclist2": {"RESET": "", "RFOTM": "", "RFPRO":"", "RFNOP":"", "SRESET": ""},
+        "rowneruuid": {"RESET": "", "RFOTM": "", "RFPRO":"", "RFNOP":"", "SRESET": ""}},
+    "AMS":{
+        "aclist2": {"RESET": "", "RFOTM": "", "RFPRO":"RW", "RFNOP":"", "SRESET": ""},
+        "rowneruuid": {"RESET": "", "RFOTM": "", "RFPRO":"", "RFNOP":"", "SRESET": ""}},
+    "CLIENT_A":{
+        "aclist2": {"RESET": "-", "RFOTM": "-", "RFPRO":"RW", "RFNOP":"-", "SRESET": "-"},
+        "rowneruuid": {"RESET": "-", "RFOTM": "-", "RFPRO":"-", "RFNOP":"-", "SRESET": "-"}}},
+"pstat":{
+    "DOXS":{
+        "dos.s": {"RESET": "R", "RFOTM": "RW", "RFPRO":"RW", "RFNOP":"RW", "SRESET": "RW"},
+        "dos.p": {"RESET": "R", "RFOTM": "R", "RFPRO":"R", "RFNOP":"R", "SRESET": "R"},
+        "isop": {"RESET": "R", "RFOTM": "R", "RFPRO":"R", "RFNOP":"R", "SRESET": "R"},
+        "cm": {"RESET": "R", "RFOTM": "R", "RFPRO":"R", "RFNOP":"R", "SRESET": "R"},
+        "tm": {"RESET": "R", "RFOTM": "RW", "RFPRO":"RW", "RFNOP":"RW", "SRESET": "RW"},
+        "om": {"RESET": "R", "RFOTM": "RW", "RFPRO":"RW", "RFNOP":"RW", "SRESET": "RW"},
+        "sm": {"RESET": "R", "RFOTM": "R", "RFPRO":"R", "RFNOP":"R", "SRESET": "R"},
+        "rowneruuid": {"RESET": "R", "RFOTM": "RW", "RFPRO":"R", "RFNOP":"R", "SRESET": "RW"}},
+    "CMS":{
+        "dos.s": {"RESET": "", "RFOTM": "", "RFPRO":"RW", "RFNOP":"RW", "SRESET": "RW"},
+        "dos.p": {"RESET": "", "RFOTM": "", "RFPRO":"", "RFNOP":"", "SRESET": ""},
+        "isop": {"RESET": "", "RFOTM": "", "RFPRO":"", "RFNOP":"", "SRESET": ""},
+        "cm": {"RESET": "", "RFOTM": "", "RFPRO":"", "RFNOP":"", "SRESET": ""},
+        "tm": {"RESET": "", "RFOTM": "", "RFPRO":"RW", "RFNOP":"RW", "SRESET": ""},
+        "om": {"RESET": "", "RFOTM": "", "RFPRO":"RW", "RFNOP":"RW", "SRESET": ""},
+        "sm": {"RESET": "", "RFOTM": "", "RFPRO":"", "RFNOP":"", "SRESET": ""},
+        "rowneruuid": {"RESET": "", "RFOTM": "", "RFPRO":"", "RFNOP":"", "SRESET": ""}},
+    "AMS":{
+        "dos.s": {"RESET": "", "RFOTM": "", "RFPRO":"RW", "RFNOP":"RW", "SRESET": "RW"},
+        "dos.p": {"RESET": "", "RFOTM": "", "RFPRO":"", "RFNOP":"", "SRESET": ""},
+        "isop": {"RESET": "", "RFOTM": "", "RFPRO":"", "RFNOP":"", "SRESET": ""},
+        "cm": {"RESET": "", "RFOTM": "", "RFPRO":"", "RFNOP":"", "SRESET": ""},
+        "tm": {"RESET": "", "RFOTM": "", "RFPRO":"RW", "RFNOP":"RW", "SRESET": ""},
+        "om": {"RESET": "", "RFOTM": "", "RFPRO":"RW", "RFNOP":"RW", "SRESET": ""},
+        "sm": {"RESET": "", "RFOTM": "", "RFPRO":"", "RFNOP":"", "SRESET": ""},
+        "rowneruuid": {"RESET": "", "RFOTM": "", "RFPRO":"", "RFNOP":"", "SRESET": ""}},
+    "CLIENT_A":{
+        "dos.s": {"RESET": "-", "RFOTM": "-", "RFPRO":"-", "RFNOP":"-", "SRESET": "-"},
+        "dos.p": {"RESET": "-", "RFOTM": "-", "RFPRO":"-", "RFNOP":"-", "SRESET": "-"},
+        "isop": {"RESET": "-", "RFOTM": "-", "RFPRO":"-", "RFNOP":"-", "SRESET": "-"},
+        "cm": {"RESET": "-", "RFOTM": "-", "RFPRO":"-", "RFNOP":"-", "SRESET": "-"},
+        "tm": {"RESET": "-", "RFOTM": "-", "RFPRO":"-", "RFNOP":"-", "SRESET": "-"},
+        "om": {"RESET": "-", "RFOTM": "-", "RFPRO":"-", "RFNOP":"-", "SRESET": "-"},
+        "sm": {"RESET": "-", "RFOTM": "-", "RFPRO":"-", "RFNOP":"-", "SRESET": "-"},
+        "rowneruuid": {"RESET": "-", "RFOTM": "-", "RFPRO":"-", "RFNOP":"-", "SRESET": "-"}}}}
