@@ -1,6 +1,13 @@
 #%RAML 0.8
 title: OICSecurityRolesResource
 version: v1.0-20170323
+documentation:
+  - title: OCF Copyright
+    content: Copyright (c) 2016, 2017 Open Connectivity Foundation, Inc. All rights reserved.
+  - title: OCF License
+    content: !include LICENSE.md
+  - title: OCF Disclaimer
+    content: !include DISCLAIMER.md
 schemas:
   - Roles: !include schemas/oic.r.roles.json
 
@@ -50,16 +57,16 @@ traits:
                       "publicdata":
                         {
                            "encoding":"oic.sec.encoding.pem",
-                           "data":"PEMENCODEDROLECERT" 
-                        }, 
+                           "data":"PEMENCODEDROLECERT"
+                        },
                       "optionaldata":
                         {
                            "encoding":"oic.sec.encoding.pem",
                            "data":"PEMENCODEDISSUERCERT"
                         }
                     }
-                ], 
-                "rt":["oic.r.roles"], 
+                ],
+                "rt":["oic.r.roles"],
                 "if":["oic.if.baseline"]
               }
       400:
@@ -71,7 +78,7 @@ traits:
 
       New role certificates that match an existing certificate (i.e., publicdata
       and optionaldata are the same) are not added to the resource (and 204 is
-      returned). 
+      returned).
 
       The provided credid values are ignored, the resource assigns its own.
 
@@ -88,8 +95,8 @@ traits:
                   "publicdata":
                     {
                        "encoding":"oic.sec.encoding.pem",
-                       "data":"PEMENCODEDROLECERT" 
-                    }, 
+                       "data":"PEMENCODEDROLECERT"
+                    },
                   "optionaldata":
                     {
                        "encoding":"oic.sec.encoding.pem",
@@ -103,16 +110,16 @@ traits:
                   "publicdata":
                     {
                        "encoding":"oic.sec.encoding.pem",
-                       "data":"PEMENCODEDROLECERT" 
-                    }, 
+                       "data":"PEMENCODEDROLECERT"
+                    },
                   "optionaldata":
                     {
                        "encoding":"oic.sec.encoding.pem",
                        "data":"PEMENCODEDISSUERCERT"
                     }
                 }
-            ], 
-            "rt":["oic.r.roles"], 
+            ],
+            "rt":["oic.r.roles"],
             "if":["oic.if.baseline"]
             }
 
