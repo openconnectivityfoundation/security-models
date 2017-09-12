@@ -19,11 +19,13 @@
         },
         "isop":  {
           "type": "boolean",
+          "readOnly": true,
           "description": "true indicates device is operational"
         },
         "cm":   {
           "allOf": [
             {
+              "readOnly": true,
               "description": "Current device provisioning mode"
             },
             {

@@ -9,10 +9,12 @@
       "properties": {
         "authority": {
           "type": "string",
+          "readOnly": true,
           "description": "The Authority component of the entity being identified. A NULL <Authority> refers to the local entity or device."
         },
         "role": {
           "type": "string",
+          "readOnly": true,
           "description": "The ID of the role being identified."
         }
       },

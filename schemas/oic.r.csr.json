@@ -8,11 +8,13 @@
       "properties": {
         "csr":  {
           "type": "string",
+          "readOnly": true,
           "maxLength": 3072,
           "description": "Signed CSR in ASN.1 in the encoding specified by the encoding property"
         },
         "encoding": {
           "type": "string",
+          "readOnly": true,
           "enum": [ "oic.sec.encoding.pem", "oic.sec.encoding.der" ],
           "description": "A string specifying the encoding format of the data contained in csr",
           "detail-desc": [  "oic.sec.encoding.pem - Encoding for PEM encoded CSR",
