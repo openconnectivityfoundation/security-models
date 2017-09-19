@@ -106,7 +106,7 @@
           }
         }
       },
-      "required": [ "aceid", "resources", "permission", "subject" ]
+      "required": ["permission", "subject" ]
     }
   }
 }
