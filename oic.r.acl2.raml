@@ -1,6 +1,13 @@
 #%RAML 0.8
 title: OICSecurityAcl2Resource
 version: v1.0-20161214
+documentation:
+  - title: OCF Copyright
+    content: Copyright (c) 2016, 2017 Open Connectivity Foundation, Inc. All rights reserved.
+  - title: OCF License
+    content: !include LICENSE.md
+  - title: OCF Disclaimer
+    content: !include DISCLAIMER.md
 schemas:
   - Acl2: !include schemas/oic.r.acl2.json
 
@@ -128,6 +135,7 @@ traits:
 
       ACEs provided in the update without aceid properties are added and
       assigned unique aceids in the ACL resource.
+    is: [ace-filtered]
     body:
       application/json:
         schema: Acl2
