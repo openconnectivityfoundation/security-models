@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
-  "id": "https://www.openconnectivity.org/ocf-apis/security/schemas/oic.sec.ace2.json#",
+  "id": "https://www.openconnectivity.org/ocf-apis/security/schemas/oic.sec.ace2-Update.json#",
   "title": "Subject-based Access Control Entry (ACE) object definition",
   "definitions": {
     "oic.sec.ace2": {
@@ -52,8 +52,12 @@
               },
               "wc": {
                 "type": "string",
-                "pattern": "^[-+*]$",
+                "enum": [ "+", "-", "*" ],
                 "description": "A wildcard matching policy",
+                "detail-desc": [  "+ - Matches all discoverable resources",
+                                  "- - Matches all non-discoverable resources",
+                                  "* - Matches all resources"
+                ]
               }
             }
           }
@@ -102,7 +106,7 @@
           }
         }
       },
-      "required": [ "aceid", "resources", "permission", "subject" ]
+      "required": [ "resources", "permission", "subject" ]
     }
   }
 }
