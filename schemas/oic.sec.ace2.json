@@ -52,12 +52,8 @@
               },
               "wc": {
                 "type": "string",
-                "enum": [ "+", "-", "*" ],
+                "pattern": "^[-+*]$",
                 "description": "A wildcard matching policy",
-                "detail-desc": [  "+ - Matches all discoverable resources",
-                                  "- - Matches all non-discoverable resources",
-                                  "* - Matches all resources"
-                ]
               }
             }
           }
