@@ -102,7 +102,7 @@
           }
         }
       },
-      "required": [ "permission", "subject" ]
+      "required": ["permission", "subject" ]
     }
   }
 }
