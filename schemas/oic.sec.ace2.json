@@ -53,7 +53,7 @@
               "wc": {
                 "type": "string",
                 "pattern": "^[-+*]$",
-                "description": "A wildcard matching policy",
+                "description": "A wildcard matching policy"
               }
             }
           }
