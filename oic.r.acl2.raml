@@ -10,6 +10,7 @@ documentation:
     content: !include DISCLAIMER.md
 schemas:
   - Acl2: !include schemas/oic.r.acl2.json
+  - Acl2-Update: !include schemas/oic.r.acl2-Update.json
 
 traits:
   - interface:
@@ -138,7 +139,7 @@ traits:
     is: [ace-filtered]
     body:
       application/json:
-        schema: Acl2
+        schema: Acl2-Update
         example: |
           {
             "aclist2": [
