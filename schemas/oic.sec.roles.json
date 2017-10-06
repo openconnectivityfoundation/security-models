@@ -1,0 +1,97 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "https://www.openconnectivity.org/ocf-apis/security/schemas/oic.sec.roles.json#",
+  "title": "Device Roles information",
+  "definitions": {
+    "oic.sec.cred": {
+      "type": "object",
+      "properties": {
+        "credid":  {
+          "type": "integer",
+          "description": "Local reference to a credential resource"
+        },
+        "subjectuuid": {
+          "$ref": "../../core/schemas/oic.types-schema.json#/definitions/uuid"
+        },
+        "roleid": {
+          "allOf": [
+            {
+              "type": "object",
+              "description": "The role this credential possesses"
+            },
+            {
+              "$ref": "oic.sec.roletype.json#/definitions/oic.sec.roletype"
+            }
+          ]
+        },
+        "credtype": {
+          "allOf": [
+            {
+              "type": "integer",
+              "description": "Representation of this credential's type"
+            },
+            {
+              "$ref": "oic.sec.credtype.json#/definitions/oic.sec.credtype/properties/bitmask"
+            }
+          ]
+        },
+        "credusage": {
+          "allOf": [
+            {
+              "type": "string",
+              "description": "A string that provides hints about how/where the cred is used"
+            },
+            {
+               "$ref": "oic.sec.credusagetype.json#/definitions/oic.sec.credusagetype/properties/credusage"
+            }
+          ]
+        },
+        "publicdata":   {
+          "allOf": [
+            {
+              "type": "object",
+              "description": "Public credential information"
+            },
+            {
+              "$ref": "oic.sec.pubdatatype.json#/definitions/oic.sec.pubdatatype"
+            }
+          ]
+        },
+        "privatedata":   {
+          "allOf": [
+            {
+              "type": "object",
+              "description": "Private credential information"
+            },
+            {
+              "$ref": "oic.sec.privdatatype.json#/definitions/oic.sec.privdatatype"
+            }
+          ]
+        },
+        "optionaldata":   {
+          "allOf": [
+            {
+              "type": "object",
+              "description": "Credential revocation status information"
+            },
+            {
+              "$ref": "oic.sec.optdatatype.json#/definitions/oic.sec.optdatatype"
+            }
+          ]
+        },
+        "period":   {
+          "type": "string",
+          "description": "String with RFC5545 Period"
+        },
+        "crms": {
+          "type": "array",
+          "description": "The refresh methods that may be used to update this credential",
+          "items": {
+            "$ref": "oic.sec.crmtype.json#/definitions/oic.sec.crmtype/properties/crm"
+          }
+        }
+      },
+      "required": ["subjectuuid", "credtype" ]
+    }
+  }
+}
