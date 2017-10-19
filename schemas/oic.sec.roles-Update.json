@@ -8,7 +8,7 @@
       "properties": {
         "$ref": "oic.sec.cred-base.json#definitions/oic.sec.cred"
       },
-      "required": ["credid", "subjectuuid", "credtype", "publicdata" ]
+      "required": ["publicdata", "credtype" ]
     }
   }
 }
