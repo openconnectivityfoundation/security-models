@@ -16,16 +16,6 @@ traits:
       queryParameters:
         if:
           enum: ["oic.if.baseline"]
-  - roles-filtered:
-      usage: Apply this to any method that can filter roles
-      description: Some requests only operate on a subset of roles
-      queryParameters:
-        credid:
-            type: integer
-            description: Only applies to the credential with the specified credid
-            required: false
-            repeat: true
-            example: 2112
 
 /oic/sec/roles:
   description: |
@@ -142,12 +132,10 @@ traits:
   delete:
     description: |
       Deletes roles resource entries.
-      When DELETE is used without query parameters, all the roles entries are deleted.
-      When DELETE is used with a query parameter, only the entries matching
-      the query parameter are deleted.
-      is: [roles-filtered]
+      DELETE does not support query parameters, all the entries are deleted.
+
     responses:
       200:
-        description: The specified or all roles resource entries have been successfully deleted.
+        description: The roles resource has been successfully deleted.
       400:
         description: The request is invalid.
