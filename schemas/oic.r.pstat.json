@@ -80,5 +80,5 @@
     { "$ref": "../../core/schemas/oic.core-schema.json#/definitions/oic.core" },
     { "$ref": "#/definitions/oic.r.pstat" }
   ],
-  "required": [ "dos", "isop", "cm", "om", "sm", "rowneruuid" ]
+  "required": [ "dos", "isop", "cm", "om", "sm", "rowneruuid", "tm" ]
 }
