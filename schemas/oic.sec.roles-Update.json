@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
-  "id": "https://www.openconnectivity.org/ocf-apis/security/schemas/oic.sec.roles.json#",
+  "id": "https://www.openconnectivity.org/ocf-apis/security/schemas/oic.sec.roles-Update.json#",
   "title": "Device Roles information",
   "definitions": {
     "oic.sec.cred": {

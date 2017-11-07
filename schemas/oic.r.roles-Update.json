@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
-  "id": "https://www.openconnectivity.org/ocf-apis/security/schemas/oic.r.roles.json#",
+  "id": "https://www.openconnectivity.org/ocf-apis/security/schemas/oic.r.roles-Update.json#",
   "title": "Asserted Role Certificates",
   "definitions": {
     "oic.r.cred": {
