@@ -10,7 +10,7 @@ documentation:
     content: !include DISCLAIMER.md
 schemas:
   - Roles: !include schemas/oic.r.roles.json
-
+  - Roles-update: !include schemas/oic.r.roles-Update.json
 traits:
   - interface:
       queryParameters:
@@ -94,7 +94,7 @@ traits:
 
     body:
       application/json:
-        schema: Roles
+        schema: Roles-update
         example: |
           {
             "roles" :[
