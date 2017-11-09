@@ -24,7 +24,7 @@
           "description": "'p' is TRUE when the 's' state is pending until all necessary changes to device resources are complete."
         }
       },
-      "required": [ "s", "p" ]
+      "required": [ "s" ]
     }
   }
 }
