@@ -1,8 +1,16 @@
 #%RAML 0.8
 title: OICSecurityCredentialResource
 version: v1.0-20150819
+documentation:
+  - title: OCF Copyright
+    content: Copyright (c) 2016, 2017 Open Connectivity Foundation, Inc. All rights reserved.
+  - title: OCF License
+    content: !include LICENSE.md
+  - title: OCF Disclaimer
+    content: !include DISCLAIMER.md
 schemas:
  - Cred: !include schemas/oic.r.cred.json
+ - Cred-Update: !include schemas/oic.r.cred-Update.json
 
 traits:
   - interface:
@@ -122,7 +130,7 @@ traits:
       added and assigned unique credid(s) in the credential resource.
     body:
       application/json:
-        schema: Cred
+        schema: Cred-Update
         example: |
           {
             "creds": [

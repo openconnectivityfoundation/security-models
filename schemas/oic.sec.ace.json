@@ -12,9 +12,15 @@
           "items": { "$ref": "../../core/schemas/oic.oic-link-schema.json#/definitions/oic.oic-link" }
         },
         "permission": {
-          "type": "integer",
-          "description": "Bitmask encoding of CRUDN permission",
-          "$ref": "oic.sec.crudntype.json#/definitions/oic.sec.crudntype/properties/bitmask"
+          "allOf": [
+            {
+              "type": "integer",
+              "description": "Bitmask encoding of CRUDN permission"
+            },
+            {
+              "$ref": "oic.sec.crudntype.json#/definitions/oic.sec.crudntype/properties/bitmask"
+            }
+          ]
         },
         "validity": {
           "type": "array",
@@ -24,9 +30,9 @@
           }
         },
         "subjectuuid": {
-          "description": "The id of the device to which the ace applies to or \"*\" for anonymous access",
           "anyOf": [
             {
+              "description": "The id of the device to which the ace applies to or \"*\" for anonymous access",
               "type": "string", "pattern": "^\\*$"
             },
             {

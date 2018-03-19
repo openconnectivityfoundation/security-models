@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
-  "id": "https://www.openconnectivity.org/ocf-apis/security/schemas/oic.sec.cred.json#",
+  "id": "https://www.openconnectivity.org/ocf-apis/security/schemas/oic.sec.cred-Update.json#",
   "title": "Device Credentials information",
   "definitions": {
     "oic.sec.cred": {
@@ -10,7 +10,7 @@
           "$ref": "oic.sec.cred-base.json#/definitions/oic.sec.cred"
         }
       ],
-      "required": [ "credid", "subjectuuid", "credtype" ]
+      "required": [ "subjectuuid", "credtype" ]
     }
   }
 }

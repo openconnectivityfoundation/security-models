@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
-  "id": "https://www.openconnectivity.org/ocf-apis/security/schemas/oic.r.acl2.json#",
+  "id": "https://www.openconnectivity.org/ocf-apis/security/schemas/oic.r.acl2-Update.json#",
   "title": "Access Control List information",
   "definitions": {
     "oic.r.acl2": {
@@ -10,7 +10,7 @@
           "type": "array",
           "description": "Access Control Entries in the ACL resource",
           "items": {
-            "$ref": "oic.sec.ace2.json#/definitions/oic.sec.ace2"
+            "$ref": "oic.sec.ace2-Update.json#/definitions/oic.sec.ace2"
           }
         },
         "rowneruuid": {
@@ -26,6 +26,5 @@
   "allOf": [
     { "$ref": "../../core/schemas/oic.core-schema.json#/definitions/oic.core" },
     { "$ref": "#/definitions/oic.r.acl2" }
-  ],
-  "required": [ "aclist2", "rowneruuid" ]
+  ]
 }
