@@ -10,8 +10,8 @@ documentation:
     content: !include DISCLAIMER.md
 
 schemas:
-  - Account: !include schemas/oic.r.account.json
-  - Account-Update: !include schemas/oic.r.account-update.json
+  - Account-request: !include schemas/oic.r.account-request.json
+  - Account-response: !include schemas/oic.r.account-response.json
 
 traits:
   - interface:
@@ -29,7 +29,7 @@ traits:
       example: POST /oic/sec/account
     body:
       application/json:
-        schema: Account
+        schema: Account-request
         example: |
           {
             "di" : "9cfbeb8e-5a1e-4d1c-9d01-00c04fd430c8",
@@ -42,7 +42,7 @@ traits:
           2.04 Changed respond with required and optional information
         body:
           application/json:
-            schema: Account-Update
+            schema: Account-response
             example: |
               {
                 "accesstoken" : "0f3d9f7fe5491d54077d",
