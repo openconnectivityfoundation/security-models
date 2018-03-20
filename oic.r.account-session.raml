@@ -10,8 +10,7 @@ documentation:
     content: !include DISCLAIMER.md
 
 schemas:
-  - Account-Session-Login: !include schemas/oic.r.session-login.json
-  - Account-Session-Logout: !include schemas/oic.r.session-logout.json
+  - Account-Session-Request: !include schemas/oic.r.session-request.json
 
 traits:
   - interface:
@@ -29,7 +28,7 @@ traits:
       example: POST /oic/account/session
     body:
       application/json:
-        schema: Account-Session-Login
+        schema: Account-Session-Request
         example: |
           {
             "uid" : "123e4567-e89b-12d3-a456-d6e313b71d9f",
