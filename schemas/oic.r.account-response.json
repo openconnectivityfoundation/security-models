@@ -1,7 +1,8 @@
 {
   "$schema" : "http://json-schema.org/draft-04/schema#",
-  "title" : "Account Update",
   "description" : "Copyright (c) 2017 Open Connectivity Foundation, Inc. All rights reserved.",
+  "title" : "Account",
+  "id": "https://www.openconnectivity.org/ocf-apis/security/schemas/oic.r.account-respose.json#",
   "definitions" : {
     "uuid" : {
       "type" : "string",
@@ -15,11 +16,7 @@
       "type" : "string"
     },
     "refreshtoken" : {
-      "description" : "Refresh token used to refresh the access token before getting expired",
-      "type" : "string"
-    },
-    "tokentype" : {
-      "description" : "Access-Token type, eg. “bearer” type can be used, ie. simply including the access-token string in the message",
+      "description" : "Refresh token can be used to refresh the Access Token before getting expired",
       "type" : "string"
     },
     "expiresin" : {
@@ -27,17 +24,13 @@
       "type" : "integer"
     },
     "uid" : {
-      "description" : "Unique user identifier created for this account",
+      "description" : "Unique OCF Cloud User identifier",
       "$ref": "#/definitions/uuid"
     },
     "redirecturi" : {
-      "description" : "Using this URI, the client needs to reconnect to a redirected server",
+      "description" : "Using this URI, the Client needs to reconnect to a redirected OCF Cloud. If provided, this value shall be used by the Device instead of Mediator-provided URI during the Device Registration.",
       "type" : "string"
-    },
-    "sid" : {
-      "description" : "Server UUID to indicate a specific server in the redirected uri location",
-      "$ref": "#/definitions/uuid"
     }
   },
-  "required" : ["accesstoken", "tokentype", "expiresin", "uid"]
+  "required" : ["accesstoken", "refreshtoken", "expiresin", "uid"]
 }
