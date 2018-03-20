@@ -19,14 +19,13 @@ traits:
         if:
           enum: ["oic.if.baseline"]
           
-/oic/account/tokenrefresh:
+/oic/sec/account/tokenrefresh:
   description: |
     Resource to manage the access-token using refresh token
 
   post:
     description: |
       Obtain fresh access-token using the refresh token, client should refresh access-token before it expires.
-      example: POST /oic/account/tokenrefresh
     body:
       application/json:
         schema: TokenRefresh-Request
@@ -34,7 +33,6 @@ traits:
           {
             "uid" : "123e4567-e89b-12d3-a456-d6e313b71d9f",
             "di" : "9cfbeb8e-5a1e-4d1c-9d01-00c04fd430c8",
-            "granttype" : "refresh_token",
             "refreshtoken" : "00fe4644a6fbe5324eec"
           }
     responses:
@@ -48,6 +46,5 @@ traits:
               {
                 "accesstoken" : "8ce598980761869837be",
                 "refreshtoken" : "d4922312b6df0518e146",
-                "tokentype" : "bearer",
                 "expiresin" : 3600
               }

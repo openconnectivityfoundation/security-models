@@ -1,7 +1,8 @@
 {
   "$schema" : "http://json-schema.org/draft-04/schema#",
-  "title" : "Token Refresh",
   "description" : "Copyright (c) 2017 Open Connectivity Foundation, Inc. All rights reserved.",
+  "title" : "Token Refresh",
+  "id": "https://www.openconnectivity.org/ocf-apis/security/schemas/oic.r.tokenrefresh-response.json#",
   "type" : "object",
   "properties" : {
     "accesstoken" : {
@@ -9,17 +10,13 @@
       "type" : "string"
     },
     "refreshtoken" : {
-      "description" : "Refresh token received by account management",
-      "type" : "string"
-    },
-    "tokentype" : {
-      "description" : "Granted Access-Token type",
+      "description" : "Refresh token received by account management or during token refresh procedure",
       "type" : "string"
     },
     "expiresin" : {
-      "description" : "Access-Token life time in seconds (If omitted, the implementation depending default timeout applies)",
+      "description" : "Access-Token life time in seconds (-1 if permanent)",
       "type" : "integer"
     }
   },
-  "required" : ["accesstoken", "tokentype", "expiresin"]
+  "required" : ["accesstoken", "expiresin"]
 }
