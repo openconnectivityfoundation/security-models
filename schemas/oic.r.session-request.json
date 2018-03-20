@@ -1,7 +1,8 @@
 {
   "$schema" : "http://json-schema.org/draft-04/schema#",
-  "title" : "Session Login",
   "description" : "Copyright (c) 2017 Open Connectivity Foundation, Inc. All rights reserved.",
+  "title" : "Account Session",
+  "id": "https://www.openconnectivity.org/ocf-apis/security/schemas/oic.r.session-request.json#",
   "definitions" : {
     "uuid" : {
       "type" : "string",

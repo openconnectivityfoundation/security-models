@@ -11,6 +11,7 @@ documentation:
 
 schemas:
   - Account-Session-Request: !include schemas/oic.r.session-request.json
+  - Account-Session-Response: !include schemas/oic.r.session-response.json
 
 traits:
   - interface:
@@ -23,9 +24,6 @@ traits:
     Resource that enables a device to manage its session using login or logout
 
   post:
-    description: |
-      Device login (Sign-in) to the cloud.
-      example: POST /oic/account/session
     body:
       application/json:
         schema: Account-Session-Request
@@ -38,24 +36,9 @@ traits:
           }
     responses:
       204:
-        description: |
-          2.04 Changed respond with timeout information
         body:
           application/json:
-            schema: |
-              {
-                "$schema" : "http://json-schema.org/draft-04/schema#",
-                "title" : "Session Response",
-                "description" : "Copyright (c) 2016 Open Connectivity Foundation, Inc. All rights reserved.",
-                "type" : "object",
-                "properties" : {
-                  "expiresin" : {
-                    "description" : "Access-Token remaining life time in seconds (-1 if permanent)",
-                    "type" : "integer"
-                  }
-                },
-                "required" : ["expiresin"]
-              }
+            schema: Account-Session-Response
             example: |
               {
                 "expiresin" : 3600
