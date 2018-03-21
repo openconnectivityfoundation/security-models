@@ -18,5 +18,5 @@
       "type" : "integer"
     }
   },
-  "required" : ["accesstoken", "expiresin"]
+  "required" : ["accesstoken", "refreshtoken", "expiresin"]
 }
