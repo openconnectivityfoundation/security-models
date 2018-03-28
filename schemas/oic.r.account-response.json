@@ -3,12 +3,6 @@
   "description" : "Copyright (c) 2018 Open Connectivity Foundation, Inc. All rights reserved.",
   "title" : "Account",
   "id": "https://www.openconnectivity.org/ocf-apis/security/schemas/oic.r.account-respose.json#",
-  "definitions" : {
-    "uuid" : {
-      "type" : "string",
-      "pattern" : "^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$"
-    }
-  },
   "type" : "object",
   "properties" : {
     "accesstoken" : {
@@ -27,7 +21,7 @@
     },
     "uid" : {
       "description" : "Unique OCF Cloud User identifier",
-      "$ref": "#/definitions/uuid",
+      "$ref": "../../core/schemas/oic.types-schema.json#/definitions/uuid",
       "readOnly": true
     },
     "redirecturi" : {

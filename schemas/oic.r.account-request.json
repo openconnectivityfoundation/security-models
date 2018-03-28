@@ -3,17 +3,11 @@
   "description" : "Copyright (c) 2018 Open Connectivity Foundation, Inc. All rights reserved.",
   "title" : "Account",
   "id": "https://www.openconnectivity.org/ocf-apis/security/schemas/oic.r.account-request.json#",
-  "definitions" : {
-    "uuid" : {
-      "type" : "string",
-      "pattern" : "^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$"
-    }
-  },
   "type" : "object",
   "properties" : {
     "di" : {
       "description" : "Unique device identifier",
-      "$ref": "#/definitions/uuid"
+      "$ref": "../../core/schemas/oic.types-schema.json#/definitions/uuid"
     },
     "authprovider" : {
       "description" : "The name of Authorization Provider through which Access Token was obtained",

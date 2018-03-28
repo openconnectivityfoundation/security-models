@@ -3,21 +3,15 @@
   "description" : "Copyright (c) 2018 Open Connectivity Foundation, Inc. All rights reserved.",
   "title" : "Account Session",
   "id": "https://www.openconnectivity.org/ocf-apis/security/schemas/oic.r.session-request.json#",
-  "definitions" : {
-    "uuid" : {
-      "type" : "string",
-      "pattern" : "^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$"
-    }
-  },
   "type" : "object",
   "properties" : {
     "uid" : {
       "description" : "User ID which provided by Sign-up process",
-      "$ref": "#/definitions/uuid"
+      "$ref": "../../core/schemas/oic.types-schema.json#/definitions/uuid"
     },
     "di" : {
       "description": "Unique device identifier registered for an device account",
-      "$ref": "#/definitions/uuid"
+      "$ref": "../../core/schemas/oic.types-schema.json#/definitions/uuid"
     },
     "accesstoken" : {
       "description" : "Access-Token used to grant access right for the device to sign-in",
