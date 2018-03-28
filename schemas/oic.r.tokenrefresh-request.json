@@ -12,16 +12,12 @@
   "type" : "object",
   "properties" : {
     "uid" : {
-      "allOf": [
-        { "description" : "User ID which provided by Sign-up process" },
-        { "$ref": "#/definitions/uuid" }
-      ]
+      "description" : "User ID which provided by Sign-up process",
+      "$ref": "#/definitions/uuid"
     },
     "di" : {
-      "allOf": [
-        { "description" : "Unique device id registered for an OCF Cloud User account" },
-        { "$ref": "#/definitions/uuid" }
-      ]
+      "description" : "Unique device id registered for an OCF Cloud User account",
+      "$ref": "#/definitions/uuid"
     },
     "refreshtoken" : {
       "description" : "Refresh token received by account management or during token refresh procedure",

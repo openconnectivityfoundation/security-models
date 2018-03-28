@@ -12,10 +12,8 @@
   "type" : "object",
   "properties" : {
     "di" : {
-      "allOf": [
-        { "description" : "Unique device identifier" },
-        { "$ref": "#/definitions/uuid" }
-      ]
+      "description" : "Unique device identifier",
+      "$ref": "#/definitions/uuid"
     },
     "authprovider" : {
       "description" : "The name of Authorization Provider through which Access Token was obtained",

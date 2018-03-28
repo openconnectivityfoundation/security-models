@@ -12,16 +12,12 @@
   "type" : "object",
   "properties" : {
     "uid" : {
-      "allOf": [
-        { "description" : "User ID which provided by Sign-up process" },
-        { "$ref": "#/definitions/uuid" }
-      ]
+      "description" : "User ID which provided by Sign-up process",
+      "$ref": "#/definitions/uuid"
     },
     "di" : {
-      "allOf": [
-        { "description": "Unique device identifier registered for an device account" },
-        { "$ref": "#/definitions/uuid" }
-      ]
+      "description": "Unique device identifier registered for an device account",
+      "$ref": "#/definitions/uuid"
     },
     "accesstoken" : {
       "description" : "Access-Token used to grant access right for the device to sign-in",
