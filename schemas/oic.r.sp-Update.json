@@ -1,0 +1,28 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "description" : "Copyright (c) 2018 Open Connectivity Foundation, Inc. All rights reserved.",
+  "id": "https://www.openconnectivity.org/ocf-apis/security/schemas/oic.r.sp-Update.json#",
+  "definitions": {
+    "oic.r.sp": {
+      "type": "object",
+      "properties": {
+        "supported_profiles": {
+          "type": "array",
+          "description": "Array of supported security profiles",
+          "items": {
+            "$ref": "oic.sec.sp.name.json#/definitions/oic.sec.sp.name"
+          }
+        },
+        "active_profile": {
+          "description": "Security profile currently active",
+          "$ref": "oic.sec.sp.name.json#/definitions/oic.sec.sp.name"
+        }
+      }
+    }
+  },
+  "type": "object",
+  "allOf": [
+    { "$ref": "../../core/schemas/oic.core-schema.json#/definitions/oic.core" },
+    { "$ref": "#/definitions/oic.r.sp" }
+  ]
+}

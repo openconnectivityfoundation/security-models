@@ -10,6 +10,7 @@ documentation:
     content: !include DISCLAIMER.md
 schemas:
   - SP: !include schemas/oic.r.sp.json
+  - SP-Update: !include schemas/oic.r.sp-Update.json
 
 traits:
   - interface:
@@ -46,7 +47,7 @@ traits:
       Sets or updates device provisioning status data.
     body:
       application/json:
-        schema: SP
+        schema: SP-Update
         example: |
           {
             "supported_profiles" : ["oic.sec.sp.baseline", "oic.sec.sp.black"],
