@@ -9,9 +9,7 @@
         "aceid": {
           "type": "integer",
           "minimum": 1,
-          "description": "An identifier for the ACE that is unique within the ACL.
-                          In cases where it isn't supplied in an update, the Server
-                          will add the ACE and assign it a unique value.",
+          "description": "An identifier for the ACE that is unique within the ACL. In cases where it isn't supplied in an update, the Server will add the ACE and assign it a unique value."
         },
         "resources": {
           "type": "array",
@@ -26,7 +24,7 @@
                     "description": "When present, the ACE only applies when the href matches"
                   },
                   {
-                    "$ref": "oic.oic-link-schema.json#/definitions/oic.oic-link/properties/href"
+                    "$ref": "../../core/schemas/oic.oic-link-schema.json#/definitions/oic.oic-link/properties/href"
                   }
                 ]
               },
@@ -36,7 +34,7 @@
                     "description": "When present, the ACE only applies when the rt (resource type) matches"
                   },
                   {
-                    "$ref": "oic.oic-link-schema.json#/definitions/oic.oic-link/properties/rt"
+                    "$ref": "../../core/schemas/oic.oic-link-schema.json#/definitions/oic.oic-link/properties/rt"
                   }
                 ]
               },
@@ -46,7 +44,7 @@
                     "description": "When present, the ACE only applies when the if (interface) matches"
                   },
                   {
-                    "$ref": "oic.oic-link-schema.json#/definitions/oic.oic-link/properties/if"
+                    "$ref": "../../core/schemas/oic.oic-link-schema.json#/definitions/oic.oic-link/properties/if"
                   }
                 ]
               },
