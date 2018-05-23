@@ -4,7 +4,6 @@
   "title": "Device Roles information",
   "definitions": {
     "oic.sec.cred": {
-      "type": "object",
       "allOf": [
         {
           "$ref": "oic.sec.cred-base.json#/definitions/oic.sec.cred"

@@ -4,10 +4,11 @@
   "title": "Device Roles information",
   "definitions": {
     "oic.sec.cred": {
-      "type": "object",
-      "properties": {
-        "$ref": "oic.sec.cred-base.json#definitions/oic.sec.cred"
-      },
+      "allOf": [
+        {
+          "$ref": "oic.sec.cred-base.json#/definitions/oic.sec.cred"
+        }
+      ],
       "required": ["publicdata", "credtype" ]
     }
   }
