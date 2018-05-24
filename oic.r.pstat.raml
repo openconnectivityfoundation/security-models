@@ -10,6 +10,7 @@ documentation:
     content: !include DISCLAIMER.md
 schemas:
   - Pstat: !include schemas/oic.r.pstat.json
+  - Pstat-Update: !include schemas/oic.r.pstat-Update.json
 
 traits:
   - interface:
@@ -50,15 +51,12 @@ traits:
       Sets or updates device provisioning status data.
     body:
       application/json:
-        schema: Pstat
+        schema: Pstat-Update
         example: |
           {
             "dos": {"s": 3, "p": true},
-            "isop": true,
-            "cm": 8,
             "tm": 60,
             "om": 2,
-            "sm": 7,
             "rowneruuid": "de305d54-75b4-431b-adb2-eb6b9e546014"
           }
     responses:
@@ -74,15 +72,12 @@ traits:
       Sets or updates device provisioning status data.
     body:
       application/json:
-        schema: Pstat
+        schema: Pstat-Update
         example: |
           {
             "dos": {"s": 3, "p": true},
-            "isop": true,
-            "cm": 8,
             "tm": 60,
             "om": 2,
-            "sm": 7,
             "rowneruuid": "de305d54-75b4-431b-adb2-eb6b9e546014"
           }
     responses:
