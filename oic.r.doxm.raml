@@ -88,22 +88,3 @@ traits:
         description: The DOXM entry is created.
       400:
         description: The request is invalid.
-
-  delete:
-      description: |
-        Deletes the DOXM data.
-        When DELETE is used without query parameters, the entire DOXM resource is deleted.
-        When DELETE uses a query value naming the deviceid, only the matched entry is deleted.
-      queryParameters:
-          subject:
-              type: string
-              description: |
-                Delete the DOXM entry identified by the string containing device ID.
-              required: false
-              example: |
-                DELETE /mydoxm?deviceid="de305d54-75b4-431b-adb2-eb6b9e546014"
-      responses:
-        204:
-          description: The CRL instance or the the entire CRL resource has been successfully deleted.
-        400:
-          description: The request is invalid.
