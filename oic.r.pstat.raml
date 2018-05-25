@@ -85,22 +85,3 @@ traits:
         description: The PSTAT entry is created.
       400:
         description: The request is invalid.
-
-  delete:
-    description: |
-      Deletes the PSTAT data.
-      When DELETE is used without query parameters, the entire collection is deleted.
-      When DELETE is used with the query parameter where devid is specified, only the matched entry is deleted.
-    queryParameters:
-        subject:
-            type: string
-            description: |
-              Delete the PSTAT identified by the string containing the UUID.
-            required: false
-            example: |
-              DELETE /mypstat?deviceid="de305d54-75b4-431b-adb2-eb6b9e546014"
-    responses:
-      200:
-        description: The PSTAT instance or the the entire resource has been successfully deleted.
-      400:
-        description: The request is invalid.
