@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
-  "id": "https://www.openconnectivity.org/ocf-apis/security/schemas/oic.sec.didtype.json#",
+  "id": "https://openconnectivityfoundation.github.io/ocf-apis/security/schemas/oic.sec.didtype.json#",
   "title": "Device Identifier Format type",
   "definitions": {
     "oic.sec.didtype": {
@@ -13,7 +13,7 @@
                   "description": "A UUID Device ID"
                 },
                 {
-                  "$ref": "../../core/schemas/oic.types-schema.json#/definitions/uuid"
+                  "$ref": "https://openconnectivityfoundation.github.io/ocf-apis/core/schemas/oic.types-schema.json#/definitions/uuid"
                 }
               ]
             }

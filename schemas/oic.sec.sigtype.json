@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
-  "id": "https://www.openconnectivity.org/ocf-apis/security/schemas/oic.sec.sigtype.json#",
+  "id": "https://openconnectivityfoundation.github.io/ocf-apis/security/schemas/oic.sec.sigtype.json#",
   "title": "Signature format for signed ACL resources",
   "definitions": {
     "oic.sec.sigtype": {

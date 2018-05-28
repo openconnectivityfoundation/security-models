@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
-  "id": "https://www.openconnectivity.org/ocf-apis/security/schemas/oic.sec.ace2.json#",
+  "id": "https://openconnectivityfoundation.github.io/ocf-apis/security/schemas/oic.sec.ace2.json#",
   "title": "Subject-based Access Control Entry (ACE) object definition",
   "definitions": {
     "oic.sec.ace2": {
@@ -24,7 +24,7 @@
                     "description": "When present, the ACE only applies when the href matches"
                   },
                   {
-                    "$ref": "../../core/schemas/oic.oic-link-schema.json#/definitions/oic.oic-link/properties/href"
+                    "$ref": "https://openconnectivityfoundation.github.io/ocf-apis/core/schemas/oic.oic-link-schema.json#/definitions/oic.oic-link/properties/href"
                   }
                 ]
               },
@@ -34,7 +34,7 @@
                     "description": "When present, the ACE only applies when the rt (resource type) matches"
                   },
                   {
-                    "$ref": "../../core/schemas/oic.oic-link-schema.json#/definitions/oic.oic-link/properties/rt"
+                    "$ref": "https://openconnectivityfoundation.github.io/ocf-apis/core/schemas/oic.oic-link-schema.json#/definitions/oic.oic-link/properties/rt"
                   }
                 ]
               },
@@ -44,7 +44,7 @@
                     "description": "When present, the ACE only applies when the if (interface) matches"
                   },
                   {
-                    "$ref": "../../core/schemas/oic.oic-link-schema.json#/definitions/oic.oic-link/properties/if"
+                    "$ref": "https://openconnectivityfoundation.github.io/ocf-apis/core/schemas/oic.oic-link-schema.json#/definitions/oic.oic-link/properties/if"
                   }
                 ]
               },
@@ -63,7 +63,7 @@
               "description": "Bitmask encoding of CRUDN permission"
             },
             {
-              "$ref": "oic.sec.crudntype.json#/definitions/oic.sec.crudntype/properties/bitmask"
+              "$ref": "https://openconnectivityfoundation.github.io/ocf-apis/security/schemas/oic.sec.crudntype.json#/definitions/oic.sec.crudntype/properties/bitmask"
             }
           ]
         },
@@ -71,10 +71,10 @@
           "anyOf": [
             {
               "description": "The subject to whom this ace applies, either a deviceId, role, or wildcard",
-              "$ref": "oic.sec.didtype.json#/definitions/oic.sec.didtype"
+              "$ref": "https://openconnectivityfoundation.github.io/ocf-apis/security/schemas/oic.sec.didtype.json#/definitions/oic.sec.didtype"
             },
             {
-              "$ref": "oic.sec.roletype.json#/definitions/oic.sec.roletype"
+              "$ref": "https://openconnectivityfoundation.github.io/ocf-apis/security/schemas/oic.sec.roletype.json#/definitions/oic.sec.roletype"
             },
             {
               "type": "object",
@@ -96,7 +96,7 @@
           "type": "array",
           "description": "validity is an array of time-pattern objects",
           "items": {
-            "$ref": "oic.sec.time-pattern.json#/definitions/time-pattern"
+            "$ref": "https://openconnectivityfoundation.github.io/ocf-apis/security/schemas/oic.sec.time-pattern.json#/definitions/time-pattern"
           }
         }
       },

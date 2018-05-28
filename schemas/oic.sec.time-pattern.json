@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
-  "id": "https://www.openconnectivity.org/ocf-apis/security/schemas/oic.sec.time-pattern.json#",
+  "id": "https://openconnectivityfoundation.github.io/ocf-apis/security/schemas/oic.sec.time-pattern.json#",
   "title": "RFC5545 time period and recurrence rule(s)",
   "definitions": {
     "time-pattern": {

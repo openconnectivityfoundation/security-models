@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
-  "id": "https://www.openconnectivity.org/ocf-apis/security/schemas/oic.r.pstat.json#",
+  "id": "https://openconnectivityfoundation.github.io/ocf-apis/security/schemas/oic.r.pstat.json#",
   "title": "Device Provisioning Status information",
   "definitions": {
     "oic.r.pstat": {
@@ -13,7 +13,7 @@
               "description": "Device on-boarding state"
             },
             {
-              "$ref": "oic.sec.dostype.json#/definitions/oic.sec.dostype"
+              "$ref": "https://openconnectivityfoundation.github.io/ocf-apis/security/schemas/oic.sec.dostype.json#/definitions/oic.sec.dostype"
             }
           ]
         },
@@ -27,7 +27,7 @@
               "description": "Current device provisioning mode"
             },
             {
-              "$ref": "oic.sec.dpmtype.json#/definitions/oic.sec.dpmtype/properties/bitmask"
+              "$ref": "https://openconnectivityfoundation.github.io/ocf-apis/security/schemas/oic.sec.dpmtype.json#/definitions/oic.sec.dpmtype/properties/bitmask"
             }
           ]
         },
@@ -37,7 +37,7 @@
               "description": "Target device provisioning mode"
             },
             {
-              "$ref": "oic.sec.dpmtype.json#/definitions/oic.sec.dpmtype/properties/bitmask"
+              "$ref": "https://openconnectivityfoundation.github.io/ocf-apis/security/schemas/oic.sec.dpmtype.json#/definitions/oic.sec.dpmtype/properties/bitmask"
             }
           ]
         },
@@ -47,7 +47,7 @@
               "description": "Current operational mode"
             },
             {
-              "$ref": "oic.sec.pomtype.json#/definitions/oic.sec.pomtype/properties/bitmask"
+              "$ref": "https://openconnectivityfoundation.github.io/ocf-apis/security/schemas/oic.sec.pomtype.json#/definitions/oic.sec.pomtype/properties/bitmask"
             }
           ]
         },
@@ -58,7 +58,7 @@
               "description": "Supported operational modes"
             },
             {
-              "$ref": "oic.sec.pomtype.json#/definitions/oic.sec.pomtype/properties/bitmask"
+              "$ref": "https://openconnectivityfoundation.github.io/ocf-apis/security/schemas/oic.sec.pomtype.json#/definitions/oic.sec.pomtype/properties/bitmask"
             }
           ]
         },
@@ -68,7 +68,7 @@
               "description": "The UUID formatted identity of the Resource owner"
             },
             {
-              "$ref": "../../core/schemas/oic.types-schema.json#/definitions/uuid"
+              "$ref": "https://openconnectivityfoundation.github.io/ocf-apis/core/schemas/oic.types-schema.json#/definitions/uuid"
             }
           ]
         }
@@ -77,7 +77,7 @@
   },
   "type": "object",
   "allOf": [
-    { "$ref": "../../core/schemas/oic.core-schema.json#/definitions/oic.core" },
+    { "$ref": "https://openconnectivityfoundation.github.io/ocf-apis/core/schemas/oic.core-schema.json#/definitions/oic.core" },
     { "$ref": "#/definitions/oic.r.pstat" }
   ],
   "required": [ "dos", "isop", "cm", "om", "sm", "rowneruuid", "tm" ]

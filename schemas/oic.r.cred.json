@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
-  "id": "https://www.openconnectivity.org/ocf-apis/security/schemas/oic.r.cred.json#",
+  "id": "https://openconnectivityfoundation.github.io/ocf-apis/security/schemas/oic.r.cred.json#",
   "title": "Device Credentials information",
   "definitions": {
     "oic.r.cred": {
@@ -10,18 +10,18 @@
           "type": "array",
           "description": "List of credentials available at this resource",
           "items": {
-            "$ref": "oic.sec.cred.json#/definitions/oic.sec.cred"
+            "$ref": "https://openconnectivityfoundation.github.io/ocf-apis/security/schemas/oic.sec.cred.json#/definitions/oic.sec.cred"
           }
         },
         "rowneruuid": {
-          "$ref": "../../core/schemas/oic.types-schema.json#/definitions/uuid"
+          "$ref": "https://openconnectivityfoundation.github.io/ocf-apis/core/schemas/oic.types-schema.json#/definitions/uuid"
         }
       }
     }
   },
   "type": "object",
   "allOf": [
-    { "$ref": "../../core/schemas/oic.core-schema.json#/definitions/oic.core" },
+    { "$ref": "https://openconnectivityfoundation.github.io/ocf-apis/core/schemas/oic.core-schema.json#/definitions/oic.core" },
     { "$ref": "#/definitions/oic.r.cred" }
   ],
   "required": [ "creds", "rowneruuid" ]
