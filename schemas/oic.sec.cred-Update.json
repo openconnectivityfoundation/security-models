@@ -1,13 +1,13 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
-  "id": "https://openconnectivityfoundation.github.io/ocf-apis/security/schemas/oic.sec.cred-Update.json#",
+  "id": "https://openconnectivityfoundation.github.io/security/schemas/oic.sec.cred-Update.json#",
   "title": "Device Credentials information",
   "definitions": {
     "oic.sec.cred": {
       "type": "object",
       "allOf": [
         {
-          "$ref": "https://openconnectivityfoundation.github.io/ocf-apis/security/schemas/oic.sec.cred-base.json#/definitions/oic.sec.cred"
+          "$ref": "https://openconnectivityfoundation.github.io/security/schemas/oic.sec.cred-base.json#/definitions/oic.sec.cred"
         }
       ],
       "required": [ "subjectuuid", "credtype" ]

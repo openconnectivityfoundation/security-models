@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
-  "id": "https://openconnectivityfoundation.github.io/ocf-apis/security/schemas/oic.sec.optdatatype.json#",
+  "id": "https://openconnectivityfoundation.github.io/security/schemas/oic.sec.optdatatype.json#",
   "title": "Optional Credential data",
   "definitions": {
     "oic.sec.optdatatype": {

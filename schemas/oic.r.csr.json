@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
-  "id": "https://openconnectivityfoundation.github.io/ocf-apis/security/schemas/oic.r.csr.json#",
+  "id": "https://openconnectivityfoundation.github.io/security/schemas/oic.r.csr.json#",
   "title": "Certificate Signing Request information",
   "definitions": {
     "oic.r.csr": {
@@ -23,7 +23,7 @@
   },
   "type": "object",
   "allOf": [
-    { "$ref": "https://openconnectivityfoundation.github.io/ocf-apis/core/schemas/oic.core-schema.json#/definitions/oic.core" },
+    { "$ref": "https://openconnectivityfoundation.github.io/core/schemas/oic.core-schema.json#/definitions/oic.core" },
     { "$ref": "#/definitions/oic.r.csr" }
   ],
   "required": ["csr","encoding"]

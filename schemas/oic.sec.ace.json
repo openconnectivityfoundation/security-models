@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
-  "id": "https://openconnectivityfoundation.github.io/ocf-apis/security/schemas/oic.sec.ace.json#",
+  "id": "https://openconnectivityfoundation.github.io/security/schemas/oic.sec.ace.json#",
   "title": "Subject based Access Control Entry (ACE) object definition",
   "definitions": {
     "oic.sec.ace": {
@@ -9,7 +9,7 @@
         "resources": {
           "type": "array",
           "description": "References the application's resources to which a security policy applies",
-          "items": { "$ref": "https://openconnectivityfoundation.github.io/ocf-apis/core/schemas/oic.oic-link-schema.json#/definitions/oic.oic-link" }
+          "items": { "$ref": "https://openconnectivityfoundation.github.io/core/schemas/oic.oic-link-schema.json#/definitions/oic.oic-link" }
         },
         "permission": {
           "allOf": [
@@ -18,7 +18,7 @@
               "description": "Bitmask encoding of CRUDN permission"
             },
             {
-              "$ref": "https://openconnectivityfoundation.github.io/ocf-apis/security/schemas/oic.sec.crudntype.json#/definitions/oic.sec.crudntype/properties/bitmask"
+              "$ref": "https://openconnectivityfoundation.github.io/security/schemas/oic.sec.crudntype.json#/definitions/oic.sec.crudntype/properties/bitmask"
             }
           ]
         },
@@ -26,7 +26,7 @@
           "type": "array",
           "description": "validity is an array of time-pattern objects",
           "items": {
-            "$ref": "https://openconnectivityfoundation.github.io/ocf-apis/security/schemas/oic.sec.time-pattern.json#/definitions/time-pattern"
+            "$ref": "https://openconnectivityfoundation.github.io/security/schemas/oic.sec.time-pattern.json#/definitions/time-pattern"
           }
         },
         "subjectuuid": {
@@ -36,7 +36,7 @@
               "type": "string", "pattern": "^\\*$"
             },
             {
-              "$ref": "https://openconnectivityfoundation.github.io/ocf-apis/core/schemas/oic.types-schema.json#/definitions/uuid"
+              "$ref": "https://openconnectivityfoundation.github.io/core/schemas/oic.types-schema.json#/definitions/uuid"
             }
           ]
         }

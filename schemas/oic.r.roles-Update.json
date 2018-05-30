@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
-  "id": "https://openconnectivityfoundation.github.io/ocf-apis/security/schemas/oic.r.roles-Update.json#",
+  "id": "https://openconnectivityfoundation.github.io/security/schemas/oic.r.roles-Update.json#",
   "title": "Asserted Role Certificates",
   "definitions": {
     "oic.r.cred": {
@@ -10,7 +10,7 @@
           "type": "array",
           "description": "List of role certificates",
           "items": {
-            "$ref": "https://openconnectivityfoundation.github.io/ocf-apis/security/schemas/oic.sec.roles-Update.json#/definitions/oic.sec.cred"
+            "$ref": "https://openconnectivityfoundation.github.io/security/schemas/oic.sec.roles-Update.json#/definitions/oic.sec.cred"
           }
         }
       }
@@ -18,7 +18,7 @@
   },
   "type": "object",
   "allOf": [
-    { "$ref": "https://openconnectivityfoundation.github.io/ocf-apis/core/schemas/oic.core-schema.json#/definitions/oic.core" },
+    { "$ref": "https://openconnectivityfoundation.github.io/core/schemas/oic.core-schema.json#/definitions/oic.core" },
     { "$ref": "#/definitions/oic.r.cred" }
   ],
   "required": [ "roles" ]
