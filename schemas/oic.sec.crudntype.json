@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
-  "id": "https://www.openconnectivity.org/ocf-apis/security/schemas/oic.sec.crudntype.json#",
+  "id": "https://openconnectivityfoundation.github.io/security/schemas/oic.sec.crudntype.json#",
   "title": "Permission BitMask",
   "definitions": {
     "oic.sec.crudntype": {

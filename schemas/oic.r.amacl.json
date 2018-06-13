@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
-  "id": "https://www.openconnectivity.org/ocf-apis/security/schemas/oic.r.amacl.json#",
+  "id": "https://openconnectivityfoundation.github.io/security/schemas/oic.r.amacl.json#",
   "title": "Managed Access Control information",
   "definitions": {
     "oic.r.amacl": {
@@ -9,7 +9,7 @@
         "resources": {
           "type": "array",
           "description": "Multiple links to this host's resources",
-          "items": { "$ref": "oic.sec.ace2.json#/definitions/oic.sec.ace2/properties/resources/items" }
+          "items": { "$ref": "https://openconnectivityfoundation.github.io/security/schemas/oic.sec.ace2.json#/definitions/oic.sec.ace2/properties/resources/items" }
         }
       }
     }
