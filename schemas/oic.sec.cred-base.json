@@ -20,7 +20,7 @@
               "$ref": "https://openconnectivityfoundation.github.io/core/schemas/oic.types-schema.json#/definitions/uuid"
             }
           ]
-        }
+        },
         "roleid": {
           "allOf": [
             {
