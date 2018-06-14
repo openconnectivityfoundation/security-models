@@ -11,8 +11,16 @@
           "description": "Local reference to a credential resource"
         },
         "subjectuuid": {
-          "$ref": "https://openconnectivityfoundation.github.io/core/schemas/oic.types-schema.json#/definitions/uuid"
-        },
+          "anyOf": [
+            {
+              "description": "The id of the device, which the cred entry applies to or \"*\" for wildcard identity",
+              "type": "string", "pattern": "^\\*$"
+            },
+            {
+              "$ref": "https://openconnectivityfoundation.github.io/core/schemas/oic.types-schema.json#/definitions/uuid"
+            }
+          ]
+        }
         "roleid": {
           "allOf": [
             {
