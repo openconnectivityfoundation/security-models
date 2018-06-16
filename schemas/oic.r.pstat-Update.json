@@ -13,7 +13,7 @@
               "description": "Device on-boarding state"
             },
             {
-              "$ref": "oic.sec.dostype.json#/definitions/oic.sec.dostype"
+              "$ref": "https://openconnectivityfoundation.github.io/security/schemas/oic.sec.dostype.json#/definitions/oic.sec.dostype"
             }
           ]
         },
@@ -23,7 +23,7 @@
               "description": "Target device provisioning mode"
             },
             {
-              "$ref": "oic.sec.dpmtype.json#/definitions/oic.sec.dpmtype/properties/bitmask"
+              "$ref": "https://openconnectivityfoundation.github.io/security/schemas/oic.sec.dpmtype.json#/definitions/oic.sec.dpmtype/properties/bitmask"
             }
           ]
         },
@@ -33,7 +33,7 @@
               "description": "Current operational mode"
             },
             {
-              "$ref": "oic.sec.pomtype.json#/definitions/oic.sec.pomtype/properties/bitmask"
+              "$ref": "https://openconnectivityfoundation.github.io/security/schemas/oic.sec.pomtype.json#/definitions/oic.sec.pomtype/properties/bitmask"
             }
           ]
         },
