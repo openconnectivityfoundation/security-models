@@ -1,0 +1,45 @@
+#%RAML 0.8
+title: Account Session
+version: v1.0-20180320
+documentation:
+  - title: OCF Copyright
+    content: Copyright (c) 2018 Open Connectivity Foundation, Inc. All rights reserved.
+  - title: OCF License
+    content: !include LICENSE.md
+  - title: OCF Disclaimer
+    content: !include DISCLAIMER.md
+
+schemas:
+  - Account-Session-Request: !include schemas/oic.r.session-request.json
+  - Account-Session-Response: !include schemas/oic.r.session-response.json
+
+traits:
+  - interface:
+      queryParameters:
+        if:
+          enum: ["oic.if.baseline"]
+
+/oic/sec/session:
+  description: |
+    Resource that enables a device to manage its session using login or logout
+
+  post:
+    body:
+      application/json:
+        schema: Account-Session-Request
+        example: |
+          {
+            "uid" : "123e4567-e89b-12d3-a456-d6e313b71d9f",
+            "di" : "9cfbeb8e-5a1e-4d1c-9d01-00c04fd430c8",
+            "accesstoken" : "0f3d9f7fe5491d54077d",
+            "login" : true
+          }
+    responses:
+      204:
+        body:
+          application/json:
+            schema: Account-Session-Response
+            example: |
+              {
+                "expiresin" : 3600
+              }

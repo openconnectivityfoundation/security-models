@@ -1,0 +1,22 @@
+{
+  "$schema" : "http://json-schema.org/draft-04/schema#",
+  "description" : "Copyright (c) 2018 Open Connectivity Foundation, Inc. All rights reserved.",
+  "title" : "Token Refresh",
+  "id": "https://www.openconnectivity.org/ocf-apis/security/schemas/oic.r.tokenrefresh-request.json#",
+  "type" : "object",
+  "properties" : {
+    "uid" : {
+      "description" : "User ID which provided by Sign-up process",
+      "$ref": "../../core/schemas/oic.types-schema.json#/definitions/uuid"
+    },
+    "di" : {
+      "description" : "Unique device id registered for an OCF Cloud User account",
+      "$ref": "../../core/schemas/oic.types-schema.json#/definitions/uuid"
+    },
+    "refreshtoken" : {
+      "description" : "Refresh token received by account management or during token refresh procedure",
+      "type" : "string"
+    }
+  },
+  "required" : ["uid", "di", "refreshtoken"]
+}
