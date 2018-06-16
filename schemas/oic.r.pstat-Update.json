@@ -54,6 +54,5 @@
   "allOf": [
     { "$ref": "https://openconnectivityfoundation.github.io/core/schemas/oic.core-schema.json#/definitions/oic.core" },
     { "$ref": "#/definitions/oic.r.pstat" }
-  ],
-  "required": [ "dos", "tm", "om", "rowneruuid" ]
+  ]
 }
