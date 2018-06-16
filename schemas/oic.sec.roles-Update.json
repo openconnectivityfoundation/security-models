@@ -1,13 +1,14 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
-  "id": "https://www.openconnectivity.org/ocf-apis/security/schemas/oic.sec.roles-Update.json#",
+  "id": "https://openconnectivityfoundation.github.io/security/schemas/oic.sec.roles-Update.json#",
   "title": "Device Roles information",
   "definitions": {
     "oic.sec.cred": {
-      "type": "object",
-      "properties": {
-        "$ref": "oic.sec.cred-base.json#definitions/oic.sec.cred"
-      },
+      "allOf": [
+        {
+          "$ref": "https://openconnectivityfoundation.github.io/security/schemas/oic.sec.cred-base.json#/definitions/oic.sec.cred"
+        }
+      ],
       "required": ["publicdata", "credtype" ]
     }
   }

@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
-  "id": "https://www.openconnectivity.org/ocf-apis/security/schemas/oic.r.acl2-Update.json#",
+  "id": "https://openconnectivityfoundation.github.io/security/schemas/oic.r.acl2-Update.json#",
   "title": "Access Control List information",
   "definitions": {
     "oic.r.acl2": {
@@ -10,13 +10,13 @@
           "type": "array",
           "description": "Access Control Entries in the ACL resource",
           "items": {
-            "$ref": "oic.sec.ace2-Update.json#/definitions/oic.sec.ace2"
+            "$ref": "https://openconnectivityfoundation.github.io/security/schemas/oic.sec.ace2-Update.json#/definitions/oic.sec.ace2"
           }
         },
         "rowneruuid": {
           "allOf": [
             { "description": "The value identifies the unique resource owner" },
-            { "$ref": "../../core/schemas/oic.types-schema.json#/definitions/uuid" }
+            { "$ref": "https://openconnectivityfoundation.github.io/core/schemas/oic.types-schema.json#/definitions/uuid" }
           ]
         }
       }
@@ -24,7 +24,7 @@
   },
   "type": "object",
   "allOf": [
-    { "$ref": "../../core/schemas/oic.core-schema.json#/definitions/oic.core" },
+    { "$ref": "https://openconnectivityfoundation.github.io/core/schemas/oic.core-schema.json#/definitions/oic.core" },
     { "$ref": "#/definitions/oic.r.acl2" }
   ]
 }
