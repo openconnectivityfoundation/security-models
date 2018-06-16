@@ -3,7 +3,7 @@
   "id": "https://openconnectivityfoundation.github.io/security/schemas/oic.r.doxm-Update.json#",
   "title": "Device Owner Transfer Method information",
   "definitions": {
-    "oic.r.doxm": {
+    "oic.r.doxm-Update": {
       "type": "object",
       "properties": {
         "oxmsel":   {
@@ -38,6 +38,6 @@
   "type": "object",
   "allOf": [
     { "$ref": "https://openconnectivityfoundation.github.io/core/schemas/oic.core-schema.json#/definitions/oic.core" },
-    { "$ref": "#/definitions/oic.r.doxm" }
+    { "$ref": "#/definitions/oic.r.doxm-Update" }
   ]
 }
