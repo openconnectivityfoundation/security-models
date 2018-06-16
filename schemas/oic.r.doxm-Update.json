@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
-  "id": "https://www.openconnectivity.org/ocf-apis/security/schemas/oic.r.doxm-Update.json#",
+  "id": "https://openconnectivityfoundation.github.io/security/schemas/oic.r.doxm-Update.json#",
   "title": "Device Owner Transfer Method information",
   "definitions": {
     "oic.r.doxm": {
@@ -22,22 +22,22 @@
               "description": "The uuid formatted identity of the device"
             },
             {
-              "$ref": "../../core/schemas/oic.types-schema.json#/definitions/uuid"
+              "$ref": "https://openconnectivityfoundation.github.io/core/schemas/oic.types-schema.json#/definitions/uuid"
             }
           ]
         },
         "devowneruuid": {
-          "$ref": "../../core/schemas/oic.types-schema.json#/definitions/uuid"
+          "$ref": "https://openconnectivityfoundation.github.io/core/schemas/oic.types-schema.json#/definitions/uuid"
         },
         "rowneruuid": {
-          "$ref": "../../core/schemas/oic.types-schema.json#/definitions/uuid"
+          "$ref": "https://openconnectivityfoundation.github.io/core/schemas/oic.types-schema.json#/definitions/uuid"
         }
       }
     }
   },
   "type": "object",
   "allOf": [
-    { "$ref": "../../core/schemas/oic.core-schema.json#/definitions/oic.core" },
+    { "$ref": "https://openconnectivityfoundation.github.io/core/schemas/oic.core-schema.json#/definitions/oic.core" },
     { "$ref": "#/definitions/oic.r.doxm" }
   ],
   "required": [ "oxmsel", "owned", "deviceuuid", "devowneruuid", "rowneruuid" ]
