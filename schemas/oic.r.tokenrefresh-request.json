@@ -15,7 +15,8 @@
     },
     "refreshtoken" : {
       "description" : "Refresh token received by account management or during token refresh procedure",
-      "type" : "string"
+      "type" : "string",
+      "pattern": "(?!$|\\s+).*"
     }
   },
   "required" : ["uid", "di", "refreshtoken"]

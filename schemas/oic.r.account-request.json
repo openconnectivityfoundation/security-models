@@ -15,7 +15,8 @@
     },
     "accesstoken" : {
       "description" : "Access-Token used for communication with OCF Cloud after account creation",
-      "type" : "string"
+      "type" : "string",
+      "pattern": "(?!$|\\s+).*"
     }
   },
   "required" : ["di", "accesstoken"]

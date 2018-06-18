@@ -15,7 +15,8 @@
     },
     "accesstoken" : {
       "description" : "Access-Token used to grant access right for the device to sign-in",
-      "type" : "string"
+      "type" : "string",
+      "pattern": "(?!$|\\s+).*"
     },
     "login" : {
       "description" : "Action for the request: true = login, false = logout",

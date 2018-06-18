@@ -8,11 +8,13 @@
     "accesstoken" : {
       "description" : "Granted Access-Token",
       "type" : "string",
+      "pattern": "(?!$|\\s+).*",
       "readOnly": true
     },
     "refreshtoken" : {
       "description" : "Refresh token received by account management or during token refresh procedure",
-      "type" : "string"
+      "type" : "string",
+      "pattern": "(?!$|\\s+).*"
     },
     "expiresin" : {
       "description" : "Access-Token life time in seconds (-1 if permanent)",
