@@ -1,6 +1,6 @@
 #%RAML 0.8
 title: OICSecurityPstatResource
-version: v1.0-20180616
+version: v1.0-20180618
 documentation:
   - title: OCF Copyright
     content: Copyright (c) 2016, 2017, 2018 Open Connectivity Foundation, Inc. All rights reserved.
@@ -60,28 +60,7 @@ traits:
             "rowneruuid": "de305d54-75b4-431b-adb2-eb6b9e546014"
           }
     responses:
-      201:
-        description: The PSTAT entry is created.
       204:
         description: The PSTAT entry is updated.
-      400:
-        description: The request is invalid.
-
-  put:
-    description: |
-      Sets or updates device provisioning status data.
-    body:
-      application/json:
-        schema: Pstat-Update
-        example: |
-          {
-            "dos": {"s": 3},
-            "tm": 60,
-            "om": 2,
-            "rowneruuid": "de305d54-75b4-431b-adb2-eb6b9e546014"
-          }
-    responses:
-      201:
-        description: The PSTAT entry is created.
       400:
         description: The request is invalid.
