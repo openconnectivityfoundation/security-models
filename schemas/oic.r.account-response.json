@@ -7,11 +7,13 @@
   "properties" : {
     "accesstoken" : {
       "description" : "Access-Token used for communication with cloud after account creation",
-      "type" : "string"
+      "type" : "string",
+      "pattern": "(?!$|\\s+).*"
     },
     "refreshtoken" : {
       "description" : "Refresh token can be used to refresh the Access Token before getting expired",
       "type" : "string",
+      "pattern": "(?!$|\\s+).*",
       "readOnly": true
     },
     "expiresin" : {
