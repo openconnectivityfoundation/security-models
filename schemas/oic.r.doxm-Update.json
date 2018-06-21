@@ -1,0 +1,43 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "https://openconnectivityfoundation.github.io/security/schemas/oic.r.doxm-Update.json#",
+  "title": "Device Owner Transfer Method information",
+  "definitions": {
+    "oic.r.doxm-Update": {
+      "type": "object",
+      "properties": {
+        "oxmsel":   {
+          "allOf": [
+            { "description": "The selected owner transfer method used during on-boarding" },
+            {  "$ref": "oic.sec.doxmtype.json#/definitions/oic.sec.doxmtype/properties/oxm" }
+          ]
+        },
+        "owned":   {
+          "type": "boolean",
+          "description": "Ownership status flag"
+        },
+        "deviceuuid": {
+          "allOf": [
+            {
+              "description": "The uuid formatted identity of the device"
+            },
+            {
+              "$ref": "https://openconnectivityfoundation.github.io/core/schemas/oic.types-schema.json#/definitions/uuid"
+            }
+          ]
+        },
+        "devowneruuid": {
+          "$ref": "https://openconnectivityfoundation.github.io/core/schemas/oic.types-schema.json#/definitions/uuid"
+        },
+        "rowneruuid": {
+          "$ref": "https://openconnectivityfoundation.github.io/core/schemas/oic.types-schema.json#/definitions/uuid"
+        }
+      }
+    }
+  },
+  "type": "object",
+  "allOf": [
+    { "$ref": "https://openconnectivityfoundation.github.io/core/schemas/oic.core-schema.json#/definitions/oic.core" },
+    { "$ref": "#/definitions/oic.r.doxm-Update" }
+  ]
+}
