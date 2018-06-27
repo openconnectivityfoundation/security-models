@@ -1,7 +1,7 @@
 {
 "$schema": "http://json-schema.org/draft-04/schema#",
 "description": "Copyright (c) 2016,2017 Open Connectivity Foundation, Inc. All rights reserved.",
-"id": "https://www.openconnectivity.org/ocf-apis/security/schemas/oic.sec.credusagetype.json#",
+"id": "https://openconnectivityfoundation.github.io/security/schemas/oic.sec.credusagetype.json#",
 "title": "Cred Usage Types",
 "definitions": {
 "oic.sec.credusagetype": {

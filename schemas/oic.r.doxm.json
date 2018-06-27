@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
-  "id": "https://www.openconnectivity.org/ocf-apis/security/schemas/oic.r.doxm.json#",
+  "id": "https://openconnectivityfoundation.github.io/security/schemas/oic.r.doxm.json#",
   "title": "Device Owner Transfer Method information",
   "definitions": {
     "oic.r.doxm": {
@@ -11,13 +11,13 @@
           "readOnly": true,
           "description": "List of supported owner transfer methods",
           "items": {
-            "$ref": "oic.sec.doxmtype.json#/definitions/oic.sec.doxmtype/properties/oxm"
+            "$ref": "https://openconnectivityfoundation.github.io/security/schemas/oic.sec.doxmtype.json#/definitions/oic.sec.doxmtype/properties/oxm"
           }
         },
         "oxmsel":   {
           "allOf": [
             { "description": "The selected owner transfer method used during on-boarding" },
-            {  "$ref": "oic.sec.doxmtype.json#/definitions/oic.sec.doxmtype/properties/oxm" }
+            {  "$ref": "https://openconnectivityfoundation.github.io/security/schemas/oic.sec.doxmtype.json#/definitions/oic.sec.doxmtype/properties/oxm" }
           ]
         },
         "sct": {
@@ -27,7 +27,7 @@
               "description": "Bitmask encoding of supported credential types"
             },
             {
-              "$ref": "oic.sec.credtype.json#/definitions/oic.sec.credtype/properties/bitmask"
+              "$ref": "https://openconnectivityfoundation.github.io/security/schemas/oic.sec.credtype.json#/definitions/oic.sec.credtype/properties/bitmask"
             }
           ]
         },
@@ -41,22 +41,22 @@
               "description": "The uuid formatted identity of the device"
             },
             {
-              "$ref": "../../core/schemas/oic.types-schema.json#/definitions/uuid"
+              "$ref": "https://openconnectivityfoundation.github.io/core/schemas/oic.types-schema.json#/definitions/uuid"
             }
           ]
         },
         "devowneruuid": {
-          "$ref": "../../core/schemas/oic.types-schema.json#/definitions/uuid"
+          "$ref": "https://openconnectivityfoundation.github.io/core/schemas/oic.types-schema.json#/definitions/uuid"
         },
         "rowneruuid": {
-          "$ref": "../../core/schemas/oic.types-schema.json#/definitions/uuid"
+          "$ref": "https://openconnectivityfoundation.github.io/core/schemas/oic.types-schema.json#/definitions/uuid"
         }
       }
     }
   },
   "type": "object",
   "allOf": [
-    { "$ref": "../../core/schemas/oic.core-schema.json#/definitions/oic.core" },
+    { "$ref": "https://openconnectivityfoundation.github.io/core/schemas/oic.core-schema.json#/definitions/oic.core" },
     { "$ref": "#/definitions/oic.r.doxm" }
   ],
   "required": [ "oxms", "oxmsel", "sct", "owned", "deviceuuid", "devowneruuid", "rowneruuid" ]

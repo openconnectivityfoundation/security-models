@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
-  "id": "https://www.openconnectivity.org/ocf-apis/security/schemas/oic.r.sacl.json#",
+  "id": "https://openconnectivityfoundation.github.io/security/schemas/oic.r.sacl.json#",
   "title": "Signed Access Control List information",
   "definitions": {
     "oic.r.sacl": {
@@ -10,7 +10,7 @@
           "type": "array",
           "description": "Access Control Entries in the Acl resource",
           "items":{
-            "$ref": "oic.sec.ace2.json#/definitions/oic.sec.ace2"
+            "$ref": "https://openconnectivityfoundation.github.io/security/schemas/oic.sec.ace2.json#/definitions/oic.sec.ace2"
           }
         },
         "signature":   {
@@ -20,7 +20,7 @@
               "description": "The signature over the ACL resource"
             },
             {
-              "$ref": "oic.sec.sigtype.json#/definitions/oic.sec.sigtype"
+              "$ref": "https://openconnectivityfoundation.github.io/security/schemas/oic.sec.sigtype.json#/definitions/oic.sec.sigtype"
             }
           ]
         }
@@ -29,7 +29,7 @@
   },
   "type": "object",
   "allOf": [
-    { "$ref": "../../core/schemas/oic.core-schema.json#/definitions/oic.core" },
+    { "$ref": "https://openconnectivityfoundation.github.io/core/schemas/oic.core-schema.json#/definitions/oic.core" },
     { "$ref": "#/definitions/oic.r.sacl" }
   ],
   "required": ["aclist2", "signature"],
