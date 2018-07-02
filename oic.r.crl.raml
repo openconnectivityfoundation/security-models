@@ -10,6 +10,7 @@ documentation:
     content: !include DISCLAIMER.md
 schemas:
   - Crl: !include schemas/oic.r.crl.json
+  - Crl-Update: !include schemas/oic.r.crl-Update.json
 
 traits:
   - interface:
@@ -45,7 +46,7 @@ traits:
       Updates the CRL data
     body:
       application/json:
-        schema: Crl
+        schema: Crl-Update
         example: |
           {
           "rt": ["oic.r.crl"],
@@ -66,7 +67,7 @@ traits:
       Creates the CRL data
     body:
       application/json:
-        schema: Crl
+        schema: Crl-Update
         example: |
           {
           "rt": ["oic.r.crl"],
