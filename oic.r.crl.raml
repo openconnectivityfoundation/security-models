@@ -49,53 +49,12 @@ traits:
         schema: Crl-Update
         example: |
           {
-          "rt": ["oic.r.crl"],
           "crlid": 1,
           "thisupdate": "2016-04-12T23:20:50.52Z",
           "crldata": "Base64ENCODEDCRL"
           }
     responses:
-      201:
-         description: The CRL entry is created.
       204:
         description: The CRL entry is updated.
       400:
         description: The request is invalid.
-
-  put:
-    description: |
-      Creates the CRL data
-    body:
-      application/json:
-        schema: Crl-Update
-        example: |
-          {
-          "rt": ["oic.r.crl"],
-          "crlid": 1,
-          "thisupdate": "2016-04-12T23:20:50.52Z",
-          "crldata": "Base64ENCODEDCRL"
-          }
-    responses:
-      201:
-        description: The CRL entry is created.
-      400:
-        description: The request is invalid.
-
-  delete:
-      description: |
-        Deletes the CRL data.
-        When DELETE is used without query parameters, the entire CRL resource is deleted.
-        When DELETE uses a query value naming the crlid, only the matched entry is deleted.
-      queryParameters:
-          subject:
-              type: string
-              description: |
-                Delete the CRL identified by the string containing CRL ID.
-              required: false
-              example: |
-                DELETE /mycrl?crlid="0"
-      responses:
-        204:
-          description: The CRL instance or the the entire CRL resource has been successfully deleted.
-        400:
-          description: The request is invalid.
