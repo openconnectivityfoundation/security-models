@@ -1,0 +1,29 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "https://openconnectivityfoundation.github.io/security/schemas/oic.r.crl-Update.json#",
+  "title": "Certificate Revocation List information",
+  "definitions": {
+    "oic.r.crl": {
+      "type": "object",
+      "properties": {
+        "crlid":  {
+          "type": "integer",
+          "description": "Local reference to a crl resource"
+        },
+        "thisupdate":   {
+          "type": "string",
+          "description": "UTC time of last CRL update"
+        },
+        "crldata": {
+          "type": "string",
+          "description": "Base64 BER encoded crl data"
+        }
+      }
+    }
+  },
+  "type": "object",
+  "allOf": [
+    { "$ref": "https://openconnectivityfoundation.github.io/core/schemas/oic.core-schema.json#/definitions/oic.core" },
+    { "$ref": "#/definitions/oic.r.crl" }
+  ]
+}
