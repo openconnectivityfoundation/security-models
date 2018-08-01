@@ -1,15 +1,16 @@
 #%RAML 0.8
 title: OICSecurityDoxmResource
-version: v1.0-20150819
+version: v1.0-20180619
 documentation:
   - title: OCF Copyright
-    content: Copyright (c) 2016, 2017 Open Connectivity Foundation, Inc. All rights reserved.
+    content: Copyright (c) 2016, 2017, 2018 Open Connectivity Foundation, Inc. All rights reserved.
   - title: OCF License
     content: !include LICENSE.md
   - title: OCF Disclaimer
     content: !include DISCLAIMER.md
 schemas:
   - Doxm: !include schemas/oic.r.doxm.json
+  - Doxm-Update: !include schemas/oic.r.doxm-Update.json
 
 traits:
   - interface:
@@ -51,62 +52,17 @@ traits:
       Updates the DOXM resource data
     body:
       application/json:
-        schema: Doxm
+        schema: Doxm-Update
         example: |
           {
-            "oxms": [ 0, 2, 3 ],
             "oxmsel": 0,
-            "sct": 16,
             "owned": true,
             "deviceuuid": "de305d54-75b4-431b-adb2-eb6b9e546014",
             "devowneruuid": "e61c3e6b-9c54-4b81-8ce5-f9039c1d04d9",
             "rowneruuid": "e61c3e6b-9c54-4b81-8ce5-f9039c1d04d9"
           }
     responses:
-      201:
-        description: The DOXM entry is created.
       204:
         description: The DOXM entry is updated.
       400:
         description: The request is invalid.
-
-  put:
-    description: |
-      Creates the DOXM resource data
-    body:
-      application/json:
-        schema: Doxm
-        example: |
-          {
-            "oxms": [ 0, 2, 3 ],
-            "oxmsel": 0,
-            "sct": 16,
-            "owned": true,
-            "deviceuuid": "de305d54-75b4-431b-adb2-eb6b9e546014",
-            "devowneruuid": "e61c3e6b-9c54-4b81-8ce5-f9039c1d04d9",
-            "rowneruuid": "e61c3e6b-9c54-4b81-8ce5-f9039c1d04d9"
-          }
-    responses:
-      201:
-        description: The DOXM entry is created.
-      400:
-        description: The request is invalid.
-
-  delete:
-      description: |
-        Deletes the DOXM data.
-        When DELETE is used without query parameters, the entire DOXM resource is deleted.
-        When DELETE uses a query value naming the deviceid, only the matched entry is deleted.
-      queryParameters:
-          subject:
-              type: string
-              description: |
-                Delete the DOXM entry identified by the string containing device ID.
-              required: false
-              example: |
-                DELETE /mydoxm?deviceid="de305d54-75b4-431b-adb2-eb6b9e546014"
-      responses:
-        204:
-          description: The CRL instance or the the entire CRL resource has been successfully deleted.
-        400:
-          description: The request is invalid.

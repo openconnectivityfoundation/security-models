@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
-  "id": "https://openconnectivityfoundation.github.io/security/schemas/oic.r.crl.json#",
+  "id": "https://openconnectivityfoundation.github.io/security/schemas/oic.r.crl-Update.json#",
   "title": "Certificate Revocation List information",
   "definitions": {
     "oic.r.crl": {
@@ -25,6 +25,5 @@
   "allOf": [
     { "$ref": "https://openconnectivityfoundation.github.io/core/schemas/oic.core-schema.json#/definitions/oic.core" },
     { "$ref": "#/definitions/oic.r.crl" }
-  ],
-  "required": ["crlid","thisupdate", "crldata"]
+  ]
 }

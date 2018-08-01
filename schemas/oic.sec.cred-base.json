@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
-  "id": "https://www.openconnectivity.org/ocf-apis/security/schemas/oic.sec.cred-base.json#",
+  "id": "https://openconnectivityfoundation.github.io/security/schemas/oic.sec.cred-base.json#",
   "title": "Base for cred resource",
   "definitions": {
     "oic.sec.cred": {
@@ -11,7 +11,16 @@
           "description": "Local reference to a credential resource"
         },
         "subjectuuid": {
-          "$ref": "../../core/schemas/oic.types-schema.json#/definitions/uuid"
+          "anyOf": [
+            {
+              "description": "The id of the device, which the cred entry applies to or \"*\" for wildcard identity",
+              "type": "string",
+              "pattern": "^\\*$"
+            },
+            {
+              "$ref": "https://openconnectivityfoundation.github.io/core/schemas/oic.types-schema.json#/definitions/uuid"
+            }
+          ]
         },
         "roleid": {
           "allOf": [
@@ -20,7 +29,7 @@
               "description": "The role this credential possesses"
             },
             {
-              "$ref": "oic.sec.roletype.json#/definitions/oic.sec.roletype"
+              "$ref": "https://openconnectivityfoundation.github.io/security/schemas/oic.sec.roletype.json#/definitions/oic.sec.roletype"
             }
           ]
         },
@@ -31,7 +40,7 @@
               "description": "Representation of this credential's type"
             },
             {
-              "$ref": "oic.sec.credtype.json#/definitions/oic.sec.credtype/properties/bitmask"
+              "$ref": "https://openconnectivityfoundation.github.io/security/schemas/oic.sec.credtype.json#/definitions/oic.sec.credtype/properties/bitmask"
             }
           ]
         },
@@ -42,7 +51,7 @@
               "description": "A string that provides hints about how/where the cred is used"
             },
             {
-               "$ref": "oic.sec.credusagetype.json#/definitions/oic.sec.credusagetype/properties/credusage"
+               "$ref": "https://openconnectivityfoundation.github.io/security/schemas/oic.sec.credusagetype.json#/definitions/oic.sec.credusagetype/properties/credusage"
             }
           ]
         },
@@ -53,7 +62,7 @@
               "description": "Public credential information"
             },
             {
-              "$ref": "oic.sec.pubdatatype.json#/definitions/oic.sec.pubdatatype"
+              "$ref": "https://openconnectivityfoundation.github.io/security/schemas/oic.sec.pubdatatype.json#/definitions/oic.sec.pubdatatype"
             }
           ]
         },
@@ -64,7 +73,7 @@
               "description": "Private credential information"
             },
             {
-              "$ref": "oic.sec.privdatatype.json#/definitions/oic.sec.privdatatype"
+              "$ref": "https://openconnectivityfoundation.github.io/security/schemas/oic.sec.privdatatype.json#/definitions/oic.sec.privdatatype"
             }
           ]
         },
@@ -75,7 +84,7 @@
               "description": "Credential revocation status information"
             },
             {
-              "$ref": "oic.sec.optdatatype.json#/definitions/oic.sec.optdatatype"
+              "$ref": "https://openconnectivityfoundation.github.io/security/schemas/oic.sec.optdatatype.json#/definitions/oic.sec.optdatatype"
             }
           ]
         },
@@ -87,7 +96,7 @@
           "type": "array",
           "description": "The refresh methods that may be used to update this credential",
           "items": {
-            "$ref": "oic.sec.crmtype.json#/definitions/oic.sec.crmtype/properties/crm"
+            "$ref": "https://openconnectivityfoundation.github.io/security/schemas/oic.sec.crmtype.json#/definitions/oic.sec.crmtype/properties/crm"
           }
         }
       }

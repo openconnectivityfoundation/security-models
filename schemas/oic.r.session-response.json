@@ -1,0 +1,14 @@
+{
+  "$schema" : "http://json-schema.org/draft-04/schema#",
+  "description" : "Copyright (c) 2018 Open Connectivity Foundation, Inc. All rights reserved.",
+  "title" : "Account Session",
+  "id": "https://openconnectivityfoundation.github.io/security/schemas/oic.r.session-response.json#",
+  "type" : "object",
+  "properties" : {
+    "expiresin" : {
+      "description" : "Access-Token remaining life time in seconds (-1 if permanent)",
+      "type" : "integer",
+      "readOnly": true
+    }
+  }
+}

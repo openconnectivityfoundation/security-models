@@ -1,0 +1,36 @@
+{
+  "$schema" : "http://json-schema.org/draft-04/schema#",
+  "description" : "Copyright (c) 2018 Open Connectivity Foundation, Inc. All rights reserved.",
+  "title" : "Account",
+  "id": "https://openconnectivityfoundation.github.io/security/schemas/oic.r.account-respose.json#",
+  "type" : "object",
+  "properties" : {
+    "accesstoken" : {
+      "description" : "Access-Token used for communication with cloud after account creation",
+      "type" : "string",
+      "pattern": "(?!$|\\s+).*"
+    },
+    "refreshtoken" : {
+      "description" : "Refresh token can be used to refresh the Access Token before getting expired",
+      "type" : "string",
+      "pattern": "(?!$|\\s+).*",
+      "readOnly": true
+    },
+    "expiresin" : {
+      "description" : "Access-Token remaining life time in seconds (-1 if permanent)",
+      "type" : "integer",
+      "readOnly": true
+    },
+    "uid" : {
+      "description" : "Unique OCF Cloud User identifier",
+      "$ref": "https://openconnectivityfoundation.github.io/core/schemas/oic.types-schema.json#/definitions/uuid",
+      "readOnly": true
+    },
+    "redirecturi" : {
+      "description" : "Using this URI, the Client needs to reconnect to a redirected OCF Cloud. If provided, this value shall be used by the Device instead of Mediator-provided URI during the Device Registration.",
+      "type" : "string",
+      "readOnly": true
+    }
+  },
+  "required" : ["accesstoken", "refreshtoken", "expiresin", "uid"]
+}
