@@ -6,14 +6,14 @@
     "oic.r.sp-update": {
       "type": "object",
       "properties": {
-        "supported_profiles": {
+        "supportedprofiles": {
           "type": "array",
           "description": "Array of supported security profiles",
           "items": {
             "$ref": "https://openconnectivityfoundation.github.io/security/schemas/oic.sec.sp.name.json#/definitions/oic.sec.sp.name"
           }
         },
-        "active_profile": {
+        "currentprofile": {
           "description": "Security profile currently active",
           "$ref": "https://openconnectivityfoundation.github.io/security/schemas/oic.sec.sp.name.json#/definitions/oic.sec.sp.name"
         }

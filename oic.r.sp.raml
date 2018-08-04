@@ -1,6 +1,6 @@
 #%RAML 0.8
 title: Security Profile Resource
-version: v1.0-20180508
+version: v1.0-20180804
 documentation:
   - title: OCF Copyright
     content: Copyright (c) 2018 Open Connectivity Foundation, Inc. All rights reserved.
@@ -35,8 +35,8 @@ traits:
             schema: SP
             example: |
               {
-                "supported_profiles" : ["oic.sec.sp.baseline", "oic.sec.sp.black"],
-                "active_profile" : "oic.sec.sp.baseline",
+                "supportedprofiles" : ["oic.sec.sp.baseline", "oic.sec.sp.black"],
+                "currentprofile" : "oic.sec.sp.baseline",
                 "credid" : 1
               }
       400:
@@ -50,8 +50,8 @@ traits:
         schema: SP-Update
         example: |
           {
-            "supported_profiles" : ["oic.sec.sp.baseline", "oic.sec.sp.black"],
-            "active_profile" : "oic.sec.sp.baseline"
+            "supportedprofiles" : ["oic.sec.sp.baseline", "oic.sec.sp.black"],
+            "currentprofile" : "oic.sec.sp.baseline"
           }
     responses:
       200:
@@ -60,8 +60,8 @@ traits:
             schema: SP
             example: |
               {
-                "supported_profiles" : ["oic.sec.sp.baseline", "oic.sec.sp.black"],
-                "active_profile" : "oic.sec.sp.baseline",
+                "supportedprofiles" : ["oic.sec.sp.baseline", "oic.sec.sp.black"],
+                "currentprofile" : "oic.sec.sp.baseline",
                 "credid" : 1
               }
       400:
