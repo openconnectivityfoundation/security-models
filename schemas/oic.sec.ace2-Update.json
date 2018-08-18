@@ -63,11 +63,10 @@
         "permission": {
           "allOf": [
             {
-              "type": "integer",
               "description": "Bitmask encoding of CRUDN permission"
             },
             {
-              "$ref": "https://openconnectivityfoundation.github.io/security/schemas/oic.sec.crudntype.json#/definitions/oic.sec.crudntype/properties/bitmask"
+              "$ref": "https://openconnectivityfoundation.github.io/security/schemas/oic.sec.crudntype.json#/definitions/oic.sec.crudntype"
             }
           ]
         },

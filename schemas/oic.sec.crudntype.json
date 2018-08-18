@@ -4,26 +4,16 @@
   "title": "Permission BitMask",
   "definitions": {
     "oic.sec.crudntype": {
-      "description": "OIC CRUDN types",
-      "properties": {
-        "bitmask": {
-          "type": "integer",
-          "minimum": 0,
-          "maximum": 31,
-          "description": "The encoded bitmask indicating permissions",
-          "detail-desc": [  "0  - No permissions",
-                            "1 - Create permission is granted",
-                            "2 - Read, observe, discover permission is granted",
-                            "4 - Write, update permission is granted",
-                            "8 - Delete permission is granted",
-                            "16 - Notify permission is granted" ]
-        }
-      }
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 31,
+      "description": "The encoded bitmask indicating permissions",
+      "detail-desc": [  "0  - No permissions",
+                        "1 - Create permission is granted",
+                        "2 - Read, observe, discover permission is granted",
+                        "4 - Write, update permission is granted",
+                        "8 - Delete permission is granted",
+                        "16 - Notify permission is granted" ]
     }
-  },
-  "type": "object",
-  "allOf": [
-    { "$ref": "#/definitions/oic.sec.crudntype" }
-  ],
-  "required": ["bitmask"]
+  }
 }
