@@ -9,7 +9,7 @@
         "oxmsel":   {
           "allOf": [
             { "description": "The selected owner transfer method used during on-boarding" },
-            {  "$ref": "oic.sec.doxmtype.json#/definitions/oic.sec.doxmtype/properties/oxm" }
+            {  "$ref": "oic.sec.doxmtype.json#/definitions/oic.sec.doxmtype" }
           ]
         },
         "owned":   {

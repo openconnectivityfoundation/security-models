@@ -11,13 +11,13 @@
           "readOnly": true,
           "description": "List of supported owner transfer methods",
           "items": {
-            "$ref": "https://openconnectivityfoundation.github.io/security/schemas/oic.sec.doxmtype.json#/definitions/oic.sec.doxmtype/properties/oxm"
+            "$ref": "https://openconnectivityfoundation.github.io/security/schemas/oic.sec.doxmtype.json#/definitions/oic.sec.doxmtype"
           }
         },
         "oxmsel":   {
           "allOf": [
             { "description": "The selected owner transfer method used during on-boarding" },
-            {  "$ref": "https://openconnectivityfoundation.github.io/security/schemas/oic.sec.doxmtype.json#/definitions/oic.sec.doxmtype/properties/oxm" }
+            {  "$ref": "https://openconnectivityfoundation.github.io/security/schemas/oic.sec.doxmtype.json#/definitions/oic.sec.doxmtype" }
           ]
         },
         "sct": {
