@@ -1,0 +1,12 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "https://www.openconnectivity.org/ocf-apis/security/schemas/oic.sec.sp.name.json#",
+  "title": "Security Profile Name",
+  "definitions": {
+    "oic.sec.sp.name": {
+          "type": "string",
+          "enum": ["oic.sec.sp.unspecified", "oic.sec.sp.baseline", "oic.sec.sp.black", "oic.sec.sp.blue", "oic.sec.sp.purple"],
+          "description": "A string specifying the security profile\noic.sec.sp.unspecified - The security profile is not specified\noic.sec.sp.baseline - This specifies the OCF Baseline security profile\noic.sec.sp.black - This specifies the OCF Black security profile\noic.sec.sp.blue - This specifies the OCF Blue security profile\noic.sec.sp.purple - This specifies the OCF Purple security profile"
+    }
+  }
+}
