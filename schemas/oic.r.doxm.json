@@ -27,7 +27,7 @@
               "description": "Bitmask encoding of supported credential types"
             },
             {
-              "$ref": "https://openconnectivityfoundation.github.io/security/schemas/oic.sec.credtype.json#/definitions/oic.sec.credtype/properties/bitmask"
+              "$ref": "https://openconnectivityfoundation.github.io/security/schemas/oic.sec.credtype.json#/definitions/oic.sec.credtype"
             }
           ]
         },
