@@ -36,7 +36,8 @@
       "post": {
         "description": "Updates the CRL data\n",
         "parameters": [
-          {"$ref": "#/parameters/interface"},
+          {"$ref": "#/parameters/interface"}
+          ,
           {
             "name": "body",
             "in": "body",

@@ -16,7 +16,8 @@
       "post": {
         "description": "",
         "parameters": [
-          {"$ref": "#/parameters/interface"},
+          {"$ref": "#/parameters/interface"}
+          ,
           {
             "name": "body",
             "in": "body",

@@ -16,7 +16,8 @@
       "post": {
         "description": "Obtain fresh access-token using the refresh token, client should refresh access-token before it expires.\n",
         "parameters": [
-          {"$ref": "#/parameters/interface"},
+          {"$ref": "#/parameters/interface"}
+          ,
           {
             "name": "body",
             "in": "body",

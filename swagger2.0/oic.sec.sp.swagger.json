@@ -38,7 +38,8 @@
       "post": {
         "description": "Sets or updates device provisioning status data.\n",
         "parameters": [
-          {"$ref": "#/parameters/interface"},
+          {"$ref": "#/parameters/interface"}
+          ,
           {
             "name": "body",
             "in": "body",
