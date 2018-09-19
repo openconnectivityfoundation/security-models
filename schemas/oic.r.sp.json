@@ -16,11 +16,6 @@
         "currentprofile": {
           "description": "Security profile currently active",
           "$ref": "https://openconnectivityfoundation.github.io/security/schemas/oic.sec.sp.name.json#/definitions/oic.sec.sp.name"
-        },
-        "credid":  {
-          "type": "integer",
-          "description": "A value is returned if the security profile defines its usage. When defined, credid Property refers to the /oic/sec/cred Resource entry where the credential is used to authorize the available security profiles (e.g. OCF Rooted Certificate Chain)",
-          "readOnly": true
         }
       }
     }
