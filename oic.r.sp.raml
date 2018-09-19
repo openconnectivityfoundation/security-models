@@ -20,7 +20,7 @@ traits:
 
 /oic/sec/sp:
   description: |
-    Resource specifying supported and active security profile(s)
+    Resource specifying supported and active Security Profile(s)
 
   displayName: Security Profile Resource
   is: [ interface ]
@@ -35,8 +35,8 @@ traits:
             schema: SP
             example: |
               {
-                "supportedprofiles" : ["oic.sec.sp.baseline", "oic.sec.sp.black"],
-                "currentprofile" : "oic.sec.sp.baseline"
+                "supportedprofiles" : ["1.3.6.1.4.1.51414.0.1.0", " 1.3.6.1.4.1.51414.0.2.0"],
+                "currentprofile" : "1.3.6.1.4.1.51414.0.1.0"
               }
       400:
         description: The request is invalid.
@@ -49,8 +49,8 @@ traits:
         schema: SP-Update
         example: |
           {
-            "supportedprofiles" : ["oic.sec.sp.baseline", "oic.sec.sp.black"],
-            "currentprofile" : "oic.sec.sp.baseline"
+            "supportedprofiles" : ["1.3.6.1.4.1.51414.0.1.0", " 1.3.6.1.4.1.51414.0.2.0"],
+            "currentprofile" : "1.3.6.1.4.1.51414.0.1.0"
           }
     responses:
       200:
@@ -59,8 +59,8 @@ traits:
             schema: SP
             example: |
               {
-                "supportedprofiles" : ["oic.sec.sp.baseline", "oic.sec.sp.black"],
-                "currentprofile" : "oic.sec.sp.baseline"
+                "supportedprofiles" : ["1.3.6.1.4.1.51414.0.1.0", " 1.3.6.1.4.1.51414.0.2.0"],
+                "currentprofile" : "1.3.6.1.4.1.51414.0.1.0"
               }
       400:
         description: The request is invalid.
