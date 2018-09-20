@@ -153,20 +153,18 @@
     "ace-filtered" : {
       "in" : "query",
       "name" : "subjectuuid",
+      "required" : false,
       "type" : "string",
-      "required" : "requiredtypedescriptionrepeatexample",
-      "type" : "requiredtypedescriptionrepeatexample",
-      "description" : "requiredtypedescriptionrepeatexample",
-      "repeat" : "requiredtypedescriptionrepeatexample",
-      "example" : "requiredtypedescriptionrepeatexample"
+      "description" : "Only applies to ACEs with the specified subject UUID",
+      "repeat" : false,
+      "example" : "se61c3e6b-9c54-4b81-8ce5-f9039c1d04d9"
       ,
       "name" : "resources",
+      "required" : false,
       "type" : "string",
-      "required" : "requiredtypedescriptionrepeatexample",
-      "type" : "requiredtypedescriptionrepeatexample",
-      "description" : "requiredtypedescriptionrepeatexample",
-      "repeat" : "requiredtypedescriptionrepeatexample",
-      "example" : "requiredtypedescriptionrepeatexample"
+      "description" : "Only applies to ACEs with the specificed subhectuuid | and resources href",
+      "repeat" : false,
+      "example" : "coaps://IP-ADDR/temp"
     }
   },
   "definitions": {
