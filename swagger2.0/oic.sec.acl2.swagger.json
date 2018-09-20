@@ -198,12 +198,11 @@
     "ace-filtered" : {
       "in" : "query",
       "name" : "aceid",
-      "type" : "string",
-      "required" : "requiredtypedescriptionrepeatexample",
-      "type" : "requiredtypedescriptionrepeatexample",
-      "description" : "requiredtypedescriptionrepeatexample",
-      "repeat" : "requiredtypedescriptionrepeatexample",
-      "example" : "requiredtypedescriptionrepeatexample"
+      "required" : false,
+      "type" : "integer",
+      "description" : "Only applies to the ACE with the specified aceid",
+      "repeat" : true,
+      "example" : 2112
     }
   },
   "definitions": {
