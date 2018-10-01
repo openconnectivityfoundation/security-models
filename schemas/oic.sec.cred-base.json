@@ -96,7 +96,7 @@
           "type": "array",
           "description": "The refresh methods that may be used to update this credential",
           "items": {
-            "$ref": "https://openconnectivityfoundation.github.io/security/schemas/oic.sec.crmtype.json#/definitions/oic.sec.crmtype/properties/crm"
+            "$ref": "https://openconnectivityfoundation.github.io/security/schemas/oic.sec.crmtype.json#/definitions/oic.sec.crmtype"
           }
         }
       }
