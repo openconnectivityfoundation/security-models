@@ -3,6 +3,47 @@
   "id": "https://openconnectivityfoundation.github.io/security/schemas/oic.sec.ace2.json#",
   "title": "Subject-based Access Control Entry (ACE) object definition",
   "definitions": {
+    "resource-ref": {
+      "type": "object",
+      "description": "Each resource must have at least one of these properties set",
+      "properties": {
+        "href": {
+          "allOf": [
+            {
+              "description": "When present, the ACE only applies when the href matches"
+            },
+            {
+              "$ref": "https://openconnectivityfoundation.github.io/security/schemas/oic.sec.types-schema.json#/definitions/href"
+            }
+          ]
+        },
+        "rt": {
+          "allOf": [
+            {
+              "description": "When present, the ACE only applies when the rt (resource type) matches"
+            },
+            {
+              "$ref": "https://openconnectivityfoundation.github.io/security/schemas/oic.sec.types-schema.json#/definitions/rt"
+            }
+          ]
+        },
+        "if": {
+          "allOf": [
+            {
+              "description": "When present, the ACE only applies when the if (interface) matches"
+            },
+            {
+              "$ref": "https://openconnectivityfoundation.github.io/security/schemas/oic.sec.types-schema.json#/definitions/if"
+            }
+          ]
+        },
+        "wc": {
+          "type": "string",
+          "pattern": "^[-+*]$",
+          "description": "A wildcard matching policy"
+        }
+      }
+    },
     "oic.sec.ace2": {
       "type": "object",
       "properties": {
