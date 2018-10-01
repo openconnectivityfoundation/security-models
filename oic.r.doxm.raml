@@ -1,6 +1,6 @@
 #%RAML 0.8
 title: OICSecurityDoxmResource
-version: v1.0-20180619
+version: v1.0-20181001
 documentation:
   - title: OCF Copyright
     content: Copyright (c) 2016, 2017, 2018 Open Connectivity Foundation, Inc. All rights reserved.
@@ -35,6 +35,7 @@ traits:
             schema: Doxm
             example: |
               {
+                "rt": ["oic.r.doxm"],
                 "oxms": [ 0, 2, 3 ],
                 "oxmsel": 0,
                 "sct": 16,
