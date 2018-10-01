@@ -1,6 +1,6 @@
 #%RAML 0.8
 title: Account
-version: v1.0-20180320
+version: v1.0-20181001
 documentation:
   - title: OCF Copyright
     content: Copyright (c) 2018 Open Connectivity Foundation, Inc. All rights reserved.
@@ -45,6 +45,7 @@ traits:
             schema: Account-response
             example: |
               {
+                "rt": ["oic.r.account"],
                 "accesstoken" : "0f3d9f7fe5491d54077d",
                 "refreshtoken" : "00fe4644a6fbe5324eec",
                 "expiresin" : 3600,
@@ -59,4 +60,4 @@ traits:
     responses:
       202:
         description: |
-          2.02	 Deleted response informing the device is successfully deleted.
+          2.02 Deleted response informing the device is successfully deleted.
