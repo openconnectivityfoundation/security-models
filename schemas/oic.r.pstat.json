@@ -29,7 +29,7 @@
               "description": "Current device provisioning mode"
             },
             {
-              "$ref": "https://openconnectivityfoundation.github.io/security/schemas/oic.sec.dpmtype.json#/definitions/oic.sec.dpmtype/properties/bitmask"
+              "$ref": "https://openconnectivityfoundation.github.io/security/schemas/oic.sec.dpmtype.json#/definitions/oic.sec.dpmtype"
             }
           ]
         },
@@ -39,7 +39,7 @@
               "description": "Target device provisioning mode"
             },
             {
-              "$ref": "https://openconnectivityfoundation.github.io/security/schemas/oic.sec.dpmtype.json#/definitions/oic.sec.dpmtype/properties/bitmask"
+              "$ref": "https://openconnectivityfoundation.github.io/security/schemas/oic.sec.dpmtype.json#/definitions/oic.sec.dpmtype"
             }
           ]
         },
@@ -49,7 +49,7 @@
               "description": "Current operational mode"
             },
             {
-              "$ref": "https://openconnectivityfoundation.github.io/security/schemas/oic.sec.pomtype.json#/definitions/oic.sec.pomtype/properties/bitmask"
+              "$ref": "https://openconnectivityfoundation.github.io/security/schemas/oic.sec.pomtype.json#/definitions/oic.sec.pomtype"
             }
           ]
         },
@@ -60,7 +60,7 @@
               "description": "Supported operational modes"
             },
             {
-              "$ref": "https://openconnectivityfoundation.github.io/security/schemas/oic.sec.pomtype.json#/definitions/oic.sec.pomtype/properties/bitmask"
+              "$ref": "https://openconnectivityfoundation.github.io/security/schemas/oic.sec.pomtype.json#/definitions/oic.sec.pomtype"
             }
           ]
         },
