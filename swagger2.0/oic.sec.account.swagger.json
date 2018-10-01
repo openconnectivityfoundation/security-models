@@ -12,9 +12,9 @@
   "consumes": ["application/json"],
   "produces": ["application/json"],
   "paths": {
-    "/oic/sec/tokenrefresh" : {
+    "/oic/sec/account" : {
       "post": {
-        "description": "Obtain fresh access-token using the refresh token, client should refresh access-token before it expires.\n",
+        "description": "Sign-up using generic account provider.\n",
         "parameters": [
           {"$ref": "#/parameters/interface"}
           ,
@@ -22,27 +22,40 @@
             "name": "body",
             "in": "body",
             "required": true,
-            "schema": { "$ref": "#/definitions/TokenRefresh-Request" },
+            "schema": { "$ref": "#/definitions/Account-request" },
             "x-example":
               {
-                "uid" : "123e4567-e89b-12d3-a456-d6e313b71d9f",
                 "di" : "9cfbeb8e-5a1e-4d1c-9d01-00c04fd430c8",
-                "refreshtoken" : "00fe4644a6fbe5324eec"
+                "authprovider" : "github",
+                "accesstoken" : "8802f2eaf8b5e147a936"
               }
           }
         ],
         "responses": {
             "204": {
-              "description" : "2.04 Changed respond with new access-token\n",
+              "description" : "2.04 Changed respond with required and optional information\n",
               "x-example":
                 {
-                  "rt": ["oic.r.tokenrefresh"],
-                  "accesstoken" : "8ce598980761869837be",
-                  "refreshtoken" : "d4922312b6df0518e146",
-                  "expiresin" : 3600
+                  "rt": ["oic.r.account"],
+                  "accesstoken" : "0f3d9f7fe5491d54077d",
+                  "refreshtoken" : "00fe4644a6fbe5324eec",
+                  "expiresin" : 3600,
+                  "uid" : "123e4567-e89b-12d3-a456-d6e313b71d9f",
+                  "redirecturi" : "coaps+tcp://example.com:443"
                 }
                 ,
-              "schema": { "$ref": "#/definitions/TokenRefresh-Response" }
+              "schema": { "$ref": "#/definitions/Account-response" }
+            }
+        }
+      },
+      "delete": {
+        "description": "Delete a device. This also removes all resources in the device on cloud side.\nexample: /oic/account?di=9cfbeb8e-5a1e-4d1c-9d01-00c04fd430c8&accesstoken=0f3d9f7fe5491d54077d\n",
+        "parameters": [
+          {"$ref": "#/parameters/interface"}
+        ],
+        "responses": {
+            "202": {
+              "description" : "2.02 Deleted response informing the device is successfully deleted.\n"
             }
         }
       }
@@ -57,19 +70,18 @@
     }
   },
   "definitions": {
-    "TokenRefresh-Request" : {
+    "Account-request" : {
       "properties": {
-        "refreshtoken" :
+        "authprovider" :
                 {
-          "description": "Refresh token received by account management or during token refresh procedure",
-          "pattern": "(?!$|\\s+).*",
+          "description": "The name of Authorization Provider through which Access Token was obtained",
           "type": "string"
         },
 
-        "uid" :
+        "accesstoken" :
                 {
-          "description": "Format pattern according to IETF RFC 4122.",
-          "pattern": "^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$",
+          "description": "Access-Token used for communication with OCF Cloud after account creation",
+          "pattern": "(?!$|\\s+).*",
           "type": "string"
         },
 
@@ -82,36 +94,50 @@
 
         }
         ,"type" : "object"
-      ,"required": ["uid", "di", "refreshtoken"]
+      ,"required": ["di", "accesstoken"]
     }
     ,
-    "TokenRefresh-Response" : {
+    "Account-response" : {
       "properties": {
         "expiresin" :
                 {
-          "description": "Access-Token life time in seconds (-1 if permanent)",
+          "description": "Access-Token remaining life time in seconds (-1 if permanent)",
           "readOnly": true,
           "type": "integer"
         },
 
         "refreshtoken" :
                 {
-          "description": "Refresh token received by account management or during token refresh procedure",
+          "description": "Refresh token can be used to refresh the Access Token before getting expired",
           "pattern": "(?!$|\\s+).*",
+          "readOnly": true,
+          "type": "string"
+        },
+
+        "redirecturi" :
+                {
+          "description": "Using this URI, the Client needs to reconnect to a redirected OCF Cloud. If provided, this value shall be used by the Device instead of Mediator-provided URI during the Device Registration.",
+          "readOnly": true,
           "type": "string"
         },
 
         "accesstoken" :
                 {
-          "description": "Granted Access-Token",
+          "description": "Access-Token used for communication with cloud after account creation",
           "pattern": "(?!$|\\s+).*",
-          "readOnly": true,
+          "type": "string"
+        },
+
+        "uid" :
+                {
+          "description": "Format pattern according to IETF RFC 4122.",
+          "pattern": "^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$",
           "type": "string"
         }
 
         }
         ,"type" : "object"
-      ,"required": ["accesstoken", "refreshtoken", "expiresin"]
+      ,"required": ["accesstoken", "refreshtoken", "expiresin", "uid"]
     }
   }
 }
