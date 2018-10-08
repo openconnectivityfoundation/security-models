@@ -2,7 +2,7 @@
   "$schema" : "http://json-schema.org/draft-04/schema#",
   "description" : "Copyright (c) 2018 Open Connectivity Foundation, Inc. All rights reserved.",
   "title" : "Account",
-  "id": "https://openconnectivityfoundation.github.io/security/schemas/oic.r.account-respose.json#",
+  "id": "https://openconnectivityfoundation.github.io/security/schemas/oic.r.account-response.json#",
   "definitions": {
     "oic.r.account-response": {
       "type" : "object",
