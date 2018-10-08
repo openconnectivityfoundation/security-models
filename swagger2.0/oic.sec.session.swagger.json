@@ -58,10 +58,16 @@
   "definitions": {
     "Account-Session-Request" : {
       "properties": {
-        "login" :
+        "rt" :
                 {
-          "description": "Action for the request: true = login, false = logout",
-          "type": "boolean"
+          "description": "Resource Type of the Resource",
+          "items": {
+            "maxLength": 64,
+            "type": "string"
+          },
+          "minItems": 1,
+          "readOnly": true,
+          "type": "array"
         },
 
         "uid" :
@@ -83,6 +89,49 @@
           "description": "Format pattern according to IETF RFC 4122.",
           "pattern": "^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$",
           "type": "string"
+        },
+
+        "n" :
+                {
+          "description": "Friendly name of the resource",
+          "maxLength": 64,
+          "readOnly": true,
+          "type": "string"
+        },
+
+        "login" :
+                {
+          "description": "Action for the request: true = login, false = logout",
+          "type": "boolean"
+        },
+
+        "id" :
+                {
+          "description": "Instance ID of this specific resource",
+          "maxLength": 64,
+          "readOnly": true,
+          "type": "string"
+        },
+
+        "if" :
+                {
+          "description": "The interface set supported by this resource",
+          "items": {
+            "enum": [
+              "oic.if.baseline",
+              "oic.if.ll",
+              "oic.if.b",
+              "oic.if.lb",
+              "oic.if.rw",
+              "oic.if.r",
+              "oic.if.a",
+              "oic.if.s"
+            ],
+            "type": "string"
+          },
+          "minItems": 1,
+          "readOnly": true,
+          "type": "array"
         }
 
         }
@@ -91,16 +140,3 @@
     }
     ,
     "Account-Session-Response" : {
-      "properties": {
-        "expiresin" :
-                {
-          "description": "Access-Token remaining life time in seconds (-1 if permanent)",
-          "readOnly": true,
-          "type": "integer"
-        }
-
-        }
-        ,"type" : "object"
-    }
-  }
-}

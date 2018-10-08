@@ -3,21 +3,30 @@
   "description" : "Copyright (c) 2018 Open Connectivity Foundation, Inc. All rights reserved.",
   "title" : "Account",
   "id": "https://openconnectivityfoundation.github.io/security/schemas/oic.r.account-request.json#",
-  "type" : "object",
-  "properties" : {
-    "di" : {
-      "description" : "Unique device identifier",
-      "$ref": "https://openconnectivityfoundation.github.io/core/schemas/oic.types-schema.json#/definitions/uuid"
-    },
-    "authprovider" : {
-      "description" : "The name of Authorization Provider through which Access Token was obtained",
-      "type" : "string"
-    },
-    "accesstoken" : {
-      "description" : "Access-Token used for communication with OCF Cloud after account creation",
-      "type" : "string",
-      "pattern": "(?!$|\\s+).*"
+  "definitions": {
+    "oic.r.account-request": {
+      "type" : "object",
+      "properties" : {
+        "di" : {
+          "description" : "Unique device identifier",
+          "$ref": "https://openconnectivityfoundation.github.io/core/schemas/oic.types-schema.json#/definitions/uuid"
+        },
+        "authprovider" : {
+          "description" : "The name of Authorization Provider through which Access Token was obtained",
+          "type" : "string"
+        },
+        "accesstoken" : {
+          "description" : "Access-Token used for communication with OCF Cloud after account creation",
+          "type" : "string",
+          "pattern": "(?!$|\\s+).*"
+        }
+      }
     }
   },
+  "type": "object",
+  "allOf": [
+    { "$ref": "https://openconnectivityfoundation.github.io/core/schemas/oic.core-schema.json#/definitions/oic.core" },
+    { "$ref": "#/definitions/oic.r.account-request" }
+  ],
   "required" : ["di", "accesstoken"]
 }
