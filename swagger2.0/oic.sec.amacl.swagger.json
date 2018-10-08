@@ -150,6 +150,34 @@
   "definitions": {
     "Amacl" : {
       "properties": {
+        "rt" :
+                {
+          "description": "Resource Type of the Resource",
+          "items": {
+            "maxLength": 64,
+            "type": "string"
+          },
+          "minItems": 1,
+          "readOnly": true,
+          "type": "array"
+        },
+
+        "n" :
+                {
+          "description": "Friendly name of the resource",
+          "maxLength": 64,
+          "readOnly": true,
+          "type": "string"
+        },
+
+        "id" :
+                {
+          "description": "Instance ID of this specific resource",
+          "maxLength": 64,
+          "readOnly": true,
+          "type": "string"
+        },
+
         "resources" :
                 {
           "description": "Multiple links to this host's resources",
@@ -217,6 +245,27 @@
             },
             "type": "object"
           },
+          "type": "array"
+        },
+
+        "if" :
+                {
+          "description": "The interface set supported by this resource",
+          "items": {
+            "enum": [
+              "oic.if.baseline",
+              "oic.if.ll",
+              "oic.if.b",
+              "oic.if.lb",
+              "oic.if.rw",
+              "oic.if.r",
+              "oic.if.a",
+              "oic.if.s"
+            ],
+            "type": "string"
+          },
+          "minItems": 1,
+          "readOnly": true,
           "type": "array"
         }
 
