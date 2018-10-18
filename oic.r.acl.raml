@@ -16,7 +16,7 @@ traits:
       queryParameters:
         if:
           enum: ["oic.if.baseline"]
-  - ace-filtered:
+  - ace-filtered-uuid:
       usage: Apply this to any method that can filter ACEs
       description: Some requests only operate on a subset of ACEs
       queryParameters:
@@ -26,6 +26,11 @@ traits:
             required: false
             repeat: false
             example: se61c3e6b-9c54-4b81-8ce5-f9039c1d04d9
+            
+  - ace-filtered-resources:
+      usage: Apply this to any method that can filter ACEs
+      description: Some requests only operate on a subset of ACEs
+      queryParameters:
         resources:
             type: string
             description: Only applies to ACEs with the specificed subhectuuid |
@@ -51,7 +56,7 @@ traits:
       subjectuuid are returned. If subjectuuid and resources are specified,
       only the ACEs with the specified subjectuuid and resource hrefs are
       returned.
-    is: [ace-filtered]
+    is: [ace-filtered-uuid, ace-filtered-resources]
     responses:
       200:
         body:
@@ -163,7 +168,7 @@ traits:
       subjectuuid are deleted. If subjectuuid and resources are specified,
       only the ACEs with the specified subjectuuid and resource hrefs are
       deleted.
-    is: [ace-filtered]
+    is: [ace-filtered-uuid, ace-filtered-resources]
     responses:
       200:
         description: The matching ACEs or the entire ACL resource has been successfully deleted.
