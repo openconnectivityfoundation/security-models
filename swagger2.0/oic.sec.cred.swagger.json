@@ -2,7 +2,7 @@
   "swagger": "2.0",
   "info": {
     "title": "Credential Resource",
-    "version": "v1.0-20181001",
+    "version": "v1.0-20181031",
     "license": {
       "name": "copyright 2016-2017 Open Connectivity Foundation, Inc. All rights reserved.",
       "x-description": "Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:\n        1.  Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.\n        2.  Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.\n\n        THIS SOFTWARE IS PROVIDED BY THE Open Connectivity Foundation, INC. \"AS IS\" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE OR WARRANTIES OF NON-INFRINGEMENT, ARE DISCLAIMED.\n        IN NO EVENT SHALL THE Open Connectivity Foundation, INC. OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION)\n        HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.\n"
@@ -17,7 +17,8 @@
         "description": "This resource specifies credentials a device may use to establish secure communication.\nRetrieves the credential data.\nWhen used without query parameters, all the credential entries are returned.\nWhen used with a query parameter, only the credentials matching the specified\nparameter are returned.\n\nNote that write-only credential data will not be returned.\n",
         "parameters": [
           {"$ref": "#/parameters/interface"}
-          ,{"$ref": "#/parameters/cred-filtered"}
+          ,{"$ref": "#/parameters/cred-filtered-credid"}
+          ,{"$ref": "#/parameters/cred-filtered-subjectuuid"}
         ],
         "responses": {
             "200": {
@@ -172,7 +173,8 @@
         "description": "Deletes credential entries.\nWhen DELETE is used without query parameters, all the cred entries are deleted.\nWhen DELETE is used with a query parameter, only the entries matching\nthe query parameter are deleted.\n",
         "parameters": [
           {"$ref": "#/parameters/interface"}
-          ,{"$ref": "#/parameters/cred-filtered"}
+          ,{"$ref": "#/parameters/cred-filtered-credid"}
+          ,{"$ref": "#/parameters/cred-filtered-subjectuuid"}
         ],
         "responses": {
             "400": {
@@ -192,7 +194,7 @@
       "type" : "string",
       "enum" : ["oic.if.baseline"]
     },
-    "cred-filtered" : {
+    "cred-filtered-credid" : {
       "in" : "query",
       "name" : "credid",
       "required" : false,
@@ -200,7 +202,9 @@
       "description" : "Only applies to the credential with the specified credid",
       "repeat" : true,
       "example" : 2112
-      ,
+    },
+    "cred-filtered-subjectuuid" : {
+      "in" : "query",
       "name" : "subjectuuid",
       "required" : false,
       "type" : "string",
