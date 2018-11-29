@@ -1,0 +1,564 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "Signed Access Control List data",
+    "version": "v1.0-20150819",
+    "license": {
+      "name": "copyright 2016-2017 Open Connectivity Foundation, Inc. All rights reserved.",
+      "x-description": "Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:\n        1.  Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.\n        2.  Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.\n\n        THIS SOFTWARE IS PROVIDED BY THE Open Connectivity Foundation, INC. \"AS IS\" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE OR WARRANTIES OF NON-INFRINGEMENT, ARE DISCLAIMED.\n        IN NO EVENT SHALL THE Open Connectivity Foundation, INC. OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION)\n        HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.\n"
+    }
+  },
+  "schemes": ["http"],
+  "consumes": ["application/json"],
+  "produces": ["application/json"],
+  "paths": {
+    "/oic/sec/sacl" : {
+      "get": {
+        "description": "This resource specifies a signed ACL object.\nRetrieves the sacl resource data.\n",
+        "parameters": [
+          {"$ref": "#/parameters/interface"}
+        ],
+        "responses": {
+            "200": {
+              "description" : "",
+              "x-example":
+                {
+                  "aclist2": [
+                      {
+                        "aceid": 1,
+                        "subject": {"uuid": "e61c3e6b-9c54-4b81-8ce5-f9039c1d04d9"},
+                        "resources": [
+                          {
+                            "href": "/temp",
+                            "rt": ["oic.r.temperature"],
+                            "if": ["oic.if.baseline", "oic.if.a"]
+                          },
+                          {
+                            "href": "/temp",
+                            "rt": ["oic.r.temperature"],
+                            "if": ["oic.if.baseline", "oic.if.s"]
+                          }
+                        ],
+                        "permission": 31,
+                        "validity": [
+                          {
+                            "period": "20160101T180000Z/20170102T070000Z",
+                            "recurrence": [ "DSTART:XXXXX", "RRULE:FREQ=DAILY;UNTIL=20180131T140000Z;BYMONTH=1" ]
+                          },
+                          {
+                            "period": "20160101T180000Z/PT5H30M",
+                            "recurrence": [ "RRULE:FREQ=DAILY;UNTIL=20180131T140000Z;BYMONTH=1" ]
+                          }
+                        ]
+                      },
+                      {
+                        "aceid": 2,
+                        "subject": {
+                            "authority": "484b8a51-cb23-46c0-a5f1-b4aebef50ebe",
+                            "role": "SOME_STRING"
+                          },
+                        "resources": [
+                          {
+                            "href": "/light",
+                            "rt": ["oic.r.light"],
+                            "if": ["oic.if.baseline", "oic.if.a"]
+                          },
+                          {
+                            "href": "/door",
+                            "rt": ["oic.r.door"],
+                            "if": ["oic.if.baseline", "oic.if.a"]
+                          }
+                        ],
+                        "permission": 15
+                      }
+                 ],
+                  "signature": {
+                    "sigtype": "oic.sec.sigtype.pk7",
+                    "sigvalue": "ENCODED-SIGNATURE-VALUE"
+                  }
+                }
+                ,
+              "schema": { "$ref": "#/definitions/Sacl" }
+            }
+        }
+      },
+      "post": {
+        "description": "Sets the sacl resource data\n",
+        "parameters": [
+          {"$ref": "#/parameters/interface"}
+          ,
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": { "$ref": "#/definitions/Sacl" },
+            "x-example":
+              {
+                "aclist2": [
+                    {
+                      "aceid": 1,
+                      "subject": {"uuid": "e61c3e6b-9c54-4b81-8ce5-f9039c1d04d9"},
+                      "resources": [
+                        {
+                          "href": "/temp",
+                          "rt": ["oic.r.temperature"],
+                          "if": ["oic.if.baseline", "oic.if.a"]
+                        },
+                        {
+                          "href": "/temp",
+                          "rt": ["oic.r.temperature"],
+                          "if": ["oic.if.baseline", "oic.if.s"]
+                        }
+                      ],
+                      "permission": 31,
+                      "validity": [
+                        {
+                          "period": "20160101T180000Z/20170102T070000Z",
+                          "recurrence": [ "DSTART:XXXXX", "RRULE:FREQ=DAILY;UNTIL=20180131T140000Z;BYMONTH=1" ]
+                        },
+                        {
+                          "period": "20160101T180000Z/PT5H30M",
+                          "recurrence": [ "RRULE:FREQ=DAILY;UNTIL=20180131T140000Z;BYMONTH=1" ]
+                        }
+                      ]
+                    },
+                    {
+                      "aceid": 2,
+                      "subject": {
+                          "authority": "484b8a51-cb23-46c0-a5f1-b4aebef50ebe",
+                          "role": "SOME_STRING"
+                      },
+                      "resources": [
+                        {
+                          "href": "/light",
+                          "rt": ["oic.r.light"],
+                          "if": ["oic.if.baseline", "oic.if.a"]
+                        },
+                        {
+                          "href": "/door",
+                          "rt": ["oic.r.door"],
+                          "if": ["oic.if.baseline", "oic.if.a"]
+                        }
+                      ],
+                      "permission": 15
+                    }
+                ],
+                "signature": {
+                  "sigtype": "oic.sec.sigtype.pk7",
+                  "sigvalue": "ENCODED-SIGNATURE-VALUE"
+                }
+              }
+          }
+        ],
+        "responses": {
+            "400": {
+              "description" : "The request is invalid."
+            },
+            "201": {
+              "description" : "The ACL entry is created."
+            },
+            "204": {
+              "description" : "The ACL entry is updated."
+            }
+        }
+      },
+      "put": {
+        "description": "Sets the sacl resource data\n",
+        "parameters": [
+          {"$ref": "#/parameters/interface"}
+          ,
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": { "$ref": "#/definitions/Sacl" },
+            "x-example":
+              {
+                "aclist2":[
+                    {
+                      "aceid": 1,
+                      "subject": {"uuid": "e61c3e6b-9c54-4b81-8ce5-f9039c1d04d9"},
+                      "resources": [
+                        {
+                          "href": "/temp",
+                          "rt": ["oic.r.temperature"],
+                          "if": ["oic.if.baseline", "oic.if.a"]
+                        },
+                        {
+                          "href": "/temp",
+                          "rt": ["oic.r.temperature"],
+                          "if": ["oic.if.baseline", "oic.if.s"]
+                        }
+                      ],
+                      "permission": 31,
+                      "validity": [
+                        {
+                          "period": "20160101T180000Z/20170102T070000Z",
+                          "recurrence": [ "DSTART:XXXXX", "RRULE:FREQ=DAILY;UNTIL=20180131T140000Z;BYMONTH=1" ]
+                        },
+                        {
+                          "period": "20160101T180000Z/PT5H30M",
+                          "recurrence": [ "RRULE:FREQ=DAILY;UNTIL=20180131T140000Z;BYMONTH=1" ]
+                        }
+                      ]
+                    },
+                    {
+                      "aceid": 2,
+                      "subject": {
+                          "authority": "484b8a51-cb23-46c0-a5f1-b4aebef50ebe",
+                          "role": "SOME_STRING"
+                      },
+                      "resources": [
+                        {
+                          "href": "/light",
+                          "rt": ["oic.r.light"],
+                          "if": ["oic.if.baseline", "oic.if.a"]
+                        },
+                        {
+                          "href": "/door",
+                          "rt": ["oic.r.door"],
+                          "if": ["oic.if.baseline", "oic.if.a"]
+                        }
+                      ],
+                      "permission": 15
+                    }
+                ],
+                "signature": {
+                  "sigtype": "oic.sec.sigtype.pk7",
+                  "sigvalue": "ENCODED-SIGNATURE-VALUE"
+                }
+              }
+          }
+        ],
+        "responses": {
+            "400": {
+              "description" : "The request is invalid."
+            },
+            "201": {
+              "description" : "The signed ACL entry is created."
+            }
+        }
+      },
+      "delete": {
+        "description": "Deletes the signed ACL data.\nWhen DELETE is used without query parameters, the entire collection is deleted.\nWhen DELETE is used with the query parameter where \"acl\" is specified, only the matched entry is deleted.\n",
+        "parameters": [
+          {"$ref": "#/parameters/interface"}
+          ,
+          {
+            "in": "query",
+            "description": "Delete the signed ACL identified by the string containing subject UUID.\n",
+            "type": "string",
+            "name": "subject"
+          }
+        ],
+        "responses": {
+            "200": {
+              "description" : "The signed ACL instance or the the entire signed ACL resource has been successfully deleted."
+            },
+            "400": {
+              "description" : "The request is invalid."
+            }
+        }
+      }
+    }
+  },
+  "parameters": {
+    "interface" : {
+      "in" : "query",
+      "name" : "if",
+      "type" : "string",
+      "enum" : ["oic.if.baseline"]
+    }
+  },
+  "definitions": {
+    "Sacl" : {
+      "properties": {
+        "rt" :
+                {
+          "description": "Resource Type of the Resource",
+          "items": {
+            "maxLength": 64,
+            "type": "string"
+          },
+          "minItems": 1,
+          "readOnly": true,
+          "type": "array"
+        },
+
+        "aclist2" :
+                {
+          "description": "Access Control Entries in the Acl resource",
+          "items": {
+            "properties": {
+              "aceid": {
+                "description": "An identifier for the ACE that is unique within the ACL. In cases where it isn't supplied in an update, the Server will add the ACE and assign it a unique value.",
+                "minimum": 1,
+                "type": "integer"
+              },
+              "permission": {
+                "allOf": [
+                  {
+                    "description": "Bitmask encoding of CRUDN permission"
+                  },
+                  {
+                    "description": "The encoded bitmask indicating permissions",
+                    "detail-desc": [
+                      "0  - No permissions",
+                      "1 - Create permission is granted",
+                      "2 - Read, observe, discover permission is granted",
+                      "4 - Write, update permission is granted",
+                      "8 - Delete permission is granted",
+                      "16 - Notify permission is granted"
+                    ],
+                    "maximum": 31,
+                    "minimum": 0,
+                    "type": "integer"
+                  }
+                ]
+              },
+              "resources": {
+                "description": "References the application's resources to which a security policy applies",
+                "items": {
+                  "description": "Each resource must have at least one of these properties set",
+                  "properties": {
+                    "href": {
+                      "allOf": [
+                        {
+                          "description": "When present, the ACE only applies when the href matches"
+                        },
+                        {
+                          "description": "This is the target URI, it can be specified as a Relative Reference or fully-qualified URI.",
+                          "format": "uri",
+                          "maxLength": 256,
+                          "type": "string"
+                        }
+                      ]
+                    },
+                    "if": {
+                      "allOf": [
+                        {
+                          "description": "When present, the ACE only applies when the if (interface) matches"
+                        },
+                        {
+                          "description": "The interface set supported by this resource",
+                          "items": {
+                            "enum": [
+                              "oic.if.baseline",
+                              "oic.if.ll",
+                              "oic.if.b",
+                              "oic.if.rw",
+                              "oic.if.r",
+                              "oic.if.a",
+                              "oic.if.s"
+                            ],
+                            "type": "string"
+                          },
+                          "minItems": 1,
+                          "type": "array"
+                        }
+                      ]
+                    },
+                    "rt": {
+                      "allOf": [
+                        {
+                          "description": "When present, the ACE only applies when the rt (resource type) matches"
+                        },
+                        {
+                          "description": "Resource Type of the Resource",
+                          "items": {
+                            "maxLength": 64,
+                            "type": "string"
+                          },
+                          "minItems": 1,
+                          "type": "array"
+                        }
+                      ]
+                    },
+                    "wc": {
+                      "description": "A wildcard matching policy",
+                      "pattern": "^[-+*]$",
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                },
+                "type": "array"
+              },
+              "subject": {
+                "anyOf": [
+                  {
+                    "description": "Device identifier",
+                    "properties": {
+                      "uuid": {
+                        "allOf": [
+                          {
+                            "description": "A UUID Device ID"
+                          },
+                          {
+                            "description": "Format pattern according to IETF RFC 4122.",
+                            "pattern": "^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$",
+                            "type": "string"
+                          }
+                        ]
+                      }
+                    },
+                    "required": [
+                      "uuid"
+                    ],
+                    "type": "object"
+                  },
+                  {
+                    "description": "Security role specified as an <Authority> & <Rolename>. A NULL <Authority> refers to the local entity or device.",
+                    "properties": {
+                      "authority": {
+                        "description": "The Authority component of the entity being identified. A NULL <Authority> refers to the local entity or device.",
+                        "type": "string"
+                      },
+                      "role": {
+                        "description": "The ID of the role being identified.",
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "role"
+                    ],
+                    "type": "object"
+                  },
+                  {
+                    "properties": {
+                      "conntype": {
+                        "description": "This property allows an ACE to be matched based on the connection or message type",
+                        "detail-desc": [
+                          "auth-crypt - ACE applies if the Client is authenticated and the data channel or message is encrypted and integrity protected",
+                          "anon-clear - ACE applies if the Client is not authenticated and the data channel or message is not encrypted but may be integrity protected"
+                        ],
+                        "enum": [
+                          "auth-crypt",
+                          "anon-clear"
+                        ],
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "conntype"
+                    ],
+                    "type": "object"
+                  }
+                ]
+              },
+              "validity": {
+                "description": "validity is an array of time-pattern objects",
+                "items": {
+                  "description": "The time-pattern contains a period and recurrence expressed in RFC5545 syntax",
+                  "properties": {
+                    "period": {
+                      "description": "String represents a period using the RFC5545 Period",
+                      "type": "string"
+                    },
+                    "recurrence": {
+                      "description": "String array represents a recurrence rule using the RFC5545 Recurrence",
+                      "items": {
+                        "type": "string"
+                      },
+                      "type": "array"
+                    }
+                  },
+                  "required": [
+                    "period"
+                  ],
+                  "type": "object"
+                },
+                "type": "array"
+              }
+            },
+            "required": [
+              "aceid",
+              "resources",
+              "permission",
+              "subject"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        },
+
+        "n" :
+                {
+          "description": "Friendly name of the resource",
+          "maxLength": 64,
+          "readOnly": true,
+          "type": "string"
+        },
+
+        "signature" :
+                {
+          "allOf": [
+            {
+              "description": "The signature over the ACL resource",
+              "type": "object"
+            },
+            {
+              "description": "Encoded signature data",
+              "properties": {
+                "sigtype": {
+                  "description": "The string specifies the predefined signature format",
+                  "detail-desc": [
+                    "RFC7515 JSON web signature (JWS) object",
+                    "RFC2315 base64 encoded object",
+                    "CBOR encoded JWS object"
+                  ],
+                  "enum": [
+                    "oic.sec.sigtype.jws",
+                    "oic.sec.sigtype.pk7",
+                    "oic.sec.sigtype.cws"
+                  ],
+                  "type": "string"
+                },
+                "sigvalue": {
+                  "description": "The encoded signature",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "sigtype",
+                "sigvalue"
+              ]
+            }
+          ]
+        },
+
+        "id" :
+                {
+          "description": "Instance ID of this specific resource",
+          "maxLength": 64,
+          "readOnly": true,
+          "type": "string"
+        },
+
+        "if" :
+                {
+          "description": "The interface set supported by this resource",
+          "items": {
+            "enum": [
+              "oic.if.baseline",
+              "oic.if.ll",
+              "oic.if.b",
+              "oic.if.lb",
+              "oic.if.rw",
+              "oic.if.r",
+              "oic.if.a",
+              "oic.if.s"
+            ],
+            "type": "string"
+          },
+          "minItems": 1,
+          "readOnly": true,
+          "type": "array"
+        }
+
+        }
+        ,"type" : "object"
+      ,"required": ["aclist2", "signature"]
+    }
+  }
+}

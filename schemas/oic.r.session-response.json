@@ -3,12 +3,21 @@
   "description" : "Copyright (c) 2018 Open Connectivity Foundation, Inc. All rights reserved.",
   "title" : "Account Session",
   "id": "https://openconnectivityfoundation.github.io/security/schemas/oic.r.session-response.json#",
-  "type" : "object",
-  "properties" : {
-    "expiresin" : {
-      "description" : "Access-Token remaining life time in seconds (-1 if permanent)",
-      "type" : "integer",
-      "readOnly": true
+  "definitions": {
+    "oic.r.session-response": {
+      "type" : "object",
+      "properties" : {
+        "expiresin" : {
+          "description" : "Access-Token remaining life time in seconds (-1 if permanent)",
+          "type" : "integer",
+          "readOnly": true
+        }
+      }
     }
-  }
+  },
+  "type": "object",
+  "allOf": [
+    { "$ref": "https://openconnectivityfoundation.github.io/core/schemas/oic.core-schema.json#/definitions/oic.core" },
+    { "$ref": "#/definitions/oic.r.session-response" }
+  ]
 }

@@ -1,6 +1,6 @@
 #%RAML 0.8
 title: Account Token Refresh
-version: v1.0-20180320
+version: v1.0-20181001
 documentation:
   - title: OCF Copyright
     content: Copyright (c) 2018 Open Connectivity Foundation, Inc. All rights reserved.
@@ -45,6 +45,7 @@ traits:
             schema: TokenRefresh-Response
             example: |
               {
+                "rt": ["oic.r.tokenrefresh"],
                 "accesstoken" : "8ce598980761869837be",
                 "refreshtoken" : "d4922312b6df0518e146",
                 "expiresin" : 3600
