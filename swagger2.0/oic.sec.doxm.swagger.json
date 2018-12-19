@@ -53,7 +53,6 @@
             "x-example":
               {
                 "oxmsel": 0,
-                "owned": true,
                 "deviceuuid": "de305d54-75b4-431b-adb2-eb6b9e546014",
                 "devowneruuid": "e61c3e6b-9c54-4b81-8ce5-f9039c1d04d9",
                 "rowneruuid": "e61c3e6b-9c54-4b81-8ce5-f9039c1d04d9"
@@ -124,6 +123,7 @@
         "owned" :
                 {
           "description": "Ownership status flag",
+          "readOnly": true,
           "type": "boolean"
         },
 
@@ -250,12 +250,6 @@
               "type": "string"
             }
           ]
-        },
-
-        "owned" :
-                {
-          "description": "Ownership status flag",
-          "type": "boolean"
         },
 
         "n" :
