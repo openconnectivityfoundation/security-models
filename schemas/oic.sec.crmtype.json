@@ -4,24 +4,9 @@
   "title": "Credential Refresh Methods",
   "definitions": {
     "oic.sec.crmtype": {
-      "properties": {
-        "crm": {
-          "type": "string",
-          "enum": [ "oic.sec.crm.pro", "oic.sec.crm.psk", "oic.sec.crm.rdp", "oic.sec.crm.skdc", "oic.sec.crm.pk10" ],
-          "description": "Each enum represents a method by which the credentials are refreshed.",
-          "detail-desc": [  "oic.sec.crm.pro - Credentials refreshed by a provisioning service",
-                            "oic.sec.crm.rdp - Credentials refreshed by a key agreement protocol and random PIN",
-                            "oic.sec.crm.psk - Credentials refreshed by a key agreement protocol",
-                            "oic.sec.crm.skdc - Credentials refreshed by a key distribution service",
-                            "oic.sec.crm.pk10 - Credentials refreshed by a PKCS#10 request to a CA"
-          ]
-        }
-      }
+      "type": "string",
+      "enum": [ "oic.sec.crm.pro", "oic.sec.crm.psk", "oic.sec.crm.rdp", "oic.sec.crm.skdc", "oic.sec.crm.pk10" ],
+      "description": "Each enum represents a method by which the credentials are refreshed.\noic.sec.crm.pro - Credentials refreshed by a provisioning service\noic.sec.crm.rdp - Credentials refreshed by a key agreement protocol and random PIN\noic.sec.crm.psk - Credentials refreshed by a key agreement protocol\noic.sec.crm.skdc - Credentials refreshed by a key distribution service\noic.sec.crm.pk10 - Credentials refreshed by a PKCS#10 request to a CA"
     }
-  },
-  "type": "object",
-  "allOf": [
-    { "$ref": "#/definitions/oic.sec.crmtype" }
-  ],
-  "required": ["crm"]
+  }
 }

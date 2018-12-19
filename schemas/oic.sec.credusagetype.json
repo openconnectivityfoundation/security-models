@@ -5,27 +5,9 @@
 "title": "Cred Usage Types",
 "definitions": {
 "oic.sec.credusagetype": {
-  "type": "object",
-  "description": "The type of credusage",
-  "properties": {
-    "credusage": {
-      "enum": ["oic.sec.cred.trustca","oic.sec.cred.cert","oic.sec.cred.rolecert","oic.sec.cred.mfgtrustca","oic.sec.cred.mfgcert"],
-      "type": "string",
-      "description": "Each value indicates a credusage type",
-      "detail-desc": [
-        "oic.sec.cred.trustca - Trust certificate ",
-        "oic.sec.cred.cert - Certificate ",
-        "oic.sec.cred.rolecert - Role Certificate",
-        "oic.sec.cred.mfgtrustca - Manufacturer Certificate Trust Anchor",
-        "oic.sec.cred.mfgcert - Manufacturer Certificate" ]
-      }
+  "enum": ["oic.sec.cred.trustca","oic.sec.cred.cert","oic.sec.cred.rolecert","oic.sec.cred.mfgtrustca","oic.sec.cred.mfgcert"],
+  "type": "string",
+  "description": "The type of credusage.\noic.sec.cred.trustca - Trust certificate\noic.sec.cred.cert - Certificate\noic.sec.cred.rolecert - Role Certificate\noic.sec.cred.mfgtrustca - Manufacturer Certificate Trust Anchor\noic.sec.cred.mfgcert - Manufacturer Certificate"
     }
   }
-},
-"type": "object",
-"allOf": [
-  { "$ref": "#/definitions/oic.sec.credusagetype" }
-],
-"required": [ "credusage" ]
 }
-

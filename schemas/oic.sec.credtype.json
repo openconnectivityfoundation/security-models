@@ -4,28 +4,10 @@
   "title": "Credential Types",
   "definitions": {
     "oic.sec.credtype": {
-      "type": "object",
-      "description": "OIC credential types",
-      "properties": {
-        "bitmask": {
-          "type": "integer",
-          "minimum": 0,
-          "maximum": 63,
-          "description": "Cred type encoded as a bitmask ",
-          "detail-desc": [  "0 - Empty credential used for testing",
-                            "1 - Symmetric pair-wise key",
-                            "2 - Symmetric group key",
-                            "4 - Asymmetric signing key",
-                            "8 - Asymmetric signing key with certificate",
-                            "16 - PIN or password",
-                            "32 - Asymmetric encryption key" ]
-        }
-      }
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 63,
+      "description": "Credential Types - Cred type encoded as a bitmask.\n0 - Empty credential used for testing\n1 - Symmetric pair-wise key\n2 - Symmetric group key\n4 - Asymmetric signing key\n8 - Asymmetric signing key with certificate\n16 - PIN or password\n32 - Asymmetric encryption key"
     }
-  },
-  "type": "object",
-  "allOf": [
-    { "$ref": "#/definitions/oic.sec.credtype" }
-  ],
-  "required": ["bitmask"]
+  }
 }

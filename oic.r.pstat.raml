@@ -1,15 +1,16 @@
 #%RAML 0.8
 title: OICSecurityPstatResource
-version: v1.0-20150819
+version: v1.0-20191001
 documentation:
   - title: OCF Copyright
-    content: Copyright (c) 2016, 2017 Open Connectivity Foundation, Inc. All rights reserved.
+    content: Copyright (c) 2016, 2017, 2018 Open Connectivity Foundation, Inc. All rights reserved.
   - title: OCF License
     content: !include LICENSE.md
   - title: OCF Disclaimer
     content: !include DISCLAIMER.md
 schemas:
   - Pstat: !include schemas/oic.r.pstat.json
+  - Pstat-Update: !include schemas/oic.r.pstat-Update.json
 
 traits:
   - interface:
@@ -34,6 +35,7 @@ traits:
             schema: Pstat
             example: |
               {
+                "rt": ["oic.r.pstat"],
                 "dos": {"s": 3, "p": true},
                 "isop": true,
                 "cm": 8,
@@ -50,62 +52,16 @@ traits:
       Sets or updates device provisioning status data.
     body:
       application/json:
-        schema: Pstat
+        schema: Pstat-Update
         example: |
           {
-            "dos": {"s": 3, "p": true},
-            "isop": true,
-            "cm": 8,
+            "dos": {"s": 3},
             "tm": 60,
             "om": 2,
-            "sm": 7,
             "rowneruuid": "de305d54-75b4-431b-adb2-eb6b9e546014"
           }
     responses:
-      201:
-        description: The PSTAT entry is created.
       204:
         description: The PSTAT entry is updated.
-      400:
-        description: The request is invalid.
-
-  put:
-    description: |
-      Sets or updates device provisioning status data.
-    body:
-      application/json:
-        schema: Pstat
-        example: |
-          {
-            "dos": {"s": 3, "p": true},
-            "isop": true,
-            "cm": 8,
-            "tm": 60,
-            "om": 2,
-            "sm": 7,
-            "rowneruuid": "de305d54-75b4-431b-adb2-eb6b9e546014"
-          }
-    responses:
-      201:
-        description: The PSTAT entry is created.
-      400:
-        description: The request is invalid.
-
-  delete:
-    description: |
-      Deletes the PSTAT data.
-      When DELETE is used without query parameters, the entire collection is deleted.
-      When DELETE is used with the query parameter where devid is specified, only the matched entry is deleted.
-    queryParameters:
-        subject:
-            type: string
-            description: |
-              Delete the PSTAT identified by the string containing the UUID.
-            required: false
-            example: |
-              DELETE /mypstat?deviceid="de305d54-75b4-431b-adb2-eb6b9e546014"
-    responses:
-      200:
-        description: The PSTAT instance or the the entire resource has been successfully deleted.
       400:
         description: The request is invalid.

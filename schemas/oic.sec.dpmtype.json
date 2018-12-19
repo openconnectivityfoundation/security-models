@@ -4,30 +4,10 @@
   "title": "Device Provisioning Mode Types",
   "definitions": {
     "oic.sec.dpmtype": {
-      "description": "Device provisioning mode maintains a bitmask of the possible provisioning states of a device",
-      "properties" : {
-        "bitmask": {
-          "type": "integer",
-          "minimum": 0,
-          "maximum": 255,
-          "description": "The value can be either 8 or 16 character in length. If its only 8 characters it represents the lower byte value",
-          "detail-desc": [  "1 - Manufacturer reset state",
-                            "2 - Device pairing and owner transfer state",
-                            "4 - Unused",
-                            "8 - Provisioning of credential management services",
-                            "16 - Provisioning of access management services",
-                            "32 - Provisioning of local ACLs",
-                            "64 - Initiate Software Version Validation",
-                            "128 - Initiate Secure Software Update" ]
-        }
-      }
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 255,
+      "description": "Device provisioning mode maintains a bitmask of the possible provisioning states of a device. The value can be either 8 or 16 character in length. If its only 8 characters it represents the lower byte value\n1 - Manufacturer reset state\n2 - Device pairing and owner transfer state\n4 - Unused\n8 - Provisioning of credential management services\n16 - Provisioning of access management services\n32 - Provisioning of local ACLs\n64 - Initiate Software Version Validation\n128 - Initiate Secure Software Update"
     }
-  },
-  "type": "object",
-  "allOf": [
-    {
-      "$ref": "#/definitions/oic.sec.dpmtype"
-    }
-  ],
-  "required": [ "bitmask" ]
+  }
 }

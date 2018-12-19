@@ -9,14 +9,16 @@
         "csr":  {
           "type": "string",
           "maxLength": 3072,
-          "description": "Signed CSR in ASN.1 in the encoding specified by the encoding property"
+          "description": "Signed CSR in ASN.1 in the encoding specified by the encoding property",
+          "readOnly": true
         },
         "encoding": {
           "type": "string",
           "enum": [ "oic.sec.encoding.pem", "oic.sec.encoding.der" ],
           "description": "A string specifying the encoding format of the data contained in csr",
           "detail-desc": [  "oic.sec.encoding.pem - Encoding for PEM encoded CSR",
-                            "oic.sec.encoding.der - Encoding for DER encoded CSR" ]
+                            "oic.sec.encoding.der - Encoding for DER encoded CSR" ],
+          "readOnly": true
         }
       }
     }

@@ -1,34 +1,15 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
-  "id": "https://openconnectivityfoundation.github.io/security/schemas/oic.r.doxm.json#",
+  "id": "https://openconnectivityfoundation.github.io/security/schemas/oic.r.doxm-Update.json#",
   "title": "Device Owner Transfer Method information",
   "definitions": {
-    "oic.r.doxm": {
+    "oic.r.doxm-Update": {
       "type": "object",
       "properties": {
-        "oxms":  {
-          "type": "array",
-          "readOnly": true,
-          "description": "List of supported owner transfer methods",
-          "items": {
-            "$ref": "https://openconnectivityfoundation.github.io/security/schemas/oic.sec.doxmtype.json#/definitions/oic.sec.doxmtype"
-          }
-        },
         "oxmsel":   {
           "allOf": [
             { "description": "The selected owner transfer method used during on-boarding" },
-            {  "$ref": "https://openconnectivityfoundation.github.io/security/schemas/oic.sec.doxmtype.json#/definitions/oic.sec.doxmtype" }
-          ]
-        },
-        "sct": {
-          "allOf": [
-            {
-              "readOnly": true,
-              "description": "Bitmask encoding of supported credential types"
-            },
-            {
-              "$ref": "https://openconnectivityfoundation.github.io/security/schemas/oic.sec.credtype.json#/definitions/oic.sec.credtype"
-            }
+            {  "$ref": "oic.sec.doxmtype.json#/definitions/oic.sec.doxmtype" }
           ]
         },
         "owned":   {
@@ -57,7 +38,6 @@
   "type": "object",
   "allOf": [
     { "$ref": "https://openconnectivityfoundation.github.io/core/schemas/oic.core-schema.json#/definitions/oic.core" },
-    { "$ref": "#/definitions/oic.r.doxm" }
-  ],
-  "required": [ "oxms", "oxmsel", "sct", "owned", "deviceuuid", "devowneruuid", "rowneruuid" ]
+    { "$ref": "#/definitions/oic.r.doxm-Update" }
+  ]
 }

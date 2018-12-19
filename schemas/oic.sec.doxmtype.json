@@ -4,23 +4,8 @@
   "title": "Device Owner Transfer Method Types",
   "definitions": {
     "oic.sec.doxmtype": {
-      "type": "object",
-      "description": "The device owner transfer methods that may be selected at device on-boarding",
-      "properties": {
-        "oxm": {
-          "type": "integer",
-          "description": "Each value indicates a specific Owner Transfer method",
-          "detail-desc": [  "0 - Numeric OTM identifier for the Just-Works method (oic.sec.doxm.jw)",
-                            "1 - Numeric OTM identifier for the random PIN method (oic.sec.doxm.rdp)",
-                            "2 - Numeric OTM identifier for the manufacturer certificate method (oic.sec.doxm.mfgcert)",
-                            "3 - Numeric OTM identifier for the decap method (oic.sec.doxm.dcap) (deprecated)" ]
-        }
-      }
+      "type": "integer",
+      "description": "The device owner transfer methods that may be selected at device on-boarding. Each value indicates a specific Owner Transfer method\n0 - Numeric OTM identifier for the Just-Works method (oic.sec.doxm.jw)\n1 - Numeric OTM identifier for the random PIN method (oic.sec.doxm.rdp)\n2 - Numeric OTM identifier for the manufacturer certificate method (oic.sec.doxm.mfgcert)\n3 - Numeric OTM identifier for the decap method (oic.sec.doxm.dcap) (deprecated)"
     }
-  },
-  "type": "object",
-  "allOf": [
-    { "$ref": "#/definitions/oic.sec.doxmtype" }
-  ],
-  "required": [ "oxm" ]
+  }
 }
