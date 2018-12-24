@@ -218,19 +218,6 @@
           "pattern": "^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$",
           "type": "string"
         },
-
-        "rt" :
-                {
-          "description": "Resource Type of the Resource",
-          "items": {
-            "maxLength": 64,
-            "type": "string"
-          },
-          "minItems": 1,
-          "readOnly": true,
-          "type": "array"
-        },
-
         "devowneruuid" :
                 {
           "description": "Format pattern according to IETF RFC 4122.",
@@ -252,14 +239,6 @@
           ]
         },
 
-        "n" :
-                {
-          "description": "Friendly name of the resource",
-          "maxLength": 64,
-          "readOnly": true,
-          "type": "string"
-        },
-
         "oxmsel" :
                 {
           "allOf": [
@@ -271,35 +250,6 @@
               "type": "integer"
             }
           ]
-        },
-
-        "id" :
-                {
-          "description": "Instance ID of this specific resource",
-          "maxLength": 64,
-          "readOnly": true,
-          "type": "string"
-        },
-
-        "if" :
-                {
-          "description": "The interface set supported by this resource",
-          "items": {
-            "enum": [
-              "oic.if.baseline",
-              "oic.if.ll",
-              "oic.if.b",
-              "oic.if.lb",
-              "oic.if.rw",
-              "oic.if.r",
-              "oic.if.a",
-              "oic.if.s"
-            ],
-            "type": "string"
-          },
-          "minItems": 1,
-          "readOnly": true,
-          "type": "array"
         }
 
         }
