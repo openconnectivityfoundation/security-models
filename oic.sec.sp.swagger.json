@@ -1,0 +1,182 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "Security Profile Resource",
+    "version": "v1.0-20181001",
+    "license": {
+      "name": "OCF Data Model License",
+      "url": "https://github.com/openconnectivityfoundation/core/blob/e28a9e0a92e17042ba3e83661e4c0fbce8bdc4ba/LICENSE.md",
+      "x-copyright": "copyright 2016-2017, 2019 Open Connectivity Foundation, Inc. All rights reserved."
+    },
+    "termsOfService": "https://openconnectivityfoundation.github.io/core/DISCLAIMER.md"
+  },
+  "schemes": ["http"],
+  "consumes": ["application/json"],
+  "produces": ["application/json"],
+  "paths": {
+    "/oic/sec/sp" : {
+      "get": {
+        "description": "Resource specifying supported and active security profile(s)\nRetrieves Security Profile data\n",
+        "parameters": [
+          {"$ref": "#/parameters/interface"}
+        ],
+        "responses": {
+            "200": {
+              "description" : "",
+              "x-example":
+                {
+                  "rt": ["oic.r.sp"],
+                  "supportedprofiles" : ["oic.sec.sp.baseline", "oic.sec.sp.black"],
+                  "currentprofile" : "oic.sec.sp.baseline",
+                  "credid" : 1
+                },
+              "schema": { "$ref": "#/definitions/SP" }
+            },
+            "400": {
+              "description" : "The request is invalid."
+            }
+        }
+      },
+      "post": {
+        "description": "Sets or updates device provisioning status data.\n",
+        "parameters": [
+          {"$ref": "#/parameters/interface"},
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": { "$ref": "#/definitions/SP-Update" },
+            "x-example":
+              {
+                "supportedprofiles" : ["oic.sec.sp.baseline", "oic.sec.sp.black"],
+                "currentprofile" : "oic.sec.sp.baseline"
+              }
+          }
+        ],
+        "responses": {
+            "200": {
+              "description" : "",
+              "x-example":
+                {
+                  "rt": ["oic.r.sp"],
+                  "supportedprofiles" : ["oic.sec.sp.baseline", "oic.sec.sp.black"],
+                  "currentprofile" : "oic.sec.sp.baseline",
+                  "credid" : 1
+                },
+              "schema": { "$ref": "#/definitions/SP" }
+            },
+            "400": {
+              "description" : "The request is invalid."
+            }
+        }
+      }
+    }
+  },
+  "parameters": {
+    "interface" : {
+      "in" : "query",
+      "name" : "if",
+      "type" : "string",
+      "enum" : ["oic.if.baseline"]
+    }
+  },
+  "definitions": {
+    "SP" : {
+      "properties": {
+        "rt": {
+          "description": "Resource Type of the Resource",
+          "items": {
+            "maxLength": 64,
+            "type": "string",
+            "enum": ["oic.r.sp"]
+          },
+          "minItems": 1,
+          "readOnly": true,
+          "type": "array"
+        },
+        "credid": {
+          "description": "A value is returned if the security profile defines its usage. When defined, credid Property refers to the /oic/sec/cred Resource entry where the credential is used to authorize the available security profiles (e.g. OCF Rooted Certificate Chain)",
+          "readOnly": true,
+          "type": "integer"
+        },
+        "n": {
+          "$ref": "https://openconnectivityfoundation.github.io/core/schemas/oic.common.properties.core-schema.json#/definitions/n"
+        },
+        "id": {
+          "$ref": "https://openconnectivityfoundation.github.io/core/schemas/oic.common.properties.core-schema.json#/definitions/id"
+        },
+        "currentprofile": {
+          "description": "A string specifying the security profile\noic.sec.sp.unspecified - The security profile is not specified\noic.sec.sp.baseline - This specifies the OCF Baseline security profileoic.sec.sp.black - This specifies the OCF Black security profile\noic.sec.sp.blue - This specifies the OCF Blue security profile\noic.sec.sp.purple - This specifies the OCF Purple security profile",
+          "enum": [
+            "oic.sec.sp.unspecified",
+            "oic.sec.sp.baseline",
+            "oic.sec.sp.black",
+            "oic.sec.sp.blue",
+            "oic.sec.sp.purple"
+          ],
+          "type": "string"
+        },
+        "supportedprofiles": {
+          "description": "Array of supported security profiles",
+          "items": {
+            "description": "A string specifying the security profileoic.sec.sp.unspecified - The security profile is not specified\noic.sec.sp.baseline - This specifies the OCF Baseline security profile\noic.sec.sp.black - This specifies the OCF Black security profile\noic.sec.sp.blue - This specifies the OCF Blue security profile\noic.sec.sp.purple - This specifies the OCF Purple security profile",
+            "enum": [
+              "oic.sec.sp.unspecified",
+              "oic.sec.sp.baseline",
+              "oic.sec.sp.black",
+              "oic.sec.sp.blue",
+              "oic.sec.sp.purple"
+            ],
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "if": {
+          "description": "The interface set supported by this resource",
+          "items": {
+            "enum": [
+              "oic.if.baseline"
+            ],
+            "type": "string"
+          },
+          "minItems": 1,
+          "readOnly": true,
+          "type": "array"
+        }
+      },
+      "type" : "object",
+      "required": ["supportedprofiles", "currentprofile"]
+    },
+    "SP-Update" : {
+      "properties": {
+         "currentprofile": {
+          "description": "A string specifying the security profileoic.sec.sp.unspecified - The security profile is not specifiedoic.sec.sp.baseline - This specifies the OCF Baseline security profileoic.sec.sp.black - This specifies the OCF Black security profileoic.sec.sp.blue - This specifies the OCF Blue security profileoic.sec.sp.purple - This specifies the OCF Purple security profile",
+          "enum": [
+            "oic.sec.sp.unspecified",
+            "oic.sec.sp.baseline",
+            "oic.sec.sp.black",
+            "oic.sec.sp.blue",
+            "oic.sec.sp.purple"
+          ],
+          "type": "string"
+        },
+        "supportedprofiles": {
+          "description": "Array of supported security profiles",
+          "items": {
+            "description": "A string specifying the security profileoic.sec.sp.unspecified - The security profile is not specifiedoic.sec.sp.baseline - This specifies the OCF Baseline security profileoic.sec.sp.black - This specifies the OCF Black security profileoic.sec.sp.blue - This specifies the OCF Blue security profileoic.sec.sp.purple - This specifies the OCF Purple security profile",
+            "enum": [
+              "oic.sec.sp.unspecified",
+              "oic.sec.sp.baseline",
+              "oic.sec.sp.black",
+              "oic.sec.sp.blue",
+              "oic.sec.sp.purple"
+            ],
+            "type": "string"
+          },
+          "type": "array"
+        }
+      },
+      "type" : "object"
+    }
+  }
+}
