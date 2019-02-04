@@ -1,7 +1,7 @@
 {
   "swagger": "2.0",
   "info": {
-    "title": "Access Control List data",
+    "title": "Access Control List-2",
     "version": "20190111",
     "license": {
       "name": "OCF Data Model License",
@@ -16,7 +16,7 @@
   "paths": {
     "/oic/sec/acl2" : {
       "get": {
-        "description": "This resource specifies the local access control list.\nRetrieves the ACL data.\nWhen used without query parameters, all the ACE entries are returned.\nWhen used with a query parameter, only the ACEs matching the specified\nparameter are returned.\n",
+        "description": "This Resource specifies the local access control list.\nWhen used without query parameters, all the ACE entries are returned.\nWhen used with a query parameter, only the ACEs matching the specified\nparameter are returned.\n",
         "parameters": [
           {"$ref": "#/parameters/interface"},
           {"$ref": "#/parameters/ace-filtered"}

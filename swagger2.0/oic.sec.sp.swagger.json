@@ -1,7 +1,7 @@
 {
   "swagger": "2.0",
   "info": {
-    "title": "Security Profile Resource",
+    "title": "Security Profile",
     "version": "v1.0-20181001",
     "license": {
       "name": "OCF Data Model License",
@@ -16,7 +16,7 @@
   "paths": {
     "/oic/sec/sp" : {
       "get": {
-        "description": "Resource specifying supported and active security profile(s)\nRetrieves Security Profile data\n",
+        "description": "Resource specifying supported and active security profile(s)\n",
         "parameters": [
           {"$ref": "#/parameters/interface"}
         ],

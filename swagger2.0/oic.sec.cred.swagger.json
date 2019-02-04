@@ -1,7 +1,7 @@
 {
   "swagger": "2.0",
   "info": {
-    "title": "Credential Resource",
+    "title": "Credential",
     "version": "v1.0-20181031",
     "license": {
       "name": "OCF Data Model License",

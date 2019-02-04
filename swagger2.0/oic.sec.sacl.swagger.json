@@ -1,7 +1,7 @@
 {
   "swagger": "2.0",
   "info": {
-    "title": "Signed Access Control List data",
+    "title": "Signed Access Control List",
     "version": "v1.0-20150819",
     "license": {
       "name": "OCF Data Model License",
@@ -16,7 +16,7 @@
   "paths": {
     "/oic/sec/sacl" : {
       "get": {
-        "description": "This resource specifies a signed ACL object.\nRetrieves the sacl resource data.\n",
+        "description": "This Resource specifies a signed ACL object.\n",
         "parameters": [
           {"$ref": "#/parameters/interface"}
         ],

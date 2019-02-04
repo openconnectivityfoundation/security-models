@@ -1,7 +1,7 @@
 {
   "swagger": "2.0",
   "info": {
-    "title": "Device Provisioning Status resource data",
+    "title": "Device Provisioning Status",
     "version": "v1.0-20191001",
     "license": {
       "name": "OCF Data Model License",
@@ -16,7 +16,7 @@
   "paths": {
     "/oic/sec/pstat" : {
       "get": {
-        "description": "This resource specifies device provisioning status.\nRetrieves device provisioning status data.\n",
+        "description": "This resource specifies device provisioning status.\n",
         "parameters": [
           {"$ref": "#/parameters/interface"}
         ],

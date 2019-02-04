@@ -1,7 +1,7 @@
 {
   "swagger": "2.0",
   "info": {
-    "title": "account token",
+    "title": "Account Token",
     "version": "20190111",
     "license": {
       "name": "OCF Data Model License",
