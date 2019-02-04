@@ -4,9 +4,11 @@
     "title": "Signed Access Control List data",
     "version": "v1.0-20150819",
     "license": {
-      "name": "copyright 2016-2017 Open Connectivity Foundation, Inc. All rights reserved.",
-      "x-description": "Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:\n        1.  Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.\n        2.  Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.\n\n        THIS SOFTWARE IS PROVIDED BY THE Open Connectivity Foundation, INC. \"AS IS\" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE OR WARRANTIES OF NON-INFRINGEMENT, ARE DISCLAIMED.\n        IN NO EVENT SHALL THE Open Connectivity Foundation, INC. OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION)\n        HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.\n"
-    }
+      "name": "OCF Data Model License",
+      "url": "https://github.com/openconnectivityfoundation/core/blob/e28a9e0a92e17042ba3e83661e4c0fbce8bdc4ba/LICENSE.md",
+      "x-copyright": "copyright 2016-2017, 2019 Open Connectivity Foundation, Inc. All rights reserved."
+    },
+    "termsOfService": "https://openconnectivityfoundation.github.io/core/DISCLAIMER.md"
   },
   "schemes": ["http"],
   "consumes": ["application/json"],
@@ -23,6 +25,7 @@
               "description" : "",
               "x-example":
                 {
+                  "rt": ["oic.r.sacl"],
                   "aclist2": [
                       {
                         "aceid": 1,
@@ -76,8 +79,7 @@
                     "sigtype": "oic.sec.sigtype.pk7",
                     "sigvalue": "ENCODED-SIGNATURE-VALUE"
                   }
-                }
-                ,
+                },
               "schema": { "$ref": "#/definitions/Sacl" }
             }
         }
@@ -85,8 +87,7 @@
       "post": {
         "description": "Sets the sacl resource data\n",
         "parameters": [
-          {"$ref": "#/parameters/interface"}
-          ,
+          {"$ref": "#/parameters/interface"},
           {
             "name": "body",
             "in": "body",
@@ -165,8 +166,7 @@
       "put": {
         "description": "Sets the sacl resource data\n",
         "parameters": [
-          {"$ref": "#/parameters/interface"}
-          ,
+          {"$ref": "#/parameters/interface"},
           {
             "name": "body",
             "in": "body",
@@ -242,8 +242,7 @@
       "delete": {
         "description": "Deletes the signed ACL data.\nWhen DELETE is used without query parameters, the entire collection is deleted.\nWhen DELETE is used with the query parameter where \"acl\" is specified, only the matched entry is deleted.\n",
         "parameters": [
-          {"$ref": "#/parameters/interface"}
-          ,
+          {"$ref": "#/parameters/interface"},
           {
             "in": "query",
             "description": "Delete the signed ACL identified by the string containing subject UUID.\n",
@@ -273,20 +272,18 @@
   "definitions": {
     "Sacl" : {
       "properties": {
-        "rt" :
-                {
+        "rt": {
           "description": "Resource Type of the Resource",
           "items": {
             "maxLength": 64,
-            "type": "string"
+            "type": "string",
+            "enum": ["oic.r.sacl"]
           },
           "minItems": 1,
           "readOnly": true,
           "type": "array"
         },
-
-        "aclist2" :
-                {
+        "aclist2": {
           "description": "Access Control Entries in the Acl resource",
           "items": {
             "properties": {
@@ -296,25 +293,18 @@
                 "type": "integer"
               },
               "permission": {
-                "allOf": [
-                  {
-                    "description": "Bitmask encoding of CRUDN permission"
-                  },
-                  {
-                    "description": "The encoded bitmask indicating permissions",
-                    "detail-desc": [
-                      "0  - No permissions",
-                      "1 - Create permission is granted",
-                      "2 - Read, observe, discover permission is granted",
-                      "4 - Write, update permission is granted",
-                      "8 - Delete permission is granted",
-                      "16 - Notify permission is granted"
-                    ],
-                    "maximum": 31,
-                    "minimum": 0,
-                    "type": "integer"
-                  }
-                ]
+                "description": "Bitmask encoding of CRUDN permission\nThe encoded bitmask indicating permissions",
+                "x-detail-desc": [
+                  "0  - No permissions",
+                  "1 - Create permission is granted",
+                  "2 - Read, observe, discover permission is granted",
+                  "4 - Write, update permission is granted",
+                  "8 - Delete permission is granted",
+                  "16 - Notify permission is granted"
+                ],
+                "maximum": 31,
+                "minimum": 0,
+                "type": "integer"
               },
               "resources": {
                 "description": "References the application's resources to which a security policy applies",
@@ -335,44 +325,30 @@
                       ]
                     },
                     "if": {
-                      "allOf": [
-                        {
-                          "description": "When present, the ACE only applies when the if (interface) matches"
-                        },
-                        {
-                          "description": "The interface set supported by this resource",
-                          "items": {
-                            "enum": [
-                              "oic.if.baseline",
-                              "oic.if.ll",
-                              "oic.if.b",
-                              "oic.if.rw",
-                              "oic.if.r",
-                              "oic.if.a",
-                              "oic.if.s"
-                            ],
-                            "type": "string"
-                          },
-                          "minItems": 1,
-                          "type": "array"
-                        }
-                      ]
+                      "description": "When present, the ACE only applies when the if (interface) matches\nThe interface set supported by this resource",
+                      "items": {
+                        "enum": [
+                          "oic.if.baseline",
+                          "oic.if.ll",
+                          "oic.if.b",
+                          "oic.if.rw",
+                          "oic.if.r",
+                          "oic.if.a",
+                          "oic.if.s"
+                        ],
+                        "type": "string"
+                      },
+                      "minItems": 1,
+                      "type": "array"
                     },
                     "rt": {
-                      "allOf": [
-                        {
-                          "description": "When present, the ACE only applies when the rt (resource type) matches"
-                        },
-                        {
-                          "description": "Resource Type of the Resource",
-                          "items": {
-                            "maxLength": 64,
-                            "type": "string"
-                          },
-                          "minItems": 1,
-                          "type": "array"
-                        }
-                      ]
+                      "description": "When present, the ACE only applies when the rt (resource type) matches\nResource Type of the Resource",
+                      "items": {
+                        "maxLength": 64,
+                        "type": "string"
+                      },
+                      "minItems": 1,
+                      "type": "array"
                     },
                     "wc": {
                       "description": "A wildcard matching policy",
@@ -390,16 +366,9 @@
                     "description": "Device identifier",
                     "properties": {
                       "uuid": {
-                        "allOf": [
-                          {
-                            "description": "A UUID Device ID"
-                          },
-                          {
-                            "description": "Format pattern according to IETF RFC 4122.",
-                            "pattern": "^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$",
-                            "type": "string"
-                          }
-                        ]
+                        "description": "A UUID Device ID\nFormat pattern according to IETF RFC 4122.",
+                        "pattern": "^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$",
+                        "type": "string"
                       }
                     },
                     "required": [
@@ -428,7 +397,7 @@
                     "properties": {
                       "conntype": {
                         "description": "This property allows an ACE to be matched based on the connection or message type",
-                        "detail-desc": [
+                        "x-detail-desc": [
                           "auth-crypt - ACE applies if the Client is authenticated and the data channel or message is encrypted and integrity protected",
                           "anon-clear - ACE applies if the Client is not authenticated and the data channel or message is not encrypted but may be integrity protected"
                         ],
@@ -481,73 +450,45 @@
           },
           "type": "array"
         },
-
-        "n" :
-                {
-          "description": "Friendly name of the resource",
-          "maxLength": 64,
-          "readOnly": true,
-          "type": "string"
+        "n": {
+          "$ref": "https://openconnectivityfoundation.github.io/core/schemas/oic.common.properties.core-schema.json#/definitions/n"
         },
-
-        "signature" :
-                {
-          "allOf": [
-            {
-              "description": "The signature over the ACL resource",
-              "type": "object"
+        "id": {
+          "$ref": "https://openconnectivityfoundation.github.io/core/schemas/oic.common.properties.core-schema.json#/definitions/id"
+        },
+        "signature": {
+          "description": "The signature over the ACL resource\nEncoded signature data",
+          "properties": {
+            "sigtype": {
+              "description": "The string specifies the predefined signature format",
+              "x-detail-desc": [
+                "RFC7515 JSON web signature (JWS) object",
+                "RFC2315 base64 encoded object",
+                "CBOR encoded JWS object"
+              ],
+              "enum": [
+                "oic.sec.sigtype.jws",
+                "oic.sec.sigtype.pk7",
+                "oic.sec.sigtype.cws"
+              ],
+              "type": "string"
             },
-            {
-              "description": "Encoded signature data",
-              "properties": {
-                "sigtype": {
-                  "description": "The string specifies the predefined signature format",
-                  "detail-desc": [
-                    "RFC7515 JSON web signature (JWS) object",
-                    "RFC2315 base64 encoded object",
-                    "CBOR encoded JWS object"
-                  ],
-                  "enum": [
-                    "oic.sec.sigtype.jws",
-                    "oic.sec.sigtype.pk7",
-                    "oic.sec.sigtype.cws"
-                  ],
-                  "type": "string"
-                },
-                "sigvalue": {
-                  "description": "The encoded signature",
-                  "type": "string"
-                }
-              },
-              "required": [
-                "sigtype",
-                "sigvalue"
-              ]
+            "sigvalue": {
+              "description": "The encoded signature",
+              "type": "string"
             }
-          ]
+          },
+          "required": [
+            "sigtype",
+            "sigvalue"
+          ],
+          "type": "object"
         },
-
-        "id" :
-                {
-          "description": "Instance ID of this specific resource",
-          "maxLength": 64,
-          "readOnly": true,
-          "type": "string"
-        },
-
-        "if" :
-                {
+        "if": {
           "description": "The interface set supported by this resource",
           "items": {
             "enum": [
-              "oic.if.baseline",
-              "oic.if.ll",
-              "oic.if.b",
-              "oic.if.lb",
-              "oic.if.rw",
-              "oic.if.r",
-              "oic.if.a",
-              "oic.if.s"
+              "oic.if.baseline"
             ],
             "type": "string"
           },
@@ -555,10 +496,9 @@
           "readOnly": true,
           "type": "array"
         }
-
-        }
-        ,"type" : "object"
-      ,"required": ["aclist2", "signature"]
+      },
+      "type" : "object",
+      "required": ["aclist2", "signature"]
     }
   }
 }
