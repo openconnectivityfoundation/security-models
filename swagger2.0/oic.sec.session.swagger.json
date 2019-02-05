@@ -1,7 +1,7 @@
 {
   "swagger": "2.0",
   "info": {
-    "title": "None",
+    "title": "Session",
     "version": "v1.0-20181001",
     "license": {
       "name": "OCF Data Model License",
@@ -16,7 +16,7 @@
   "paths": {
     "/oic/sec/session" : {
       "post": {
-        "description": "",
+        "description": "Resource that manages the persistent session between a Device and OCF Cloud",
         "parameters": [
           {"$ref": "#/parameters/interface"},
           {

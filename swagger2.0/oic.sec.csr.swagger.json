@@ -16,7 +16,7 @@
   "paths": {
     "/oic/sec/csr" : {
       "get": {
-        "description": "This resource specifies a Certificate Signing Request.\nRetrieves CSR data.\n",
+        "description": "This resource specifies a Certificate Signing Request.\n",
         "parameters": [
           {"$ref": "#/parameters/interface"}
         ],

@@ -1,7 +1,7 @@
 {
   "swagger": "2.0",
   "info": {
-    "title": "Asserted Roles Data",
+    "title": "Asserted Roles",
     "version": "v1.0-20170323",
     "license": {
       "name": "OCF Data Model License",
@@ -16,7 +16,7 @@
   "paths": {
     "/oic/sec/roles" : {
       "get": {
-        "description": "This resource specifies roles that have been asserted.\nRetrieves the asserted roles data.\n",
+        "description": "This Resource specifies roles that have been asserted.\n",
         "parameters": [
           {"$ref": "#/parameters/interface"}
         ],

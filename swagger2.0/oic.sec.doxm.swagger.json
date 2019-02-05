@@ -1,7 +1,7 @@
 {
   "swagger": "2.0",
   "info": {
-    "title": "Device owner transfer method resource data",
+    "title": "Device Owner Transfer Method",
     "version": "v1.0-20181001",
     "license": {
       "name": "OCF Data Model License",
@@ -16,7 +16,7 @@
   "paths": {
     "/oic/sec/doxm" : {
       "get": {
-        "description": "This resource specifies properties needed to establish a device owner.\nRetrieves the DOXM resource data.\n",
+        "description": "This resource specifies properties needed to establish a device owner.\n",
         "parameters": [
           {"$ref": "#/parameters/interface"}
         ],

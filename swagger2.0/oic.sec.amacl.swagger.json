@@ -1,7 +1,7 @@
 {
   "swagger": "2.0",
   "info": {
-    "title": "Managed Access Control data",
+    "title": "Managed Access Control",
    "version": "20190111",
     "license": {
       "name": "OCF Data Model License",
@@ -16,7 +16,7 @@
   "paths": {
     "/oic/sec/amacl" : {
       "get": {
-        "description": "This resource specifies the host resources with access permission that is managed by an AMS.\nRetrieves the amacl data.\n",
+        "description": "This resource specifies the host resources with access permission that is managed by an AMS.\n",
         "parameters": [
           {"$ref": "#/parameters/interface"}
         ],
@@ -160,7 +160,7 @@
           "maxItems": 1,
           "readOnly": true,
           "type": "array"
-        },        
+        },
         "n": {
           "$ref": "https://openconnectivityfoundation.github.io/core/schemas/oic.common.properties.core-schema.json#/definitions/n"
         },

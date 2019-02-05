@@ -1,7 +1,7 @@
 {
   "swagger": "2.0",
   "info": {
-    "title": "Certificate Revocation Data",
+    "title": "Certificate Revocation",
     "version": "v1.0-20150819",
     "license": {
       "name": "OCF Data Model License",
@@ -16,7 +16,7 @@
   "paths": {
     "/oic/sec/crl" : {
       "get": {
-        "description": "This resource specifies certificate revocation lists as X.509 objects.\nRetrieves crl data.\n",
+        "description": "This resource specifies certificate revocation lists as X.509 objects.\n",
         "parameters": [
           {"$ref": "#/parameters/interface"}
         ],
