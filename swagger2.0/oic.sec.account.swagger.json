@@ -1,0 +1,158 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "Account Token",
+    "version": "20190111",
+    "license": {
+      "name": "OCF Data Model License",
+      "url": "https://github.com/openconnectivityfoundation/core/blob/e28a9e0a92e17042ba3e83661e4c0fbce8bdc4ba/LICENSE.md",
+      "x-copyright": "copyright 2016-2017, 2019 Open Connectivity Foundation, Inc. All rights reserved."
+    },
+    "termsOfService": "https://openconnectivityfoundation.github.io/core/DISCLAIMER.md"
+  },
+  "schemes": ["http"],
+  "consumes": ["application/json"],
+  "produces": ["application/json"],
+  "paths": {
+    "/oic/sec/account" : {
+      "post": {
+        "description": "Sign-up using generic account provider.\n",
+        "parameters": [
+          {"$ref": "#/parameters/interface"},
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": { "$ref": "#/definitions/Account-request" },
+            "x-example":
+              {
+                "di" : "9cfbeb8e-5a1e-4d1c-9d01-00c04fd430c8",
+                "authprovider" : "github",
+                "accesstoken" : "8802f2eaf8b5e147a936"
+              }
+          }
+        ],
+        "responses": {
+            "204": {
+              "description" : "2.04 Changed respond with required and optional information\n",
+              "x-example":
+                {
+                  "rt": ["oic.r.account"],
+                  "accesstoken" : "0f3d9f7fe5491d54077d",
+                  "refreshtoken" : "00fe4644a6fbe5324eec",
+                  "expiresin" : 3600,
+                  "uid" : "123e4567-e89b-12d3-a456-d6e313b71d9f",
+                  "redirecturi" : "coaps+tcp://example.com:443"
+                },
+              "schema": { "$ref": "#/definitions/Account-response" }
+            }
+        }
+      },
+      "delete": {
+        "description": "Delete a device. This also removes all resources in the device on cloud side.\nexample: /oic/account?di=9cfbeb8e-5a1e-4d1c-9d01-00c04fd430c8&accesstoken=0f3d9f7fe5491d54077d\n",
+        "parameters": [
+          {"$ref": "#/parameters/interface"}
+        ],
+        "responses": {
+            "202": {
+              "description" : "2.02 Deleted response informing the device is successfully deleted.\n"
+            }
+        }
+      }
+    }
+  },
+  "parameters": {
+    "interface" : {
+      "in" : "query",
+      "name" : "if",
+      "type" : "string",
+      "enum" : ["oic.if.baseline"]
+    }
+  },
+  "definitions": {
+    "Account-request" : {
+      "properties": {
+        "authprovider": {
+          "description": "The name of Authorization Provider through which Access Token was obtained",
+          "type": "string"
+        },
+        "accesstoken" : {
+          "description": "Access-Token used for communication with OCF Cloud after account creation",
+          "pattern": "(?!$|\\s+).*",
+          "type": "string"
+        },
+        "di": {
+          "description": "Format pattern according to IETF RFC 4122.",
+          "pattern": "^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$",
+          "type": "string"
+        }
+      },
+      "type" : "object",
+      "required": ["di", "accesstoken"]
+    },
+    "Account-response": {
+      "properties": {
+        "expiresin" : {
+          "description": "Access-Token remaining life time in seconds (-1 if permanent)",
+          "readOnly": true,
+          "type": "integer"
+        },
+        "rt": {
+          "description": "Resource Type of the Resource",
+          "items": {
+            "maxLength": 64,
+            "type": "string",
+            "enum" : ["oic.r.account"]
+          },
+          "minItems": 1,
+          "maxItems": 1,
+          "readOnly": true,
+          "type": "array"
+        },
+        "refreshtoken" : {
+          "description": "Refresh token can be used to refresh the Access Token before getting expired",
+          "pattern": "(?!$|\\s+).*",
+          "readOnly": true,
+          "type": "string"
+        },
+        "uid" : {
+          "description": "Format pattern according to IETF RFC 4122.",
+          "pattern": "^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$",
+          "type": "string"
+        },
+        "accesstoken" : {
+          "description": "Access-Token used for communication with cloud after account creation",
+          "pattern": "(?!$|\\s+).*",
+          "type": "string"
+        },
+        "n": {
+          "$ref": "https://openconnectivityfoundation.github.io/core/schemas/oic.common.properties.core-schema.json#/definitions/n"
+        },
+        "id": {
+          "$ref": "https://openconnectivityfoundation.github.io/core/schemas/oic.common.properties.core-schema.json#/definitions/id"
+        },
+        "redirecturi" : {
+          "description": "Using this URI, the Client needs to reconnect to a redirected OCF Cloud. If provided, this value shall be used by the Device instead of Mediator-provided URI during the Device Registration.",
+          "readOnly": true,
+          "type": "string"
+        },
+        "if": {
+          "description": "The interface set supported by this resource",
+          "items": {
+            "enum": [
+              "oic.if.baseline"
+            ],
+            "type": "string"
+          },
+          "minItems": 1,
+          "maxItems": 1,
+          "uniqueItems": true,
+          "readOnly": true,
+          "type": "array"
+        }
+      },
+      "type" : "object",
+      "required": ["accesstoken", "refreshtoken", "expiresin", "uid"]
+    }
+  }
+}

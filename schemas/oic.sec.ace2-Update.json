@@ -24,7 +24,7 @@
                     "description": "When present, the ACE only applies when the href matches"
                   },
                   {
-                    "$ref": "https://openconnectivityfoundation.github.io/core/schemas/oic.oic-link-schema.json#/definitions/oic.oic-link/properties/href"
+                    "$ref": "https://openconnectivityfoundation.github.io/security/schemas/oic.sec.types-schema.json#/definitions/href"
                   }
                 ]
               },
@@ -34,7 +34,7 @@
                     "description": "When present, the ACE only applies when the rt (resource type) matches"
                   },
                   {
-                    "$ref": "https://openconnectivityfoundation.github.io/core/schemas/oic.oic-link-schema.json#/definitions/oic.oic-link/properties/rt"
+                    "$ref": "https://openconnectivityfoundation.github.io/security/schemas/oic.sec.types-schema.json#/definitions/rt"
                   }
                 ]
               },
@@ -44,7 +44,7 @@
                     "description": "When present, the ACE only applies when the if (interface) matches"
                   },
                   {
-                    "$ref": "https://openconnectivityfoundation.github.io/core/schemas/oic.oic-link-schema.json#/definitions/oic.oic-link/properties/if"
+                    "$ref": "https://openconnectivityfoundation.github.io/security/schemas/oic.sec.types-schema.json#/definitions/if"
                   }
                 ]
               },
@@ -63,11 +63,10 @@
         "permission": {
           "allOf": [
             {
-              "type": "integer",
               "description": "Bitmask encoding of CRUDN permission"
             },
             {
-              "$ref": "https://openconnectivityfoundation.github.io/security/schemas/oic.sec.crudntype.json#/definitions/oic.sec.crudntype/properties/bitmask"
+              "$ref": "https://openconnectivityfoundation.github.io/security/schemas/oic.sec.crudntype.json#/definitions/oic.sec.crudntype"
             }
           ]
         },

@@ -1,9 +1,9 @@
 #%RAML 0.8
 title: OICSecurityCredentialResource
-version: v1.0-20150819
+version: v1.0-20181031
 documentation:
   - title: OCF Copyright
-    content: Copyright (c) 2016, 2017 Open Connectivity Foundation, Inc. All rights reserved.
+    content: Copyright (c) 2016, 2017, 2018 Open Connectivity Foundation, Inc. All rights reserved.
   - title: OCF License
     content: !include LICENSE.md
   - title: OCF Disclaimer
@@ -17,7 +17,7 @@ traits:
       queryParameters:
         if:
           enum: ["oic.if.baseline"]
-  - cred-filtered:
+  - cred-filtered-credid:
       usage: Apply this to any method that can filter creds
       description: Some requests only operate on a subset of creds
       queryParameters:
@@ -27,6 +27,10 @@ traits:
             required: false
             repeat: true
             example: 2112
+  - cred-filtered-subjectuuid:
+      usage: Apply this to any method that can filter creds
+      description: Some requests only operate on a subset of creds
+      queryParameters:
         subjectuuid:
             type: string
             description: Only applies to credentials with the specified subject UUID
@@ -49,7 +53,7 @@ traits:
       parameter are returned.
 
       Note that write-only credential data will not be returned.
-    is: [cred-filtered]
+    is: [cred-filtered-credid, cred-filtered-subjectuuid]
     responses:
       200:
         body:
@@ -57,6 +61,7 @@ traits:
             schema: Cred
             example: |
               {
+                "rt": ["oic.r.cred"],
                 "creds": [
                   {
                     "credid": 55,
@@ -203,7 +208,7 @@ traits:
         When DELETE is used without query parameters, all the cred entries are deleted.
         When DELETE is used with a query parameter, only the entries matching
         the query parameter are deleted.
-      is: [cred-filtered]
+      is: [cred-filtered-credid, cred-filtered-subjectuuid]
       responses:
         204:
           description: The specific credential(s) or the the entire credential resource has been successfully deleted.

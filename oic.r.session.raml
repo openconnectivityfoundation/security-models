@@ -1,6 +1,6 @@
 #%RAML 0.8
 title: Account Session
-version: v1.0-20180320
+version: v1.0-20181001
 documentation:
   - title: OCF Copyright
     content: Copyright (c) 2018 Open Connectivity Foundation, Inc. All rights reserved.
@@ -42,5 +42,6 @@ traits:
             schema: Account-Session-Response
             example: |
               {
+                "rt": ["oic.r.session"],
                 "expiresin" : 3600
               }
