@@ -1,6 +1,6 @@
 #%RAML 0.8
 title: Security Profile Resource
-version: v1.0-20181001
+version: v1.0-20180831
 documentation:
   - title: OCF Copyright
     content: Copyright (c) 2018 Open Connectivity Foundation, Inc. All rights reserved.
@@ -20,7 +20,7 @@ traits:
 
 /oic/sec/sp:
   description: |
-    Resource specifying supported and active security profile(s)
+    Resource specifying supported and active Security Profile(s)
 
   displayName: Security Profile Resource
   is: [ interface ]
@@ -36,9 +36,8 @@ traits:
             example: |
               {
                 "rt": ["oic.r.sp"],
-                "supportedprofiles" : ["oic.sec.sp.baseline", "oic.sec.sp.black"],
-                "currentprofile" : "oic.sec.sp.baseline",
-                "credid" : 1
+                "supportedprofiles" : ["1.3.6.1.4.1.51414.0.1.0", " 1.3.6.1.4.1.51414.0.2.0"],
+                "currentprofile" : "1.3.6.1.4.1.51414.0.1.0"
               }
       400:
         description: The request is invalid.
@@ -51,8 +50,8 @@ traits:
         schema: SP-Update
         example: |
           {
-            "supportedprofiles" : ["oic.sec.sp.baseline", "oic.sec.sp.black"],
-            "currentprofile" : "oic.sec.sp.baseline"
+            "supportedprofiles" : ["1.3.6.1.4.1.51414.0.1.0", " 1.3.6.1.4.1.51414.0.2.0"],
+            "currentprofile" : "1.3.6.1.4.1.51414.0.1.0"
           }
     responses:
       200:
@@ -62,9 +61,8 @@ traits:
             example: |
               {
                 "rt": ["oic.r.sp"],
-                "supportedprofiles" : ["oic.sec.sp.baseline", "oic.sec.sp.black"],
-                "currentprofile" : "oic.sec.sp.baseline",
-                "credid" : 1
+                "supportedprofiles" : ["1.3.6.1.4.1.51414.0.1.0", " 1.3.6.1.4.1.51414.0.2.0"],
+                "currentprofile" : "1.3.6.1.4.1.51414.0.1.0"
               }
       400:
         description: The request is invalid.

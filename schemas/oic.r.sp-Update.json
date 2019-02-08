@@ -8,14 +8,14 @@
       "properties": {
         "supportedprofiles": {
           "type": "array",
-          "description": "Array of supported security profiles",
+          "description": "Array of supported Security Profiles",
           "items": {
-            "$ref": "https://openconnectivityfoundation.github.io/security/schemas/oic.sec.sp.name.json#/definitions/oic.sec.sp.name"
+             "type": "string"
           }
         },
         "currentprofile": {
-          "description": "Security profile currently active",
-          "$ref": "https://openconnectivityfoundation.github.io/security/schemas/oic.sec.sp.name.json#/definitions/oic.sec.sp.name"
+          "description": "Security Profile currently active",
+          "type": "string"
         }
       }
     }
