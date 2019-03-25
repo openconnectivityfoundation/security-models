@@ -16,7 +16,7 @@
   "paths": {
     "/oic/sec/crl" : {
       "get": {
-        "description": "This resource specifies certificate revocation lists as X.509 objects.\n",
+        "description": "This Resource specifies certificate revocation lists as X.509 objects.\n",
         "parameters": [
           {"$ref": "#/parameters/interface"}
         ],
@@ -35,7 +35,7 @@
         }
       },
       "post": {
-        "description": "Updates the CRL data\n",
+        "description": "Updates the CRL data.\n",
         "parameters": [
           {"$ref": "#/parameters/interface"},
           {
@@ -74,7 +74,7 @@
     "Crl" : {
       "properties": {
         "rt" : {
-          "description": "Resource Type of the Resource",
+          "description": "Resource Type of the Resource.",
           "items": {
             "maxLength": 64,
             "type": "string",
@@ -91,19 +91,19 @@
           "$ref": "https://openconnectivityfoundation.github.io/core/schemas/oic.common.properties.core-schema.json#/definitions/id"
         },
         "crldata" : {
-          "description": "Base64 BER encoded crl data",
+          "description": "Base64 BER encoded CRL data.",
           "type": "string"
         },
         "crlid" : {
-          "description": "Local reference to a crl resource",
+          "description": "Local reference to a CRL Resource.",
           "type": "integer"
         },
         "thisupdate" : {
-          "description": "UTC time of last CRL update",
+          "description": "UTC time of last CRL update.",
           "type": "string"
         },
         "if" : {
-          "description": "The interface set supported by this resource",
+          "description": "The interface set supported by this Resource.",
           "items": {
             "enum": [
               "oic.if.baseline"
@@ -122,15 +122,15 @@
     "Crl-Update": {
       "properties": {
         "crldata": {
-          "description": "Base64 BER encoded crl data",
+          "description": "Base64 BER encoded CRL data.",
           "type": "string"
         },
         "crlid": {
-          "description": "Local reference to a crl resource",
+          "description": "Local reference to a CRL Resource.",
           "type": "integer"
         },
         "thisupdate": {
-          "description": "UTC time of last CRL update",
+          "description": "UTC time of last CRL update.",
           "type": "string"
         }
       },

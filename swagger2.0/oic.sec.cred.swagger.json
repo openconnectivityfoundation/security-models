@@ -16,7 +16,7 @@
   "paths": {
     "/oic/sec/cred" : {
       "get": {
-        "description": "This resource specifies credentials a device may use to establish secure communication.\nRetrieves the credential data.\nWhen used without query parameters, all the credential entries are returned.\nWhen used with a query parameter, only the credentials matching the specified\nparameter are returned.\n\nNote that write-only credential data will not be returned.\n",
+        "description": "This Resource specifies credentials a Device may use to establish secure communication.\nRetrieves the credential data.\nWhen used without query parameters, all the credential entries are returned.\nWhen used with a query parameter, only the credentials matching the specified\nparameter are returned.\n\nNote that write-only credential data will not be returned.\n",
         "parameters": [
           {"$ref": "#/parameters/interface"}
           ,{"$ref": "#/parameters/cred-filtered-credid"}
@@ -91,7 +91,7 @@
         }
       },
       "post": {
-        "description": "Updates the credential resource with the provided credentials.\n\nCredentials provided in the update with credid(s) not currently in the\ncredential resource are added.\n\nCredentials provided in the update with credid(s) already in the\ncredential resource completely replace the creds in the credential\nresource.\n\nCredentials provided in the update without credid(s) properties are\nadded and assigned unique credid(s) in the credential resource.\n",
+        "description": "Updates the credential Resource with the provided credentials.\n\nCredentials provided in the update with credid(s) not currently in the\ncredential Resource are added.\n\nCredentials provided in the update with credid(s) already in the\ncredential Resource completely replace the creds in the credential\nResource.\n\nCredentials provided in the update without credid(s) properties are\nadded and assigned unique credid(s) in the credential Resource.\n",
         "parameters": [
           {"$ref": "#/parameters/interface"},
           {
@@ -181,7 +181,7 @@
               "description" : "The request is invalid."
             },
             "204": {
-              "description" : "The specific credential(s) or the the entire credential resource has been successfully deleted."
+              "description" : "The specific credential(s) or the the entire credential Resource has been successfully deleted."
             }
         }
       }
@@ -199,7 +199,7 @@
       "name" : "credid",
       "required" : false,
       "type" : "integer",
-      "description" : "Only applies to the credential with the specified credid",
+      "description" : "Only applies to the credential with the specified credid.",
       "x-example" : 2112
     },
     "cred-filtered-subjectuuid" : {
@@ -207,7 +207,7 @@
       "name" : "subjectuuid",
       "required" : false,
       "type" : "string",
-      "description" : "Only applies to credentials with the specified subject UUID",
+      "description" : "Only applies to credentials with the specified subject UUID.",
       "x-example" : "e61c3e6b-9c54-4b81-8ce5-f9039c1d04d9"
     }
   },
@@ -220,7 +220,7 @@
           "type": "string"
         },
         "rt" : {
-          "description": "Resource Type of the Resource",
+          "description": "Resource Type of the Resource.",
           "items": {
             "maxLength": 64,
             "type": "string",
@@ -238,21 +238,21 @@
           "$ref": "https://openconnectivityfoundation.github.io/core/schemas/oic.common.properties.core-schema.json#/definitions/id"
         },
         "creds" : {
-          "description": "List of credentials available at this resource",
+          "description": "List of credentials available at this Resource.",
           "items": {
             "properties": {
               "credid": {
-                "description": "Local reference to a credential resource",
+                "description": "Local reference to a credential Resource.",
                 "type": "integer"
               },
               "credtype": {
-                 "description": "Representation of this credential's type\nCredential Types - Cred type encoded as a bitmask.0 - Empty credential used for testing1 - Symmetric pair-wise key2 - Symmetric group key4 - Asymmetric signing key8 - Asymmetric signing key with certificate16 - PIN or password32 - Asymmetric encryption key",
+                 "description": "Representation of this credential's type\nCredential Types - Cred type encoded as a bitmask.0 - Empty credential used for testing1 - Symmetric pair-wise key2 - Symmetric group key4 - Asymmetric signing key8 - Asymmetric signing key with certificate16 - PIN or password32 - Asymmetric encryption key.",
                  "maximum": 63,
                  "minimum": 0,
                  "type": "integer"
               },
               "credusage": {
-                "description": "A string that provides hints about how/where the cred is used\nThe type of credusage.oic.sec.cred.trustca - Trust certificateoic.sec.cred.cert - Certificateoic.sec.cred.rolecert - Role Certificateoic.sec.cred.mfgtrustca - Manufacturer Certificate Trust Anchoroic.sec.cred.mfgcert - Manufacturer Certificate",
+                "description": "A string that provides hints about how/where the cred is used\nThe type of credusage.oic.sec.cred.trustca - Trust certificateoic.sec.cred.cert - Certificateoic.sec.cred.rolecert - Role Certificateoic.sec.cred.mfgtrustca - Manufacturer Certificate Trust Anchoroic.sec.cred.mfgcert - Manufacturer Certificate.",
                 "enum": [
                   "oic.sec.cred.trustca",
                   "oic.sec.cred.cert",
@@ -263,9 +263,9 @@
                 "type": "string"
               },
               "crms": {
-                "description": "The refresh methods that may be used to update this credential",
+                "description": "The refresh methods that may be used to update this credential.",
                 "items": {
-                  "description": "Each enum represents a method by which the credentials are refreshed.oic.sec.crm.pro - Credentials refreshed by a provisioning serviceoic.sec.crm.rdp - Credentials refreshed by a key agreement protocol and random PINoic.sec.crm.psk - Credentials refreshed by a key agreement protocoloic.sec.crm.skdc - Credentials refreshed by a key distribution serviceoic.sec.crm.pk10 - Credentials refreshed by a PKCS#10 request to a CA",
+                  "description": "Each enum represents a method by which the credentials are refreshed.oic.sec.crm.pro - Credentials refreshed by a provisioning serviceoic.sec.crm.rdp - Credentials refreshed by a key agreement protocol and random PINoic.sec.crm.psk - Credentials refreshed by a key agreement protocoloic.sec.crm.skdc - Credentials refreshed by a key distribution serviceoic.sec.crm.pk10 - Credentials refreshed by a PKCS#10 request to a CA.",
                   "enum": [
                     "oic.sec.crm.pro",
                     "oic.sec.crm.psk",
@@ -279,21 +279,21 @@
                 "uniqueItems" : true
               },
               "optionaldata": {
-                "description": "Credential revocation status information\nOptional credential contents describes revocation status for this credential",
+                "description": "Credential revocation status information\nOptional credential contents describes revocation status for this credential.",
                 "properties": {
                   "data": {
-                    "description": "The encoded structure",
+                    "description": "The encoded structure.",
                     "type": "string"
                   },
                   "encoding": {
-                    "description": "A string specifying the encoding format of the data contained in the optdata",
+                    "description": "A string specifying the encoding format of the data contained in the optdata.",
                     "x-detail-desc": [
-                      "oic.sec.encoding.jwt - RFC7517 JSON web token (JWT) encoding",
-                      "oic.sec.encoding.cwt - RFC CBOR web token (CWT) encoding",
-                      "oic.sec.encoding.base64 - Base64 encoded object",
-                      "oic.sec.encoding.pem - Encoding for PEM encoded certificate or chain",
-                      "oic.sec.encoding.der - Encoding for DER encoded certificate",
-                      "oic.sec.encoding.raw - Raw hex encoded data"
+                      "oic.sec.encoding.jwt - RFC7517 JSON web token (JWT) encoding.",
+                      "oic.sec.encoding.cwt - RFC CBOR web token (CWT) encoding.",
+                      "oic.sec.encoding.base64 - Base64 encoded object.",
+                      "oic.sec.encoding.pem - Encoding for PEM encoded certificate or chain.",
+                      "oic.sec.encoding.der - Encoding for DER encoded certificate.",
+                      "oic.sec.encoding.raw - Raw hex encoded data."
                     ],
                     "enum": [
                       "oic.sec.encoding.jwt",
@@ -306,7 +306,7 @@
                     "type": "string"
                   },
                   "revstat": {
-                    "description": "Revocation status flag - true = revoked",
+                    "description": "Revocation status flag - true = revoked.",
                     "type": "boolean"
                   }
                 },
@@ -316,19 +316,19 @@
                 "type": "object"
               },
               "period": {
-                "description": "String with RFC5545 Period",
+                "description": "String with RFC5545 Period.",
                 "type": "string"
               },
               "privatedata": {
-                "description": "Private credential information\nCredential resource non-public contents",
+                "description": "Private credential information\nCredential Resource non-public contents.",
                 "properties": {
                   "data": {
-                    "description": "The encoded value",
+                    "description": "The encoded value.",
                     "maxLength": 3072,
                     "type": "string"
                   },
                   "encoding": {
-                    "description": "A string specifying the encoding format of the data contained in the privdata\noic.sec.encoding.jwt - RFC7517 JSON web token (JWT) encoding\noic.sec.encoding.cwt - RFC CBOR web token (CWT) encoding\noic.sec.encoding.base64 - Base64 encoded object\noic.sec.encoding.uri - URI reference\noic.sec.encoding.handle - Data is contained in a storage sub-system referenced using a handle\noic.sec.encoding.raw - Raw hex encoded data",
+                    "description": "A string specifying the encoding format of the data contained in the privdata\noic.sec.encoding.jwt - RFC7517 JSON web token (JWT) encoding\noic.sec.encoding.cwt - RFC CBOR web token (CWT) encoding\noic.sec.encoding.base64 - Base64 encoded object\noic.sec.encoding.uri - URI reference\noic.sec.encoding.handle - Data is contained in a storage sub-system referenced using a handle\noic.sec.encoding.raw - Raw hex encoded data.",
                     "enum": [
                       "oic.sec.encoding.jwt",
                       "oic.sec.encoding.cwt",
@@ -340,7 +340,7 @@
                     "type": "string"
                   },
                   "handle": {
-                    "description": "Handle to a key storage resource",
+                    "description": "Handle to a key storage Resource.",
                     "type": "integer"
                   }
                 },
@@ -350,15 +350,15 @@
                 "type": "object"
               },
               "publicdata": {
-                "description": "Public credential information",
+                "description": "Public credential information.",
                 "properties": {
                   "data": {
-                    "description": "The encoded value",
+                    "description": "The encoded value.",
                     "maxLength": 3072,
                     "type": "string"
                   },
                   "encoding": {
-                    "description": "A string specifying the encoding format of the data contained in the pubdata\noic.sec.encoding.jwt - RFC7517 JSON web token (JWT) encoding\noic.sec.encoding.cwt - RFC CBOR web token (CWT) encoding\noic.sec.encoding.base64 - Base64 encoded object\noic.sec.encoding.uri - URI reference\noic.sec.encoding.pem - Encoding for PEM encoded certificate or chain\noic.sec.encoding.der - Encoding for DER encoded certificate\noic.sec.encoding.raw - Raw hex encoded data",
+                    "description": "A string specifying the encoding format of the data contained in the pubdata\noic.sec.encoding.jwt - RFC7517 JSON web token (JWT) encoding\noic.sec.encoding.cwt - RFC CBOR web token (CWT) encoding\noic.sec.encoding.base64 - Base64 encoded object\noic.sec.encoding.uri - URI reference\noic.sec.encoding.pem - Encoding for PEM encoded certificate or chain\noic.sec.encoding.der - Encoding for DER encoded certificate\noic.sec.encoding.raw - Raw hex encoded data.",
                     "enum": [
                       "oic.sec.encoding.jwt",
                       "oic.sec.encoding.cwt",
@@ -374,10 +374,10 @@
                 "type": "object"
               },
               "roleid": {
-                "description": "The role this credential possesses\nSecurity role specified as an <Authority> & <Rolename>. A NULL <Authority> refers to the local entity or device.",
+                "description": "The role this credential possesses\nSecurity role specified as an <Authority> & <Rolename>. A NULL <Authority> refers to the local entity or Device.",
                 "properties": {
                   "authority": {
-                    "description": "The Authority component of the entity being identified. A NULL <Authority> refers to the local entity or device.",
+                    "description": "The Authority component of the entity being identified. A NULL <Authority> refers to the local entity or Device.",
                     "type": "string"
                   },
                   "role": {
@@ -393,7 +393,7 @@
               "subjectuuid": {
                 "anyOf": [
                   {
-                    "description": "The id of the device, which the cred entry applies to or \"*\" for wildcard identity",
+                    "description": "The id of the Device, which the cred entry applies to or \"*\" for wildcard identity.",
                     "pattern": "^\\*$",
                     "type": "string"
                   },
@@ -410,7 +410,7 @@
           "type": "array"
         },
         "if" : {
-          "description": "The interface set supported by this resource",
+          "description": "The interface set supported by this Resource.",
           "items": {
             "enum": [
               "oic.if.baseline"
@@ -433,21 +433,21 @@
           "type": "string"
         },
         "creds" : {
-          "description": "List of credentials available at this resource",
+          "description": "List of credentials available at this Resource.",
           "items": {
             "properties": {
               "credid": {
-                "description": "Local reference to a credential resource",
+                "description": "Local reference to a credential Resource.",
                 "type": "integer"
               },
               "credtype": {
-                "description": "Representation of this credential's type\nCredential Types - Cred type encoded as a bitmask.0 - Empty credential used for testing1 - Symmetric pair-wise key2 - Symmetric group key4 - Asymmetric signing key8 - Asymmetric signing key with certificate16 - PIN or password32 - Asymmetric encryption key",
+                "description": "Representation of this credential's type\nCredential Types - Cred type encoded as a bitmask.0 - Empty credential used for testing1 - Symmetric pair-wise key2 - Symmetric group key4 - Asymmetric signing key8 - Asymmetric signing key with certificate16 - PIN or password32 - Asymmetric encryption key.",
                 "maximum": 63,
                 "minimum": 0,
                 "type": "integer"
               },
               "credusage": {
-                "description": "A string that provides hints about how/where the cred is used\nThe type of credusage.oic.sec.cred.trustca - Trust certificateoic.sec.cred.cert - Certificateoic.sec.cred.rolecert - Role Certificateoic.sec.cred.mfgtrustca - Manufacturer Certificate Trust Anchoroic.sec.cred.mfgcert - Manufacturer Certificate",
+                "description": "A string that provides hints about how/where the cred is used\nThe type of credusage.oic.sec.cred.trustca - Trust certificateoic.sec.cred.cert - Certificateoic.sec.cred.rolecert - Role Certificateoic.sec.cred.mfgtrustca - Manufacturer Certificate Trust Anchoroic.sec.cred.mfgcert - Manufacturer Certificate.",
                 "enum": [
                   "oic.sec.cred.trustca",
                   "oic.sec.cred.cert",
@@ -458,9 +458,9 @@
                 "type": "string"
               },
               "crms": {
-                "description": "The refresh methods that may be used to update this credential",
+                "description": "The refresh methods that may be used to update this credential.",
                 "items": {
-                  "description": "Each enum represents a method by which the credentials are refreshed.oic.sec.crm.pro - Credentials refreshed by a provisioning serviceoic.sec.crm.rdp - Credentials refreshed by a key agreement protocol and random PINoic.sec.crm.psk - Credentials refreshed by a key agreement protocoloic.sec.crm.skdc - Credentials refreshed by a key distribution serviceoic.sec.crm.pk10 - Credentials refreshed by a PKCS#10 request to a CA",
+                  "description": "Each enum represents a method by which the credentials are refreshed.oic.sec.crm.pro - Credentials refreshed by a provisioning serviceoic.sec.crm.rdp - Credentials refreshed by a key agreement protocol and random PINoic.sec.crm.psk - Credentials refreshed by a key agreement protocoloic.sec.crm.skdc - Credentials refreshed by a key distribution serviceoic.sec.crm.pk10 - Credentials refreshed by a PKCS#10 request to a CA.",
                   "enum": [
                     "oic.sec.crm.pro",
                     "oic.sec.crm.psk",
@@ -473,21 +473,21 @@
                 "type": "array"
               },
               "optionaldata": {
-                "description": "Credential revocation status information\nOptional credential contents describes revocation status for this credential",
+                "description": "Credential revocation status information\nOptional credential contents describes revocation status for this credential.",
                 "properties": {
                   "data": {
-                    "description": "The encoded structure",
+                    "description": "The encoded structure.",
                     "type": "string"
                   },
                   "encoding": {
-                    "description": "A string specifying the encoding format of the data contained in the optdata",
+                    "description": "A string specifying the encoding format of the data contained in the optdata.",
                     "x-detail-desc": [
-                      "oic.sec.encoding.jwt - RFC7517 JSON web token (JWT) encoding",
-                      "oic.sec.encoding.cwt - RFC CBOR web token (CWT) encoding",
-                      "oic.sec.encoding.base64 - Base64 encoded object",
-                      "oic.sec.encoding.pem - Encoding for PEM encoded certificate or chain",
-                      "oic.sec.encoding.der - Encoding for DER encoded certificate",
-                      "oic.sec.encoding.raw - Raw hex encoded data"
+                      "oic.sec.encoding.jwt - RFC7517 JSON web token (JWT) encoding.",
+                      "oic.sec.encoding.cwt - RFC CBOR web token (CWT) encoding.",
+                      "oic.sec.encoding.base64 - Base64 encoded object.",
+                      "oic.sec.encoding.pem - Encoding for PEM encoded certificate or chain.",
+                      "oic.sec.encoding.der - Encoding for DER encoded certificate.",
+                      "oic.sec.encoding.raw - Raw hex encoded data."
                     ],
                     "enum": [
                       "oic.sec.encoding.jwt",
@@ -500,7 +500,7 @@
                     "type": "string"
                   },
                   "revstat": {
-                    "description": "Revocation status flag - true = revoked",
+                    "description": "Revocation status flag - true = revoked.",
                     "type": "boolean"
                   }
                 },
@@ -510,26 +510,26 @@
                 "type" : "object"
               },
               "period": {
-                "description": "String with RFC5545 Period",
+                "description": "String with RFC5545 Period.",
                 "type": "string"
               },
               "privatedata": {
-                "description": "Private credential information\nCredential resource non-public contents",
+                "description": "Private credential information\nCredential Resource non-public contents.",
                 "properties": {
                   "data": {
-                    "description": "The encoded value",
+                    "description": "The encoded value.",
                     "maxLength": 3072,
                     "type": "string"
                   },
                   "encoding": {
-                    "description": "A string specifying the encoding format of the data contained in the privdata",
+                    "description": "A string specifying the encoding format of the data contained in the privdata.",
                     "x-detail-desc": [
-                      "oic.sec.encoding.jwt - RFC7517 JSON web token (JWT) encoding",
-                      "oic.sec.encoding.cwt - RFC CBOR web token (CWT) encoding",
-                      "oic.sec.encoding.base64 - Base64 encoded object",
-                      "oic.sec.encoding.uri - URI reference",
-                      "oic.sec.encoding.handle - Data is contained in a storage sub-system referenced using a handle",
-                      "oic.sec.encoding.raw - Raw hex encoded data"
+                      "oic.sec.encoding.jwt - RFC7517 JSON web token (JWT) encoding.",
+                      "oic.sec.encoding.cwt - RFC CBOR web token (CWT) encoding.",
+                      "oic.sec.encoding.base64 - Base64 encoded object.",
+                      "oic.sec.encoding.uri - URI reference.",
+                      "oic.sec.encoding.handle - Data is contained in a storage sub-system referenced using a handle.",
+                      "oic.sec.encoding.raw - Raw hex encoded data."
                     ],
                     "enum": [
                       "oic.sec.encoding.jwt",
@@ -542,7 +542,7 @@
                     "type": "string"
                   },
                   "handle": {
-                    "description": "Handle to a key storage resource",
+                    "description": "Handle to a key storage Resource.",
                     "type": "integer"
                   }
                 },
@@ -554,20 +554,20 @@
               "publicdata": {
                 "properties": {
                   "data": {
-                    "description": "The encoded value",
+                    "description": "The encoded value.",
                     "maxLength": 3072,
                     "type": "string"
                   },
                   "encoding": {
-                    "description": "Public credential information\nA string specifying the encoding format of the data contained in the pubdata",
+                    "description": "Public credential information\nA string specifying the encoding format of the data contained in the pubdata.",
                     "x-detail-desc": [
-                      "oic.sec.encoding.jwt - RFC7517 JSON web token (JWT) encoding",
-                      "oic.sec.encoding.cwt - RFC CBOR web token (CWT) encoding",
-                      "oic.sec.encoding.base64 - Base64 encoded object",
-                      "oic.sec.encoding.uri - URI reference",
-                      "oic.sec.encoding.pem - Encoding for PEM encoded certificate or chain",
-                      "oic.sec.encoding.der - Encoding for DER encoded certificate",
-                      "oic.sec.encoding.raw - Raw hex encoded data"
+                      "oic.sec.encoding.jwt - RFC7517 JSON web token (JWT) encoding.",
+                      "oic.sec.encoding.cwt - RFC CBOR web token (CWT) encoding.",
+                      "oic.sec.encoding.base64 - Base64 encoded object.",
+                      "oic.sec.encoding.uri - URI reference.",
+                      "oic.sec.encoding.pem - Encoding for PEM encoded certificate or chain.",
+                      "oic.sec.encoding.der - Encoding for DER encoded certificate.",
+                      "oic.sec.encoding.raw - Raw hex encoded data."
                     ],
                     "enum": [
                       "oic.sec.encoding.jwt",
@@ -584,10 +584,10 @@
                 "type": "object"
               },
               "roleid": {
-                "description": "The role this credential possesses\nSecurity role specified as an <Authority> & <Rolename>. A NULL <Authority> refers to the local entity or device.",
+                "description": "The role this credential possesses\nSecurity role specified as an <Authority> & <Rolename>. A NULL <Authority> refers to the local entity or Device.",
                 "properties": {
                   "authority": {
-                    "description": "The Authority component of the entity being identified. A NULL <Authority> refers to the local entity or device.",
+                    "description": "The Authority component of the entity being identified. A NULL <Authority> refers to the local entity or Device.",
                     "type": "string"
                   },
                   "role": {
@@ -603,7 +603,7 @@
               "subjectuuid": {
                 "anyOf": [
                   {
-                    "description": "The id of the device, which the cred entry applies to or \"*\" for wildcard identity",
+                    "description": "The id of the Device, which the cred entry applies to or \"*\" for wildcard identity.",
                     "pattern": "^\\*$",
                     "type": "string"
                   },
@@ -621,7 +621,7 @@
         },
         "if" :
                 {
-          "description": "The interface set supported by this resource",
+          "description": "The interface set supported by this Resource.",
           "items": {
             "enum": [
               "oic.if.baseline"

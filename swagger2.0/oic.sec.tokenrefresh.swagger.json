@@ -34,7 +34,7 @@
         ],
         "responses": {
             "204": {
-              "description" : "2.04 Changed respond with new access-token\n",
+              "description" : "2.04 Changed respond with new access-token.\n",
               "x-example":
                 {
                   "rt": ["oic.r.tokenrefresh"],
@@ -61,7 +61,7 @@
     "TokenRefresh-Request" : {
       "properties": {
         "refreshtoken": {
-          "description": "Refresh token received by account management or during token refresh procedure",
+          "description": "Refresh token received by account management or during token refresh procedure.",
           "pattern": "(?!$|\\s+).*",
           "type": "string"
         },
@@ -82,12 +82,12 @@
     "TokenRefresh-Response" : {
       "properties": {
         "expiresin": {
-          "description": "Access-Token life time in seconds (-1 if permanent)",
+          "description": "Access-Token life time in seconds (-1 if permanent).",
           "readOnly": true,
           "type": "integer"
         },
         "rt": {
-          "description": "Resource Type of the Resource",
+          "description": "Resource Type of the Resource.",
           "items": {
             "maxLength": 64,
             "type": "string",
@@ -98,12 +98,12 @@
           "type": "array"
         },
         "refreshtoken": {
-          "description": "Refresh token received by account management or during token refresh procedure",
+          "description": "Refresh token received by account management or during token refresh procedure.",
           "pattern": "(?!$|\\s+).*",
           "type": "string"
         },
         "accesstoken": {
-          "description": "Granted Access-Token",
+          "description": "Granted Access-Token.",
           "pattern": "(?!$|\\s+).*",
           "readOnly": true,
           "type": "string"
@@ -116,7 +116,7 @@
         },
         "if" :
                 {
-          "description": "The interface set supported by this resource",
+          "description": "The interface set supported by this Resource.",
           "items": {
             "enum": [
               "oic.if.baseline"

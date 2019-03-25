@@ -16,7 +16,7 @@
   "paths": {
     "/oic/sec/sp" : {
       "get": {
-        "description": "Resource specifying supported and active security profile(s)\n",
+        "description": "Resource specifying supported and active security profile(s).\n",
         "parameters": [
           {"$ref": "#/parameters/interface"}
         ],
@@ -37,7 +37,7 @@
         }
       },
       "post": {
-        "description": "Sets or updates device provisioning status data.\n",
+        "description": "Sets or updates Device provisioning status data.\n",
         "parameters": [
           {"$ref": "#/parameters/interface"},
           {
@@ -82,7 +82,7 @@
     "SP" : {
       "properties": {
         "rt": {
-          "description": "Resource Type of the Resource",
+          "description": "Resource Type of the Resource.",
           "items": {
             "maxLength": 64,
             "type": "string",
@@ -99,18 +99,18 @@
           "$ref": "https://openconnectivityfoundation.github.io/core/schemas/oic.common.properties.core-schema.json#/definitions/id"
         },
         "currentprofile": {
-          "description": "Security Profile currently active",
+          "description": "Security Profile currently active.",
           "type": "string"
         },
         "supportedprofiles": {
-          "description": "Array of supported Security Profiles",
+          "description": "Array of supported Security Profiles.",
           "items": {
             "type": "string"
           },
           "type": "array"
         },
         "if": {
-          "description": "The interface set supported by this resource",
+          "description": "The interface set supported by this Resource.",
           "items": {
             "enum": [
               "oic.if.baseline"
@@ -128,11 +128,11 @@
     "SP-Update" : {
       "properties": {
         "currentprofile": {
-          "description": "Security Profile currently active",
+          "description": "Security Profile currently active.",
           "type": "string"
         },
         "supportedprofiles": {
-          "description": "Array of supported Security Profiles",
+          "description": "Array of supported Security Profiles.",
           "items": {
             "type": "string"
           },

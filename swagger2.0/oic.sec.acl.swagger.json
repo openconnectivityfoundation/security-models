@@ -16,7 +16,7 @@
   "paths": {
     "/oic/sec/acl" : {
       "get": {
-        "description": "This Resource specifies the local access control list.\nWhen used without query parameters, all the ACE entries are returned.\nWhen used with a subjectuuid, only the ACEs with the specified\nsubjectuuid are returned. If subjectuuid and resources are specified,\nonly the ACEs with the specified subjectuuid and Resource hrefs are\nreturned.\n",
+        "description": "This Resource specifies the local access control list.\nWhen used without query parameters, all the ACE entries are returned.\nWhen used with a subjectuuid, only the ACEs with the specified\nsubjectuuid are returned. If subjectuuid and Resources are specified,\nonly the ACEs with the specified subjectuuid and Resource hrefs are\nreturned.\n",
         "parameters": [
           {"$ref": "#/parameters/interface"},
           {"$ref": "#/parameters/ace-filtered-uuid"},
@@ -70,7 +70,7 @@
         }
       },
       "post": {
-        "description": "Updates the ACL resource with the provided values. ACEs provided\nin the update not currently in the ACL are added. ACEs that already\nexist in the ACL are ignored.\n\nNote that for the purposes of update, equivalency is determined\nby comparing the ACE subjectuuid, permission, string comparisons\nof all validity elements, and string comparisons of all resource\nhrefs.\n",
+        "description": "Updates the ACL Resource with the provided values. ACEs provided\nin the update not currently in the ACL are added. ACEs that already\nexist in the ACL are ignored.\n\nNote that for the purposes of update, equivalency is determined\nby comparing the ACE subjectuuid, permission, string comparisons\nof all validity elements, and string comparisons of all Resource\nhrefs.\n",
         "parameters": [
           {"$ref": "#/parameters/interface"},
           {
@@ -129,7 +129,7 @@
         }
       },
       "delete": {
-        "description": "Deletes ACL entries.\nWhen DELETE is used without query parameters, all the ACE entries are deleted.\nWhen DELETE is used with a subjectuuid, only the ACEs with the specified\nsubjectuuid are deleted. If subjectuuid and resources are specified,\nonly the ACEs with the specified subjectuuid and resource hrefs are\ndeleted.\n",
+        "description": "Deletes ACL entries.\nWhen DELETE is used without query parameters, all the ACE entries are deleted.\nWhen DELETE is used with a subjectuuid, only the ACEs with the specified\nsubjectuuid are deleted. If subjectuuid and Resources are specified,\nonly the ACEs with the specified subjectuuid and Resource hrefs are\ndeleted.\n",
         "parameters": [
           {"$ref": "#/parameters/interface"},
           {"$ref": "#/parameters/ace-filtered-uuid"},
@@ -137,7 +137,7 @@
         ],
         "responses": {
             "200": {
-              "description" : "The matching ACEs or the entire ACL resource has been successfully deleted."
+              "description" : "The matching ACEs or the entire ACL Resource has been successfully deleted."
             },
             "400": {
               "description" : "The request is invalid."
@@ -158,7 +158,7 @@
       "name" : "subjectuuid",
       "required" : false,
       "type" : "string",
-      "description" : "Only applies to ACEs with the specified subject UUID",
+      "description" : "Only applies to ACEs with the specified subject UUID.",
       "x-example" : "se61c3e6b-9c54-4b81-8ce5-f9039c1d04d9"
     },
     "ace-filtered-resources" : {
@@ -166,7 +166,7 @@
       "name" : "resources",
       "required" : false,
       "type" : "string",
-      "description" : "Only applies to ACEs with the specificed subhectuuid | and resources href",
+      "description" : "Only applies to ACEs with the specificed subhectuuid | and Resources href.",
       "x-example" : "coaps://IP-ADDR/temp"
     }
   },
@@ -174,12 +174,12 @@
     "Acl" : {
       "properties": {
         "rowneruuid": {
-          "description": "The value identifies the unique resource owner\nFormat pattern according to IETF RFC 4122.",
+          "description": "The value identifies the unique Resource owner\nFormat pattern according to IETF RFC 4122.",
           "pattern": "^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$",
           "type": "string"
         },
         "rt": {
-          "description": "Resource Type of the Resource",
+          "description": "Resource Type of the Resource.",
           "items": {
             "maxLength": 64,
             "type": "string",
@@ -190,27 +190,27 @@
           "type": "array"
         },
         "aclist": {
-          "description": "Subject-based Access Control Entries in the ACL resource",
+          "description": "Subject-based Access Control Entries in the ACL Resource.",
           "properties": {
             "aces": {
               "items": {
                 "properties": {
                   "permission": {
-                    "description": "Bitmask encoding of CRUDN permission\nThe encoded bitmask indicating permissions",
+                    "description": "Bitmask encoding of CRUDN permission\nThe encoded bitmask indicating permissions.",
                     "x-detail-desc": [
-                      "0  - No permissions",
-                      "1 - Create permission is granted",
-                      "2 - Read, observe, discover permission is granted",
-                      "4 - Write, update permission is granted",
-                      "8 - Delete permission is granted",
-                      "16 - Notify permission is granted"
+                      "0  - No permissions.",
+                      "1 - Create permission is granted.",
+                      "2 - Read, observe, discover permission is granted.",
+                      "4 - Write, update permission is granted.",
+                      "8 - Delete permission is granted.",
+                      "16 - Notify permission is granted."
                     ],
                     "maximum": 31,
                     "minimum": 0,
                     "type": "integer"
                   },
                   "resources": {
-                    "description": "References the application's resources to which a security policy applies",
+                    "description": "References the application's Resources to which a security policy applies.",
                     "items": {
                       "properties": {
                         "anchor": {
@@ -220,21 +220,21 @@
                           "type": "string"
                         },
                         "di": {
-                          "description": "The device ID\nFormat pattern according to IETF RFC 4122.",
+                          "description": "The Device ID\nFormat pattern according to IETF RFC 4122.",
                           "pattern": "^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$",
                           "type": "string"
                         },
                         "eps": {
-                          "description": "the Endpoint information of the target Resource",
+                          "description": "the Endpoint information of the target Resource.",
                           "items": {
                             "properties": {
                               "ep": {
-                                "description": "Transport Protocol Suite + Endpoint Locator",
+                                "description": "Transport Protocol Suite + Endpoint Locator.",
                                 "format": "uri",
                                 "type": "string"
                               },
                               "pri": {
-                                "description": "The priority among multiple Endpoints",
+                                "description": "The priority among multiple Endpoints.",
                                 "minimum": 1,
                                 "type": "integer"
                               }
@@ -250,7 +250,7 @@
                           "type": "string"
                         },
                         "if": {
-                          "description": "The interface set supported by this resource",
+                          "description": "The interface set supported by this Resource.",
                           "items": {
                             "enum": [
                               "oic.if.baseline",
@@ -267,14 +267,14 @@
                           "type": "array"
                         },
                         "ins": {
-                          "description": "The instance identifier for this web link in an array of web links - used in collections",
+                          "description": "The instance identifier for this web link in an array of web links - used in collections.",
                           "type": "integer"
                         },
                         "p": {
-                          "description": "Specifies the framework policies on the Resource referenced by the target URI",
+                          "description": "Specifies the framework policies on the Resource referenced by the target URI.",
                           "properties": {
                             "bm": {
-                              "description": "Specifies the framework policies on the Resource referenced by the target URI for e.g. observable and discoverable",
+                              "description": "Specifies the framework policies on the Resource referenced by the target URI for e.g. observable and discoverable.",
                               "type": "integer"
                             }
                           },
@@ -284,7 +284,7 @@
                           "type": "object"
                         },
                         "rel": {
-                          "description": "The relation of the target URI referenced by the link to the context URI",
+                          "description": "The relation of the target URI referenced by the link to the context URI.",
                           "oneOf": [
                             {
                               "default": [
@@ -305,7 +305,7 @@
                           ]
                         },
                         "rt": {
-                          "description": "Resource Type of the Resource",
+                          "description": "Resource Type of the Resource.",
                           "items": {
                             "maxLength": 64,
                             "type": "string"
@@ -320,7 +320,7 @@
                         },
                         "type": {
                           "default": "application/cbor",
-                          "description": "A hint at the representation of the resource referenced by the target URI. This represents the media types that are used for both accepting and emitting.",
+                          "description": "A hint at the representation of the Resource referenced by the target URI. This represents the media types that are used for both accepting and emitting.",
                           "items": {
                             "maxLength": 64,
                             "type": "string"
@@ -341,7 +341,7 @@
                   "subjectuuid": {
                     "anyOf": [
                       {
-                        "description": "The id of the device to which the ace applies to or \"*\" for anonymous access",
+                        "description": "The id of the Device to which the ace applies to or \"*\" for anonymous access.",
                         "pattern": "^\\*$",
                         "type": "string"
                       },
@@ -353,16 +353,16 @@
                     ]
                   },
                   "validity": {
-                    "description": "validity is an array of time-pattern objects",
+                    "description": "validity is an array of time-pattern objects.",
                     "items": {
-                      "description": "The time-pattern contains a period and recurrence expressed in RFC5545 syntax",
+                      "description": "The time-pattern contains a period and recurrence expressed in RFC5545 syntax.",
                       "properties": {
                         "period": {
-                          "description": "String represents a period using the RFC5545 Period",
+                          "description": "String represents a period using the RFC5545 Period.",
                           "type": "string"
                         },
                         "recurrence": {
-                          "description": "String array represents a recurrence rule using the RFC5545 Recurrence",
+                          "description": "String array represents a recurrence rule using the RFC5545 Recurrence.",
                           "items": {
                             "type": "string"
                           },
@@ -399,7 +399,7 @@
           "$ref": "https://openconnectivityfoundation.github.io/core/schemas/oic.common.properties.core-schema.json#/definitions/id"
         },
         "if": {
-          "description": "The interface set supported by this resource",
+          "description": "The interface set supported by this Resource.",
           "items": {
             "enum": [
               "oic.if.baseline"

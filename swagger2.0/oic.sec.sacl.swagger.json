@@ -85,7 +85,7 @@
         }
       },
       "post": {
-        "description": "Sets the sacl resource data\n",
+        "description": "Sets the sacl Resource data.\n",
         "parameters": [
           {"$ref": "#/parameters/interface"},
           {
@@ -164,7 +164,7 @@
         }
       },
       "put": {
-        "description": "Sets the sacl resource data\n",
+        "description": "Sets the sacl Resource data\n",
         "parameters": [
           {"$ref": "#/parameters/interface"},
           {
@@ -252,7 +252,7 @@
         ],
         "responses": {
             "200": {
-              "description" : "The signed ACL instance or the the entire signed ACL resource has been successfully deleted."
+              "description" : "The signed ACL instance or the the entire signed ACL Resource has been successfully deleted."
             },
             "400": {
               "description" : "The request is invalid."
@@ -273,7 +273,7 @@
     "Sacl" : {
       "properties": {
         "rt": {
-          "description": "Resource Type of the Resource",
+          "description": "Resource Type of the Resource.",
           "items": {
             "maxLength": 64,
             "type": "string",
@@ -284,7 +284,7 @@
           "type": "array"
         },
         "aclist2": {
-          "description": "Access Control Entries in the Acl resource",
+          "description": "Access Control Entries in the ACL Resource.",
           "items": {
             "properties": {
               "aceid": {
@@ -293,28 +293,28 @@
                 "type": "integer"
               },
               "permission": {
-                "description": "Bitmask encoding of CRUDN permission\nThe encoded bitmask indicating permissions",
+                "description": "Bitmask encoding of CRUDN permission\nThe encoded bitmask indicating permissions.",
                 "x-detail-desc": [
-                  "0  - No permissions",
-                  "1 - Create permission is granted",
-                  "2 - Read, observe, discover permission is granted",
-                  "4 - Write, update permission is granted",
-                  "8 - Delete permission is granted",
-                  "16 - Notify permission is granted"
+                  "0  - No permissions.",
+                  "1 - Create permission is granted.",
+                  "2 - Read, observe, discover permission is granted.",
+                  "4 - Write, update permission is granted.",
+                  "8 - Delete permission is granted.",
+                  "16 - Notify permission is granted."
                 ],
                 "maximum": 31,
                 "minimum": 0,
                 "type": "integer"
               },
               "resources": {
-                "description": "References the application's resources to which a security policy applies",
+                "description": "References the application's Resources to which a security policy applies.",
                 "items": {
-                  "description": "Each resource must have at least one of these properties set",
+                  "description": "Each Resource must have at least one of these properties set.",
                   "properties": {
                     "href": {
                       "allOf": [
                         {
-                          "description": "When present, the ACE only applies when the href matches"
+                          "description": "When present, the ACE only applies when the href matches."
                         },
                         {
                           "description": "This is the target URI, it can be specified as a Relative Reference or fully-qualified URI.",
@@ -325,7 +325,7 @@
                       ]
                     },
                     "if": {
-                      "description": "When present, the ACE only applies when the if (interface) matches\nThe interface set supported by this resource",
+                      "description": "When present, the ACE only applies when the if (interface) matches\nThe interface set supported by this Resource.",
                       "items": {
                         "enum": [
                           "oic.if.baseline",
@@ -342,7 +342,7 @@
                       "type": "array"
                     },
                     "rt": {
-                      "description": "When present, the ACE only applies when the rt (resource type) matches\nResource Type of the Resource",
+                      "description": "When present, the ACE only applies when the rt (resource type) matches\nResource Type of the Resource.",
                       "items": {
                         "maxLength": 64,
                         "type": "string"
@@ -351,7 +351,7 @@
                       "type": "array"
                     },
                     "wc": {
-                      "description": "A wildcard matching policy",
+                      "description": "A wildcard matching policy.",
                       "pattern": "^[-+*]$",
                       "type": "string"
                     }
@@ -363,7 +363,7 @@
               "subject": {
                 "anyOf": [
                   {
-                    "description": "Device identifier",
+                    "description": "Device identifier.",
                     "properties": {
                       "uuid": {
                         "description": "A UUID Device ID\nFormat pattern according to IETF RFC 4122.",
@@ -377,10 +377,10 @@
                     "type": "object"
                   },
                   {
-                    "description": "Security role specified as an <Authority> & <Rolename>. A NULL <Authority> refers to the local entity or device.",
+                    "description": "Security role specified as an <Authority> & <Rolename>. A NULL <Authority> refers to the local entity or Device.",
                     "properties": {
                       "authority": {
-                        "description": "The Authority component of the entity being identified. A NULL <Authority> refers to the local entity or device.",
+                        "description": "The Authority component of the entity being identified. A NULL <Authority> refers to the local entity or Device.",
                         "type": "string"
                       },
                       "role": {
@@ -396,10 +396,10 @@
                   {
                     "properties": {
                       "conntype": {
-                        "description": "This property allows an ACE to be matched based on the connection or message type",
+                        "description": "This property allows an ACE to be matched based on the connection or message type.",
                         "x-detail-desc": [
-                          "auth-crypt - ACE applies if the Client is authenticated and the data channel or message is encrypted and integrity protected",
-                          "anon-clear - ACE applies if the Client is not authenticated and the data channel or message is not encrypted but may be integrity protected"
+                          "auth-crypt - ACE applies if the Client is authenticated and the data channel or message is encrypted and integrity protected.",
+                          "anon-clear - ACE applies if the Client is not authenticated and the data channel or message is not encrypted but may be integrity protected."
                         ],
                         "enum": [
                           "auth-crypt",
@@ -416,16 +416,16 @@
                 ]
               },
               "validity": {
-                "description": "validity is an array of time-pattern objects",
+                "description": "validity is an array of time-pattern objects.",
                 "items": {
-                  "description": "The time-pattern contains a period and recurrence expressed in RFC5545 syntax",
+                  "description": "The time-pattern contains a period and recurrence expressed in RFC5545 syntax.",
                   "properties": {
                     "period": {
-                      "description": "String represents a period using the RFC5545 Period",
+                      "description": "String represents a period using the RFC5545 Period.",
                       "type": "string"
                     },
                     "recurrence": {
-                      "description": "String array represents a recurrence rule using the RFC5545 Recurrence",
+                      "description": "String array represents a recurrence rule using the RFC5545 Recurrence.",
                       "items": {
                         "type": "string"
                       },
@@ -457,14 +457,14 @@
           "$ref": "https://openconnectivityfoundation.github.io/core/schemas/oic.common.properties.core-schema.json#/definitions/id"
         },
         "signature": {
-          "description": "The signature over the ACL resource\nEncoded signature data",
+          "description": "The signature over the ACL Resource\nEncoded signature data.",
           "properties": {
             "sigtype": {
-              "description": "The string specifies the predefined signature format",
+              "description": "The string specifies the predefined signature format.",
               "x-detail-desc": [
-                "RFC7515 JSON web signature (JWS) object",
-                "RFC2315 base64 encoded object",
-                "CBOR encoded JWS object"
+                "RFC7515 JSON web signature (JWS) object.",
+                "RFC2315 base64 encoded object.",
+                "CBOR encoded JWS object."
               ],
               "enum": [
                 "oic.sec.sigtype.jws",
@@ -474,7 +474,7 @@
               "type": "string"
             },
             "sigvalue": {
-              "description": "The encoded signature",
+              "description": "The encoded signature.",
               "type": "string"
             }
           },
@@ -485,7 +485,7 @@
           "type": "object"
         },
         "if": {
-          "description": "The interface set supported by this resource",
+          "description": "The interface set supported by this Resource.",
           "items": {
             "enum": [
               "oic.if.baseline"

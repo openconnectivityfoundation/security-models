@@ -16,7 +16,7 @@
   "paths": {
     "/oic/sec/csr" : {
       "get": {
-        "description": "This resource specifies a Certificate Signing Request.\n",
+        "description": "This Resource specifies a Certificate Signing Request.\n",
         "parameters": [
           {"$ref": "#/parameters/interface"}
         ],
@@ -32,10 +32,10 @@
               "schema": { "$ref": "#/definitions/Csr" }
             },
             "404": {
-              "description" : "The device does not support certificates and generating CSRs."
+              "description" : "The Device does not support certificates and generating CSRs."
             },
             "503": {
-              "description" : "The device is not yet ready to return a response. Try again later."
+              "description" : "The Device is not yet ready to return a response. Try again later."
             }
         }
       }
@@ -53,7 +53,7 @@
     "Csr" : {
       "properties": {
         "rt" : {
-          "description": "Resource Type of the Resource",
+          "description": "Resource Type of the Resource.",
           "items": {
             "maxLength": 64,
             "type": "string",
@@ -64,10 +64,10 @@
           "type": "array"
         },
         "encoding": {
-          "description": "A string specifying the encoding format of the data contained in csr",
+          "description": "A string specifying the encoding format of the data contained in CSR.",
           "x-detail-desc": [
-            "oic.sec.encoding.pem - Encoding for PEM encoded CSR",
-            "oic.sec.encoding.der - Encoding for DER encoded CSR"
+            "oic.sec.encoding.pem - Encoding for PEM encoded CSR.",
+            "oic.sec.encoding.der - Encoding for DER encoded CSR."
           ],
           "enum": [
             "oic.sec.encoding.pem",
@@ -83,13 +83,13 @@
           "$ref": "https://openconnectivityfoundation.github.io/core/schemas/oic.common.properties.core-schema.json#/definitions/id"
         },
         "csr": {
-          "description": "Signed CSR in ASN.1 in the encoding specified by the encoding property",
+          "description": "Signed CSR in ASN.1 in the encoding specified by the encoding property.",
           "maxLength": 3072,
           "readOnly": true,
           "type": "string"
         },
         "if": {
-          "description": "The interface set supported by this resource",
+          "description": "The interface set supported by this Resource.",
           "items": {
             "enum": [
               "oic.if.baseline"

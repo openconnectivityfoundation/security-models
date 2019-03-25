@@ -16,7 +16,7 @@
   "paths": {
     "/oic/sec/doxm" : {
       "get": {
-        "description": "This resource specifies properties needed to establish a device owner.\n",
+        "description": "This Resource specifies properties needed to establish a Device owner.\n",
         "parameters": [
           {"$ref": "#/parameters/interface"}
         ],
@@ -43,7 +43,7 @@
         }
       },
       "post": {
-        "description": "Updates the DOXM resource data\n",
+        "description": "Updates the DOXM Resource data.\n",
         "parameters": [
           {"$ref": "#/parameters/interface"},
           {
@@ -89,9 +89,9 @@
           "type": "string"
         },
         "oxms": {
-          "description": "List of supported owner transfer methods",
+          "description": "List of supported owner transfer methods.",
           "items": {
-            "description": "The device owner transfer methods that may be selected at device on-boarding. Each value indicates a specific Owner Transfer method0 - Numeric OTM identifier for the Just-Works method (oic.sec.doxm.jw)1 - Numeric OTM identifier for the random PIN method (oic.sec.doxm.rdp)2 - Numeric OTM identifier for the manufacturer certificate method (oic.sec.doxm.mfgcert)3 - Numeric OTM identifier for the decap method (oic.sec.doxm.dcap) (deprecated)",
+            "description": "The Device owner transfer methods that may be selected at Device on-boarding. Each value indicates a specific Owner Transfer method0 - Numeric OTM identifier for the Just-Works method (oic.sec.doxm.jw)1 - Numeric OTM identifier for the random PIN method (oic.sec.doxm.rdp)2 - Numeric OTM identifier for the manufacturer certificate method (oic.sec.doxm.mfgcert)3 - Numeric OTM identifier for the decap method (oic.sec.doxm.dcap) (deprecated).",
             "type": "integer"
           },
           "readOnly": true,
@@ -103,12 +103,12 @@
           "type": "string"
         },
         "deviceuuid": {
-          "description": "The uuid formatted identity of the device\nFormat pattern according to IETF RFC 4122.",
+          "description": "The uuid formatted identity of the Device\nFormat pattern according to IETF RFC 4122.",
           "pattern": "^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$",
           "type": "string"
         },
         "owned": {
-          "description": "Ownership status flag",
+          "description": "Ownership status flag.",
           "type": "boolean"
         },
         "n": {
@@ -118,18 +118,18 @@
           "$ref": "https://openconnectivityfoundation.github.io/core/schemas/oic.common.properties.core-schema.json#/definitions/id"
         },
         "oxmsel": {
-              "description": "The selected owner transfer method used during on-boarding\nThe device owner transfer methods that may be selected at device on-boarding. Each value indicates a specific Owner Transfer method0 - Numeric OTM identifier for the Just-Works method (oic.sec.doxm.jw)1 - Numeric OTM identifier for the random PIN method (oic.sec.doxm.rdp)2 - Numeric OTM identifier for the manufacturer certificate method (oic.sec.doxm.mfgcert)3 - Numeric OTM identifier for the decap method (oic.sec.doxm.dcap) (deprecated)",
+              "description": "The selected owner transfer method used during on-boarding\nThe Device owner transfer methods that may be selected at Device on-boarding. Each value indicates a specific Owner Transfer method0 - Numeric OTM identifier for the Just-Works method (oic.sec.doxm.jw)1 - Numeric OTM identifier for the random PIN method (oic.sec.doxm.rdp)2 - Numeric OTM identifier for the manufacturer certificate method (oic.sec.doxm.mfgcert)3 - Numeric OTM identifier for the decap method (oic.sec.doxm.dcap) (deprecated).",
               "type": "integer"
         },
         "sct": {
-              "description": "Bitmask encoding of supported credential types\nCredential Types - Cred type encoded as a bitmask.0 - Empty credential used for testing1 - Symmetric pair-wise key2 - Symmetric group key4 - Asymmetric signing key8 - Asymmetric signing key with certificate16 - PIN or password32 - Asymmetric encryption key",
+              "description": "Bitmask encoding of supported credential types\nCredential Types - Cred type encoded as a bitmask.0 - Empty credential used for testing1 - Symmetric pair-wise key2 - Symmetric group key4 - Asymmetric signing key8 - Asymmetric signing key with certificate16 - PIN or password32 - Asymmetric encryption key.",
               "maximum": 63,
               "minimum": 0,
               "type": "integer",
               "readOnly": true
         },
         "rt" : {
-          "description": "Resource Type of the Resource",
+          "description": "Resource Type of the Resource.",
           "items": {
             "maxLength": 64,
             "type": "string",
@@ -140,7 +140,7 @@
           "type": "array"
         },
         "if": {
-          "description": "The interface set supported by this resource",
+          "description": "The interface set supported by this Resource.",
           "items": {
             "enum": [
               "oic.if.baseline"
@@ -168,16 +168,16 @@
           "type": "string"
         },
         "deviceuuid": {
-              "description": "The uuid formatted identity of the device\nFormat pattern according to IETF RFC 4122.",
+              "description": "The uuid formatted identity of the Device\nFormat pattern according to IETF RFC 4122.",
               "pattern": "^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$",
               "type": "string"
         },
         "owned": {
-          "description": "Ownership status flag",
+          "description": "Ownership status flag.",
           "type": "boolean"
         },
         "oxmsel": {
-              "description": "The selected owner transfer method used during on-boarding\nThe device owner transfer methods that may be selected at device on-boarding. Each value indicates a specific Owner Transfer method0 - Numeric OTM identifier for the Just-Works method (oic.sec.doxm.jw)1 - Numeric OTM identifier for the random PIN method (oic.sec.doxm.rdp)2 - Numeric OTM identifier for the manufacturer certificate method (oic.sec.doxm.mfgcert)3 - Numeric OTM identifier for the decap method (oic.sec.doxm.dcap) (deprecated)",
+              "description": "The selected owner transfer method used during on-boarding\nThe Device owner transfer methods that may be selected at Device on-boarding. Each value indicates a specific Owner Transfer method0 - Numeric OTM identifier for the Just-Works method (oic.sec.doxm.jw)1 - Numeric OTM identifier for the random PIN method (oic.sec.doxm.rdp)2 - Numeric OTM identifier for the manufacturer certificate method (oic.sec.doxm.mfgcert)3 - Numeric OTM identifier for the decap method (oic.sec.doxm.dcap) (deprecated).",
               "type": "integer"
         }
       },
