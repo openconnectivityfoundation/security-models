@@ -114,10 +114,8 @@
                            "data":"PEMENCODEDISSUERCERT"
                         }
                     }
-                ],
-                "rt":["oic.r.roles"],
-                "if":["oic.if.baseline"]
-                }
+                ]
+              }
           }
         ],
         "responses": {
