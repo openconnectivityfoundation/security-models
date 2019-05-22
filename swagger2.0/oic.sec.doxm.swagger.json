@@ -54,7 +54,6 @@
             "x-example":
               {
                 "oxmsel": 0,
-                "owned": true,
                 "deviceuuid": "de305d54-75b4-431b-adb2-eb6b9e546014",
                 "devowneruuid": "e61c3e6b-9c54-4b81-8ce5-f9039c1d04d9",
                 "rowneruuid": "e61c3e6b-9c54-4b81-8ce5-f9039c1d04d9"
@@ -109,6 +108,7 @@
         },
         "owned": {
           "description": "Ownership status flag.",
+          "readOnly": true,
           "type": "boolean"
         },
         "n": {
@@ -171,10 +171,6 @@
               "description": "The uuid formatted identity of the Device\nFormat pattern according to IETF RFC 4122.",
               "pattern": "^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$",
               "type": "string"
-        },
-        "owned": {
-          "description": "Ownership status flag.",
-          "type": "boolean"
         },
         "oxmsel": {
               "description": "The selected owner transfer method used during on-boarding\nThe Device owner transfer methods that may be selected at Device on-boarding. Each value indicates a specific Owner Transfer method0 - Numeric OTM identifier for the Just-Works method (oic.sec.doxm.jw)1 - Numeric OTM identifier for the random PIN method (oic.sec.doxm.rdp)2 - Numeric OTM identifier for the manufacturer certificate method (oic.sec.doxm.mfgcert)3 - Numeric OTM identifier for the decap method (oic.sec.doxm.dcap) (deprecated).",
