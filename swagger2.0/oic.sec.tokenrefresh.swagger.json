@@ -16,7 +16,7 @@
   "paths": {
     "/oic/sec/tokenrefresh" : {
       "post": {
-        "description": "Obtain fresh access-token using the refresh token, client should refresh access-token before it expires.\n",
+        "description": "Obtain fresh Access Token using the refresh token, client should refresh Access Token before it expires.\n",
         "parameters": [
           {"$ref": "#/parameters/interface"},
           {
@@ -82,7 +82,7 @@
     "TokenRefresh-Response" : {
       "properties": {
         "expiresin": {
-          "description": "Access-Token life time in seconds (-1 if permanent).",
+          "description": "Access Token life time in seconds (-1 if permanent).",
           "readOnly": true,
           "type": "integer"
         },
@@ -103,7 +103,7 @@
           "type": "string"
         },
         "accesstoken": {
-          "description": "Granted Access-Token.",
+          "description": "Granted Access Token.",
           "pattern": "(?!$|\\s+).*",
           "readOnly": true,
           "type": "string"
