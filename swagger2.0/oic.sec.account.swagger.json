@@ -73,16 +73,16 @@
     "Account-request" : {
       "properties": {
         "authprovider": {
-          "description": "The name of Authorization Provider through which Access Token was obtained",
+          "description": "The name of Authorization Provider through which Access Token was obtained.",
           "type": "string"
         },
         "accesstoken" : {
-          "description": "Access-Token used for communication with OCF Cloud after account creation",
+          "description": "Access-Token used for communication with OCF Cloud after account creation.",
           "pattern": "(?!$|\\s+).*",
           "type": "string"
         },
         "di": {
-          "description": "Format pattern according to IETF RFC 4122.",
+          "description": "Unique Device identifier. Format pattern according to IETF RFC 4122.",
           "pattern": "^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$",
           "type": "string"
         }
@@ -93,7 +93,7 @@
     "Account-response": {
       "properties": {
         "expiresin" : {
-          "description": "Access-Token remaining life time in seconds (-1 if permanent)",
+          "description": "Access-Token life time in seconds (-1 if permanent).",
           "readOnly": true,
           "type": "integer"
         },
@@ -110,18 +110,19 @@
           "type": "array"
         },
         "refreshtoken" : {
-          "description": "Refresh token can be used to refresh the Access Token before getting expired",
+          "description": "Refresh token can be used to refresh the Access Token before getting expired.",
           "pattern": "(?!$|\\s+).*",
           "readOnly": true,
           "type": "string"
         },
         "uid" : {
-          "description": "Format pattern according to IETF RFC 4122.",
+          "description": "Unique OCF Cloud User identifier. Format pattern according to IETF RFC 4122.",
           "pattern": "^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$",
+          "readOnly": true,
           "type": "string"
         },
         "accesstoken" : {
-          "description": "Access-Token used for communication with cloud after account creation",
+          "description": "Access-Token used for communication with cloud after account creation.",
           "pattern": "(?!$|\\s+).*",
           "type": "string"
         },
