@@ -69,7 +69,7 @@
           "type": "string"
         },
         "accesstoken": {
-          "description": "Access-Token used to grant access right for the Device to login/sign-in.",
+          "description": "Access Token used to grant access right for the Device to login/sign-in.",
           "pattern": "(?!$|\\s+).*",
           "type": "string"
         },
@@ -84,7 +84,7 @@
     "Account-Session-Response" : {
       "properties": {
         "expiresin": {
-          "description": "Remaining Access-Token life time in seconds (-1 if permanent). This Property is only provided to Device during connection establishment (when \"login\" Property Value equals \"true\"), it’s not available otherwise.",
+          "description": "Remaining Access Token life time in seconds (-1 if permanent). This Property is only provided to Device during connection establishment (when \"login\" Property Value equals \"true\"), it’s not available otherwise.",
           "readOnly": true,
           "type": "integer"
         },
