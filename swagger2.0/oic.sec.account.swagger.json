@@ -77,7 +77,7 @@
           "type": "string"
         },
         "accesstoken" : {
-          "description": "Access-Token used for communication with OCF Cloud.",
+          "description": "Access Token used for communication with OCF Cloud.",
           "pattern": "(?!$|\\s+).*",
           "type": "string"
         },
@@ -93,7 +93,7 @@
     "Account-response": {
       "properties": {
         "expiresin" : {
-          "description": "Access-Token life time in seconds (-1 if permanent).",
+          "description": "Access Token life time in seconds (-1 if permanent).",
           "readOnly": true,
           "type": "integer"
         },
@@ -122,7 +122,7 @@
           "type": "string"
         },
         "accesstoken" : {
-          "description": "Access-Token used for communication with OCF Cloud.",
+          "description": "Access Token used for communication with OCF Cloud.",
           "pattern": "(?!$|\\s+).*",
           "type": "string"
         },
