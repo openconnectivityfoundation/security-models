@@ -77,7 +77,7 @@
           "type": "string"
         },
         "accesstoken" : {
-          "description": "Access-Token used for communication with OCF Cloud after account creation.",
+          "description": "Access-Token used for communication with OCF Cloud.",
           "pattern": "(?!$|\\s+).*",
           "type": "string"
         },
@@ -122,7 +122,7 @@
           "type": "string"
         },
         "accesstoken" : {
-          "description": "Access-Token used for communication with cloud after account creation.",
+          "description": "Access-Token used for communication with OCF Cloud.",
           "pattern": "(?!$|\\s+).*",
           "type": "string"
         },
