@@ -61,7 +61,7 @@
     "TokenRefresh-Request" : {
       "properties": {
         "refreshtoken": {
-          "description": "Refresh token received by account management or during token refresh procedure.",
+          "description": "Refresh token can be used to refresh the Access Token before getting expired.",
           "pattern": "(?!$|\\s+).*",
           "type": "string"
         },
@@ -100,7 +100,7 @@
           "type": "array"
         },
         "refreshtoken": {
-          "description": "Refresh token received by account management or during token refresh procedure.",
+          "description": "Refresh token can be used to refresh the Access Token before getting expired.",
           "pattern": "(?!$|\\s+).*",
           "type": "string"
         },
