@@ -71,7 +71,7 @@
           "type": "string"
         },
         "accesstoken": {
-          "description": "Access Token used to grant access right for the Device to login/sign-in.",
+          "description": "Access Token used to authorize and associate the TLS connection for communication with the OCF Cloud with the Device ID.",
           "pattern": "(?!$|\\s+).*",
           "writeOnly": true,
           "type": "string"
