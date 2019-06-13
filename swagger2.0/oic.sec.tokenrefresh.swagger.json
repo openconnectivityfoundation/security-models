@@ -105,7 +105,7 @@
           "type": "string"
         },
         "accesstoken": {
-          "description": "Granted Access Token.",
+          "description": "Access Token used to authorize and associate the TLS connection for communication with the OCF Cloud with the Device ID.",
           "pattern": "(?!$|\\s+).*",
           "readOnly": true,
           "type": "string"
