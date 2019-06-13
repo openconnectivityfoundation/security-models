@@ -78,7 +78,7 @@
           "type": "string"
         },
         "accesstoken" : {
-          "description": "Access -Token used to authorize and associate the TLS connection for communication with the OCF Cloud with the Device ID, or the Authorization Code which is then verified and exchanged for the Access Token during Device Registration",
+          "description": "Access Token used to authorize and associate the TLS connection for communication with the OCF Cloud with the Device ID, or the Authorization Code which is then verified and exchanged for the Access Token during Device Registration.",
           "pattern": "(?!$|\\s+).*",
           "writeOnly": true,
           "type": "string"
@@ -125,7 +125,7 @@
           "type": "string"
         },
         "accesstoken" : {
-          "description": "Access -Token used to authorize and associate the TLS connection for communication with the OCF Cloud with the Device ID",
+          "description": "Access Token used to authorize and associate the TLS connection for communication with the OCF Cloud with the Device ID.",
           "pattern": "(?!$|\\s+).*",
           "readOnly": true,
           "type": "string"
