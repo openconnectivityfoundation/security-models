@@ -66,12 +66,10 @@
         "encoding": {
           "description": "A string specifying the encoding format of the data contained in CSR.",
           "x-detail-desc": [
-            "oic.sec.encoding.pem - Encoding for PEM encoded CSR.",
-            "oic.sec.encoding.der - Encoding for DER encoded CSR."
+            "oic.sec.encoding.pem - Encoding for PEM encoded CSR."
           ],
           "enum": [
-            "oic.sec.encoding.pem",
-            "oic.sec.encoding.der"
+            "oic.sec.encoding.pem"
           ],
           "readOnly": true,
           "type": "string"
