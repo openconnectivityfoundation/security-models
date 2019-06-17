@@ -62,7 +62,7 @@
       "properties": {
         "refreshtoken": {
           "description": "Refresh token can be used to refresh the Access Token before getting expired.",
-          "pattern": "(?!$|\\s+).*",
+          "writeOnly": true,
           "type": "string"
         },
         "uid": {
@@ -101,12 +101,11 @@
         },
         "refreshtoken": {
           "description": "Refresh token can be used to refresh the Access Token before getting expired.",
-          "pattern": "(?!$|\\s+).*",
+          "readOnly": true,
           "type": "string"
         },
         "accesstoken": {
           "description": "Access Token used to authorize and associate the TLS connection for communication with the OCF Cloud with the Device ID.",
-          "pattern": "(?!$|\\s+).*",
           "readOnly": true,
           "type": "string"
         },
