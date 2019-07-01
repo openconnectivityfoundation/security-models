@@ -320,10 +320,12 @@
                   "encoding": {
                     "description": "A string specifying the encoding format of the data contained in the privdata.",
                     "x-detail-desc": [
-                      "oic.sec.encoding.handle - Data is contained in a storage sub-system referenced using a handle",
+                      "oic.sec.encoding.pem - Encoding for PEM encoded private key.",
+                      "oic.sec.encoding.handle - Data is contained in a storage sub-system referenced using a handle.",
                       "oic.sec.encoding.raw - Raw hex encoded data."
                     ],
                     "enum": [
+                      "oic.sec.encoding.pem",
                       "oic.sec.encoding.handle",
                       "oic.sec.encoding.raw"
                     ],
@@ -501,10 +503,12 @@
                   "encoding": {
                     "description": "A string specifying the encoding format of the data contained in the privdata.",
                     "x-detail-desc": [
+                      "oic.sec.encoding.pem - Encoding for PEM encoded private key.",                      
                       "oic.sec.encoding.handle - Data is contained in a storage sub-system referenced using a handle.",
                       "oic.sec.encoding.raw - Raw hex encoded data."
                     ],
                     "enum": [
+                      "oic.sec.encoding.pem",                      
                       "oic.sec.encoding.handle",
                       "oic.sec.encoding.raw"
                     ],
