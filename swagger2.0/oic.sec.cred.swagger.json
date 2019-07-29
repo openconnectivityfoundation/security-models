@@ -137,7 +137,7 @@
                     "credtype": 1,
                     "publicdata": {
                       "encoding": "oic.sec.encoding.pem",
-                      "data": "BASE-64-ENCODED-VALUE"
+                      "data": "PEM-ENCODED-VALUE"
                     },
                     "privatedata": {
                       "encoding": "oic.sec.encoding.raw",
@@ -147,7 +147,7 @@
                     "optionaldata": {
                       "revstat": false,
                       "encoding": "oic.sec.encoding.pem",
-                      "data": "RAW-ENCODED-VALUE"
+                      "data": "PEM-ENCODED-VALUE"
                     },
                     "period": "20160101T180000Z/20170102T070000Z",
                     "crms": [ "oic.sec.crm.pk10" ]
@@ -321,11 +321,13 @@
                     "description": "A string specifying the encoding format of the data contained in the privdata.",
                     "x-detail-desc": [
                       "oic.sec.encoding.pem - Encoding for PEM encoded private key.",
+                      "oic.sec.encoding.base64 - Encoding for Base64 encoded PSK.",
                       "oic.sec.encoding.handle - Data is contained in a storage sub-system referenced using a handle.",
                       "oic.sec.encoding.raw - Raw hex encoded data."
                     ],
                     "enum": [
                       "oic.sec.encoding.pem",
+                      "oic.sec.encoding.base64",
                       "oic.sec.encoding.handle",
                       "oic.sec.encoding.raw"
                     ],
@@ -504,11 +506,13 @@
                     "description": "A string specifying the encoding format of the data contained in the privdata.",
                     "x-detail-desc": [
                       "oic.sec.encoding.pem - Encoding for PEM encoded private key.",                      
+                      "oic.sec.encoding.base64 - Encoding for Base64 encoded PSK.",
                       "oic.sec.encoding.handle - Data is contained in a storage sub-system referenced using a handle.",
                       "oic.sec.encoding.raw - Raw hex encoded data."
                     ],
                     "enum": [
-                      "oic.sec.encoding.pem",                      
+                      "oic.sec.encoding.pem",                     
+                      "oic.sec.encoding.base64",
                       "oic.sec.encoding.handle",
                       "oic.sec.encoding.raw"
                     ],
