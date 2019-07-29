@@ -67,8 +67,8 @@
                         "data": "PEM-ENCODED-VALUE"
                       },
                       "privatedata": {
-                        "encoding": "oic.sec.encoding.raw",
-                        "data": "RAW-ENCODED-VALUE",
+                        "encoding": "oic.sec.encoding.base64",
+                        "data": "BASE-64-ENCODED-VALUE",
                         "handle": 4
                       },
                       "optionaldata": {
@@ -140,8 +140,8 @@
                       "data": "PEM-ENCODED-VALUE"
                     },
                     "privatedata": {
-                      "encoding": "oic.sec.encoding.raw",
-                      "data": "RAW-ENCODED-VALUE",
+                      "encoding": "oic.sec.encoding.base64",
+                      "data": "BASE-64-ENCODED-VALUE",
                       "handle": 4
                     },
                     "optionaldata": {
