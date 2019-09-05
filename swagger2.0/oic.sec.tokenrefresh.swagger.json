@@ -16,7 +16,7 @@
   "paths": {
     "/oic/sec/tokenrefresh" : {
       "post": {
-        "description": "Obtain fresh access-token using the refresh token, client should refresh access-token before it expires.\n",
+        "description": "Obtain fresh Access Token using the refresh token, client should refresh Access Token before it expires.\n",
         "parameters": [
           {"$ref": "#/parameters/interface"},
           {
@@ -61,17 +61,16 @@
     "TokenRefresh-Request" : {
       "properties": {
         "refreshtoken": {
-          "description": "Refresh token received by account management or during token refresh procedure.",
-          "pattern": "(?!$|\\s+).*",
+          "description": "Refresh token can be used to refresh the Access Token before getting expired.",
           "type": "string"
         },
         "uid": {
-          "description": "Format pattern according to IETF RFC 4122.",
+          "description": "User ID provided by Sign-up process. Format pattern according to IETF RFC 4122.",
           "pattern": "^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$",
           "type": "string"
         },
         "di": {
-          "description": "Format pattern according to IETF RFC 4122.",
+          "description": "Unique device id registered for an OCF Cloud User account. Format pattern according to IETF RFC 4122.",
           "pattern": "^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$",
           "type": "string"
         }
@@ -82,7 +81,7 @@
     "TokenRefresh-Response" : {
       "properties": {
         "expiresin": {
-          "description": "Access-Token life time in seconds (-1 if permanent).",
+          "description": "Access Token life time in seconds (-1 if permanent).",
           "readOnly": true,
           "type": "integer"
         },
@@ -98,13 +97,12 @@
           "type": "array"
         },
         "refreshtoken": {
-          "description": "Refresh token received by account management or during token refresh procedure.",
-          "pattern": "(?!$|\\s+).*",
+          "description": "Refresh token can be used to refresh the Access Token before getting expired.",
+          "readOnly": true,
           "type": "string"
         },
         "accesstoken": {
-          "description": "Granted Access-Token.",
-          "pattern": "(?!$|\\s+).*",
+          "description": "Access Token used to authorize and associate the TLS connection for communication with the OCF Cloud with the Device ID.",
           "readOnly": true,
           "type": "string"
         },
