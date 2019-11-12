@@ -28,7 +28,8 @@
               {
                 "di" : "9cfbeb8e-5a1e-4d1c-9d01-00c04fd430c8",
                 "authprovider" : "github",
-                "accesstoken" : "8802f2eaf8b5e147a936"
+                "accesstoken" : "8802f2eaf8b5e147a936",
+                "cloudid" : "16e00de0-6d6c-498b-b437-66718ab9ebf9"
               }
           }
         ],
@@ -82,6 +83,11 @@
         },
         "di": {
           "description": "Unique Device identifier. Format pattern according to IETF RFC 4122.",
+          "pattern": "^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$",
+          "type": "string"
+        },
+        "cloudid": {
+          "description": "Unique Cloud identifier. Format pattern according to IETF RFC 4122.",
           "pattern": "^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$",
           "type": "string"
         }
