@@ -38,18 +38,18 @@
                       },
                       "credtype": 32,
                       "publicdata": {
-                        "encoding": "oic.sec.encoding.base64",
-                        "data": "BASE-64-ENCODED-VALUE"
+                        "encoding": "oic.sec.encoding.pem",
+                        "data": "PEM-ENCODED-VALUE"
                       },
                       "privatedata": {
-                        "encoding": "oic.sec.encoding.base64",
-                        "data": "BASE-64-ENCODED-VALUE",
+                        "encoding": "oic.sec.encoding.raw",
+                        "data": "RAW-ENCODED-VALUE",
                         "handle": 4
                       },
                       "optionaldata": {
                         "revstat": false,
-                        "encoding": "oic.sec.encoding.base64",
-                        "data": "BASE-64-ENCODED-VALUE"
+                        "encoding": "oic.sec.encoding.pem",
+                        "data": "PEM-ENCODED-VALUE"
                       },
                       "period": "20160101T180000Z/20170102T070000Z",
                       "crms": [ "oic.sec.crm.pk10" ]
@@ -63,8 +63,8 @@
                       },
                       "credtype": 1,
                       "publicdata": {
-                        "encoding": "oic.sec.encoding.base64",
-                        "data": "BASE-64-ENCODED-VALUE"
+                        "encoding": "oic.sec.encoding.pem",
+                        "data": "PEM-ENCODED-VALUE"
                       },
                       "privatedata": {
                         "encoding": "oic.sec.encoding.base64",
@@ -73,8 +73,8 @@
                       },
                       "optionaldata": {
                         "revstat": false,
-                        "encoding": "oic.sec.encoding.base64",
-                        "data": "BASE-64-ENCODED-VALUE"
+                        "encoding": "oic.sec.encoding.pem",
+                        "data": "PEM-ENCODED-VALUE"
                       },
                       "period": "20160101T180000Z/20170102T070000Z",
                       "crms": [ "oic.sec.crm.pk10" ]
@@ -111,18 +111,18 @@
                     },
                     "credtype": 32,
                     "publicdata": {
-                      "encoding": "oic.sec.encoding.base64",
-                      "data": "BASE-64-ENCODED-VALUE"
+                      "encoding": "oic.sec.encoding.pem",
+                      "data": "PEM-ENCODED-VALUE"
                     },
                     "privatedata": {
-                      "encoding": "oic.sec.encoding.base64",
-                      "data": "BASE-64-ENCODED-VALUE",
+                      "encoding": "oic.sec.encoding.raw",
+                      "data": "RAW-ENCODED-VALUE",
                       "handle": 4
                     },
                     "optionaldata": {
                       "revstat": false,
-                      "encoding": "oic.sec.encoding.base64",
-                      "data": "BASE-64-ENCODED-VALUE"
+                      "encoding": "oic.sec.encoding.pem",
+                      "data": "PEM-ENCODED-VALUE"
                     },
                     "period": "20160101T180000Z/20170102T070000Z",
                     "crms": [ "oic.sec.crm.pk10" ]
@@ -136,8 +136,8 @@
                     },
                     "credtype": 1,
                     "publicdata": {
-                      "encoding": "oic.sec.encoding.base64",
-                      "data": "BASE-64-ENCODED-VALUE"
+                      "encoding": "oic.sec.encoding.pem",
+                      "data": "PEM-ENCODED-VALUE"
                     },
                     "privatedata": {
                       "encoding": "oic.sec.encoding.base64",
@@ -146,8 +146,8 @@
                     },
                     "optionaldata": {
                       "revstat": false,
-                      "encoding": "oic.sec.encoding.base64",
-                      "data": "BASE-64-ENCODED-VALUE"
+                      "encoding": "oic.sec.encoding.pem",
+                      "data": "PEM-ENCODED-VALUE"
                     },
                     "period": "20160101T180000Z/20170102T070000Z",
                     "crms": [ "oic.sec.crm.pk10" ]
@@ -288,20 +288,10 @@
                   "encoding": {
                     "description": "A string specifying the encoding format of the data contained in the optdata.",
                     "x-detail-desc": [
-                      "oic.sec.encoding.jwt - RFC7517 JSON web token (JWT) encoding.",
-                      "oic.sec.encoding.cwt - RFC CBOR web token (CWT) encoding.",
-                      "oic.sec.encoding.base64 - Base64 encoded object.",
-                      "oic.sec.encoding.pem - Encoding for PEM encoded certificate or chain.",
-                      "oic.sec.encoding.der - Encoding for DER encoded certificate.",
-                      "oic.sec.encoding.raw - Raw hex encoded data."
+                      "oic.sec.encoding.pem - Encoding for PEM encoded certificate or chain."
                     ],
                     "enum": [
-                      "oic.sec.encoding.jwt",
-                      "oic.sec.encoding.cwt",
-                      "oic.sec.encoding.base64",
-                      "oic.sec.encoding.pem",
-                      "oic.sec.encoding.der",
-                      "oic.sec.encoding.raw"
+                      "oic.sec.encoding.pem"
                     ],
                     "type": "string"
                   },
@@ -328,12 +318,16 @@
                     "type": "string"
                   },
                   "encoding": {
-                    "description": "A string specifying the encoding format of the data contained in the privdata\noic.sec.encoding.jwt - RFC7517 JSON web token (JWT) encoding\noic.sec.encoding.cwt - RFC CBOR web token (CWT) encoding\noic.sec.encoding.base64 - Base64 encoded object\noic.sec.encoding.uri - URI reference\noic.sec.encoding.handle - Data is contained in a storage sub-system referenced using a handle\noic.sec.encoding.raw - Raw hex encoded data.",
+                    "description": "A string specifying the encoding format of the data contained in the privdata.",
+                    "x-detail-desc": [
+                      "oic.sec.encoding.pem - Encoding for PEM encoded private key.",
+                      "oic.sec.encoding.base64 - Encoding for Base64 encoded PSK.",
+                      "oic.sec.encoding.handle - Data is contained in a storage sub-system referenced using a handle.",
+                      "oic.sec.encoding.raw - Raw hex encoded data."
+                    ],
                     "enum": [
-                      "oic.sec.encoding.jwt",
-                      "oic.sec.encoding.cwt",
+                      "oic.sec.encoding.pem",
                       "oic.sec.encoding.base64",
-                      "oic.sec.encoding.uri",
                       "oic.sec.encoding.handle",
                       "oic.sec.encoding.raw"
                     ],
@@ -358,15 +352,12 @@
                     "type": "string"
                   },
                   "encoding": {
-                    "description": "A string specifying the encoding format of the data contained in the pubdata\noic.sec.encoding.jwt - RFC7517 JSON web token (JWT) encoding\noic.sec.encoding.cwt - RFC CBOR web token (CWT) encoding\noic.sec.encoding.base64 - Base64 encoded object\noic.sec.encoding.uri - URI reference\noic.sec.encoding.pem - Encoding for PEM encoded certificate or chain\noic.sec.encoding.der - Encoding for DER encoded certificate\noic.sec.encoding.raw - Raw hex encoded data.",
+                    "description": "A string specifying the encoding format of the data contained in the pubdata.",
+                    "x-detail-desc": [
+                      "oic.sec.encoding.pem - Encoding for PEM encoded certificate or chain."
+                    ],
                     "enum": [
-                      "oic.sec.encoding.jwt",
-                      "oic.sec.encoding.cwt",
-                      "oic.sec.encoding.base64",
-                      "oic.sec.encoding.uri",
-                      "oic.sec.encoding.pem",
-                      "oic.sec.encoding.der",
-                      "oic.sec.encoding.raw"
+                      "oic.sec.encoding.pem"
                     ],
                     "type": "string"
                   }
@@ -482,20 +473,10 @@
                   "encoding": {
                     "description": "A string specifying the encoding format of the data contained in the optdata.",
                     "x-detail-desc": [
-                      "oic.sec.encoding.jwt - RFC7517 JSON web token (JWT) encoding.",
-                      "oic.sec.encoding.cwt - RFC CBOR web token (CWT) encoding.",
-                      "oic.sec.encoding.base64 - Base64 encoded object.",
-                      "oic.sec.encoding.pem - Encoding for PEM encoded certificate or chain.",
-                      "oic.sec.encoding.der - Encoding for DER encoded certificate.",
-                      "oic.sec.encoding.raw - Raw hex encoded data."
+                      "oic.sec.encoding.pem - Encoding for PEM encoded certificate or chain."
                     ],
                     "enum": [
-                      "oic.sec.encoding.jwt",
-                      "oic.sec.encoding.cwt",
-                      "oic.sec.encoding.base64",
-                      "oic.sec.encoding.pem",
-                      "oic.sec.encoding.der",
-                      "oic.sec.encoding.raw"
+                      "oic.sec.encoding.pem"
                     ],
                     "type": "string"
                   },
@@ -524,18 +505,14 @@
                   "encoding": {
                     "description": "A string specifying the encoding format of the data contained in the privdata.",
                     "x-detail-desc": [
-                      "oic.sec.encoding.jwt - RFC7517 JSON web token (JWT) encoding.",
-                      "oic.sec.encoding.cwt - RFC CBOR web token (CWT) encoding.",
-                      "oic.sec.encoding.base64 - Base64 encoded object.",
-                      "oic.sec.encoding.uri - URI reference.",
+                      "oic.sec.encoding.pem - Encoding for PEM encoded private key.",                      
+                      "oic.sec.encoding.base64 - Encoding for Base64 encoded PSK.",
                       "oic.sec.encoding.handle - Data is contained in a storage sub-system referenced using a handle.",
                       "oic.sec.encoding.raw - Raw hex encoded data."
                     ],
                     "enum": [
-                      "oic.sec.encoding.jwt",
-                      "oic.sec.encoding.cwt",
+                      "oic.sec.encoding.pem",                     
                       "oic.sec.encoding.base64",
-                      "oic.sec.encoding.uri",
                       "oic.sec.encoding.handle",
                       "oic.sec.encoding.raw"
                     ],
@@ -561,22 +538,10 @@
                   "encoding": {
                     "description": "Public credential information\nA string specifying the encoding format of the data contained in the pubdata.",
                     "x-detail-desc": [
-                      "oic.sec.encoding.jwt - RFC7517 JSON web token (JWT) encoding.",
-                      "oic.sec.encoding.cwt - RFC CBOR web token (CWT) encoding.",
-                      "oic.sec.encoding.base64 - Base64 encoded object.",
-                      "oic.sec.encoding.uri - URI reference.",
-                      "oic.sec.encoding.pem - Encoding for PEM encoded certificate or chain.",
-                      "oic.sec.encoding.der - Encoding for DER encoded certificate.",
-                      "oic.sec.encoding.raw - Raw hex encoded data."
+                      "oic.sec.encoding.pem - Encoding for PEM encoded certificate or chain."
                     ],
                     "enum": [
-                      "oic.sec.encoding.jwt",
-                      "oic.sec.encoding.cwt",
-                      "oic.sec.encoding.base64",
-                      "oic.sec.encoding.uri",
-                      "oic.sec.encoding.pem",
-                      "oic.sec.encoding.der",
-                      "oic.sec.encoding.raw"
+                      "oic.sec.encoding.pem"
                     ],
                     "type": "string"
                   }
