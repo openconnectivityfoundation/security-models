@@ -36,14 +36,10 @@
                       },
                       "resources": [
                         {
-                          "href": "/light",
-                          "rt": ["oic.r.light"],
-                          "if": ["oic.if.baseline", "oic.if.a"]
+                          "href": "/light"
                         },
                         {
-                          "href": "/door",
-                          "rt": ["oic.r.door"],
-                          "if": ["oic.if.baseline", "oic.if.a"]
+                          "href": "/door"
                         }
                       ],
                       "permission": 24
@@ -55,14 +51,10 @@
                       },
                       "resources": [
                         {
-                          "href": "/light",
-                          "rt": ["oic.r.light"],
-                          "if": ["oic.if.baseline", "oic.if.a"]
+                          "href": "/light"
                         },
                         {
-                          "href": "/door",
-                          "rt": ["oic.r.door"],
-                          "if": ["oic.if.baseline", "oic.if.a"]
+                          "href": "/door"
                         }
                       ],
                       "permission": 24
@@ -72,14 +64,10 @@
                         "subject": {"conntype": "anon-clear"},
                         "resources": [
                           {
-                            "href": "/light",
-                            "rt": ["oic.r.light"],
-                            "if": ["oic.if.baseline", "oic.if.a"]
+                            "href": "/light"
                           },
                           {
-                            "href": "/door",
-                            "rt": ["oic.r.door"],
-                            "if": ["oic.if.baseline", "oic.if.a"]
+                            "href": "/door"
                           }
                         ],
                         "permission": 16,
@@ -125,14 +113,10 @@
                     },
                     "resources": [
                       {
-                        "href": "/light",
-                        "rt": ["oic.r.light"],
-                        "if": ["oic.if.baseline", "oic.if.a"]
+                        "href": "/light"
                       },
                       {
-                        "href": "/door",
-                        "rt": ["oic.r.door"],
-                        "if": ["oic.if.baseline", "oic.if.a"]
+                        "href": "/door"
                       }
                     ],
                     "permission": 24
@@ -144,14 +128,10 @@
                     },
                     "resources": [
                       {
-                        "href": "/light",
-                        "rt": ["oic.r.light"],
-                        "if": ["oic.if.baseline", "oic.if.a"]
+                        "href": "/light"
                       },
                       {
-                        "href": "/door",
-                        "rt": ["oic.r.door"],
-                        "if": ["oic.if.baseline", "oic.if.a"]
+                        "href": "/door"
                       }
                     ],
                     "permission": 24
@@ -259,32 +239,6 @@
                       "format": "uri",
                       "maxLength": 256,
                       "type": "string"
-                    },
-                    "if": {
-                      "description": "When present, the ACE only applies when the if (interface) matches\nThe interface set supported by this Resource.",
-                      "items": {
-                        "enum": [
-                          "oic.if.baseline",
-                          "oic.if.ll",
-                          "oic.if.b",
-                          "oic.if.rw",
-                          "oic.if.r",
-                          "oic.if.a",
-                          "oic.if.s"
-                        ],
-                        "type": "string"
-                      },
-                      "minItems": 1,
-                      "type": "array"
-                    },
-                    "rt": {
-                      "description": "When present, the ACE only applies when the rt (Resource type) matches\nResource Type of the Resource.",
-                      "items": {
-                        "maxLength": 64,
-                        "type": "string"
-                      },
-                      "minItems": 1,
-                      "type": "array"
                     },
                     "wc": {
                       "description": "A wildcard matching policy.",
@@ -449,32 +403,6 @@
                       "format": "uri",
                       "maxLength": 256,
                       "type": "string"
-                    },
-                    "if": {
-                      "description": "When present, the ACE only applies when the if (interface) matches\nThe interface set supported by this Resource.",
-                      "items": {
-                        "enum": [
-                          "oic.if.baseline",
-                          "oic.if.ll",
-                          "oic.if.b",
-                          "oic.if.rw",
-                          "oic.if.r",
-                          "oic.if.a",
-                          "oic.if.s"
-                        ],
-                        "type": "string"
-                      },
-                      "minItems": 1,
-                      "type": "array"
-                    },
-                    "rt": {
-                      "description": "When present, the ACE only applies when the rt (Resource type) matches\nResource Type of the Resource.",
-                      "items": {
-                        "maxLength": 64,
-                        "type": "string"
-                      },
-                      "minItems": 1,
-                      "type": "array"
                     },
                     "wc": {
                       "description": "A wildcard matching policy.",
