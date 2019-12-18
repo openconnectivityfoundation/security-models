@@ -58,11 +58,11 @@
 						"in": "body",
 						"name": "body",
 						"required": false,
+						"schema": { "$ref": "#/definitions/Ael-Update" }						
 						"x-example": {
 							"categoryfilter": 3,
 							"priorityfilter": 1
-						},
-						schema": { "$ref": "#/definitions/Ael-Update" }
+						}
 					}
 				],
 				"responses": {
