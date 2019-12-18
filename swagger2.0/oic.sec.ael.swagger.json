@@ -1,7 +1,7 @@
 {
 	"swagger": "2.0",
 	"info": {
-		"title": "Security Event List",
+		"title": "Auditable Event List",
 		"version": "2019-10-03",
 		"license": {
 			"name": "OCF Data Model License",
@@ -17,17 +17,7 @@
 		"/AelResURI": {
 			"get": {
 				"description": "This Resource contains the Auditable Events that have been logged on the Device.",
-				"parameters": [
-					{ 
-						"$ref": "#/parameters/interface" 
-					},
-					{
-						"ref": "#/parameters/events-filtered-by-di"
-					},
-					{
-						"ref": "#/parameters/events-filtered-by-category"
-					}
-				],
+				"parameters": [{"$ref": "#/parameters/interface"}],
 				"responses": {
 					"200": {
 						"description": "Example response payload. In this example, 'oic.d.light' Device has logged 2 Auditable Event Entries: Update attempt against '/room1/led1' Resource was denied, and Delete attempt against '/room1/led1' Resource was denied. Both Auditable Event Entries belong to 'AccessControl (0x01)' category and 'WARN' priority (2).",
@@ -38,17 +28,17 @@
 									"aeid": "AC-1",
 									"category": 1,
 									"priority": 2,
-									"timestamp": "2018-11-13T20:20:39+00:00",
+									"timestamp": "2018-11-13T20:22:39+00:00",
 									"message":  "Access Denied",
-									"auxiliaryinfo": [ "0f33887b-f7d6-4fdb-9125-dd4b60d5aaae", "[2001::1]:1234", "/room1/led1", "U", "RFNOP", "No roles asserted" ]
+									"auxiliaryinfo": [ "[2001::1]:1234", "0f33887b-f7d6-4fdb-9125-dd4b60d5aaae", "/room1/led1", "UPDATE", "RFNOP", "No roles asserted" ]
 								},
 								{
 									"aeid": "AC-1",
 									"category": 1,
 									"priority": 2,
-									"timestamp": "2018-11-13T20:22:00+00:00",
+									"timestamp": "2018-11-13T20:20:00+00:00",
 									"message":  "Access Denied",
-									"auxiliaryinfo": [ "0f33887b-f7d6-4fdb-9125-dd4b60d5aaae", "[2001::1]:1234", "/room1/led1", "D", "RFNOP", "No roles asserted" ]
+									"auxiliaryinfo": [ "[2001::1]:1234", "0f33887b-f7d6-4fdb-9125-dd4b60d5aaae", "/room1/led1", "DELETE", "RFNOP", "No roles asserted" ]
 								}
 							],
 							"usedspace": 2,
@@ -68,13 +58,11 @@
 						"in": "body",
 						"name": "body",
 						"required": false,
-						"schema": {
-							"$ref": "#/definitions/Ael"
-						},
 						"x-example": {
 							"categoryfilter": 3,
 							"priorityfilter": 1
-						}
+						},
+						schema": { "$ref": "#/definitions/Ael-Update" }
 					}
 				],
 				"responses": {
@@ -90,27 +78,7 @@
 			"in": "query",
 			"name": "if",
 			"type": "string",
-			"enum": [
-				"oic.if.baseline",
-				"oic.if.r"
-			]
-		},
-		"events-filtered-by-di": {
-			"in": "query",
-			"name": "di",
-			"required": false,
-			"$ref": "https://openconnectivityfoundation.github.io/core/schemas/oic.types-schema.json#/definitions/uuid",
-			"x-example": "fdaa4ef4-e213-4268-b336-14c285533c01"
-		},
-		"events-filtered-by-category": {
-			"in": "query",
-			"name": "categoryfilter",
-			"required": false,
-			"type": "integer",
-			"enum": [
-				1, 2, 4, 8, 16, 32, 64
-			],
-			"x-example": 7
+			"enum": ["oic.if.baseline"]
 		}
 	},
 	"definitions": {
@@ -207,7 +175,7 @@
 					"uniqueItems": true,
 					"items": {
 						"type": "string",
-						"enum": [ "oic.if.baseline", "oic.if.r" ]
+						"enum": ["oic.if.baseline"]
 					},
 					"readOnly": true
 				},
@@ -222,13 +190,13 @@
 				},
 				"usedspace": {
 					"description": "Current used space for logged AEEs. The Device updates this Property whenever new AEEs are logged.",
-					"type": "number",
+					"type": "integer",
 					"default": 0,
 					"readOnly": true
 				},
 				"maxspace": {
 					"description": "This means the maximum allowable storage size for AEEs that can be stored in 'events' list. The Manufacturer chooses this value.",
-					"type": "number",
+					"type": "integer",
 					"readOnly": true
 				},
 				"unit":  {
@@ -238,7 +206,7 @@
 						"Kbyte", 
 						"Byte" 
 					],
-					"default": "Kbyte",
+					"default": "Byte",
 					"readOnly": true
 				},
 				"categoryfilter": {
@@ -258,6 +226,25 @@
 			"required": [
 				"events", "usedspace", "maxspace"
 			]
+		},
+		"Ael-Update": {
+			"type": "object",
+			"properties": {
+				"categoryfilter": {
+					"description" : "This value decides what categories of AEEs are to be logged. Meaning of each bit: 0x01 (Access Control), 0x02 (Onboarding), 0x04 (Device), 0x08 (Authentication), 0x10 (SVR Modification), 0x20 (Cloud), 0x40 (Communication). e.g.) if categoryfilter == 0xff: log all events of all categories,  e.g.) if categoryfilter == 0x03: log all events of 'AC (== 0x01)' and 'OB (==0x02)' categories ",
+					"type": "integer", 
+					"default": 256
+				},
+				"priorityfilter": {
+					"description": "The AEEs whose 'priority' values are equal to or smaller than this value are logged. A smaller value means a higher priority. Meaning of each value: 0 (CRIT), 1 (ERR), 2 (WARN), 3 (INFO), 4 (DEBUG). e.g.) if priorityfilter is set to DEBUG (==4) all AEEs will be logged, e.g.) if priorityfilter is set to 1, CRIT (==0) and ERR (==1) AEEs will be logged ",
+					"type": "integer",
+					"default": 4,
+					"enum": [
+						0, 1, 2, 3, 4
+					]
+				}
+			},
+			"required": []
 		}
 	}
 }
