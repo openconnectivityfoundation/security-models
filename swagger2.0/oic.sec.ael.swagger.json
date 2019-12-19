@@ -107,9 +107,8 @@
 				"category" : {
 					"description": "category of this Auditable Event: 1 (Access Control), 2 (Onboarding), 4 (Device), 8 (Authentication), 16 (SVR Modification), 32 (Cloud), 64 (Communication)",
 					"type": "integer",
-					"enum": [
-						1, 2, 4, 8, 16, 32, 64
-					],
+					"minimum": 0,
+					"maximum": 255,
 					"readOnly": true
 				},
 				"priority": {
@@ -212,7 +211,7 @@
 				"categoryfilter": {
 					"description" : "This value decides what categories of AEEs are to be logged. Meaning of each bit: 0x01 (Access Control), 0x02 (Onboarding), 0x04 (Device), 0x08 (Authentication), 0x10 (SVR Modification), 0x20 (Cloud), 0x40 (Communication). e.g.) if categoryfilter == 0xff: log all events of all categories,  e.g.) if categoryfilter == 0x03: log all events of 'AC (== 0x01)' and 'OB (==0x02)' categories ",
 					"type": "integer", 
-					"default": 256
+					"default": 255
 				},
 				"priorityfilter": {
 					"description": "The AEEs whose 'priority' values are equal to or smaller than this value are logged. A smaller value means a higher priority. Meaning of each value: 0 (CRIT), 1 (ERR), 2 (WARN), 3 (INFO), 4 (DEBUG). e.g.) if priorityfilter is set to DEBUG (==4) all AEEs will be logged, e.g.) if priorityfilter is set to 1, CRIT (==0) and ERR (==1) AEEs will be logged ",
@@ -233,7 +232,7 @@
 				"categoryfilter": {
 					"description" : "This value decides what categories of AEEs are to be logged. Meaning of each bit: 0x01 (Access Control), 0x02 (Onboarding), 0x04 (Device), 0x08 (Authentication), 0x10 (SVR Modification), 0x20 (Cloud), 0x40 (Communication). e.g.) if categoryfilter == 0xff: log all events of all categories,  e.g.) if categoryfilter == 0x03: log all events of 'AC (== 0x01)' and 'OB (==0x02)' categories ",
 					"type": "integer", 
-					"default": 256
+					"default": 255
 				},
 				"priorityfilter": {
 					"description": "The AEEs whose 'priority' values are equal to or smaller than this value are logged. A smaller value means a higher priority. Meaning of each value: 0 (CRIT), 1 (ERR), 2 (WARN), 3 (INFO), 4 (DEBUG). e.g.) if priorityfilter is set to DEBUG (==4) all AEEs will be logged, e.g.) if priorityfilter is set to 1, CRIT (==0) and ERR (==1) AEEs will be logged ",
