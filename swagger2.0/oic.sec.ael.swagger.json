@@ -107,8 +107,9 @@
 				"category" : {
 					"description": "category of this Auditable Event: 1 (Access Control), 2 (Onboarding), 4 (Device), 8 (Authentication), 16 (SVR Modification), 32 (Cloud), 64 (Communication)",
 					"type": "integer",
-					"minimum": 0,
-					"maximum": 255,
+					"enum": [
+						1, 2, 4, 8, 16, 32, 64, 128
+					], 
 					"readOnly": true
 				},
 				"priority": {
