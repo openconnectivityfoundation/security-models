@@ -105,7 +105,7 @@
 					"$ref": "https://openconnectivityfoundation.github.io/core/schemas/oic.types-schema.json#/definitions/uuid"
 				},
 				"category" : {
-					"description": "category of this Auditable Event: 1 (Access Control), 2 (Onboarding), 4 (Device), 8 (Authentication), 16 (SVR Modification), 32 (Cloud), 64 (Communication)",
+					"description": "Category of this Auditable Event: 0x01 (Access Control), 0x02 (Onboarding), 0x04 (Device), 0x08 (Authentication), 0x10 (SVR Modification), 0x20 (Cloud), 0x40 (Communication), 0x80 (Reserved)",
 					"type": "integer",
 					"enum": [
 						1, 2, 4, 8, 16, 32, 64, 128
@@ -113,7 +113,7 @@
 					"readOnly": true
 				},
 				"priority": {
-					"definitions": "priority of this Auditable Event: 0 (CRIT), 1 (ERR), 2 (WARN), 3 (INFO), 4 (DEBUG)",
+					"definitions": "Priority of this Auditable Event: 0 (CRIT), 1 (ERR), 2 (WARN), 3 (INFO), 4 (DEBUG)",
 					"type": "integer",
 					"enum": [
 						0, 1, 2, 3, 4
@@ -210,7 +210,7 @@
 					"readOnly": true
 				},
 				"categoryfilter": {
-					"description" : "This value decides what categories of AEEs are to be logged. Meaning of each bit: 0x01 (Access Control), 0x02 (Onboarding), 0x04 (Device), 0x08 (Authentication), 0x10 (SVR Modification), 0x20 (Cloud), 0x40 (Communication). e.g.) if categoryfilter == 0xff: log all events of all categories,  e.g.) if categoryfilter == 0x03: log all events of 'AC (== 0x01)' and 'OB (==0x02)' categories ",
+					"description" : "This value decides what categories of AEEs are to be logged. Meaning of each bit: 0x01 (Access Control), 0x02 (Onboarding), 0x04 (Device), 0x08 (Authentication), 0x10 (SVR Modification), 0x20 (Cloud), 0x40 (Communication), 0x80 (Reserved). e.g.) if categoryfilter == 0xff: log all events of all categories,  e.g.) if categoryfilter == 0x03: log all events of 'AC (== 0x01)' and 'OB (==0x02)' categories ",
 					"type": "integer", 
 					"default": 255
 				},
