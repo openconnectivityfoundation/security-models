@@ -78,7 +78,7 @@
 			"in": "query",
 			"name": "if",
 			"type": "string",
-			"enum": ["oic.if.baseline", "oic.if.rw"]
+			"enum": [ "oic.if.baseline", "oic.if.rw" ]
 		}
 	},
 	"definitions": {
@@ -109,7 +109,7 @@
 					"type": "integer",
 					"enum": [
 						1, 2, 4, 8, 16, 32, 64, 128
-					], 
+					],
 					"readOnly": true
 				},
 				"priority": {
@@ -175,7 +175,7 @@
 					"uniqueItems": true,
 					"items": {
 						"type": "string",
-						"enum": ["oic.if.baseline", "oic.if.rw"]
+						"enum": [ "oic.if.baseline", "oic.if.rw" ]
 					},
 					"readOnly": true
 				},
