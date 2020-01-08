@@ -60,7 +60,7 @@
                       }
                   ],
                   "rt":["oic.r.roles"],
-                  "if":["oic.if.baseline"]
+                  "if":[ "oic.if.baseline", "oic.if.rw" ]
                 }
                 ,
               "schema": { "$ref": "#/definitions/Roles" }
@@ -149,7 +149,7 @@
       "in" : "query",
       "name" : "if",
       "type" : "string",
-      "enum" : ["oic.if.baseline"]
+      "enum" : [ "oic.if.baseline", "oic.if.rw" ]
     },
     "roles-filtered" : {
       "in" : "query",
@@ -371,9 +371,7 @@
         "if": {
           "description": "The interface set supported by this Resource.",
           "items": {
-            "enum": [
-              "oic.if.baseline"
-            ],
+            "enum": [ "oic.if.baseline", "oic.if.rw" ],
             "type": "string"
           },
           "minItems": 1,
