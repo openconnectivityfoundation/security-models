@@ -141,7 +141,7 @@
         "onboardas": {
           "description": "Used as a “hint” to the OBT that onboards this Device.",
           "type" : "string",
-          "enum" : ["oic.if.baseline"]
+          "enum" : [ "obt", "client" ]
         },
         "dos": {
           "description": "Device on-boarding state\nDevice operation state machine.",
