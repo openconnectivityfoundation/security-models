@@ -91,6 +91,8 @@
         "timer": {
           "description": "Approximate number of seconds until Device transitions to TIMEOUT. Decrements until either Device transitions to RFPRO or reaches zero.",
           "type": "integer",
+          "minimum": 0,
+          "maximum": 3600,
           "readOnly": true
         },
         "oxms": {
