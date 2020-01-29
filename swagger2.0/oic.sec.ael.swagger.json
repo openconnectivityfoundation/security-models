@@ -182,7 +182,6 @@
 				"events": {
 					"description": "This list stores AEEs whose 'category' Property value is filtered by 'categoryfilter' Property and 'priority' Property value is equal or less than the value of 'priorityfilter' Property.",
 					"type": "array",
-					"minItems": 1,
 					"uniqueItems": true,
 					"items": {
 						"$ref": "#/definitions/Aee"
