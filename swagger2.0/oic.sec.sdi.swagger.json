@@ -83,7 +83,7 @@
       "properties": {
         "uuid": {
           "$ref": "https://openconnectivityfoundation.github.io/core/schemas/oic.types-schema.json#/definitions/uuid"
-				},
+        },
         "name": {
           "description": "Human-friendly name for the Security Domain, set by DOTS during onboarding.",
           "type": "string"
@@ -128,7 +128,7 @@
       "properties": {
         "uuid": {
           "$ref": "https://openconnectivityfoundation.github.io/core/schemas/oic.types-schema.json#/definitions/uuid"
-				},
+        },
         "name": {
           "description": "Human-friendly name for the Security Domain, set by DOTS during onboarding.",
           "type": "string"
@@ -139,7 +139,7 @@
         }
       },
       "type" : "object",
-      "required": [ "uuid", "name", "priv" ]
+      "required": [ "name", "priv" ]
     }
   }
 }
