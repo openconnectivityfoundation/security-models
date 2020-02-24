@@ -138,11 +138,6 @@
           "description": "Determines whether a DOTS or OBT Device will onboard itself from RFOTM.",
           "type": "boolean"
         },
-        "onboardas": {
-          "description": "Used as a “hint” to the OBT that onboards this Device.",
-          "type" : "string",
-          "enum" : [ "obt", "client" ]
-        },
         "dos": {
           "description": "Device on-boarding state\nDevice operation state machine.",
           "properties": {
@@ -205,6 +200,10 @@
           "maximum": 255,
           "minimum": 0,
           "type": "integer"
+        },
+        "onboardself": {
+          "description": "Determines whether a DOTS or OBT Device will onboard itself from RFOTM.",
+          "type": "boolean"
         },
         "dos": {
           "description": "Device on-boarding state\nDevice operation state machine.",
