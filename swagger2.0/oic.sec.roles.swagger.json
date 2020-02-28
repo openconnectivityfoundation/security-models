@@ -60,7 +60,7 @@
                       }
                   ],
                   "rt":["oic.r.roles"],
-                  "if":[ "oic.if.baseline", "oic.if.rw" ]
+                  "if":[ "oic.if.rw" ]
                 }
                 ,
               "schema": { "$ref": "#/definitions/Roles" }
