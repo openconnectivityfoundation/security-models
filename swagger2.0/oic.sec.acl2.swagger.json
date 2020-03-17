@@ -202,7 +202,6 @@
             "enum": ["oic.r.acl2"]
           },
           "minItems": 1,
-          "maxItems": 1,
           "readOnly": true,
           "type": "array"
         },
@@ -355,7 +354,6 @@
             "type": "string"
           },
           "minItems": 1,
-          "maxItems": 1,
           "readOnly": true,
           "type": "array"
         }
