@@ -432,7 +432,7 @@
                 "type": "integer"
               },
               "credtype": {
-                "description": "Representation of this credential's type\nCredential Types - Cred type encoded as a bitmask.0 - Empty credential used for testing1 - Symmetric pair-wise key2 - Symmetric group key4 - Asymmetric signing key8 - Asymmetric signing key with certificate16 - PIN or password32 - Asymmetric encryption key.",
+                "description": "Represents this credential's type\n0 - Used for testing\n1 - Symmetric pair-wise key\n2 - Symmetric group key\n4 - Asymmetric signing key\n8 - Asymmetric signing key with certificate\n16 - PIN or password\n32 - Asymmetric encryption key\n64 - Directly provisioned OSCORE Security Context",
                 "maximum": 63,
                 "minimum": 0,
                 "type": "integer"
@@ -464,7 +464,7 @@
                 "type": "array"
               },
               "optionaldata": {
-                "description": "Credential revocation status information\nOptional credential contents describes revocation status for this credential.",
+                "description": "Credential Type dependent. Credential revocation status information\n1, 2, 4, 32, 64: revocation status information\n8: Revocation information",
                 "properties": {
                   "data": {
                     "description": "The encoded structure.",
@@ -529,6 +529,7 @@
                 "type": "object"
               },
               "publicdata": {
+                "description": "Credential Type dependent. Public credential information\n1:2: ticket, public SKDC values\n4, 32: Public key value\n8: A chain of one or more certificate",
                 "properties": {
                   "data": {
                     "description": "The encoded value.",
@@ -536,7 +537,7 @@
                     "type": "string"
                   },
                   "encoding": {
-                    "description": "Public credential information\nA string specifying the encoding format of the data contained in the pubdata.",
+                    "description": "A string specifying the encoding format of the data contained in the pubdata.",
                     "x-detail-desc": [
                       "oic.sec.encoding.pem - Encoding for PEM encoded certificate or chain."
                     ],
@@ -548,6 +549,25 @@
                 },
                 "type": "object"
               },
+              "oscore": {
+                "description": "Contains parameters for use with credentials intended for use with OSCORE. See type definition for \"oic.sec.oscoretype\"",
+                "properties": {
+                  "senderid": {
+                    "description": "OSCORE Sender ID for this OSCORE Security Context",
+                    "type": "string"
+                  },
+                  "recipientid": {
+                    "description": "OSCORE Recipient ID for this OSCORE Security Context",
+                    "type": "string"
+                  },
+                  "ssn": {
+                    "description": "OSCORE Sender Sequence Number SSN1 being stored in nonvolative memory to handle the loss of mutable security context parameters",
+                    "type": "integer",
+                    "readOnly": true
+                  }                  
+                },
+                "type": "object"
+              }
               "roleid": {
                 "description": "The role this credential possesses\nSecurity role specified as an <Authority> & <Rolename>. A NULL <Authority> refers to the local entity or Device.",
                 "properties": {
