@@ -567,7 +567,7 @@
                   }                  
                 },
                 "type": "object"
-              }
+              },
               "roleid": {
                 "description": "The role this credential possesses\nSecurity role specified as an <Authority> & <Rolename>. A NULL <Authority> refers to the local entity or Device.",
                 "properties": {
