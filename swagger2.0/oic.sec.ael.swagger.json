@@ -1,0 +1,248 @@
+{
+	"swagger": "2.0",
+	"info": {
+		"title": "Auditable Event List",
+		"version": "2019-10-03",
+		"license": {
+			"name": "OCF Data Model License",
+			"url": "https://github.com/openconnectivityfoundation/core/blob/e28a9e0a92e17042ba3e83661e4c0fbce8bdc4ba/LICENSE.md",
+			"x-copyright": "Copyright 2019 Open Connectivity Foundation, Inc. All rights reserved."
+		},
+		"termsOfService": "https://openconnectivityfoundation.github.io/core/DISCLAIMER.md"
+	},
+	"schemes": ["http"],
+	"consumes": ["application/json"],
+	"produces": ["application/json"],
+	"paths": {
+		"/AelResURI": {
+			"get": {
+				"description": "This Resource contains the Auditable Events that have been logged on the Device.",
+				"parameters": [{"$ref": "#/parameters/interface"}],
+				"responses": {
+					"200": {
+						"description": "Example response payload. In this example, 'oic.d.light' Device has logged 2 Auditable Event Entries: Update attempt against '/room1/led1' Resource was denied, and Delete attempt against '/room1/led1' Resource was denied. Both Auditable Event Entries belong to 'AccessControl (0x01)' category and 'WARN' priority (2).",
+						"x-example": {
+							"rt": [ "oic.r.ael" ],
+							"events": [
+								{
+									"aeid": "AC-1",
+									"category": 1,
+									"priority": 2,
+									"timestamp": "2018-11-13T20:22:39+00:00",
+									"message":  "Access Denied",
+									"auxiliaryinfo": [ "[2001::1]:1234", "0f33887b-f7d6-4fdb-9125-dd4b60d5aaae", "/room1/led1", "UPDATE", "RFNOP", "No roles asserted" ]
+								},
+								{
+									"aeid": "AC-1",
+									"category": 1,
+									"priority": 2,
+									"timestamp": "2018-11-13T20:20:00+00:00",
+									"message":  "Access Denied",
+									"auxiliaryinfo": [ "[2001::1]:1234", "0f33887b-f7d6-4fdb-9125-dd4b60d5aaae", "/room1/led1", "DELETE", "RFNOP", "No roles asserted" ]
+								}
+							],
+							"usedspace": 2,
+							"maxspace": 5
+						},
+						"schema": { "$ref": "#/definitions/Ael" }
+					}
+				}
+			}, 
+			"post": {
+				"description": "An UPDATE operation may set the 'categoryfilter' and/or 'priorityfilter' Properties.",
+				"parameters": [
+					{ 
+						"$ref": "#/parameters/interface" 
+					},
+					{
+						"in": "body",
+						"name": "body",
+						"required": false,
+						"schema": { "$ref": "#/definitions/Ael-Update" },
+						"x-example": {
+							"categoryfilter": 3,
+							"priorityfilter": 1
+						}
+					}
+				],
+				"responses": {
+					"204": {
+						"description": "The new categoryfilter and priorityfilter were set."
+					}
+				}
+			}
+		}
+	},
+	"parameters": {
+		"interface": {
+			"in": "query",
+			"name": "if",
+			"type": "string",
+			"enum": [ "oic.if.baseline", "oic.if.rw" ]
+		}
+	},
+	"definitions": {
+		"Aee": {
+			"description": "Auditable Event Entry logged by a Device",
+			"type": "object",
+			"properties": {
+				"aeid": {
+					"description": "Identity of the logged event",
+					"type": "string",
+					"readOnly": true
+				},
+				"devicetype": {
+					"description": "Device type which generated this Security Event (e.g. oic.d.light)",
+					"type": "array",
+					"minItems": 1,
+					"items": {
+						"type": "string",
+						"maxLength": 64
+					},
+					"readOnly": true
+				},
+				"di": {
+					"$ref": "https://openconnectivityfoundation.github.io/core/schemas/oic.types-schema.json#/definitions/uuid"
+				},
+				"category" : {
+					"description": "Category of this Auditable Event: 0x01 (Access Control), 0x02 (Onboarding), 0x04 (Device), 0x08 (Authentication), 0x10 (SVR Modification), 0x20 (Cloud), 0x40 (Communication), 0x80 (Reserved)",
+					"type": "integer",
+					"enum": [
+						1, 2, 4, 8, 16, 32, 64, 128
+					],
+					"readOnly": true
+				},
+				"priority": {
+					"definitions": "Priority of this Auditable Event: 0 (CRIT), 1 (ERR), 2 (WARN), 3 (INFO), 4 (DEBUG)",
+					"type": "integer",
+					"enum": [
+						0, 1, 2, 3, 4
+					], 
+					"readOnly": true
+				},
+				"timestamp": {
+					"description": "Time when this Auditable Event occured",
+					"type": "string",
+					"format": "date-time", 
+					"readOnly": true
+				},
+				"message": {
+					"description": "Description for this Auditable Event", 
+					"type": "string", 
+					"readOnly": true
+				},
+				"auxiliaryinfo": {
+					"description": "Supplementary info for Auditable Event message. (e.g. URI of specific Resource in ACE2 for 'Access Denied' message)",
+					"type": "array",
+					"minItems": 0, 
+					"items": {
+						"type": "string"
+					},
+					"readOnly": true
+				}
+			},
+			"required": [
+				"aeid", "category", "priority", "timestamp"
+			]
+		},
+
+		"Ael": {
+			"description": "Resource for storing Auditable Events List",
+			"type": "object",
+			"properties": {
+				"rt": {
+					"description": "Resource Type",
+					"type": "array",
+					"minItems": 1,
+					"uniqueItems": true,
+					"items": {
+						"maxLength": 64,
+						"type": "string",
+						"enum": [ "oic.r.ael" ]
+					},
+					"readOnly": true
+				},
+				"n": {
+					"$ref": "https://openconnectivityfoundation.github.io/core/schemas/oic.common.properties.core-schema.json#/definitions/n"
+				},
+				"id": {
+					"$ref": "https://openconnectivityfoundation.github.io/core/schemas/oic.common.properties.core-schema.json#/definitions/id"
+				},
+				"if": {
+					"description": "The OCF Interface set supported by this Resource",
+					"type": "array",
+					"minItems": 2,
+					"uniqueItems": true,
+					"items": {
+						"type": "string",
+						"enum": [ "oic.if.baseline", "oic.if.rw" ]
+					},
+					"readOnly": true
+				},
+				"events": {
+					"description": "This list stores AEEs whose 'category' Property value is filtered by 'categoryfilter' Property and 'priority' Property value is equal or less than the value of 'priorityfilter' Property.",
+					"type": "array",
+					"uniqueItems": true,
+					"items": {
+						"$ref": "#/definitions/Aee"
+					}
+				},
+				"usedspace": {
+					"description": "Current used space for logged AEEs. The Device updates this Property whenever new AEEs are logged.",
+					"type": "integer",
+					"default": 0,
+					"readOnly": true
+				},
+				"maxspace": {
+					"description": "This means the maximum allowable storage size for AEEs that can be stored in 'events' list. The Manufacturer chooses this value.",
+					"type": "integer",
+					"readOnly": true
+				},
+				"unit":  {
+					"description": "The unit for 'usedspace' and 'maxspace' Properties. The Manufacturer chooses this value.",
+					"type": "string",
+					"enum": [ 
+						"Kbyte", 
+						"Byte" 
+					],
+					"default": "Byte",
+					"readOnly": true
+				},
+				"categoryfilter": {
+					"description" : "This value decides what categories of AEEs are to be logged. Meaning of each bit: 0x01 (Access Control), 0x02 (Onboarding), 0x04 (Device), 0x08 (Authentication), 0x10 (SVR Modification), 0x20 (Cloud), 0x40 (Communication), 0x80 (Reserved). e.g.) if categoryfilter == 0xff: log all events of all categories,  e.g.) if categoryfilter == 0x03: log all events of 'AC (== 0x01)' and 'OB (==0x02)' categories ",
+					"type": "integer", 
+					"default": 255
+				},
+				"priorityfilter": {
+					"description": "The AEEs whose 'priority' values are equal to or smaller than this value are logged. A smaller value means a higher priority. Meaning of each value: 0 (CRIT), 1 (ERR), 2 (WARN), 3 (INFO), 4 (DEBUG). e.g.) if priorityfilter is set to DEBUG (==4) all AEEs will be logged, e.g.) if priorityfilter is set to 1, CRIT (==0) and ERR (==1) AEEs will be logged ",
+					"type": "integer",
+					"default": 4,
+					"enum": [
+						0, 1, 2, 3, 4
+					]
+				}
+			},
+			"required": [
+				"events", "usedspace", "maxspace"
+			]
+		},
+		"Ael-Update": {
+			"type": "object",
+			"properties": {
+				"categoryfilter": {
+					"description" : "This value decides what categories of AEEs are to be logged. Meaning of each bit: 0x01 (Access Control), 0x02 (Onboarding), 0x04 (Device), 0x08 (Authentication), 0x10 (SVR Modification), 0x20 (Cloud), 0x40 (Communication). e.g.) if categoryfilter == 0xff: log all events of all categories,  e.g.) if categoryfilter == 0x03: log all events of 'AC (== 0x01)' and 'OB (==0x02)' categories ",
+					"type": "integer", 
+					"default": 255
+				},
+				"priorityfilter": {
+					"description": "The AEEs whose 'priority' values are equal to or smaller than this value are logged. A smaller value means a higher priority. Meaning of each value: 0 (CRIT), 1 (ERR), 2 (WARN), 3 (INFO), 4 (DEBUG). e.g.) if priorityfilter is set to DEBUG (==4) all AEEs will be logged, e.g.) if priorityfilter is set to 1, CRIT (==0) and ERR (==1) AEEs will be logged ",
+					"type": "integer",
+					"default": 4,
+					"enum": [
+						0, 1, 2, 3, 4
+					]
+				}
+			}
+		}
+	}
+}
