@@ -192,7 +192,7 @@
       "in" : "query",
       "name" : "if",
       "type" : "string",
-      "enum" : ["oic.if.baseline"]
+      "enum" : [ "oic.if.baseline", "oic.if.rw" ]
     },
     "cred-filtered-credid" : {
       "in" : "query",
@@ -403,9 +403,7 @@
         "if" : {
           "description": "The interface set supported by this Resource.",
           "items": {
-            "enum": [
-              "oic.if.baseline"
-            ],
+            "enum": [ "oic.if.baseline", "oic.if.rw" ],
             "type": "string"
           },
           "minItems": 1,
