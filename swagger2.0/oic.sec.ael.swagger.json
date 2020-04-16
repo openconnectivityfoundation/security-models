@@ -57,7 +57,7 @@
 					{
 						"in": "body",
 						"name": "body",
-						"required": false,
+						"required": true,
 						"schema": { "$ref": "#/definitions/Ael-Update" },
 						"x-example": {
 							"categoryfilter": 3,
