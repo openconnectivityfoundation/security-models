@@ -142,7 +142,7 @@
 				}
 			},
 			"required": [
-				"aeid", "category", "priority", "timestamp"
+				"aeid", "message", "auxiliaryinfo", "category", "priority", "timestamp"
 			]
 		},
 
@@ -223,7 +223,7 @@
 				}
 			},
 			"required": [
-				"events", "usedspace", "maxspace"
+				"events", "usedspace", "maxspace", "categoryfilter", "priorityfilter"
 			]
 		},
 		"Ael-Update": {
@@ -242,7 +242,11 @@
 						0, 1, 2, 3, 4
 					]
 				}
-			}
+			},
+			"required": [
+				"categoryfilter", "priorityfilter"
+			]
+			
 		}
 	}
 }
