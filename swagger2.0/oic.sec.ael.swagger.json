@@ -91,19 +91,6 @@
 					"type": "string",
 					"readOnly": true
 				},
-				"devicetype": {
-					"description": "Device type which generated this Security Event (e.g. oic.d.light)",
-					"type": "array",
-					"minItems": 1,
-					"items": {
-						"type": "string",
-						"maxLength": 64
-					},
-					"readOnly": true
-				},
-				"di": {
-					"$ref": "https://openconnectivityfoundation.github.io/core/schemas/oic.types-schema.json#/definitions/uuid"
-				},
 				"category" : {
 					"description": "Category of this Auditable Event: 0x01 (Access Control), 0x02 (Onboarding), 0x04 (Device), 0x08 (Authentication), 0x10 (SVR Modification), 0x20 (Cloud), 0x40 (Communication), 0x80 (Reserved)",
 					"type": "integer",
