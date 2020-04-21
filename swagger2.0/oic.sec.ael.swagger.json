@@ -42,7 +42,9 @@
 								}
 							],
 							"usedspace": 2,
-							"maxspace": 5
+							"maxspace": 5,
+							"categoryfilter": 3,
+							"priorityfilter": 1
 						},
 						"schema": { "$ref": "#/definitions/Ael" }
 					}
