@@ -246,7 +246,7 @@
               },
               "credtype": {
                  "description": "Represents this credential’s type.\n0 – Used for testing\n1 – Symmetric pair-wise key\n2 – Symmetric group key\n4 – Asymmetric signing key\n8 – Asymmetric signing key with certificate\n16 – PIN or password\n32 – Asymmetric encryption key\n64 - Directly Provisioned OSCORE Security Context",
-                 "maximum": 63,
+                 "maximum": 127,
                  "minimum": 0,
                  "type": "integer"
               },
@@ -375,7 +375,7 @@
                     "type": "string"
                   },
                   "ssn": {
-                    "description": "OSCORE Sender Sequence Number SSN1 being stored in nonvolative memory to handle the loss of mutable security context parameters",
+                    "description": "OSCORE Sender Sequence Number SSN1 being stored in nonvolatile memory to handle the loss of mutable security context parameters",
                     "type": "integer",
                     "readOnly": true
                   }                  
@@ -451,7 +451,7 @@
               },
               "credtype": {
                 "description": "Represents this credential's type\n0 - Used for testing\n1 - Symmetric pair-wise key\n2 - Symmetric group key\n4 - Asymmetric signing key\n8 - Asymmetric signing key with certificate\n16 - PIN or password\n32 - Asymmetric encryption key\n64 - Directly provisioned OSCORE Security Context",
-                "maximum": 63,
+                "maximum": 127,
                 "minimum": 0,
                 "type": "integer"
               },
