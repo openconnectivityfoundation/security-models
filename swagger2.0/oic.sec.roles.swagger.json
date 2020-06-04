@@ -2,7 +2,7 @@
   "swagger": "2.0",
   "info": {
     "title": "Asserted Roles",
-    "version": "v1.0-20170323",
+    "version": "2017-03-23",
     "license": {
       "name": "OCF Data Model License",
       "url": "https://github.com/openconnectivityfoundation/core/blob/e28a9e0a92e17042ba3e83661e4c0fbce8bdc4ba/LICENSE.md",
