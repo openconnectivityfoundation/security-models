@@ -246,8 +246,8 @@
                 "type": "integer"
               },
               "credtype": {
-                 "description": "Representation of this credential's type\nCredential Types - Cred type encoded as a bitmask.0 - Empty credential used for testing1 - Symmetric pair-wise key2 - Symmetric group key4 - Asymmetric signing key8 - Asymmetric signing key with certificate16 - PIN or password32 - Asymmetric encryption key.",
-                 "maximum": 63,
+                 "description": "Representation of this credential's type\nCredential Types - Cred type encoded as a bitmask.0 - Empty credential used for testing\n1 - Symmetric pair-wise key\n2 - Symmetric group key\n4 - Asymmetric signing key\n8 - Asymmetric signing key with certificate\n16 - PIN or password\n32 - Asymmetric encryption key. \n 128 - SSM Client\n256 - SSM Server",
+                 "maximum": 1023,
                  "minimum": 0,
                  "type": "integer"
               },
@@ -431,7 +431,7 @@
               },
               "credtype": {
                 "description": "Representation of this credential's type\nCredential Types - Cred type encoded as a bitmask.0 - Empty credential used for testing\n1 - Symmetric pair-wise key\n2 - Symmetric group key\n4 - Asymmetric signing key\n8 - Asymmetric signing key with certificate\n16 - PIN or password\n32 - Asymmetric encryption key. \n 128 - SSM Client\n256 - SSM Server",
-                "maximum": 256,
+                "maximum": 1023,
                 "minimum": 0,
                 "type": "integer"
               },
