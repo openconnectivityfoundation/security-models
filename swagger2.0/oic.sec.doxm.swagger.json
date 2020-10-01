@@ -123,7 +123,7 @@
         },
         "sct": {
               "description": "Bitmask encoding of supported credential types\nCredential Types - Cred type encoded as a bitmask.0 - Empty credential used for testing1 - Symmetric pair-wise key2 - Symmetric group key4 - Asymmetric signing key8 - Asymmetric signing key with certificate16 - PIN or password32 - Asymmetric encryption key.",
-              "maximum": 63,
+              "maximum": 511,
               "minimum": 0,
               "type": "integer",
               "readOnly": true
