@@ -18,7 +18,8 @@
       "get": {
         "description": "This Resource specifies properties needed to establish a Device owner.\n",
         "parameters": [
-          {"$ref": "#/parameters/interface"}
+          {"$ref": "#/parameters/interface"},
+          {"$ref": "#/parameters/owned"}
         ],
         "responses": {
             "200": {
@@ -78,6 +79,11 @@
       "name" : "if",
       "type" : "string",
       "enum" : [ "oic.if.baseline", "oic.if.rw" ]
+    },
+    "owned": {
+      "in": "query",
+      "name": "owned",
+      "type": "boolean"
     }
   },
   "definitions": {
