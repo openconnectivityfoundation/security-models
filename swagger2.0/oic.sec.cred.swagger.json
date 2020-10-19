@@ -245,7 +245,7 @@
                 "type": "integer"
               },
               "credtype": {
-                 "description": "Represents this credential’s type.\n0 – Used for testing\n1 – Symmetric pair-wise key\n2 – Symmetric group key\n4 – Asymmetric signing key\n8 – Asymmetric signing key with certificate\n16 – PIN or password\n32 – Asymmetric encryption key\n64 - Directly Provisioned OSCORE Security Context",
+                 "description": "Represents this credential's type.\n0 – Used for testing\n1 – Symmetric pair-wise key\n2 – Symmetric group key\n4 – Asymmetric signing key\n8 – Asymmetric signing key with certificate\n16 – PIN or password\n32 – Asymmetric encryption key\n64 - Directly Provisioned OSCORE Security Context",
                  "maximum": 64,
                  "minimum": 0,
                  "type": "integer"
@@ -422,11 +422,12 @@
           "description": "The interface set supported by this Resource.",
           "items": {
             "enum": [
-              "oic.if.baseline"
+              "oic.if.baseline",
+              "oic.if.rw"
             ],
             "type": "string"
           },
-          "minItems": 1,
+          "minItems": 2,
           "readOnly": true,
           "type": "array"
         }
