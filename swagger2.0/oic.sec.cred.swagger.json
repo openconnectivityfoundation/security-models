@@ -378,6 +378,10 @@
                     "description": "OSCORE Sender Sequence Number SSN1 being stored in nonvolatile memory to handle the loss of mutable security context parameters",
                     "type": "integer",
                     "readOnly": true
+                  },
+                  "desc": {
+                    "description": "Human readable description of the usage of this OSCORE Security Context",
+                    "type": "string"
                   }
                 },
                 "type": "object"
@@ -577,6 +581,10 @@
                   },
                   "recipientid": {
                     "description": "OSCORE Recipient ID for this OSCORE Security Context",
+                    "type": "string"
+                  },
+                  "desc": {
+                    "description": "Human readable description of the usage of this OSCORE Security Context",
                     "type": "string"
                   }
                 },
