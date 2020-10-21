@@ -120,8 +120,8 @@
               "type": "integer"
         },
         "sct": {
-              "description": "Bitmask encoding of supported credential types\nCredential Types - Cred type encoded as a bitmask.\n0 – Empty credential used for testing\n1 – Symmetric pair-wise key\n2 – Symmetric group key\n4 – Asymmetric signing key\n8 – Asymmetric signing key with certificate\n16 – PIN or password\n32 – Asymmetric encryption key\n64 - Directly Provisioned OSCORE Security Context.",
-              "maximum": 127,
+              "description": "Bitmask encoding of supported credential types\nCredential Types - Cred type encoded as a bitmask.0 - Empty credential used for testing1 - Symmetric pair-wise key2 - Symmetric group key4 - Asymmetric signing key8 - Asymmetric signing key with certificate16 - PIN or password32 - Asymmetric encryption key.",
+              "maximum": 511,
               "minimum": 0,
               "type": "integer",
               "readOnly": true
