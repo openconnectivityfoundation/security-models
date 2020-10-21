@@ -245,8 +245,8 @@
                 "type": "integer"
               },
               "credtype": {
-                 "description": "Represents this credential's type.\n0 – Used for testing\n1 – Symmetric pair-wise key\n2 – Symmetric group key\n4 – Asymmetric signing key\n8 – Asymmetric signing key with certificate\n16 – PIN or password\n32 – Asymmetric encryption key\n64 - Directly Provisioned OSCORE Security Context",
-                 "maximum": 64,
+                 "description": "Representation of this credential's type\nCredential Types - Cred type encoded as a bitmask.0 - Empty credential used for testing\n1 - Symmetric pair-wise key\n2 - Symmetric group key\n4 - Asymmetric signing key\n8 - Asymmetric signing key with certificate\n16 - PIN or password\n32 - Asymmetric encryption key. \n 128 - SSM Client\n256 - SSM Server",
+                 "maximum": 256,
                  "minimum": 0,
                  "type": "integer"
               },
@@ -455,8 +455,8 @@
                 "type": "integer"
               },
               "credtype": {
-                "description": "Represents this credential's type\n0 - Used for testing\n1 - Symmetric pair-wise key\n2 - Symmetric group key\n4 - Asymmetric signing key\n8 - Asymmetric signing key with certificate\n16 - PIN or password\n32 - Asymmetric encryption key\n64 - Directly provisioned OSCORE Security Context",
-                "maximum": 64,
+                "description": "Representation of this credential's type\nCredential Types - Cred type encoded as a bitmask.0 - Empty credential used for testing\n1 - Symmetric pair-wise key\n2 - Symmetric group key\n4 - Asymmetric signing key\n8 - Asymmetric signing key with certificate\n16 - PIN or password\n32 - Asymmetric encryption key. \n 128 - SSM Client\n256 - SSM Server",
+                "maximum": 256,
                 "minimum": 0,
                 "type": "integer"
               },
