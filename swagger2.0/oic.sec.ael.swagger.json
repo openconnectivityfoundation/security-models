@@ -80,7 +80,7 @@
 			"in": "query",
 			"name": "if",
 			"type": "string",
-			"enum": [ "oic.if.baseline", "oic.if.rw" ]
+			"enum": [ "oic.if.rw", "oic.if.baseline" ]
 		}
 	},
 	"definitions": {
@@ -164,7 +164,7 @@
 					"uniqueItems": true,
 					"items": {
 						"type": "string",
-						"enum": [ "oic.if.baseline", "oic.if.rw" ]
+						"enum": [ "oic.if.rw", "oic.if.baseline" ]
 					},
 					"readOnly": true
 				},

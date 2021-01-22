@@ -46,7 +46,7 @@
       "in" : "query",
       "name" : "if",
       "type" : "string",
-      "enum" : [ "oic.if.baseline", "oic.if.rw" ]
+      "enum" : [ "oic.if.rw", "oic.if.baseline" ]
     }
   },
   "definitions": {
@@ -89,7 +89,7 @@
         "if": {
           "description": "The interface set supported by this Resource.",
           "items": {
-            "enum": [ "oic.if.baseline", "oic.if.rw" ],
+            "enum": [ "oic.if.rw", "oic.if.baseline" ],
             "type": "string"
           },
           "minItems": 1,

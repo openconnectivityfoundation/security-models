@@ -76,7 +76,7 @@
       "in" : "query",
       "name" : "if",
       "type" : "string",
-      "enum" : [ "oic.if.baseline", "oic.if.rw" ]
+      "enum" : [ "oic.if.rw", "oic.if.baseline" ]
     },
     "owned": {
       "in": "query",
@@ -146,10 +146,7 @@
         "if": {
           "description": "The OCF Interface set supported by this Resource.",
           "items": {
-            "enum": [
-              "oic.if.baseline",
-              "oic.if.rw"
-            ],
+            "enum": [ "oic.if.rw", "oic.if.baseline" ],
             "type": "string"
           },
           "minItems": 2,
