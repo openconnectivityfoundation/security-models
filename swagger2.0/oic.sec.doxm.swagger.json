@@ -2,11 +2,11 @@
   "swagger": "2.0",
   "info": {
     "title": "Device Owner Transfer Method",
-    "version": "v1.0-20181001",
+    "version": "2020-10-19",
     "license": {
       "name": "OCF Data Model License",
       "url": "https://github.com/openconnectivityfoundation/core/blob/e28a9e0a92e17042ba3e83661e4c0fbce8bdc4ba/LICENSE.md",
-      "x-copyright": "copyright 2016-2017, 2019 Open Connectivity Foundation, Inc. All rights reserved."
+      "x-copyright": "copyright 2016-2017, 2019, 2020 Open Connectivity Foundation, Inc. All rights reserved."
     },
     "termsOfService": "https://openconnectivityfoundation.github.io/core/DISCLAIMER.md"
   },
@@ -18,13 +18,13 @@
       "get": {
         "description": "This Resource specifies properties needed to establish a Device owner.\n",
         "parameters": [
-          {"$ref": "#/parameters/interface"}
+          {"$ref": "#/parameters/interface"},
+          {"$ref": "#/parameters/owned"}
         ],
         "responses": {
             "200": {
               "description" : "",
-              "x-example":
-                {
+              "x-example": {
                   "rt": ["oic.r.doxm"],
                   "oxms": [ 0, 2, 3 ],
                   "oxmsel": 0,
@@ -33,8 +33,7 @@
                   "deviceuuid": "de305d54-75b4-431b-adb2-eb6b9e546014",
                   "devowneruuid": "e61c3e6b-9c54-4b81-8ce5-f9039c1d04d9",
                   "rowneruuid": "e61c3e6b-9c54-4b81-8ce5-f9039c1d04d9"
-                }
-                ,
+                },
               "schema": { "$ref": "#/definitions/Doxm" }
             },
             "400": {
@@ -78,6 +77,11 @@
       "name" : "if",
       "type" : "string",
       "enum" : [ "oic.if.rw", "oic.if.baseline" ]
+    },
+    "owned": {
+      "in": "query",
+      "name": "owned",
+      "type": "boolean"
     }
   },
   "definitions": {
@@ -123,12 +127,12 @@
         },
         "sct": {
               "description": "Bitmask encoding of supported credential types\nCredential Types - Cred type encoded as a bitmask.0 - Empty credential used for testing1 - Symmetric pair-wise key2 - Symmetric group key4 - Asymmetric signing key8 - Asymmetric signing key with certificate16 - PIN or password32 - Asymmetric encryption key.",
-              "maximum": 63,
+              "maximum": 511,
               "minimum": 0,
               "type": "integer",
               "readOnly": true
         },
-        "rt" : {
+        "rt": {
           "description": "Resource Type of the Resource.",
           "items": {
             "maxLength": 64,
@@ -140,12 +144,12 @@
           "type": "array"
         },
         "if": {
-          "description": "The interface set supported by this Resource.",
+          "description": "The OCF Interface set supported by this Resource.",
           "items": {
             "enum": [ "oic.if.rw", "oic.if.baseline" ],
             "type": "string"
           },
-          "minItems": 1,
+          "minItems": 2,
           "readOnly": true,
           "type": "array"
         }

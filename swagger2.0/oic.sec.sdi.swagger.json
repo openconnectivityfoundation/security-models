@@ -1,8 +1,8 @@
 {
   "swagger": "2.0",
   "info": {
-    "title": "Security Profile",
-    "version": "2019-02-08",
+    "title": "Security Domain Information",
+    "version": "2019-10-01",
     "license": {
       "name": "OCF Data Model License",
       "url": "https://github.com/openconnectivityfoundation/core/blob/e28a9e0a92e17042ba3e83661e4c0fbce8bdc4ba/LICENSE.md",
@@ -14,22 +14,23 @@
   "consumes": ["application/json"],
   "produces": ["application/json"],
   "paths": {
-    "/oic/sec/sp" : {
+    "/oic/sec/sdi" : {
       "get": {
-        "description": "Resource specifying supported and active security profile(s).\n",
+        "description": "This Resource contains the information that identifies the OCF Security Domain to which the device belongs.\n",
         "parameters": [
           {"$ref": "#/parameters/interface"}
         ],
         "responses": {
             "200": {
-              "description" : "",
+              "description" : "Success",
               "x-example":
                 {
-                  "rt": ["oic.r.sp"],
-                  "supportedprofiles" : ["1.3.6.1.4.1.51414.0.0.1.0", " 1.3.6.1.4.1.51414.0.0.2.0"],
-                  "currentprofile" : "1.3.6.1.4.1.51414.0.0.1.0"
+                  "rt": ["oic.r.sdi"],
+                  "uuid": "de305d54-75b4-431b-adb2-eb6b9e546014",
+                  "name": "Home",
+                  "priv": true
                 },
-              "schema": { "$ref": "#/definitions/SP" }
+              "schema": { "$ref": "#/definitions/Sdi" }
             },
             "400": {
               "description" : "The request is invalid."
@@ -37,34 +38,33 @@
         }
       },
       "post": {
-        "description": "Sets or updates Device provisioning status data.\n",
+        "description": "Provision the OCF Security Domain information.\n",
         "parameters": [
           {"$ref": "#/parameters/interface"},
           {
             "name": "body",
             "in": "body",
             "required": true,
-            "schema": { "$ref": "#/definitions/SP-Update" },
-            "x-example":
-              {
-                "supportedprofiles" : ["1.3.6.1.4.1.51414.0.0.1.0", " 1.3.6.1.4.1.51414.0.0.2.0"],
-                "currentprofile" : "1.3.6.1.4.1.51414.0.0.1.0"
-              }
+            "schema": { "$ref": "#/definitions/Sdi-Update" },
+            "x-example": {
+              "uuid": "de305d54-75b4-431b-adb2-eb6b9e546014",
+              "name": "Home",
+              "priv": false
+            }
           }
         ],
         "responses": {
-            "200": {
-              "description" : "",
-              "x-example":
-                {
-                  "rt": ["oic.r.sp"],
-                  "supportedprofiles" : ["1.3.6.1.4.1.51414.0.0.1.0", " 1.3.6.1.4.1.51414.0.0.2.0"],
-                  "currentprofile" : "1.3.6.1.4.1.51414.0.0.1.0"
-                },
-              "schema": { "$ref": "#/definitions/SP" }
-            },
             "400": {
               "description" : "The request is invalid."
+            },
+            "204": {
+              "description" : "The SDI is updated.",
+              "schema": { "$ref": "#/definitions/Sdi-Update" },
+              "x-example": {
+                "uuid": "de305d54-75b4-431b-adb2-eb6b9e546014",
+                "name": "Home",
+                "priv": false
+              }
             }
         }
       }
@@ -79,14 +79,21 @@
     }
   },
   "definitions": {
-    "SP" : {
+    "Sdi" : {
       "properties": {
+        "uuid": {
+          "$ref": "https://openconnectivityfoundation.github.io/core/schemas/oic.types-schema.json#/definitions/uuid"
+        },
+        "name": {
+          "description": "Human-friendly name for the Security Domain, set by DOTS during onboarding.",
+          "type": "string"
+        },
         "rt": {
           "description": "Resource Type of the Resource.",
           "items": {
             "maxLength": 64,
             "type": "string",
-            "enum": ["oic.r.sp"]
+            "enum": ["oic.r.sdi"]
           },
           "minItems": 1,
           "readOnly": true,
@@ -98,18 +105,11 @@
         "id": {
           "$ref": "https://openconnectivityfoundation.github.io/core/schemas/oic.common.properties.core-schema.json#/definitions/id"
         },
-        "currentprofile": {
-          "description": "Security Profile currently active.",
-          "type": "string"
+        "priv": {
+          "description": "Flag to indicate whether the Security Domain Information is copied to “/oic/res”, and thus, whether it is publicly visible or private.",
+          "type": "boolean"
         },
-        "supportedprofiles": {
-          "description": "Array of supported Security Profiles.",
-          "items": {
-            "type": "string"
-          },
-          "type": "array"
-        },
-        "if": {
+        "if" : {
           "description": "The interface set supported by this Resource.",
           "items": {
             "enum": [ "oic.if.rw", "oic.if.baseline" ],
@@ -121,23 +121,25 @@
         }
       },
       "type" : "object",
-      "required": ["supportedprofiles", "currentprofile"]
+      "required": [ "uuid", "name", "priv" ]
     },
-    "SP-Update" : {
+    
+    "Sdi-Update" : {
       "properties": {
-        "currentprofile": {
-          "description": "Security Profile currently active.",
+        "uuid": {
+          "$ref": "https://openconnectivityfoundation.github.io/core/schemas/oic.types-schema.json#/definitions/uuid"
+        },
+        "name": {
+          "description": "Human-friendly name for the Security Domain, set by DOTS during onboarding.",
           "type": "string"
         },
-        "supportedprofiles": {
-          "description": "Array of supported Security Profiles.",
-          "items": {
-            "type": "string"
-          },
-          "type": "array"
+        "priv": {
+          "description": "Flag to indicate whether the Security Domain Information is copied to “/oic/res”, and thus, whether it is publicly visible or private.",
+          "type": "boolean"
         }
       },
-      "type" : "object"
+      "type" : "object",
+      "required": [ "name", "priv" ]
     }
   }
 }
