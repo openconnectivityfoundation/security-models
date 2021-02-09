@@ -49,7 +49,7 @@
         }
       },
       "delete": {
-        "description": "Delete a device. This also removes all resources in the device on cloud side.\nexample: /oic/account?di=9cfbeb8e-5a1e-4d1c-9d01-00c04fd430c8&accesstoken=0f3d9f7fe5491d54077d\n",
+        "description": "Delete a device. This also removes all resources in the device on cloud side.\nexample-1: /oic/account?di=9cfbeb8e-5a1e-4d1c-9d01-00c04fd430c8&accesstoken=0f3d9f7fe5491d54077d\n \nexample-2: /oic/account?di=9cfbeb8e-5a1e-4d1c-9d01-00c04fd430c8&proxied_dis=c4108bba-6a7e-11eb-84d1-0c9d928536d7&accesstoken=0f3d9f7fe5491d54077d",
         "parameters": [
           {"$ref": "#/parameters/interface"}
         ],
@@ -84,6 +84,11 @@
           "description": "Unique Device identifier. Format pattern according to IETF RFC 4122.",
           "pattern": "^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$",
           "type": "string"
+        },
+        "proxied_dis": {
+          "description": "This Property stores Device IDs of the D2D Devices which connect to OCF Cloud through the Cloud Proxy whose Device ID is '/oic/sec/account:di'",
+          "type": "string",
+          "pattern": "^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$"
         }
       },
       "type" : "object",
