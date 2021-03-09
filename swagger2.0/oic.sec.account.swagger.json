@@ -49,7 +49,7 @@
         }
       },
       "delete": {
-        "description": "Delete a device. This also removes all resources in the device on cloud side.\nexample: /oic/account?di=9cfbeb8e-5a1e-4d1c-9d01-00c04fd430c8&accesstoken=0f3d9f7fe5491d54077d\n",
+        "description": "Delete a device. This also removes all resources in the device on cloud side. Access token is required only if the TLS connection to the cloud is not authorized - see oic.sec.session.\nexample: /oic/account?di=9cfbeb8e-5a1e-4d1c-9d01-00c04fd430c8&accesstoken=0f3d9f7fe5491d54077d\n",
         "parameters": [
           {"$ref": "#/parameters/interface"}
         ],
